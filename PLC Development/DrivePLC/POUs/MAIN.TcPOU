@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.7">
   <POU Name="MAIN" Id="{0ea98677-ea3a-4346-a22a-d9ad819fe0c1}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
@@ -28,7 +28,7 @@ END_VAR
 FOR i:=1 TO 32 BY 1 DO
 	drives[i](AxisController:=axes[i]);
 END_FOR
-
+//this is a comment
 hmiAxis:=axes[hmiAxisSelect];
 
 axes[hmiAxisSelect].MASTERAXIS:=axes[hmiMasterSelect].AXIS;		//WHY DID I DO IT LIKE THIS? - Because I can't feed an axis ref from the HMI? Or can I, I could if I could have variables in hmi then feed in axes[hmi].axis.....
