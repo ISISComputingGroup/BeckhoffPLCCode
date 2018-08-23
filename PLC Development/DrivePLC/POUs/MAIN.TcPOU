@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="MAIN" Id="{0ea98677-ea3a-4346-a22a-d9ad819fe0c1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+//VERSION 3!!!
+	axes			:	ARRAY [1..32] OF AxisControl;
+	drives			:	ARRAY [1..32] OF AxDriveFB_V3;
+	
+	hmiDrive		:	AxDriveFB_V3;
+	i: INT;
+	hmiAxisSelect	:	UINT:=1;
+	hmiAxis			:	AxisControl:=axes[hmiAxisSelect];
+	axisNumMax		:	UINT:=32;
+	hmiMasterSelect	:	UINT:=1;
+	hmiMasterSelect1	:	UINT:=1;
+	hmiMasterSelect2	:	UINT:=1;
+	hmiMasterSelect3	:	UINT:=1;
+	hmiMasterSelect4	:	UINT:=1;
+	limitEnable1	AT %Q*	: BOOL;
+	limitEnable2	AT %Q*	: BOOL;
+	
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//V3 TESTING
+FOR i:=1 TO 32 BY 1 DO
+	drives[i](AxisController:=axes[i]);
+END_FOR
+
+hmiAxis:=axes[hmiAxisSelect];
+
+axes[hmiAxisSelect].MASTERAXIS:=axes[hmiMasterSelect].AXIS;		//WHY DID I DO IT LIKE THIS? - Because I can't feed an axis ref from the HMI? Or can I, I could if I could have variables in hmi then feed in axes[hmi].axis.....
+axes[hmiAxisSelect].MASTERAXIS1:=axes[hmiMasterSelect1].AXIS;
+axes[hmiAxisSelect].MASTERAXIS2:=axes[hmiMasterSelect2].AXIS;
+axes[hmiAxisSelect].MASTERAXIS3:=axes[hmiMasterSelect3].AXIS;
+axes[hmiAxisSelect].MASTERAXIS4:=axes[hmiMasterSelect4].AXIS;
+
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="225" Count="0" />
+      <LineId Id="249" Count="1" />
+      <LineId Id="256" Count="1" />
+      <LineId Id="228" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="272" Count="0" />
+      <LineId Id="277" Count="2" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

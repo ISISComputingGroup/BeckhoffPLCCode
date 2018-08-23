@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4020.28" ClassName="CFlbTermDef" SubType="9099">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
+			<BitSize>4</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000008}" IecBaseType="true" HideSubItems="true">ARRAY [0..0] OF BYTE</Name>
+			<BitSize>8</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>1</Elements>
+			</ArrayInfo>
+		</DataType>
+	</DataTypes>
+	<Box Id="6" BoxType="9099">
+		<Name>__FILENAME__</Name>
+		<ImageId>118</ImageId>
+		<EtherCAT SlaveType="2" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="7" FoeType="1" VendorId="#x00000002" ProductCode="#x07703052" RevisionNo="#x00120000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="1" Type="EL1904, 4 Ch. Safety Input 24V, TwinSAFE" Desc="EL1904">
+			<SyncMan>001000012600010001000000400000010001001026010000</SyncMan>
+			<SyncMan>001100012200010002000000400000010001001122010000</SyncMan>
+			<SyncMan>001206002400010003000000000000000600001224010000</SyncMan>
+			<SyncMan>001906002000010004000000000000000600001920010000</SyncMan>
+			<Fmmu>0000000000000000001200020100000001000000000000000000000000000000</Fmmu>
+			<Fmmu>0000000000000000001900010100000002000000000000000000000000000000</Fmmu>
+			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+			<BootStrapData>0010f400f410f400</BootStrapData>
+			<Pdo Name="TxPDO" Index="#x1a00" Flags="#x0090" SyncMan="3">
+				<Entry Name="FSOE__FSoE Slave CMD" Index="#x6000" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="FSOE__InputChannel1" Index="#x6001" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__InputChannel2" Index="#x6001" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__InputChannel3" Index="#x6001" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__InputChannel4" Index="#x6001" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__">
+					<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE Slave CRC_0" Index="#x6000" Sub="#x03">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE Slave ConnID" Index="#x6000" Sub="#x02">
+					<Type>UINT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="RxPDO" Index="#x1600" InOut="1" Flags="#x0090" SyncMan="2">
+				<Entry Name="FSOE__FSoE Master CMD" Index="#x7000" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="FSOE__">
+					<Type GUID="{18071995-0000-0000-0000-002000000008}">ARRAY [0..0] OF BYTE</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE Master CRC_0" Index="#x7000" Sub="#x03">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE Master ConnID" Index="#x7000" Sub="#x02">
+					<Type>UINT</Type>
+				</Entry>
+			</Pdo>
+			<CoeProfile ProfileNo="5001"/>
+			<Slot Name="">
+				<SlotData>0000010001000400000000000000000000000000000000000000000000000000</SlotData>
+				<ModuleIdent>190</ModuleIdent>
+				<Module Id="#x03090001" Type="FSOES" Class="190">
+					<Name>Module 1 (FSOES)</Name>
+					<ImageId>118</ImageId>
+					<ModuleData>02000000be00000000000c000000000000000000000000000000000000000000</ModuleData>
+					<PdoIndex>6656</PdoIndex>
+					<PdoIndex>5632</PdoIndex>
+					<CoeProfile ProfileNo="#x00001389"/>
+				</Module>
+			</Slot>
+		</EtherCAT>
+	</Box>
+</TcSmItem>

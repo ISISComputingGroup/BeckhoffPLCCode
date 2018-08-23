@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <POU Name="testCoupleFB" Id="{b2b9adb9-3427-482a-bc8a-d29e0917df1c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK testCoupleFB
+VAR_INPUT
+	AXDRIVE1	:	AxDriveFB_V2;
+	AXIS		:	AXIS_REF;
+	MASTER		:	AXIS_REF;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	EXECUTE		:	BOOL;
+	COMMAND		:	UINT;
+	DISTANCE	:	LREAL;
+	POSITION	:	LREAL;
+	RESET		:	BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[AXDRIVE1(bExecute:=EXECUTE, 
+	command:=40, 
+	axis:=AXIS,	//OH BOY
+//	bEn:=TRUE,
+//	bEnFw:=TRUE,
+//	bEnBw:=TRUE,
+//	override:=100,
+//	velocity:=500,
+//	distance:=DISTANCE,
+//	position:= POSITION,
+	bReset:= RESET,
+	master:= MASTER
+);]]></ST>
+    </Implementation>
+    <LineIds Name="testCoupleFB">
+      <LineId Id="13" Count="1" />
+      <LineId Id="32" Count="2" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="20" Count="4" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

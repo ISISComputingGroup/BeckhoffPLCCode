@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <GVL Name="GVL" Id="{c8d3e9d5-31b6-4526-9dc0-e43961309b0c}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	SwLimitPos	:	LREAL;
+	SwLimitNeg	:	LREAL;
+	MaxPositionLag	:	LREAL;
+	MaxVelocityAppl	:	LREAL;
+	MaxAccelerationAppl	:	LREAL;
+	MaxDecelerationAppl	:	LREAL;
+	MaxJerkAppl			:	LREAL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

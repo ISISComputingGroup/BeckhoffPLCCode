@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4020.28" ClassName="CFlbTermDef" SubType="9099">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-00200000000A}" IecBaseType="true" HideSubItems="true">ARRAY [0..9] OF BIT</Name>
+			<BitSize>10</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>10</Elements>
+			</ArrayInfo>
+		</DataType>
+	</DataTypes>
+	<ImageDatas>
+		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000000000ff00ffff00ffff00ff000000ff00ff808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ff000000ff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ff000000ff00ffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ff000000ff00ff000000ff00ff000000ff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff000000000000ff00ff000000000000ff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ff000000ff00ffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
+	</ImageDatas>
+	<Box Id="14" BoxType="9099">
+		<Name>__FILENAME__</Name>
+		<ImageId>1000</ImageId>
+		<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="7" FoeType="1" VendorId="#x00000002" ProductCode="#x13893052" RevisionNo="#x03fc0000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL5001 1Ch. SSI Encoder" Desc="EL5001">
+			<SyncMan>0018f6002600010001000000f600f600f600001826010000</SyncMan>
+			<SyncMan>f618f6002200010002000000f600f600f600f61822010000</SyncMan>
+			<SyncMan>001000000400000003000000000000000000001004000000</SyncMan>
+			<SyncMan>001106002000010004000000000000000500001120010000</SyncMan>
+			<Fmmu>0000000000000000001100010100000002000000000000000000000000000000</Fmmu>
+			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+			<BootStrapData>0010f400f410f400</BootStrapData>
+			<DcMode>53796e6368726f6e00000000000000004672656552756e2f534d2d53796e6368726f6e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
+			<DcMode>4443000000000000000000000000000044432d53796e6368726f6e0000000000000000000000000000000000000000000000000000000000983a0000000000070100000000000000000000000000000000000000000000000000000000000000</DcMode>
+			<DcMode>4443494e00000000000000000000000044432d53796e6368726f6e2028696e70757420626173656429000000000000000000000000000000983a0000000000070100000000000000000001000000000000000000000000000000000000000000</DcMode>
+			<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0010">
+				<ExcludePdo>#x1a01</ExcludePdo>
+				<Entry Name="Status" Index="#x3101" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="Value" Index="#x3101" Sub="#x02">
+					<Type>UDINT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="SSI Inputs" Index="#x1a01" Flags="#x0010" SyncMan="3">
+				<ExcludePdo>#x1a00</ExcludePdo>
+				<Entry Name="Status__Data error" Index="#x6010" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Status__Frame error" Index="#x6010" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Status__Power failure" Index="#x6010" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Status__">
+					<Type GUID="{18071995-0000-0000-0000-00200000000A}">ARRAY [0..9] OF BIT</Type>
+				</Entry>
+				<Entry Name="Status__Sync error" Index="#x1c32" Sub="#x20">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Status__TxPDO State" Index="#x1801" Sub="#x07">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Status__TxPDO Toggle" Index="#x1801" Sub="#x09">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Counter value" Index="#x6010" Sub="#x11">
+					<Type>UDINT</Type>
+				</Entry>
+			</Pdo>
+			<CoeProfile ProfileNo="32768501"/>
+			<CoeProfile ProfileNo="32838537"/>
+		</EtherCAT>
+	</Box>
+</TcSmItem>
