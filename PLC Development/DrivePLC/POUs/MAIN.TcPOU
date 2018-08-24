@@ -11,12 +11,8 @@ VAR
 	i: INT;
 	hmiAxisSelect	:	UINT:=1;
 	hmiAxis			:	AxisControl:=axes[hmiAxisSelect];
-	
-	hmiMasterSelect	:	UINT:=1;
-	hmiMasterSelect1	:	UINT:=1;
-	hmiMasterSelect2	:	UINT:=1;
-	hmiMasterSelect3	:	UINT:=1;
-	hmiMasterSelect4	:	UINT:=1;
+	hmiMasterSelect   :   UINT:=1;
+	hmiMultiMasterSelect	:	ARRAY [1..GVL.MaxGearingAxes] OF UINT := [GVL.MaxGearingAxes(1)];
 	limitEnable1	AT %Q*	: BOOL;
 	limitEnable2	AT %Q*	: BOOL;
 END_VAR
@@ -24,21 +20,21 @@ END_VAR
 
 VAR CONSTANT
 	axisNumMax: UINT := 32;
+	maxCamMasters: UINT := 5;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[
 //V3 TESTING
-FOR i:=1 TO UINT_TO_INT(axisNumMax) BY 1 DO
+FOR i:=1 TO UINT_TO_INT(axisNumMax) DO
 	drives[i](AxisController:=axes[i]);
 END_FOR
 //this is a comment
 hmiAxis:=axes[hmiAxisSelect];
 
 axes[hmiAxisSelect].MASTERAXIS:=axes[hmiMasterSelect].AXIS;		//WHY DID I DO IT LIKE THIS? - Because I can't feed an axis ref from the HMI? Or can I, I could if I could have variables in hmi then feed in axes[hmi].axis.....
-axes[hmiAxisSelect].MASTERAXIS1:=axes[hmiMasterSelect1].AXIS;
-axes[hmiAxisSelect].MASTERAXIS2:=axes[hmiMasterSelect2].AXIS;
-axes[hmiAxisSelect].MASTERAXIS3:=axes[hmiMasterSelect3].AXIS;
-axes[hmiAxisSelect].MASTERAXIS4:=axes[hmiMasterSelect4].AXIS;
+FOR i:=1 TO UINT_TO_INT(GVL.MaxGearingAxes) DO
+	axes[hmiAxisSelect].MULTI_MASTER_AXES[i].AXIS:=axes[hmiMultiMasterSelect[i]].AXIS;
+END_FOR
 
 
 ]]></ST>
@@ -51,8 +47,7 @@ axes[hmiAxisSelect].MASTERAXIS4:=axes[hmiMasterSelect4].AXIS;
       <LineId Id="228" Count="0" />
       <LineId Id="32" Count="0" />
       <LineId Id="272" Count="0" />
-      <LineId Id="277" Count="2" />
-      <LineId Id="23" Count="0" />
+      <LineId Id="336" Count="2" />
       <LineId Id="17" Count="0" />
       <LineId Id="30" Count="0" />
       <LineId Id="2" Count="0" />
