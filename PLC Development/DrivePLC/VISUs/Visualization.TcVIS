@@ -139,7 +139,7 @@
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].POSITION"</v>
+                          <v n="Value">"MAIN.hmiAxis.POSITION"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -161,7 +161,7 @@
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].POSITION"</v>
+                          <v n="InputBoxVariable">"MAIN.hmiAxis.POSITION"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -341,7 +341,7 @@
                         </o>
                         <o>
                           <v n="Id">2496894244L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].AXISSTATE=500"</v>
+                          <v n="Value">"MAIN.hmiAxis.AXISSTATE=500"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
@@ -359,8 +359,8 @@
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].COMMAND:=McCommand.MoveAbsolute;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                          <v n="STSnippet">"MAIN.hmiAxis.COMMAND:=McCommand.MoveAbsolute;
+MAIN.hmiAxis.bEXECUTE:= NOT MAIN.hmiAxis.bEXECUTE"</v>
                         </o>
                       </a>
                     </d>
@@ -499,7 +499,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].DISTANCE"</v>
+                          <v n="Value">"MAIN.hmiAxis.DISTANCE"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -521,7 +521,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].DISTANCE"</v>
+                          <v n="InputBoxVariable">"MAIN.hmiAxis.DISTANCE"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -701,7 +701,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2496894244L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].AXISSTATE=500"</v>
+                          <v n="Value">"MAIN.hmiAxis.AXISSTATE=500"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
@@ -719,8 +719,8 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].COMMAND:=McCommand.MoveRelative;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                          <v n="STSnippet">"MAIN.hmiAxis.COMMAND:=McCommand.MoveRelative;
+MAIN.hmiAxis.bEXECUTE:= NOT MAIN.hmiAxis.bEXECUTE"</v>
                         </o>
                       </a>
                     </d>
@@ -1050,7 +1050,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                     </o>
                     <o>
                       <v n="Id">397264524L</v>
-                      <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].COMMAND"</v>
+                      <v n="Value">"MAIN.hmiAxis.COMMAND"</v>
                     </o>
                     <o>
                       <v n="Id">2114174855L</v>
@@ -1200,7 +1200,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].AXIS.NcToPlc.ActPos"</v>
+                      <v n="Value">"MAIN.hmiAxis.AXIS.NcToPlc.ActPos"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -1234,7 +1234,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                         <o>
                           <v n="Id">1186196937L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                          <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                         </o>
                       </l>
                     </o>
@@ -1721,7 +1721,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].VELOCITY"</v>
+                      <v n="Value">"MAIN.hmiAxis.VELOCITY"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -1743,7 +1743,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                   <v>OnMouseClick</v>
                   <a cet="InputBoxInputAction">
                     <o>
-                      <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].VELOCITY"</v>
+                      <v n="InputBoxVariable">"MAIN.hmiAxis.VELOCITY"</v>
                       <v n="InputType">"Default"</v>
                       <v n="InputBoxMin">""</v>
                       <v n="InputBoxMax">""</v>
@@ -2284,7 +2284,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].AXISSTATE=500"</v>
+                          <v n="Value">"MAIN.hmiAxis.AXISSTATE=500"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -2908,7 +2908,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].ratioNUM"</v>
+                          <v n="Value">"MAIN.hmiAxis.ratioNUM"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -2930,7 +2930,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].ratioNUM"</v>
+                          <v n="InputBoxVariable">"MAIN.hmiAxis.ratioNUM"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -3228,7 +3228,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].ratioDEN"</v>
+                          <v n="Value">"MAIN.hmiAxis.ratioDEN"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -3250,7 +3250,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].ratioDEN"</v>
+                          <v n="InputBoxVariable">"MAIN.hmiAxis.ratioDEN"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -3594,8 +3594,8 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].COMMAND:=McCommand.GearIn;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                          <v n="STSnippet">"MAIN.hmiAxis.COMMAND:=McCommand.GearIn;
+MAIN.hmiAxis.bEXECUTE:= NOT MAIN.hmiAxis.bEXECUTE"</v>
                         </o>
                       </a>
                     </d>
@@ -3780,8 +3780,8 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].COMMAND:=McCommand.GearOut;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                          <v n="STSnippet">"MAIN.hmiAxis.COMMAND:=McCommand.GearOut;
+MAIN.hmiAxis.bEXECUTE:= NOT MAIN.hmiAxis.bEXECUTE"</v>
                         </o>
                       </a>
                     </d>
@@ -4045,7 +4045,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bENABLE"</v>
+                          <v n="Value">"MAIN.hmiAxis.bENABLE"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -4147,7 +4147,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEnBW"</v>
+                          <v n="Value">"MAIN.hmiAxis.bEnBW"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -4277,7 +4277,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">397264524L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].OVERRIDE"</v>
+                          <v n="Value">"MAIN.hmiAxis.OVERRIDE"</v>
                         </o>
                       </l>
                     </o>
@@ -4419,7 +4419,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[hmiAxisSelect].OVERRIDE"</v>
+                          <v n="Value">"MAIN.hmiAxis.OVERRIDE"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -4769,7 +4769,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEnFW"</v>
+                          <v n="Value">"MAIN.hmiAxis.bEnFW"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -5210,7 +5210,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[1]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[1]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -5660,7 +5660,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[2]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[2]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -5668,7 +5668,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2496894244L</v>
-                          <v n="Value">"NOT MAIN.axes[MAIN.hmiAxisSelect].bSwLimPosEn"</v>
+                          <v n="Value">"NOT MAIN.hmiAxis.bSwLimPosEn"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
@@ -5814,7 +5814,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[3]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[3]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -5822,7 +5822,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2496894244L</v>
-                          <v n="Value">"NOT MAIN.axes[MAIN.hmiAxisSelect].bSwLimNegEn"</v>
+                          <v n="Value">"NOT MAIN.hmiAxis.bSwLimNegEn"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
@@ -6022,7 +6022,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                           <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                             <o>
                               <v n="Id">1186196937L</v>
-                              <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                              <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                             </o>
                           </l>
                         </o>
@@ -6203,10 +6203,10 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"Main.axes[Main.hmiAxisSelect].COMMAND:=McCommand.WriteParameter;
-Main.axes[Main.hmiAxisSelect].PARAMVALUE:=GVL.SwLimitNeg;
-Main.axes[Main.hmiAxisSelect].iPARAMSET:=RWParameter.SWLimitNeg;
-Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
+                          <v n="STSnippet">"Main.hmiAxis.COMMAND:=McCommand.WriteParameter;
+Main.hmiAxis.PARAMVALUE:=GVL.SwLimitNeg;
+Main.hmiAxis.iPARAMSET:=RWParameter.SWLimitNeg;
+Main.hmiAxis.bEXECUTE:=TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -6225,7 +6225,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                           <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                             <o>
                               <v n="Id">1186196937L</v>
-                              <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                              <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                             </o>
                           </l>
                         </o>
@@ -6276,7 +6276,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">1647042231L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bSwLimPosEn"</v>
+                          <v n="Value">"MAIN.hmiAxis.bSwLimPosEn"</v>
                         </o>
                         <o>
                           <v n="Id">2812299069L</v>
@@ -6406,10 +6406,10 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].bINPUT:=NOT MAIN.axes[MAIN.hmiAxisSelect].bSwLimPosEn;
-MAIN.axes[MAIN.hmiAxisSelect].COMMAND:=McCommand.WriteBoolParameter;
-MAIN.axes[MAIN.hmiAxisSelect].iPARAMSET:=RWParameter.EnableLimitPos;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
+                          <v n="STSnippet">"MAIN.hmiAxis.bINPUT:=NOT MAIN.hmiAxis.bSwLimPosEn;
+MAIN.hmiAxis.COMMAND:=McCommand.WriteBoolParameter;
+MAIN.hmiAxis.iPARAMSET:=RWParameter.EnableLimitPos;
+MAIN.hmiAxis.bEXECUTE:=TRUE;
 "</v>
                         </o>
                       </a>
@@ -6429,7 +6429,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
                           <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                             <o>
                               <v n="Id">1186196937L</v>
-                              <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                              <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                             </o>
                           </l>
                         </o>
@@ -6480,7 +6480,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
                         </o>
                         <o>
                           <v n="Id">1647042231L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bSwLimNegEn"</v>
+                          <v n="Value">"MAIN.hmiAxis.bSwLimNegEn"</v>
                         </o>
                         <o>
                           <v n="Id">2812299069L</v>
@@ -6610,10 +6610,10 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].bINPUT:=NOT MAIN.axes[MAIN.hmiAxisSelect].bSwLimNegEn;
-MAIN.axes[MAIN.hmiAxisSelect].COMMAND:=McCommand.WriteBoolParameter;
-MAIN.axes[MAIN.hmiAxisSelect].iPARAMSET:=RWParameter.EnableLimitNeg;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
+                          <v n="STSnippet">"MAIN.hmiAxis.bINPUT:=NOT MAIN.hmiAxis.bSwLimNegEn;
+MAIN.hmiAxis.COMMAND:=McCommand.WriteBoolParameter;
+MAIN.hmiAxis.iPARAMSET:=RWParameter.EnableLimitNeg;
+MAIN.hmiAxis.bEXECUTE:=TRUE;
 "</v>
                         </o>
                       </a>
@@ -7499,7 +7499,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[12]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[12]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -7983,7 +7983,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
                           <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                             <o>
                               <v n="Id">1186196937L</v>
-                              <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                              <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                             </o>
                           </l>
                         </o>
@@ -8164,10 +8164,10 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"Main.axes[Main.hmiAxisSelect].COMMAND:=McCommand.WriteParameter;
-Main.axes[Main.hmiAxisSelect].PARAMVALUE:=GVL.SwLimitPos;
-Main.axes[Main.hmiAxisSelect].iPARAMSET:=RWParameter.SWLimitPos;
-Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
+                          <v n="STSnippet">"Main.hmiAxis.COMMAND:=McCommand.WriteParameter;
+Main.hmiAxis.PARAMVALUE:=GVL.SwLimitPos;
+Main.hmiAxis.iPARAMSET:=RWParameter.SWLimitPos;
+Main.hmiAxis.bEXECUTE:=TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -8452,7 +8452,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[7]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[7]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -8460,7 +8460,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2496894244L</v>
-                          <v n="Value">"NOT MAIN.axes[MAIN.hmiAxisSelect].bPosLagEn"</v>
+                          <v n="Value">"NOT MAIN.hmiAxis.bPosLagEn"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
@@ -8660,7 +8660,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                           <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                             <o>
                               <v n="Id">1186196937L</v>
-                              <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                              <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                             </o>
                           </l>
                         </o>
@@ -8841,10 +8841,10 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"Main.axes[Main.hmiAxisSelect].COMMAND:=McCommand.WriteParameter;
-Main.axes[Main.hmiAxisSelect].PARAMVALUE:=GVL.MaxPositionLag;
-Main.axes[Main.hmiAxisSelect].iPARAMSET:=RWParameter.MaxPositionLag;
-Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
+                          <v n="STSnippet">"Main.hmiAxis.COMMAND:=McCommand.WriteParameter;
+Main.hmiAxis.PARAMVALUE:=GVL.MaxPositionLag;
+Main.hmiAxis.iPARAMSET:=RWParameter.MaxPositionLag;
+Main.hmiAxis.bEXECUTE:=TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -8863,7 +8863,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                           <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                             <o>
                               <v n="Id">1186196937L</v>
-                              <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                              <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                             </o>
                           </l>
                         </o>
@@ -8914,7 +8914,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">1647042231L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bPosLagEn"</v>
+                          <v n="Value">"MAIN.hmiAxis.bPosLagEn"</v>
                         </o>
                         <o>
                           <v n="Id">2812299069L</v>
@@ -9044,10 +9044,10 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].bINPUT:=NOT MAIN.axes[MAIN.hmiAxisSelect].bPosLagEn;
-MAIN.axes[MAIN.hmiAxisSelect].COMMAND:=McCommand.WriteBoolParameter;
-MAIN.axes[MAIN.hmiAxisSelect].iPARAMSET:=RWParameter.EnablePosLagMonitoring;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
+                          <v n="STSnippet">"MAIN.hmiAxis.bINPUT:=NOT MAIN.hmiAxis.bPosLagEn;
+MAIN.hmiAxis.COMMAND:=McCommand.WriteBoolParameter;
+MAIN.hmiAxis.iPARAMSET:=RWParameter.EnablePosLagMonitoring;
+MAIN.hmiAxis.bEXECUTE:=TRUE;
 "</v>
                         </o>
                       </a>
@@ -9183,7 +9183,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[8]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[8]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -9333,7 +9333,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[9]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[9]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -9537,7 +9537,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
                           <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                             <o>
                               <v n="Id">1186196937L</v>
-                              <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                              <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                             </o>
                           </l>
                         </o>
@@ -9718,10 +9718,10 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:=TRUE;
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"Main.axes[Main.hmiAxisSelect].COMMAND:=McCommand.WriteParameter;
-Main.axes[Main.hmiAxisSelect].PARAMVALUE:=GVL.MaxVelocityAppl;
-Main.axes[Main.hmiAxisSelect].iPARAMSET:=RWParameter.MaxVelocityAppl;
-Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
+                          <v n="STSnippet">"Main.hmiAxis.COMMAND:=McCommand.WriteParameter;
+Main.hmiAxis.PARAMVALUE:=GVL.MaxVelocityAppl;
+Main.hmiAxis.iPARAMSET:=RWParameter.MaxVelocityAppl;
+Main.hmiAxis.bEXECUTE:=TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -9856,7 +9856,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[10]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[10]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -10006,7 +10006,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[11]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[11]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -10306,7 +10306,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[13]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[13]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -10510,7 +10510,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                           <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                             <o>
                               <v n="Id">1186196937L</v>
-                              <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                              <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                             </o>
                           </l>
                         </o>
@@ -10691,10 +10691,10 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"Main.axes[Main.hmiAxisSelect].COMMAND:=McCommand.WriteParameter;
-Main.axes[Main.hmiAxisSelect].PARAMVALUE:=GVL.MaxAccelerationAppl;
-Main.axes[Main.hmiAxisSelect].iPARAMSET:=RWParameter.MaxAccelerationAppl;
-Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
+                          <v n="STSnippet">"Main.hmiAxis.COMMAND:=McCommand.WriteParameter;
+Main.hmiAxis.PARAMVALUE:=GVL.MaxAccelerationAppl;
+Main.hmiAxis.iPARAMSET:=RWParameter.MaxAccelerationAppl;
+Main.hmiAxis.bEXECUTE:=TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -10829,7 +10829,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[14]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[14]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -11129,7 +11129,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[15]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[15]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -11333,7 +11333,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                           <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                             <o>
                               <v n="Id">1186196937L</v>
-                              <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                              <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                             </o>
                           </l>
                         </o>
@@ -11514,10 +11514,10 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"Main.axes[Main.hmiAxisSelect].COMMAND:=McCommand.WriteParameter;
-Main.axes[Main.hmiAxisSelect].PARAMVALUE:=GVL.MaxDecelerationAppl;
-Main.axes[Main.hmiAxisSelect].iPARAMSET:=RWParameter.MaxDecelerationAppl;
-Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
+                          <v n="STSnippet">"Main.hmiAxis.COMMAND:=McCommand.WriteParameter;
+Main.hmiAxis.PARAMVALUE:=GVL.MaxDecelerationAppl;
+Main.hmiAxis.iPARAMSET:=RWParameter.MaxDecelerationAppl;
+Main.hmiAxis.bEXECUTE:=TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -11652,7 +11652,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[16]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[16]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -11952,7 +11952,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].PARAMETERSOUT[17]"</v>
+                          <v n="Value">"MAIN.hmiAxis.PARAMETERSOUT[17]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -12156,7 +12156,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                           <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                             <o>
                               <v n="Id">1186196937L</v>
-                              <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                              <v n="Value">"MAIN.hmiAxis.bEXECUTE"</v>
                             </o>
                           </l>
                         </o>
@@ -12337,10 +12337,10 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"Main.axes[Main.hmiAxisSelect].COMMAND:=McCommand.WriteParameter;
-Main.axes[Main.hmiAxisSelect].PARAMVALUE:=GVL.MaxJerkAppl;
-Main.axes[Main.hmiAxisSelect].iPARAMSET:=RWParameter.MaxJerkAppl;
-Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
+                          <v n="STSnippet">"Main.hmiAxis.COMMAND:=McCommand.WriteParameter;
+Main.hmiAxis.PARAMVALUE:=GVL.MaxJerkAppl;
+Main.hmiAxis.iPARAMSET:=RWParameter.MaxJerkAppl;
+Main.hmiAxis.bEXECUTE:=TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -12916,7 +12916,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].AXIS.Status.HasJob"</v>
+                          <v n="Value">"MAIN.hmiAxis.AXIS.Status.HasJob"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -13006,7 +13006,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].latchERROR"</v>
+                          <v n="Value">"MAIN.hmiAxis.latchERROR"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -13096,7 +13096,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].latchDONE"</v>
+                          <v n="Value">"MAIN.hmiAxis.latchDONE"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -13805,7 +13805,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].AXISSTATE=500"</v>
+                          <v n="Value">"MAIN.hmiAxis.AXISSTATE=500"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -14429,7 +14429,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].MULTI_MASTER_AXES[1].RATIO"</v>
+                          <v n="Value">"MAIN.hmiAxis.MULTI_MASTER_AXES[1].RATIO"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -14451,7 +14451,7 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].MULTI_MASTER_AXES[1].RATIO"</v>
+                          <v n="InputBoxVariable">"MAIN.hmiAxis.MULTI_MASTER_AXES[1].RATIO"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -14795,8 +14795,8 @@ Main.axes[Main.hmiAxisSelect].bEXECUTE:=TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].COMMAND:=McCommand.GearInMultiMaster;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                          <v n="STSnippet">"MAIN.hmiAxis.COMMAND:=McCommand.GearInMultiMaster;
+MAIN.hmiAxis.bEXECUTE:= NOT MAIN.hmiAxis.bEXECUTE"</v>
                         </o>
                       </a>
                     </d>
@@ -14981,8 +14981,8 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].COMMAND:=McCommand.GearOut;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
+                          <v n="STSnippet">"MAIN.hmiAxis.COMMAND:=McCommand.GearOut;
+MAIN.hmiAxis.bEXECUTE:= NOT MAIN.hmiAxis.bEXECUTE"</v>
                         </o>
                       </a>
                     </d>
@@ -16543,7 +16543,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].MULTI_MASTER_AXES[2].RATIO"</v>
+                          <v n="Value">"MAIN.hmiAxis.MULTI_MASTER_AXES[2].RATIO"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -16565,7 +16565,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].MULTI_MASTER_AXES[2].RATIO"</v>
+                          <v n="InputBoxVariable">"MAIN.hmiAxis.MULTI_MASTER_AXES[2].RATIO"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -16713,7 +16713,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].MULTI_MASTER_AXES[3].RATIO"</v>
+                          <v n="Value">"MAIN.hmiAxis.MULTI_MASTER_AXES[3].RATIO"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -16735,7 +16735,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].MULTI_MASTER_AXES[3].RATIO"</v>
+                          <v n="InputBoxVariable">"MAIN.hmiAxis.MULTI_MASTER_AXES[3].RATIO"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -16883,7 +16883,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].MULTI_MASTER_AXES[4].RATIO"</v>
+                          <v n="Value">"MAIN.hmiAxis.MULTI_MASTER_AXES[4].RATIO"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -16905,7 +16905,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].MULTI_MASTER_AXES[4].RATIO"</v>
+                          <v n="InputBoxVariable">"MAIN.hmiAxis.MULTI_MASTER_AXES[4].RATIO"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -17839,7 +17839,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].AXISNAME"</v>
+                      <v n="Value">"MAIN.hmiAxis.AXISNAME"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -17861,7 +17861,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                   <v>OnMouseClick</v>
                   <a cet="InputBoxInputAction">
                     <o>
-                      <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].AXISNAME"</v>
+                      <v n="InputBoxVariable">"MAIN.hmiAxis.AXISNAME"</v>
                       <v n="InputType">"Edit"</v>
                       <v n="InputBoxMin">""</v>
                       <v n="InputBoxMax">""</v>
@@ -18457,7 +18457,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].AXISDESCRIPTION"</v>
+                      <v n="Value">"MAIN.hmiAxis.AXISDESCRIPTION"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -18479,7 +18479,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= NOT MAIN.axes[MAIN.hmiAxisSelect].bEXEC
                   <v>OnMouseClick</v>
                   <a cet="InputBoxInputAction">
                     <o>
-                      <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].AXISDESCRIPTION"</v>
+                      <v n="InputBoxVariable">"MAIN.hmiAxis.AXISDESCRIPTION"</v>
                       <v n="InputType">"Edit"</v>
                       <v n="InputBoxMin">""</v>
                       <v n="InputBoxMax">""</v>
