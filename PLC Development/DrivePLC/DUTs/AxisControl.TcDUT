@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
   <DUT Name="AxisControl" Id="{07f0d91d-99a7-4d94-ba45-f0716edb872f}">
     <Declaration><![CDATA[TYPE AxisControl :
 STRUCT
@@ -7,9 +7,11 @@ STRUCT
 	bRESET		:	BOOL;
 	COMMAND		:	McCommand;
 	AXIS		:	AXIS_REF;
-	
-	MASTERAXIS  :   AXIS_REF;
-	MULTI_MASTER_AXES : ARRAY [1..GVL.MaxGearingAxes] OF GearingAxis;
+	MASTERAXIS	:	AXIS_REF;
+	MASTERAXIS1	:	AXIS_REF;
+	MASTERAXIS2	:	AXIS_REF;
+	MASTERAXIS3	:	AXIS_REF;
+	MASTERAXIS4	:	AXIS_REF;
 	bENABLE		: 	BOOL;
 //	bEnFW		AT	%I*	:	BOOL;
 //	bEnBW		AT	%I*	:	BOOL;
@@ -21,6 +23,10 @@ STRUCT
 	POSITION	:	LREAL;
 	ratioNUM	:	LREAL;
 	ratioDEN	:	UINT;
+	GEARRATIO1	:	LREAL;
+	GEARRATIO2	:	LREAL;
+	GEARRATIO3	:	LREAL;
+	GEARRATIO4	:	LREAL;
 	PARAMETERSIN:	ARRAY [1..17] OF REAL;
 	iPARAMSET	:	INT;
 	PARAMVALUE	:	LREAL;
@@ -45,6 +51,7 @@ STRUCT
 	bSwLimNegEn		:	BOOL;
 	bPosLagEn		:	BOOL;
 END_STRUCT
-END_TYPE]]></Declaration>
+END_TYPE
+]]></Declaration>
   </DUT>
 </TcPlcObject>
