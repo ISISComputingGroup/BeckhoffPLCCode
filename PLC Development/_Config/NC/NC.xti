@@ -16,25 +16,13 @@
 		<SvbTask Priority="8" CycleTime="100000" AmsPort="511">
 			<Name>NC-Task 1 SVB</Name>
 		</SvbTask>
-		<Axis File="AXIS 1.xti" Id="4"/>
-		<Axis File="AXIS 2.xti" Id="1"/>
-		<Axis File="AXIS 3.xti" Id="2"/>
-		<Axis File="AXIS 4.xti" Id="3"/>
-		<Axis File="AXIS 5.xti" Id="6"/>
-		<Axis File="AxisMas.xti" Id="5"/>
-		<Axis File="Axis 7.xti" Id="7"/>
-		<Axis File="Axis 8.xti" Id="8"/>
-		<Axis File="Axis 9.xti" Id="9"/>
-		<Axis File="Axis 10.xti" Id="10"/>
-		<Axis File="Axis 11.xti" Id="11"/>
-		<Axis File="Axis 12.xti" Id="12"/>
-		<Table Id="1" MotionFunction="true" Maximum="360" MinIncr="1" Velocity="1" RoundValue="0.001" VelScale="1">
-			<Name>Master 1</Name>
-			<ImageId>137</ImageId>
-		</Table>
-		<Table Id="2" TableType="1" Maximum="2200" Minimum="-2200" MinIncr="1" Velocity="1" RoundValue="0.001" VelScale="1">
-			<Name>Master 2</Name>
-			<ImageId>137</ImageId>
-		</Table>
+		<Axis File="NORTH.xti" Id="4"/>
+		<Axis File="SOUTH.xti" Id="1"/>
+		<Axis File="EAST.xti" Id="2"/>
+		<Axis File="WEST.xti" Id="3"/>
+		<Axis File="VG.xti" Id="6"/>
+		<Axis File="VC.xti" Id="5"/>
+		<Axis File="HG.xti" Id="7"/>
+		<Axis File="HC.xti" Id="8"/>
 	</NC>
 </TcSmItem>

@@ -1,36 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
-  <POU Name="AxDriveFB" Id="{7739b794-7158-4351-935a-d6f75bb52d6a}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK AxDriveFB
+  <POU Name="AxDriveFB" Id="{aef7aef0-3971-449b-83a3-6f8c4c2f7d04}" SpecialFunc="None">
+    <Declaration><![CDATA[//notes
+// For any continuos movements I think I need to move out of state machine architecture to allow multiple commands to be issued.
+
+FUNCTION_BLOCK AxDriveFB
 VAR_INPUT
-	bMoveAbs	:	BOOL;
-	absPos		:	LREAL;	
-	bPLCCam		: 	BOOL;
-	masterAxis	:	AXIS_REF;
-	camID		:	UINT;
+
 END_VAR
 VAR_IN_OUT
-	axis		: 	AXIS_REF;
+	AxisController		:	AxisControl;
 END_VAR
 VAR_OUTPUT
-	axisReady	:	BOOL;
-	setupDone	:	BOOL:=FALSE;
+
 END_VAR
 VAR
+	eCommandLatched		:	McCommand;
+
+	executeTrig	:	R_TRIG;	//RISING EDGE DETECTION
+	doneLatch	:	SR;
+	errorLatch	:	SR;
+	bError		:	BOOL;
+	bDone		:	BOOL;
+	iParam		:	INT:=1;	//	NO 0 index on array
+	
+//FBs as defined by PLC Open Standard
+	//ADMIN                                                                         
+	MCReset					:	MC_Reset;											
+	MCPower					:	MC_Power;										
+	MCReadStatus			:	MC_ReadStatus;				//Same as Axis.ReadStatus();						
+	MCReadAxisError			:	MC_ReadAxisError;									
+	MCReadParameter			:	MC_ReadParameter;									
+
+
+
+
+
+MCReadBoolParameter		:	MC_ReadBoolParameter;							
+	
+
+
+
+
+
+
+
+
+
+
+MCWriteParameter		:	MC_WriteParameter;										
+	MCWriteBoolParameter	:	MC_WriteBoolParameter;								
+	//MCReadDigitalInput		:	MC_ReadDigitalInput;	//NOT IMPLEMENTED		
+	//MCReadDigitalOutput			:	MC_ReadDigitalOutput;	//NOT IMPLEMENTED	
+	//MCWriteDigitalOutput			:	MC_WriteDigitalOutput;	//NOT IMPLEMENTED	
+	MCReadActualPosition	:	MC_ReadActualPosition;								
+	MCReadActualVelocity	:	MC_ReadActualVelocity;								
+	//MCReadActualTorque		:	MC_ReadActualTorque;		//NOT IMPLEMENTED	
+	//MCReadAxisInfo			:	MC_ReadAxisInfo;			//NOT IMPLEMENTED	
+	//MCReadMotionState		:	MC_ReadMotionState;				//NOT IMPLEMENTED	
+	MCSetPosition			:	MC_SetPosition;										
+	MCSetOverride			:	MC_SetOverride;										
+	MCTouchProbe			:	MC_TouchProbe;										
+	//MCDigitalCamSwitch		:	MC_DigitalCamSwitch;		//NOT IMPLEMENTED	
+	MCAbortTrigger			:	MC_AbortTrigger;									
+	MCAbortSuperposition		:	MC_AbortSuperposition;		//HaltSuperimposed?	
+	MCCamTableSelect		:	MC_CamTableSelect;									
+	
+	//MOTION
+	MCHome					:	MC_Home;											
+	MCJog					:	MC_Jog;												
+	MCStop					:	MC_Stop;											
+	MCHalt					:	MC_Halt;											
+	MCMoveAbsolute			:	MC_MoveAbsolute;									
+	MCMoveRelative			:	MC_MoveRelative;									
+	MCMoveAdditive			:	MC_MoveAdditive;									
+	MCMoveSuperimposed		:	MC_MoveSuperimposed;								
+	MCMoveVelocity			:	MC_MoveVelocity;									
+	MCMoveContinuousAbsolute	:	MC_MoveContinuousAbsolute;						
+	MCMoveContinuousRelative	:	MC_MoveContinuousRelative;						
+	MCMoveModulo			:	MC_MoveModulo;										
+	//MCTorqueControl			:	MC_TorqueControl;		//NOT IMPLEMENTED		
+	//MCPositionProfile		:	MC_PositionProfile;			//NOT IMPLEMENTED		
+	//MCVelocityProfile		:	MC_VelocityProfile;			//NOT IMPLEMENTED		
+	//MCAccelerationProfile	:	MC_AccelerationProfile;		//NOT IMPLEMENTED		
+	MCGearIn				:	MC_GearIn;											
+	MCGearInDyn				:	MC_GearInDyn;										
+	MCGearInMultiMaster		:	MC_GearInMultiMaster;								
+	MCGearOut				:	MC_GearOut;											
+	                                                                                    
+	MCHaltPhasing			:	MC_HaltPhasing;										
+	MCPhasingAbsolute		:	MC_PhasingAbsolute;									
+	MCPhasingRelative		:	MC_PhasingRelative;									
+	                                                                                
+	//CAMMING                                                                       
+	MCCamIn					:	MC_CamIn;											
+	MCCamOut				:	MC_CamOut;											
+	MCCamScaling			:	MC_CamScaling;										
+	//MULTICAMMING	                                                                
+	MCCamAdd				:	MC_CamAdd;											
+	MCCamExchange			:	MC_CamExchange;										
+	MCCamInV2				:	MC_CamIn_V2;		//REQUIRED FOR MULTICAMMING 	
+	MCCamRemove				:	MC_CamRemove;										
+	MCCamScalingV2			:	MC_CamScaling_V2;									
+	                                                                               
+	
+				
+			
 	
 	
-	MCReset	:	MC_Reset;
-	MCPower	:	MC_Power;
-	MCJogging	:	MC_Jog;
-	MCMoveAbs	:	MC_MoveAbsolute;
-	MCMoveRel	:	MC_MoveRelative;
-	MCVel		:	MC_MoveVelocity;
-	MCHome		: 	MC_Home;
-	MCStop		:	MC_Stop;
-	MCHalt		:	MC_Halt;
-	MCSetPos	:	MC_SetPosition;
-	MCCamOut	:	MC_CamOut;
-	MCCamInfo	:	MC_CamInfo;
+
+	//MOTION
 	
 	//MCHomeRef	:	MC_StepReferencePulse;
 	//MCHomeLim	:	MC_StepLimitSwitch;
@@ -40,172 +119,461 @@ VAR
 	
 
 	
-	iState		:	UINT;
+	
+	iState			: 	UINT;
+	
 	Status: INT;	
 
-	
-
+	Done: INT;
+	bSoftLimPosEn: INT;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[axis.ReadStatus();
-//homingSw.Level := bPLCCam;
-//homingStruct.Drive.Actual.TorqueMaxBipolar:=10000;
-//homingStruct.Drive.Actual.TorqueMaxNegative:=10000;
-//homingStruct.Drive.Actual.TorqueMaxPositive:=10000;
-//homingStruct.Nc.Actual.EnablePosDiffControl:=TRUE;
+      <ST><![CDATA[AxisController.Axis.ReadStatus();
 
 
 
+//////////////////////////////////////
+//				FLAGS				//
+//////////////////////////////////////
 
-	
-MCReset(Axis:= axis);
-MCPower(Axis:= axis);
-McJogging(Axis:= axis);
-MCMoveAbs(Axis:= axis);
-MCMoveRel(Axis:= axis);
-MCVel(Axis:= axis);
-MCHome(Axis:= axis, bCalibrationCam:=bPLCCam);
-MCStop(Axis:= axis);
-MCHalt(Axis:= axis);
-MCSetPos(Axis:= axis);
-MCCamOut(Slave:=axis);
-//MCHomeAbs(Axis:= axis, Parameter:= homingStruct, Direction:=mcSwitchPositive, SwitchMode:=mcFallingEdge,ReferenceSignal:=homingSw);
+AxisController.bMoving:=AxisController.Axis.Status.Moving;
 
-axisReady:=axis.Status.NotMoving;
+//LATCH ON THE COMMAND SIGNAL - NOT SURE ABOUT THIS. NEED GUI TO TEST BETTER
 
-CASE iState OF
-	0:	//Check for coupled axis (COUPLE AXES WILL NOT RESET
-		IF axis.Status.Coupled THEN
-			MCCamOut(Slave:=axis,Execute:=TRUE);
-			iState:=1;
+
+//IF AxisController.bExecute AND AxisController.bDone THEN
+//	AxisController.bExecute:=FALSE;
+//END_IF
+
+//////////////////////////////////////
+//			AXIS STATES				//
+//////////////////////////////////////
+//Numerical state for axis states - may use later for buffering functions.
+IF AxisController.AXIS.Status.Disabled THEN
+	AxisController.iAxisState:=		100;
+ELSIF AxisController.AXIS.Status.StandStill THEN
+	AxisController.iAxisState:=		200;
+ELSIF AxisController.AXIS.Status.Homing	THEN
+	AxisController.iAxisState:= 	300;
+ELSIF AxisController.AXIS.Status.DiscreteMotion	THEN
+	AxisController.iAxisState:=		400;
+ELSIF AxisController.AXIS.Status.SynchronizedMotion	THEN
+	AxisController.iAxisState:=		500;
+ELSIF AxisController.AXIS.Status.ContinuousMotion	THEN
+	AxisController.iAxisState:=		600;
+ELSIF AxisController.AXIS.Status.Stopping	THEN
+	AxisController.iAxisState:= 	700;	
+ELSIF AxisController.AXIS.Status.Error THEN
+	AxisController.iAxisState:=		999;	
+ELSE
+	AxisController.iAxisState:=		0;
+END_IF
+
+MCPower(
+	Axis:=AxisController.Axis,
+	Enable:=AxisController.bEnable,
+	Enable_Positive:=AxisController.bEnFW,
+	Enable_Negative:=AxisController.bEnBW,
+	Override:=AxisController.fOverride,
+	Status=>,
+	Busy=>, 
+	Active=>AxisController.bAxisReady,	//Maybe want a bPowered or bEnabled flag instead?
+	Error=>,
+	ErrorID=>
+);
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+//Read in motion parameters: cycle through the 17 available
+MCReadParameter(Axis:=AxisController.AXIS,ParameterNumber:=iParam);
+IF MCReadParameter.Valid THEN
+	MCReadParameter.Enable:=FALSE;
+	AxisController.fParametersOut[iParam]:=MCReadParameter.Value;
+	iParam:= iParam+1;
+	IF iParam>17 THEN
+		iParam:=1;
+	END_IF
+ELSE
+	MCReadParameter.Enable:=TRUE;
+END_IF
+
+//To save on using a separate bool parameter read just converting the REALs to BOOLS and storing in flags
+//Could I use a switch statement?
+IF AxisController.fParametersOut[RWParameter.EnableLimitPos]=1 THEN
+	AxisController.bSoftLimPosEn:=TRUE;
+ELSE
+	AxisController.bSoftLimPosEn:=FALSE;
+END_IF
+
+IF AxisController.fParametersOut[RWParameter.EnableLimitNeg]=1 THEN
+	AxisController.bSoftLimNegEn:=TRUE;
+ELSE
+	AxisController.bSoftLimNegEn:=FALSE;
+END_IF
+
+IF AxisController.fParametersOut[RWParameter.EnablePosLagMonitoring]=1 THEN
+	AxisController.bPosLagEn:=TRUE;
+ELSE
+	AxisController.bPosLagEn:=FALSE;
+END_IF
+
+////////////////////////////////////////////////////////////////////////////////////////
+doneLatch(SET1:=bDone,RESET:=AxisController.bBusy);
+AxisController.bDone:=doneLatch.Q1;
+
+//Call MC Function Blocks and clear execute signals
+//Function blocks will hold done and error signals for 1 cycle with no execute held
+MCReadParameter(Axis:=AxisController.Axis);	//Reading in motion parameters, using one functionblock for all params means need to disable
+MCReset(Axis:=AxisController.Axis);
+MCReset.Execute:=FALSE;
+MCWriteParameter(Axis:=AxisController.Axis);
+MCWriteParameter.Execute:=FALSE;
+MCWriteBoolParameter(Axis:=AxisController.Axis);
+MCWriteBoolParameter.Execute:=FALSE;
+MCSetPosition(Axis:=AxisController.Axis);
+MCSetPosition.Execute:=FALSE;
+MCMoveAbsolute(Axis:=AxisController.Axis);
+MCMoveAbsolute.Execute:=FALSE;
+MCMoveRelative(Axis:=AxisController.Axis);
+MCMoveRelative.Execute:=FALSE;
+MCGearIn(Slave:=AxisController.Axis, Master:=AxisController.masterAxis);
+MCGearIn.Execute:=FALSE;
+MCGearInMultiMaster(Master1:=AxisController.masterAxis1,Master2:=AxisController.masterAxis2,Master3:=AxisController.masterAxis3,Master4:=AxisController.masterAxis4,Slave:=AxisController.Axis);
+MCGearInMultiMaster.Enable:=FALSE;	//NOT EXECUTE AS FB ALLOWS CONTINUAL UPDATING OF RATIOS WHILST ENABLED
+MCGearOut(Slave:=AxisController.Axis);
+MCGearOut.Execute:=FALSE;
+
+IF NOT AxisController.AXIS.Status.HasJob OR AxisController.bDone THEN	//IDLE STATE NOT ENTERED, LOGIC FLOW IS CRAP, MY BAD Also writing parameters does not trigger HasJob
+	eCommandLatched:=AxisController.eCommand;
+END_IF
+IF AxisController.Axis.Status.HasJob OR NOT AxisController.bDone THEN	// THE OR is currently needed to ensure the execute falls low. Because write param does not trigger HasJob, might need to see if this breaks anything else.
+	AxisController.bExecute:=FALSE;
+END_IF
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+CASE eCommandLatched OF
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+	MCCommand.Idle:
+		AxisController.bBusy	:=FALSE;
+		AxisController.bExecute	:=FALSE;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	MCCommand.Reset:
+		MCReset.Execute:=AxisController.bReset;
+		bDone:=McReset.Done;
+		AxisController.bBusy:=MCReset.Busy;
+		IF MCReset.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:=MCReset.ErrorID;	
 		END_IF
-		iState:=10;
 		
-	1:	//INIT DECOUPLE		
-		MCCamOut(Slave:=axis,Execute:=TRUE);
-		iState:=2;
-	2:	//WAIT FOR DECOUPLE
-		IF MCCamOut.Done THEN
-			MCCamOut(Slave:=axis,Execute:=FALSE);
-			iState:=10;
+		//Clear command and erase reset flag.
+		IF NOT MCReset.Busy THEN
+			eCommandLatched:=MCCommand.Idle;
+			AxisController.bReset:=FALSE;
+		END_IF
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	MCCommand.WriteParameter:		
+		MCWriteParameter.Execute:=AxisController.bExecute;
+		MCWriteParameter.ParameterNumber:=AxisController.iParameterIndex;
+		MCWriteParameter.Value:=AxisController.fParameterValue;
+		bDone:=MCWriteParameter.Done;
+		AxisController.bBusy:= MCWriteParameter.Busy;
+		IF MCWriteParameter.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:=MCWriteParameter.ErrorID;	
 		END_IF
 		
-	
-	10:	//RESET DRIVE
-		MCReset(Axis:=axis, Execute:= TRUE);
-		iState:=20;
+		IF NOT MCWriteParameter.Busy THEN
+			eCommandLatched:=MCCommand.Idle;
+		END_IF			
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	MCCommand.WriteBoolParameter:	
+		MCWriteBoolParameter.Execute:=AxisController.bExecute;
+		MCWriteBoolParameter.ParameterNumber:=AxisController.iParameterIndex;
+		MCWriteBoolParameter.Value:=AxisController.bInput;
+		bDone:=MCWriteBoolParameter.Done;
+		AxisController.bBusy:=MCWriteBoolParameter.Busy;
 		
-	20:	//WAIT FOR DRIVE RESET
-		IF MCReset.Done THEN
-			MCReset(Axis:=axis, Execute:= FALSE);
-			iState:=30;
+		IF MCWriteBoolParameter.Error THEN
+			AxisController.bError:= TRUE;
+			AxisController.iErrorID:=MCWriteBoolParameter.ErrorID;
 		END_IF
-		
-	30:	//POWER UP
-		MCPower(Axis:=axis,Enable:= TRUE, Enable_Positive:= TRUE, Enable_Negative:= TRUE);
-		iState:=40;
-	40:
-		MCSetPos(Axis:=axis,Execute:=TRUE,Position:=0);
-		iState:=51;
-	
-	41:	
-		//MCHome(Axis:=axis, Execute:= TRUE,);
-		//MCHomeAbs(Axis:=axis,Parameter:=homingStruct,ReferenceSignal:=homingSw,Execute:=TRUE,Velocity:=60,Acceleration:=10000,Jerk:=100000,Deceleration:=10000,TimeLimit:=T#10000MS,DistanceLimit:=100000,TorqueLimit:=100000);
-		MCHome(Axis:=axis,Execute:=TRUE);
-		iState:=50;
-		
-	50:	
-		//MCHome(Axis:=axis);
-		//MCHomeAbs(Axis:=axis);
-		IF MCHome.Done THEN
-			MCHome(Axis:= axis, Execute:=FALSE);
-			iState:=60;
+				
+		IF NOT MCWriteBoolParameter.Busy THEN
+			eCommandLatched:=MCCommand.Idle;
+		END_IF	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	MCCommand.SetPosition:	
+		MCSetPosition.Execute:=AxisController.bExecute;
+		MCSetPosition.Position:=AxisController.fPosition;
+		AxisController.bBusy:=MCSetPosition.Busy;
+		bDone:=MCSetPosition.Done;
+		IF MCSetPosition.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:= MCSetPosition.ErrorID;
 		END_IF
-		//IF MCHomeAbs.Done THEN
-		//	MCHomeAbs(Axis:=axis,Execute:=FALSE,Parameter:=homingStruct);
-		//	iState:=60;
-		//END_IF
-		//iState:= 60;
-	
-	51:
-		//WAIT FOR SetPos
-		IF MCSetPos.Done THEN
-			MCSetPos(Axis:=axis,Execute:=FALSE);
-			iState:=60;
+		IF NOT MCSetPosition.Busy THEN
+			eCommandLatched:=MCCommand.Idle;
 		END_IF
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	MCCommand.MoveAbsolute:	
+		MCMoveAbsolute.Execute:=AxisController.bExecute;
+		MCMoveAbsolute.Position:=AxisController.fPosition;
+		MCMoveAbsolute.Velocity:=AxisController.fVelocity;
+		MCMoveAbsolute.Acceleration:=AxisController.fAcceleration;
+		MCMoveAbsolute.Deceleration:=AxisController.fDeceleration;
+		MCMoveAbsolute.Jerk:=0;
+		MCMoveAbsolute.BufferMode:=MC_BufferMode.MC_Buffered;
 		
-	60:	//Wait for move command.
-		setupDone:= TRUE;
-		IF bMoveAbs	THEN
-			iState:=100;
-			bMoveAbs:=FALSE;
+		bDone:=MCMoveAbsolute.Done;
+		AxisController.bBusy:=MCMoveAbsolute.Busy;
+		
+		IF MCMoveAbsolute.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:=MCMoveAbsolute.ErrorID;
 		END_IF
-		
-	100:
-		MCMoveAbs(Axis:=axis,Execute:=TRUE,Position:=absPos,Velocity:=100);
-		iState:=110;
-	110:
-		IF MCMoveAbs.Done THEN
-			MCMoveAbs(Axis:=axis,Execute:=FALSE);
-			iState:=60;			
+		IF NOT MCMoveAbsolute.Busy THEN
+			eCommandLatched:=MCCommand.Idle;
 		END_IF
-	
-		
-	
-		
-	
-END_CASE]]></ST>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	MCCommand.MoveRelative:		//MOVE RELATIVE
+		MCMoveRelative.Execute:=AxisController.bExecute;
+		MCMoveRelative.Distance:=AxisController.fDistance;
+		MCMoveRelative.Velocity:=AxisController.fVelocity;
+		MCMoveRelative.Acceleration:=AxisController.fAcceleration;
+		MCMoveRelative.Deceleration:=AxisController.fDeceleration;
+		MCMoveRelative.Jerk:=0;
+		MCMoveRelative.BufferMode:=MC_BufferMode.MC_Buffered;
+		bDone:=MCMoveRelative.Done;
+		AxisController.bBusy:=MCMoveRelative.Busy;
+		IF MCMoveRelative.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:=MCMoveRelative.ErrorID;
+		END_IF
+		IF NOT MCMoveRelative.Busy THEN
+			eCommandLatched:=MCCommand.Idle;
+		END_IF		
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	MCCommand.GearIn:
+		MCGearIn.Execute:=AxisController.bExecute;
+		MCGearIn.RatioNumerator:=AxisController.fGearRatioNum;
+		MCGearIn.RatioDenominator:=AxisController.iGearRatioDen;
+		AxisController.bBusy:=MCGearIn.Busy;
+		IF MCGearIn.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:=MCGearIn.ErrorID;
+		END_IF
+		bDone:=McGearIn.InGear;
+		IF NOT MCGearIn.Busy THEN
+			eCommandLatched:=MCCommand.Idle;
+		END_IF
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	MCCommand.GearInMultiMaster:
+		MCGearInMultiMaster.Enable:=AxisController.bExecute;
+		MCGearInMultiMaster.GearRatio1:=AxisController.fGearRatio1;
+		MCGearInMultiMaster.GearRatio2:=AxisController.fGearRatio2;
+		MCGearInMultiMaster.GearRatio3:=AxisController.fGearRatio3;
+		MCGearInMultiMaster.GearRatio4:=AxisController.fGearRatio4;
+		AxisController.bBusy:=MCGearInMultiMaster.Busy;
+		IF MCGearInMultiMaster.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:=MCGearInMultiMaster.ErrorID;
+		END_IF
+		IF MCGearInMultiMaster.InGear THEN		// BUSY MIGHT NOT WORK AS IT WON'T GO NOT BUSY. MAY NEED TO USE THE ACTIVE OR IN GEAR FLAGS
+			eCommandLatched:=MCCommand.Idle;
+		END_IF
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	MCCommand.GearOut:
+		MCGearOut.Execute:=AxisController.bExecute;
+		AxisController.bBusy:=MCGearOut.Busy;
+		IF MCGearOut.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:=MCGearOut.ErrorID;
+		END_IF
+		IF NOT MCGearOut.Busy THEN
+			eCommandLatched:=MCCommand.Idle;
+		END_IF
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
+END_CASE
+
+
+
+//Logic to latch on the done signal. As per the standard, unless the execute line is held high, there will be no done 
+//output, so this latches that signal the one cycle it is on.
+//doneLatch(SET1:=bDone,RESET:=AxisController.bBUSY OR AxisController.bERROR);
+//AxisController.latchDONE:=doneLatch.Q1;
+//
+//errorLatch(SET1:=AxisController.bERROR, RESET:=AxisController.bBUSY OR bDone);
+//AxisController.latchERROR:=errorLatch.Q1;
+			
+
+]]></ST>
     </Implementation>
     <LineIds Name="AxDriveFB">
-      <LineId Id="147" Count="0" />
-      <LineId Id="150" Count="0" />
-      <LineId Id="153" Count="2" />
-      <LineId Id="152" Count="0" />
-      <LineId Id="151" Count="0" />
-      <LineId Id="139" Count="0" />
-      <LineId Id="146" Count="0" />
-      <LineId Id="10" Count="10" />
-      <LineId Id="211" Count="0" />
-      <LineId Id="148" Count="1" />
-      <LineId Id="21" Count="3" />
-      <LineId Id="183" Count="0" />
-      <LineId Id="206" Count="0" />
-      <LineId Id="208" Count="0" />
-      <LineId Id="207" Count="0" />
-      <LineId Id="209" Count="0" />
-      <LineId Id="196" Count="0" />
-      <LineId Id="193" Count="0" />
-      <LineId Id="197" Count="0" />
-      <LineId Id="199" Count="1" />
-      <LineId Id="210" Count="0" />
-      <LineId Id="202" Count="3" />
-      <LineId Id="198" Count="0" />
-      <LineId Id="26" Count="13" />
-      <LineId Id="158" Count="1" />
-      <LineId Id="157" Count="0" />
-      <LineId Id="40" Count="0" />
-      <LineId Id="96" Count="0" />
-      <LineId Id="133" Count="0" />
-      <LineId Id="136" Count="0" />
-      <LineId Id="42" Count="2" />
-      <LineId Id="129" Count="0" />
-      <LineId Id="140" Count="0" />
-      <LineId Id="125" Count="0" />
-      <LineId Id="128" Count="0" />
-      <LineId Id="126" Count="1" />
-      <LineId Id="141" Count="1" />
-      <LineId Id="144" Count="0" />
-      <LineId Id="143" Count="0" />
-      <LineId Id="48" Count="0" />
-      <LineId Id="160" Count="0" />
-      <LineId Id="162" Count="3" />
-      <LineId Id="167" Count="0" />
-      <LineId Id="166" Count="0" />
-      <LineId Id="161" Count="0" />
-      <LineId Id="49" Count="0" />
-      <LineId Id="175" Count="0" />
-      <LineId Id="50" Count="18" />
+      <LineId Id="379" Count="0" />
+      <LineId Id="354" Count="0" />
+      <LineId Id="980" Count="1" />
+      <LineId Id="984" Count="0" />
+      <LineId Id="982" Count="0" />
+      <LineId Id="985" Count="0" />
+      <LineId Id="383" Count="0" />
+      <LineId Id="808" Count="0" />
+      <LineId Id="976" Count="1" />
+      <LineId Id="2595" Count="0" />
+      <LineId Id="974" Count="0" />
+      <LineId Id="2826" Count="1" />
+      <LineId Id="978" Count="1" />
+      <LineId Id="987" Count="1" />
+      <LineId Id="2596" Count="0" />
+      <LineId Id="986" Count="0" />
+      <LineId Id="568" Count="0" />
+      <LineId Id="574" Count="1" />
+      <LineId Id="577" Count="1" />
+      <LineId Id="581" Count="5" />
+      <LineId Id="1128" Count="1" />
+      <LineId Id="1126" Count="1" />
+      <LineId Id="587" Count="1" />
+      <LineId Id="569" Count="0" />
+      <LineId Id="2597" Count="12" />
+      <LineId Id="438" Count="0" />
+      <LineId Id="1376" Count="0" />
+      <LineId Id="1703" Count="0" />
+      <LineId Id="1705" Count="0" />
+      <LineId Id="1727" Count="0" />
+      <LineId Id="1780" Count="0" />
+      <LineId Id="2611" Count="1" />
+      <LineId Id="1783" Count="3" />
+      <LineId Id="1778" Count="1" />
+      <LineId Id="1777" Count="0" />
+      <LineId Id="2613" Count="1" />
+      <LineId Id="2618" Count="0" />
+      <LineId Id="1945" Count="1" />
+      <LineId Id="1948" Count="2" />
+      <LineId Id="2616" Count="0" />
+      <LineId Id="1951" Count="4" />
+      <LineId Id="2620" Count="0" />
+      <LineId Id="1956" Count="4" />
+      <LineId Id="1947" Count="0" />
+      <LineId Id="1715" Count="0" />
+      <LineId Id="2821" Count="0" />
+      <LineId Id="2637" Count="0" />
+      <LineId Id="2820" Count="0" />
+      <LineId Id="2638" Count="0" />
+      <LineId Id="2705" Count="0" />
+      <LineId Id="2639" Count="2" />
+      <LineId Id="2643" Count="1" />
+      <LineId Id="2660" Count="1" />
+      <LineId Id="2703" Count="1" />
+      <LineId Id="2719" Count="1" />
+      <LineId Id="2828" Count="0" />
+      <LineId Id="2830" Count="0" />
+      <LineId Id="2774" Count="1" />
+      <LineId Id="2789" Count="1" />
+      <LineId Id="2807" Count="1" />
+      <LineId Id="2831" Count="6" />
+      <LineId Id="1707" Count="1" />
+      <LineId Id="1704" Count="0" />
+      <LineId Id="595" Count="0" />
+      <LineId Id="1173" Count="0" />
+      <LineId Id="2702" Count="0" />
+      <LineId Id="2632" Count="2" />
+      <LineId Id="591" Count="0" />
+      <LineId Id="2654" Count="0" />
+      <LineId Id="2623" Count="2" />
+      <LineId Id="2698" Count="1" />
+      <LineId Id="2701" Count="0" />
+      <LineId Id="2700" Count="0" />
+      <LineId Id="2626" Count="0" />
+      <LineId Id="2636" Count="0" />
+      <LineId Id="2629" Count="1" />
+      <LineId Id="2635" Count="0" />
+      <LineId Id="2631" Count="0" />
+      <LineId Id="1345" Count="0" />
+      <LineId Id="1278" Count="0" />
+      <LineId Id="1787" Count="0" />
+      <LineId Id="2646" Count="0" />
+      <LineId Id="2648" Count="2" />
+      <LineId Id="2694" Count="1" />
+      <LineId Id="2697" Count="0" />
+      <LineId Id="2696" Count="0" />
+      <LineId Id="2651" Count="0" />
+      <LineId Id="1974" Count="0" />
+      <LineId Id="2655" Count="1" />
+      <LineId Id="1355" Count="0" />
+      <LineId Id="1279" Count="0" />
+      <LineId Id="2662" Count="0" />
+      <LineId Id="2678" Count="0" />
+      <LineId Id="2680" Count="2" />
+      <LineId Id="2689" Count="0" />
+      <LineId Id="2693" Count="0" />
+      <LineId Id="2690" Count="0" />
+      <LineId Id="2692" Count="0" />
+      <LineId Id="2691" Count="0" />
+      <LineId Id="2683" Count="0" />
+      <LineId Id="2686" Count="2" />
+      <LineId Id="1357" Count="0" />
+      <LineId Id="1288" Count="0" />
+      <LineId Id="2706" Count="0" />
+      <LineId Id="2708" Count="0" />
+      <LineId Id="2710" Count="2" />
+      <LineId Id="2714" Count="0" />
+      <LineId Id="2716" Count="0" />
+      <LineId Id="2715" Count="0" />
+      <LineId Id="2713" Count="0" />
+      <LineId Id="2717" Count="1" />
+      <LineId Id="2709" Count="0" />
+      <LineId Id="1299" Count="0" />
+      <LineId Id="2721" Count="0" />
+      <LineId Id="2723" Count="5" />
+      <LineId Id="2818" Count="0" />
+      <LineId Id="2729" Count="1" />
+      <LineId Id="2819" Count="0" />
+      <LineId Id="2731" Count="1" />
+      <LineId Id="2734" Count="0" />
+      <LineId Id="2733" Count="0" />
+      <LineId Id="2735" Count="2" />
+      <LineId Id="1404" Count="0" />
+      <LineId Id="1300" Count="0" />
+      <LineId Id="2758" Count="15" />
+      <LineId Id="1431" Count="0" />
+      <LineId Id="1311" Count="0" />
+      <LineId Id="2776" Count="3" />
+      <LineId Id="2781" Count="1" />
+      <LineId Id="2784" Count="0" />
+      <LineId Id="2783" Count="0" />
+      <LineId Id="2780" Count="0" />
+      <LineId Id="2785" Count="0" />
+      <LineId Id="2787" Count="1" />
+      <LineId Id="1455" Count="0" />
+      <LineId Id="1313" Count="0" />
+      <LineId Id="2796" Count="0" />
+      <LineId Id="2791" Count="3" />
+      <LineId Id="2797" Count="0" />
+      <LineId Id="2799" Count="1" />
+      <LineId Id="2802" Count="0" />
+      <LineId Id="2801" Count="0" />
+      <LineId Id="2803" Count="0" />
+      <LineId Id="2805" Count="1" />
+      <LineId Id="2804" Count="0" />
+      <LineId Id="1314" Count="0" />
+      <LineId Id="2809" Count="3" />
+      <LineId Id="2814" Count="0" />
+      <LineId Id="2813" Count="0" />
+      <LineId Id="2815" Count="2" />
+      <LineId Id="1486" Count="0" />
+      <LineId Id="592" Count="0" />
+      <LineId Id="385" Count="0" />
+      <LineId Id="800" Count="3" />
+      <LineId Id="398" Count="0" />
+      <LineId Id="668" Count="0" />
+      <LineId Id="404" Count="0" />
+      <LineId Id="1963" Count="1" />
+      <LineId Id="405" Count="0" />
+      <LineId Id="390" Count="0" />
+      <LineId Id="355" Count="0" />
       <LineId Id="9" Count="0" />
     </LineIds>
   </POU>

@@ -10,6 +10,8 @@ VAR_GLOBAL
 	MaxAccelerationAppl	:	LREAL;
 	MaxDecelerationAppl	:	LREAL;
 	MaxJerkAppl			:	LREAL;
-END_VAR]]></Declaration>
+	axisNumMax			:	INT:=8;
+END_VAR
+]]></Declaration>
   </GVL>
 </TcPlcObject>
