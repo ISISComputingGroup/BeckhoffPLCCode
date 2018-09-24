@@ -18,6 +18,9 @@
     <Compile Include="DUTs\AxisControl.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DUTs\limitCoupling.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\McCommand.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,10 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="GVLs\Limits.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
@@ -41,6 +48,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Visualization Manager.TcVMO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\ButtonStates.TcTLO">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="VISUs\COMMAND VISUS\F01_Reset.TcVIS">

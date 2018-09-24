@@ -23,7 +23,10 @@ VAR
 	bError		:	BOOL;
 	bDone		:	BOOL;
 	iParam		:	INT:=1;	//	NO 0 index on array
+	iIndex		:	INT;		//LIMIT INDEX
 	
+	FwLimitsEnabled	:	BOOL;	//USING FOR MASTER COUPLING
+	BWLimitsEnabled	:	BOOL;
 //FBs as defined by PLC Open Standard
 	//ADMIN                                                                         
 	MCReset					:	MC_Reset;											
@@ -169,12 +172,52 @@ ELSIF AxisController.AXIS.Status.Error THEN
 ELSE
 	AxisController.iAxisState:=		0;
 END_IF
+//ORIGINAL MCPower()
+//MCPower(
+//	Axis:=AxisController.Axis,
+//	Enable:=AxisController.bEnable,
+//	Enable_Positive:=AxisController.bEnFW,
+//	Enable_Negative:=AxisController.bEnBW,
+//	Override:=AxisController.fOverride,
+//	Status=>,
+//	Busy=>, 
+//	Active=>AxisController.bAxisReady,	//Maybe want a bPowered or bEnabled flag instead?
+//	Error=>,
+//	ErrorID=>
+//);
+FwLimitsEnabled :=Limits.FwLimit[AxisController.Axis.NcToPlc.AxisId];
+BwLimitsEnabled :=Limits.BwLimit[AxisController.Axis.NcToPlc.AxisId];
+
+//FOR iIndex:=1 TO GVL.axisNumMax BY 1 DO
+//	IF Limits.FwLimitsCoupling[AxisController.Axis.NcToPlc.AxisId][iIndex] AND NOT Limits.FwLimit[iIndex] THEN
+//		FwLimitsEnabled:=FALSE;
+//	END_IF
+//	IF Limits.BwLimitsCoupling[AxisController.Axis.NcToPlc.AxisId][iIndex] AND NOT Limits.BwLimit[iIndex] THEN
+//		BwLimitsEnabled:=FALSE;
+//	END_IF
+//END_FOR
+
+//FW and BW Limit coupling using limitCoupling enum
+FOR iIndex:=1 TO GVL.axisNumMax BY 1 DO
+	IF Limits.FwLimitsCoupling2[AxisController.Axis.NcToPlc.AxisId][iIndex]= limitCoupling.FwSw AND NOT Limits.FwLimit[iIndex] THEN
+		FwLimitsEnabled:=FALSE;
+	END_IF
+	IF Limits.FwLimitsCoupling2[AxisController.Axis.NcToPlc.AxisId][iIndex]= limitCoupling.BwSw AND NOT Limits.BwLimit[iIndex] THEN
+		FwLimitsEnabled:=FALSE;
+	END_IF
+	IF Limits.BwLimitsCoupling2[AxisController.Axis.NcToPlc.AxisId][iIndex]= limitCoupling.BwSw AND NOT Limits.BwLimit[iIndex] THEN
+		BwLimitsEnabled:=FALSE;
+	END_IF
+	IF Limits.BwLimitsCoupling2[AxisController.Axis.NcToPlc.AxisId][iIndex]= limitCoupling.FwSw AND NOT Limits.FwLimit[iIndex] THEN
+		BwLimitsEnabled:=FALSE;
+	END_IF
+END_FOR
 
 MCPower(
 	Axis:=AxisController.Axis,
 	Enable:=AxisController.bEnable,
-	Enable_Positive:=AxisController.bEnFW,
-	Enable_Negative:=AxisController.bEnBW,
+	Enable_Positive:=FwLimitsEnabled,
+	Enable_Negative:=BwLimitsEnabled,
 	Override:=AxisController.fOverride,
 	Status=>,
 	Busy=>, 
@@ -182,6 +225,35 @@ MCPower(
 	Error=>,
 	ErrorID=>
 );
+//If I'm a master, consider slaves, if i'm not, only consider my own
+//IF AxisController.Axis.NcToPlc.CoupleState=1 OR AxisController.Axis.NcToPlc.CoupleState=2 THEN
+//	MCPower(
+//		Axis:=AxisController.Axis,
+//		Enable:=AxisController.bEnable,
+//		Enable_Positive:=FwLimitsEnabled,
+//		Enable_Negative:=BwLimitsEnabled,
+//		Override:=AxisController.fOverride,
+//		Status=>,
+//		Busy=>, 
+//		Active=>AxisController.bAxisReady,	//Maybe want a bPowered or bEnabled flag instead?
+//		Error=>,
+//		ErrorID=>
+//	);
+//ELSE
+//	MCPower(
+//		Axis:=AxisController.Axis,
+//		Enable:=AxisController.bEnable,
+//		Enable_Positive:=Limits.FwLimit[AxisController.Axis.NcToPlc.AxisId],
+//		Enable_Negative:=Limits.BwLimit[AxisController.Axis.NcToPlc.AxisId],
+//		Override:=AxisController.fOverride,
+//		Status=>,
+//		Busy=>, 
+//		Active=>AxisController.bAxisReady,	//Maybe want a bPowered or bEnabled flag instead?
+//		Error=>,
+//		ErrorID=>
+//	);
+//END_IF
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -247,9 +319,12 @@ MCGearOut.Execute:=FALSE;
 IF NOT AxisController.AXIS.Status.HasJob OR AxisController.bDone THEN	//IDLE STATE NOT ENTERED, LOGIC FLOW IS CRAP, MY BAD Also writing parameters does not trigger HasJob
 	eCommandLatched:=AxisController.eCommand;
 END_IF
-IF AxisController.Axis.Status.HasJob OR NOT AxisController.bDone THEN	// THE OR is currently needed to ensure the execute falls low. Because write param does not trigger HasJob, might need to see if this breaks anything else.
-	AxisController.bExecute:=FALSE;
-END_IF
+//IF AxisController.bBusy THEN			//This works better than below but I think I could just call it false at the end of every cycle
+//	AxisController.bExecute:=FALSE;
+//END_IF
+//IF AxisController.Axis.Status.HasJob OR NOT AxisController.bDone THEN	// THE OR is currently needed to ensure the execute falls low. Because write param does not trigger HasJob, might need to see if this breaks anything else.
+//	AxisController.bExecute:=FALSE;
+//END_IF
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -261,6 +336,7 @@ CASE eCommandLatched OF
 		AxisController.bExecute	:=FALSE;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	MCCommand.Reset:
+		AxisController.bError	:=FALSE;
 		MCReset.Execute:=AxisController.bReset;
 		bDone:=McReset.Done;
 		AxisController.bBusy:=MCReset.Busy;
@@ -358,6 +434,19 @@ CASE eCommandLatched OF
 		END_IF		
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	MCCommand.GearIn:
+		//Link limits to master
+		//Limits.FwLimitsCoupling[AxisController.masterAxis.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=TRUE;
+		//Limits.BwLimitsCoupling[AxisController.masterAxis.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=TRUE;
+		//Dependent on +ve or -ve gear ratio determines whether to link Fw to Fw and Bw to Bw or Fw to Bw and Bw to Fw
+		IF AxisController.fGearRatioNum>0 THEN
+			Limits.FwLimitsCoupling2[AxisController.masterAxis.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.FwSw;
+			Limits.BwLimitsCoupling2[AxisController.masterAxis.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.BwSw;
+		END_IF
+		IF AxisController.fGearRatioNum<0 THEN
+			Limits.FwLimitsCoupling2[AxisController.masterAxis.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.BwSw;
+			Limits.BwLimitsCoupling2[AxisController.masterAxis.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=LimitCoupling.FwSw;
+		END_IF
+		
 		MCGearIn.Execute:=AxisController.bExecute;
 		MCGearIn.RatioNumerator:=AxisController.fGearRatioNum;
 		MCGearIn.RatioDenominator:=AxisController.iGearRatioDen;
@@ -372,12 +461,56 @@ CASE eCommandLatched OF
 		END_IF
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	MCCommand.GearInMultiMaster:
+		//Link limits to master - quite long winded atm, will need to update with Dom's DUT for Axis masters in future
+		//Limits.FwLimitsCoupling[AxisController.masterAxis1.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=TRUE;
+		//Limits.BwLimitsCoupling[AxisController.masterAxis1.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=TRUE;
+		//Limits.FwLimitsCoupling[AxisController.masterAxis2.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=TRUE;
+		//Limits.BwLimitsCoupling[AxisController.masterAxis2.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=TRUE;
+		//Limits.FwLimitsCoupling[AxisController.masterAxis3.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=TRUE;
+		//Limits.BwLimitsCoupling[AxisController.masterAxis3.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=TRUE;
+		//Limits.FwLimitsCoupling[AxisController.masterAxis4.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=TRUE;
+		//Limits.BwLimitsCoupling[AxisController.masterAxis4.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=TRUE;
+		//IF 0 no coupling of limits
+		IF AxisController.fGearRatio1>0 THEN
+			Limits.FwLimitsCoupling2[AxisController.masterAxis1.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.FwSw;
+			Limits.BwLimitsCoupling2[AxisController.masterAxis1.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.BwSw;
+		END_IF
+		IF AxisController.fGearRatio1<0 THEN
+			Limits.FwLimitsCoupling2[AxisController.masterAxis1.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.BwSw;
+			Limits.BwLimitsCoupling2[AxisController.masterAxis1.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=LimitCoupling.FwSw;
+		END_IF
+		IF AxisController.fGearRatio2>0 THEN
+			Limits.FwLimitsCoupling2[AxisController.masterAxis2.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.FwSw;
+			Limits.BwLimitsCoupling2[AxisController.masterAxis2.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.BwSw;
+		END_IF
+		IF AxisController.fGearRatio2<0 THEN
+			Limits.FwLimitsCoupling2[AxisController.masterAxis2.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.BwSw;
+			Limits.BwLimitsCoupling2[AxisController.masterAxis2.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=LimitCoupling.FwSw;
+		END_IF
+		IF AxisController.fGearRatio3>0 THEN
+			Limits.FwLimitsCoupling2[AxisController.masterAxis3.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.FwSw;
+			Limits.BwLimitsCoupling2[AxisController.masterAxis3.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.BwSw;
+		END_IF
+		IF AxisController.fGearRatio3<0 THEN
+			Limits.FwLimitsCoupling2[AxisController.masterAxis3.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.BwSw;
+			Limits.BwLimitsCoupling2[AxisController.masterAxis3.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=LimitCoupling.FwSw;
+		END_IF
+		IF AxisController.fGearRatio4>0 THEN
+			Limits.FwLimitsCoupling2[AxisController.masterAxis4.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.FwSw;
+			Limits.BwLimitsCoupling2[AxisController.masterAxis4.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.BwSw;
+		END_IF
+		IF AxisController.fGearRatio4<0 THEN
+			Limits.FwLimitsCoupling2[AxisController.masterAxis4.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=limitCoupling.BwSw;
+			Limits.BwLimitsCoupling2[AxisController.masterAxis4.NcToPlc.AxisId][AxisController.Axis.NcToPlc.AxisId]:=LimitCoupling.FwSw;
+		END_IF
+		
 		MCGearInMultiMaster.Enable:=AxisController.bExecute;
 		MCGearInMultiMaster.GearRatio1:=AxisController.fGearRatio1;
 		MCGearInMultiMaster.GearRatio2:=AxisController.fGearRatio2;
 		MCGearInMultiMaster.GearRatio3:=AxisController.fGearRatio3;
 		MCGearInMultiMaster.GearRatio4:=AxisController.fGearRatio4;
 		AxisController.bBusy:=MCGearInMultiMaster.Busy;
+		bDone:=MCGearInMultiMaster.InGear;
 		IF MCGearInMultiMaster.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCGearInMultiMaster.ErrorID;
@@ -387,8 +520,17 @@ CASE eCommandLatched OF
 		END_IF
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	MCCommand.GearOut:
+		//Clear limit link of this slave to master. Cycle through all master arrays clearing link
+		FOR iIndex:=1 TO GVL.axisNumMax BY 1 DO
+			Limits.FwLimitsCoupling[iIndex][AxisController.Axis.NcToPlc.AxisId]:=FALSE;
+			Limits.BwLimitsCoupling[iIndex][AxisController.Axis.NcToPlc.AxisId]:=FALSE;
+			Limits.FwLimitsCoupling2[iIndex][AxisController.Axis.NcToPlc.AxisId]:=LimitCoupling.None;
+			Limits.BwLimitsCoupling2[iIndex][AxisController.Axis.NcToPlc.AxisId]:=LimitCoupling.None;
+		END_FOR
+		
 		MCGearOut.Execute:=AxisController.bExecute;
 		AxisController.bBusy:=MCGearOut.Busy;
+		bDone:=MCGearOut.Done;
 		IF MCGearOut.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCGearOut.ErrorID;
@@ -408,8 +550,9 @@ END_CASE
 //
 //errorLatch(SET1:=AxisController.bERROR, RESET:=AxisController.bBUSY OR bDone);
 //AxisController.latchERROR:=errorLatch.Q1;
-			
 
+			
+AxisController.bExecute:=FALSE;
 ]]></ST>
     </Implementation>
     <LineIds Name="AxDriveFB">
@@ -438,6 +581,30 @@ END_CASE
       <LineId Id="587" Count="1" />
       <LineId Id="569" Count="0" />
       <LineId Id="2597" Count="12" />
+      <LineId Id="3020" Count="1" />
+      <LineId Id="3028" Count="0" />
+      <LineId Id="2985" Count="0" />
+      <LineId Id="3018" Count="0" />
+      <LineId Id="3022" Count="1" />
+      <LineId Id="3025" Count="2" />
+      <LineId Id="3019" Count="0" />
+      <LineId Id="3195" Count="0" />
+      <LineId Id="3211" Count="0" />
+      <LineId Id="3196" Count="1" />
+      <LineId Id="3200" Count="1" />
+      <LineId Id="3203" Count="2" />
+      <LineId Id="3202" Count="0" />
+      <LineId Id="3206" Count="4" />
+      <LineId Id="3198" Count="1" />
+      <LineId Id="3015" Count="0" />
+      <LineId Id="3055" Count="10" />
+      <LineId Id="3016" Count="0" />
+      <LineId Id="3014" Count="0" />
+      <LineId Id="2986" Count="0" />
+      <LineId Id="3001" Count="10" />
+      <LineId Id="2988" Count="12" />
+      <LineId Id="2987" Count="0" />
+      <LineId Id="2973" Count="0" />
       <LineId Id="438" Count="0" />
       <LineId Id="1376" Count="0" />
       <LineId Id="1703" Count="0" />
@@ -473,7 +640,9 @@ END_CASE
       <LineId Id="2774" Count="1" />
       <LineId Id="2789" Count="1" />
       <LineId Id="2807" Count="1" />
-      <LineId Id="2831" Count="6" />
+      <LineId Id="2831" Count="3" />
+      <LineId Id="2964" Count="2" />
+      <LineId Id="2835" Count="2" />
       <LineId Id="1707" Count="1" />
       <LineId Id="1704" Count="0" />
       <LineId Id="595" Count="0" />
@@ -482,6 +651,7 @@ END_CASE
       <LineId Id="2632" Count="2" />
       <LineId Id="591" Count="0" />
       <LineId Id="2654" Count="0" />
+      <LineId Id="2972" Count="0" />
       <LineId Id="2623" Count="2" />
       <LineId Id="2698" Count="1" />
       <LineId Id="2701" Count="0" />
@@ -540,6 +710,16 @@ END_CASE
       <LineId Id="2758" Count="15" />
       <LineId Id="1431" Count="0" />
       <LineId Id="1311" Count="0" />
+      <LineId Id="3036" Count="0" />
+      <LineId Id="3212" Count="0" />
+      <LineId Id="3221" Count="0" />
+      <LineId Id="3220" Count="0" />
+      <LineId Id="3222" Count="0" />
+      <LineId Id="3218" Count="1" />
+      <LineId Id="3214" Count="0" />
+      <LineId Id="3216" Count="0" />
+      <LineId Id="3037" Count="2" />
+      <LineId Id="3217" Count="0" />
       <LineId Id="2776" Count="3" />
       <LineId Id="2781" Count="1" />
       <LineId Id="2784" Count="0" />
@@ -549,9 +729,18 @@ END_CASE
       <LineId Id="2787" Count="1" />
       <LineId Id="1455" Count="0" />
       <LineId Id="1313" Count="0" />
-      <LineId Id="2796" Count="0" />
+      <LineId Id="3040" Count="0" />
+      <LineId Id="3047" Count="7" />
+      <LineId Id="3225" Count="0" />
+      <LineId Id="3233" Count="0" />
+      <LineId Id="3226" Count="6" />
+      <LineId Id="3234" Count="15" />
+      <LineId Id="3041" Count="0" />
+      <LineId Id="3250" Count="7" />
+      <LineId Id="3042" Count="0" />
       <LineId Id="2791" Count="3" />
       <LineId Id="2797" Count="0" />
+      <LineId Id="2969" Count="0" />
       <LineId Id="2799" Count="1" />
       <LineId Id="2802" Count="0" />
       <LineId Id="2801" Count="0" />
@@ -559,7 +748,15 @@ END_CASE
       <LineId Id="2805" Count="1" />
       <LineId Id="2804" Count="0" />
       <LineId Id="1314" Count="0" />
-      <LineId Id="2809" Count="3" />
+      <LineId Id="3034" Count="0" />
+      <LineId Id="3029" Count="1" />
+      <LineId Id="3032" Count="0" />
+      <LineId Id="3223" Count="1" />
+      <LineId Id="3031" Count="0" />
+      <LineId Id="3033" Count="0" />
+      <LineId Id="2809" Count="1" />
+      <LineId Id="2968" Count="0" />
+      <LineId Id="2811" Count="1" />
       <LineId Id="2814" Count="0" />
       <LineId Id="2813" Count="0" />
       <LineId Id="2815" Count="2" />
@@ -571,6 +768,7 @@ END_CASE
       <LineId Id="668" Count="0" />
       <LineId Id="404" Count="0" />
       <LineId Id="1963" Count="1" />
+      <LineId Id="2970" Count="0" />
       <LineId Id="405" Count="0" />
       <LineId Id="390" Count="0" />
       <LineId Id="355" Count="0" />

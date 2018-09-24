@@ -13,8 +13,8 @@ STRUCT
 	masterAxis3			:	AXIS_REF;
 	masterAxis4			:	AXIS_REF;
 	bEnable				: 	BOOL;
-	bEnFW		AT	%I*	:	BOOL;
-	bEnBW		AT	%I*	:	BOOL;
+	//bEnFW		AT	%I*	:	BOOL;	REPLACED BY LIMITS GLOBAL STRUCTURE
+	//bEnBW		AT	%I*	:	BOOL;
 
 	fOverride			:	LREAL;
 	fVelocity			:	LREAL;

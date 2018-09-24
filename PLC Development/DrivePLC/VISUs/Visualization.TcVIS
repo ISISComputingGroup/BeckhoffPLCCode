@@ -157,7 +157,7 @@
                     <v n="VisualElementIdentifier">"GenElemInst_54"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
@@ -355,7 +355,7 @@
                     <v n="VisualElementIdentifier">"GenElemInst_57"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -517,7 +517,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_59"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
@@ -715,7 +715,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_61"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -811,7 +811,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">40</v>
+                      <v n="Value">0</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -863,7 +863,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
-                      <v n="Value">110</v>
+                      <v n="Value">70</v>
                     </o>
                     <o>
                       <v n="Id">493260384L</v>
@@ -899,181 +899,6 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                 <a n="LMGuids" et="Guid" />
                 <d n="SubElements" t="Hashtable" />
                 <v n="VisualElementId">116</v>
-                <l n="UserManagementAccessRights" t="ArrayList" />
-              </o>
-              <o>
-                <a n="ConfiguredComplexInputs" et="ComplexInput" />
-                <l n="Elements" t="ArrayList" />
-                <n n="VisualElementDescription" />
-                <o n="VisualElemMemberList" t="VisualElemMemberList">
-                  <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
-                    <o>
-                      <v n="Id">707399976L</v>
-                      <v n="Value" t="Int16">-1</v>
-                    </o>
-                    <o>
-                      <v n="Id">1795088690L</v>
-                      <v n="Value" t="Int16">-1</v>
-                    </o>
-                    <o>
-                      <v n="Id">3929720075L</v>
-                      <v n="Value" t="Int16">-1</v>
-                    </o>
-                    <o>
-                      <v n="Id">565784572L</v>
-                      <v n="Value" t="Int16">-1</v>
-                    </o>
-                    <o>
-                      <v n="Id">1182657236L</v>
-                      <v n="Value" t="Int16">-1</v>
-                    </o>
-                    <o>
-                      <v n="Id">2168378147L</v>
-                      <v n="Value" t="Int16">20</v>
-                    </o>
-                    <o>
-                      <v n="Id">4063738070L</v>
-                      <v n="Value">false</v>
-                    </o>
-                    <o>
-                      <v n="Id">1007499258L</v>
-                      <v n="Value" t="Int16">0</v>
-                    </o>
-                    <o>
-                      <v n="Id">1791101126L</v>
-                      <v n="Value" t="Int16">52</v>
-                    </o>
-                    <o>
-                      <v n="Id">686910351L</v>
-                      <v n="Value">"STYLE"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2028009121L</v>
-                      <v n="Value">"HCENTER"</v>
-                    </o>
-                    <o>
-                      <v n="Id">3191134607L</v>
-                      <v n="Value">"VCENTER"</v>
-                    </o>
-                    <o>
-                      <v n="Id">3218484809L</v>
-                      <v n="Value">"NONE"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2919971128L</v>
-                      <v n="Value">"Arial"</v>
-                    </o>
-                    <o>
-                      <v n="Id">1546705513L</v>
-                      <v n="Value" t="Int16">12</v>
-                    </o>
-                    <o>
-                      <v n="Id">3398726742L</v>
-                      <v n="Value">0U</v>
-                    </o>
-                    <o>
-                      <v n="Id">596717991L</v>
-                      <v n="Value">0U</v>
-                    </o>
-                    <o>
-                      <v n="Id">2814868741L</v>
-                      <v n="Value">4278190080U</v>
-                    </o>
-                    <o>
-                      <v n="Id">2812299069L</v>
-                      <v n="Value">4294967295U</v>
-                    </o>
-                    <o>
-                      <v n="Id">494569607L</v>
-                      <v n="Value">4278190080U</v>
-                    </o>
-                    <o>
-                      <v n="Id">1649127785L</v>
-                      <v n="Value">190</v>
-                    </o>
-                    <o>
-                      <v n="Id">357335551L</v>
-                      <v n="Value">10</v>
-                    </o>
-                    <o>
-                      <v n="Id">2422045748L</v>
-                      <v n="Value">640</v>
-                    </o>
-                    <o>
-                      <v n="Id">2134141914L</v>
-                      <v n="Value">30</v>
-                    </o>
-                    <o>
-                      <v n="Id">4010712728L</v>
-                      <v n="Value">true</v>
-                    </o>
-                    <o>
-                      <v n="Id">2703123772L</v>
-                      <l n="Value" t="ArrayList" cet="NamedStyleFont">
-                        <o>
-                          <v n="FontStyle">0</v>
-                          <v n="ExplicitColor">-16777216</v>
-                          <v n="CanonicalName">"Font-Standard"</v>
-                          <v n="FontName">"Arial"</v>
-                          <v n="FontSize">12</v>
-                          <n n="NamedColor" />
-                        </o>
-                      </l>
-                    </o>
-                    <o>
-                      <v n="Id">493260384L</v>
-                      <v n="Value">4294967295U</v>
-                    </o>
-                    <o>
-                      <v n="Id">135947015L</v>
-                      <v n="Value">4278190080U</v>
-                    </o>
-                    <o>
-                      <v n="Id">2678395525L</v>
-                      <v n="Value">1U</v>
-                    </o>
-                    <o>
-                      <v n="Id">2340015797L</v>
-                      <v n="Value">"HCENTER"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2565699834L</v>
-                      <v n="Value">"VCENTER"</v>
-                    </o>
-                    <o>
-                      <v n="Id">390574330L</v>
-                      <v n="Value">""</v>
-                    </o>
-                    <o>
-                      <v n="Id">571893170L</v>
-                      <v n="Value">""</v>
-                    </o>
-                    <o>
-                      <v n="Id">397264524L</v>
-                      <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].eCommand"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2114174855L</v>
-                      <v n="Value">"'CommandList'"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2597686782L</v>
-                      <v n="Value">false</v>
-                    </o>
-                  </l>
-                </o>
-                <v n="VisualElementName">"ComboBoxInteger"</v>
-                <v n="VisualElementTypeName">"VisuFbComboBoxInteger"</v>
-                <v n="VisualElementIsRectangle">true</v>
-                <v n="VisualElementIdentifier">"cmdSelect"</v>
-                <n n="VisualElementOfflinePaintCommands" />
-                <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" />
-                <v n="VisualElementIdentification">{646cd85b-ebe7-4bb4-8c7e-00d1263245a5}</v>
-                <v n="VisualElementOwningObjectGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
-                <a n="LMGuids" et="Guid" />
-                <d n="SubElements" t="Hashtable" />
-                <v n="VisualElementId">6</v>
                 <l n="UserManagementAccessRights" t="ArrayList" />
               </o>
               <o>
@@ -1160,7 +985,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">100</v>
+                      <v n="Value">50</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -1224,199 +1049,6 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                 <a n="LMGuids" et="Guid" />
                 <d n="SubElements" t="Hashtable" />
                 <v n="VisualElementId">11</v>
-                <l n="UserManagementAccessRights" t="ArrayList" />
-              </o>
-              <o>
-                <a n="ConfiguredComplexInputs" cet="ComplexInput">
-                  <o>
-                    <n n="DescriptionTree" />
-                    <o n="VisualElemMemberList" t="VisualElemMemberList">
-                      <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
-                        <o>
-                          <v n="Id">1186196937L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE"</v>
-                        </o>
-                      </l>
-                    </o>
-                    <v n="SignatureName">"Visu_ToggleInput"</v>
-                    <v n="Name">"Toggle"</v>
-                    <v n="Description">"Configure the toggling of a Boolean variable"</v>
-                  </o>
-                </a>
-                <l n="Elements" t="ArrayList" />
-                <n n="VisualElementDescription" />
-                <o n="VisualElemMemberList" t="VisualElemMemberList">
-                  <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
-                    <o>
-                      <v n="Id">571893170L</v>
-                      <v n="Value">""</v>
-                    </o>
-                    <o>
-                      <v n="Id">2340015797L</v>
-                      <v n="Value">"HCENTER"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2565699834L</v>
-                      <v n="Value">"VCENTER"</v>
-                    </o>
-                    <o>
-                      <v n="Id">4134387352L</v>
-                      <v n="Value">"NONE"</v>
-                    </o>
-                    <o>
-                      <v n="Id">1603690730L</v>
-                      <v n="Value">"Arial"</v>
-                    </o>
-                    <o>
-                      <v n="Id">4253639993L</v>
-                      <v n="Value" t="Int16">12</v>
-                    </o>
-                    <o>
-                      <v n="Id">2729990903L</v>
-                      <v n="Value">0U</v>
-                    </o>
-                    <o>
-                      <v n="Id">1213979116L</v>
-                      <v n="Value">0U</v>
-                    </o>
-                    <o>
-                      <v n="Id">3488306084L</v>
-                      <v n="Value">4278190080U</v>
-                    </o>
-                    <o>
-                      <v n="Id">1647042231L</v>
-                      <v n="Value">""</v>
-                    </o>
-                    <o>
-                      <v n="Id">2812299069L</v>
-                      <v n="Value">4294967295U</v>
-                    </o>
-                    <o>
-                      <v n="Id">494569607L</v>
-                      <v n="Value">4278190080U</v>
-                    </o>
-                    <o>
-                      <v n="Id">1649127785L</v>
-                      <v n="Value">840</v>
-                    </o>
-                    <o>
-                      <v n="Id">357335551L</v>
-                      <v n="Value">10</v>
-                    </o>
-                    <o>
-                      <v n="Id">2422045748L</v>
-                      <v n="Value">40</v>
-                    </o>
-                    <o>
-                      <v n="Id">2134141914L</v>
-                      <v n="Value">30</v>
-                    </o>
-                    <o>
-                      <v n="Id">1651471674L</v>
-                      <v n="Value">true</v>
-                    </o>
-                    <o>
-                      <v n="Id">2341735680L</v>
-                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
-                        <o>
-                          <v n="Color">-2830136</v>
-                          <v n="CanonicalName">"Element-Control-Color"</v>
-                        </o>
-                      </l>
-                    </o>
-                    <o>
-                      <v n="Id">438423234L</v>
-                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
-                        <o>
-                          <v n="Color">-2830136</v>
-                          <v n="CanonicalName">"Element-Alarm-Fill-Color"</v>
-                        </o>
-                      </l>
-                    </o>
-                    <o>
-                      <v n="Id">3729828405L</v>
-                      <l n="Value" t="ArrayList" cet="NamedStyleFont">
-                        <o>
-                          <v n="FontStyle">0</v>
-                          <v n="ExplicitColor">-16777216</v>
-                          <v n="CanonicalName">"Font-Standard"</v>
-                          <v n="FontName">"Arial"</v>
-                          <v n="FontSize">12</v>
-                          <o n="NamedColor" t="NamedStyleColor">
-                            <v n="Color">-16777216</v>
-                            <v n="CanonicalName">"Element-Button-FontColor"</v>
-                          </o>
-                        </o>
-                      </l>
-                    </o>
-                    <o>
-                      <v n="Id">550940142L</v>
-                      <v n="Value">860</v>
-                    </o>
-                    <o>
-                      <v n="Id">1473355128L</v>
-                      <v n="Value">25</v>
-                    </o>
-                    <o>
-                      <v n="Id">493260384L</v>
-                      <v n="Value">4294967295U</v>
-                    </o>
-                    <o>
-                      <v n="Id">135947015L</v>
-                      <v n="Value">4278190080U</v>
-                    </o>
-                    <o>
-                      <v n="Id">2678395525L</v>
-                      <v n="Value">1U</v>
-                    </o>
-                    <o>
-                      <v n="Id">2478807622L</v>
-                      <v n="Value">""</v>
-                    </o>
-                    <o>
-                      <v n="Id">390574330L</v>
-                      <v n="Value">"GO"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2597686782L</v>
-                      <v n="Value">false</v>
-                    </o>
-                    <o>
-                      <v n="Id">494542316L</v>
-                      <l n="Value" t="ArrayList">
-                        <v>4278190080U</v>
-                        <v>4294967295U</v>
-                        <v>0</v>
-                        <v>0</v>
-                        <v>0</v>
-                        <v>0</v>
-                        <v>0</v>
-                        <v>0</v>
-                        <v>4278190080U</v>
-                      </l>
-                    </o>
-                    <o>
-                      <v n="Id">1375557818L</v>
-                      <v n="Value">false</v>
-                    </o>
-                    <o>
-                      <v n="Id">823443203L</v>
-                      <v n="Value">"1"</v>
-                    </o>
-                  </l>
-                </o>
-                <v n="VisualElementName">"Button"</v>
-                <v n="VisualElementTypeName">"VisuFbElemButton"</v>
-                <v n="VisualElementIsRectangle">true</v>
-                <v n="VisualElementIdentifier">"GenElemInst_21"</v>
-                <n n="VisualElementOfflinePaintCommands" />
-                <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" />
-                <v n="VisualElementIdentification">{47d86cbb-ce07-45f7-b626-100a99a240fd}</v>
-                <v n="VisualElementOwningObjectGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
-                <a n="LMGuids" et="Guid" />
-                <d n="SubElements" t="Hashtable" />
-                <v n="VisualElementId">19</v>
                 <l n="UserManagementAccessRights" t="ArrayList" />
               </o>
               <o>
@@ -1511,7 +1143,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">130</v>
+                      <v n="Value">1100</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
@@ -1681,7 +1313,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">60</v>
+                      <v n="Value">10</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -1739,7 +1371,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                 <v n="VisualElementIdentifier">"GenElemInst_24"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="InputBoxInputAction">
                     <o>
@@ -1843,7 +1475,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">10</v>
+                      <v n="Value">980</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
@@ -1997,7 +1629,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">60</v>
+                      <v n="Value">10</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -2147,7 +1779,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">100</v>
+                      <v n="Value">50</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -2926,7 +2558,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_76"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
@@ -3246,7 +2878,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_78"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
@@ -3590,7 +3222,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_84"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -3776,7 +3408,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_86"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -3872,7 +3504,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">180</v>
+                      <v n="Value">140</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -3924,7 +3556,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
-                      <v n="Value">310</v>
+                      <v n="Value">270</v>
                     </o>
                     <o>
                       <v n="Id">493260384L</v>
@@ -4147,7 +3779,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEnBW"</v>
+                          <v n="Value">"Limits.BwLimit[MAIN.hmiAxisSelect]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -4769,7 +4401,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bEnFW"</v>
+                          <v n="Value">"Limits.FwLimit[MAIN.hmiAxisSelect]"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -4993,7 +4625,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">40</v>
+                      <v n="Value">0</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -5045,7 +4677,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
-                      <v n="Value">110</v>
+                      <v n="Value">70</v>
                     </o>
                     <o>
                       <v n="Id">493260384L</v>
@@ -6199,7 +5831,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_142"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -6366,7 +5998,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">390574330L</v>
-                          <v n="Value">"En/Dis"</v>
+                          <v n="Value">"Toggle"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -6391,8 +6023,16 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                           <v n="Value">false</v>
                         </o>
                         <o>
+                          <v n="Id">2114174855L</v>
+                          <v n="Value">"'ButtonStates'"</v>
+                        </o>
+                        <o>
+                          <v n="Id">3774423699L</v>
+                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bSoftLimPosEn"</v>
+                        </o>
+                        <o>
                           <v n="Id">823443203L</v>
-                          <v n="Value">"49"</v>
+                          <v n="Value">"72"</v>
                         </o>
                       </l>
                     </o>
@@ -6402,7 +6042,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_144"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -6570,7 +6210,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:=TRUE;
                         </o>
                         <o>
                           <v n="Id">390574330L</v>
-                          <v n="Value">"En/Dis"</v>
+                          <v n="Value">"Toggle"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -6595,8 +6235,16 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:=TRUE;
                           <v n="Value">false</v>
                         </o>
                         <o>
+                          <v n="Id">2114174855L</v>
+                          <v n="Value">"'ButtonStates'"</v>
+                        </o>
+                        <o>
+                          <v n="Id">3774423699L</v>
+                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bSoftLimNegEn"</v>
+                        </o>
+                        <o>
                           <v n="Id">823443203L</v>
-                          <v n="Value">"49"</v>
+                          <v n="Value">"72"</v>
                         </o>
                       </l>
                     </o>
@@ -6606,7 +6254,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:=TRUE;
                     <v n="VisualElementIdentifier">"GenElemInst_146"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -8160,7 +7808,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:=TRUE;
                     <v n="VisualElementIdentifier">"GenElemInst_140"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -9004,7 +8652,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">390574330L</v>
-                          <v n="Value">"En/Dis"</v>
+                          <v n="Value">"Toggle"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -9029,8 +8677,16 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                           <v n="Value">false</v>
                         </o>
                         <o>
+                          <v n="Id">2114174855L</v>
+                          <v n="Value">"'ButtonStates'"</v>
+                        </o>
+                        <o>
+                          <v n="Id">3774423699L</v>
+                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bPosLagEn"</v>
+                        </o>
+                        <o>
                           <v n="Id">823443203L</v>
-                          <v n="Value">"49"</v>
+                          <v n="Value">"72"</v>
                         </o>
                       </l>
                     </o>
@@ -9040,7 +8696,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_156"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -9714,7 +9370,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:=TRUE;
                     <v n="VisualElementIdentifier">"GenElemInst_174"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -10687,7 +10343,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_212"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -12333,7 +11989,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_240"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -12497,7 +12153,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_136"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
@@ -12601,7 +12257,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">180</v>
+                      <v n="Value">140</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -12653,7 +12309,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
-                      <v n="Value">410</v>
+                      <v n="Value">370</v>
                     </o>
                     <o>
                       <v n="Id">493260384L</v>
@@ -13648,7 +13304,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">40</v>
+                      <v n="Value">0</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -13700,7 +13356,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
-                      <v n="Value">110</v>
+                      <v n="Value">70</v>
                     </o>
                     <o>
                       <v n="Id">493260384L</v>
@@ -14447,7 +14103,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_262"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
@@ -14791,7 +14447,7 @@ Main.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_266"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -14977,7 +14633,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_267"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -16561,7 +16217,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_292"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
@@ -16731,7 +16387,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_296"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
@@ -16901,7 +16557,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_300"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
@@ -17621,7 +17277,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">180</v>
+                      <v n="Value">140</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -17673,7 +17329,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
-                      <v n="Value">310</v>
+                      <v n="Value">270</v>
                     </o>
                     <o>
                       <v n="Id">493260384L</v>
@@ -17799,7 +17455,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">140</v>
+                      <v n="Value">90</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -17909,7 +17565,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">50</v>
+                      <v n="Value">40</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -18011,7 +17667,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">110</v>
+                      <v n="Value">100</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -18137,7 +17793,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">50</v>
+                      <v n="Value">40</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -18259,7 +17915,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">110</v>
+                      <v n="Value">100</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -18417,7 +18073,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">140</v>
+                      <v n="Value">90</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -18497,6 +18153,196 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                 <a n="LMGuids" et="Guid" />
                 <d n="SubElements" t="Hashtable" />
                 <v n="VisualElementId">308</v>
+                <l n="UserManagementAccessRights" t="ArrayList" />
+              </o>
+              <o>
+                <a n="ConfiguredComplexInputs" et="ComplexInput" />
+                <l n="Elements" t="ArrayList" />
+                <n n="VisualElementDescription" />
+                <o n="VisualElemMemberList" t="VisualElemMemberList">
+                  <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
+                    <o>
+                      <v n="Id">571893170L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">2340015797L</v>
+                      <v n="Value">"HCENTER"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2565699834L</v>
+                      <v n="Value">"VCENTER"</v>
+                    </o>
+                    <o>
+                      <v n="Id">4134387352L</v>
+                      <v n="Value">"NONE"</v>
+                    </o>
+                    <o>
+                      <v n="Id">1603690730L</v>
+                      <v n="Value">"Arial"</v>
+                    </o>
+                    <o>
+                      <v n="Id">4253639993L</v>
+                      <v n="Value" t="Int16">12</v>
+                    </o>
+                    <o>
+                      <v n="Id">2729990903L</v>
+                      <v n="Value">0U</v>
+                    </o>
+                    <o>
+                      <v n="Id">1213979116L</v>
+                      <v n="Value">0U</v>
+                    </o>
+                    <o>
+                      <v n="Id">3488306084L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">1647042231L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">2812299069L</v>
+                      <v n="Value">4294967295U</v>
+                    </o>
+                    <o>
+                      <v n="Id">494569607L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">1649127785L</v>
+                      <v n="Value">420</v>
+                    </o>
+                    <o>
+                      <v n="Id">357335551L</v>
+                      <v n="Value">10</v>
+                    </o>
+                    <o>
+                      <v n="Id">2422045748L</v>
+                      <v n="Value">100</v>
+                    </o>
+                    <o>
+                      <v n="Id">2134141914L</v>
+                      <v n="Value">30</v>
+                    </o>
+                    <o>
+                      <v n="Id">1651471674L</v>
+                      <v n="Value">true</v>
+                    </o>
+                    <o>
+                      <v n="Id">2341735680L</v>
+                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
+                        <o>
+                          <v n="Color">-2830136</v>
+                          <v n="CanonicalName">"Element-Control-Color"</v>
+                        </o>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">438423234L</v>
+                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
+                        <o>
+                          <v n="Color">-2830136</v>
+                          <v n="CanonicalName">"Element-Alarm-Fill-Color"</v>
+                        </o>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">3729828405L</v>
+                      <l n="Value" t="ArrayList" cet="NamedStyleFont">
+                        <o>
+                          <v n="FontStyle">0</v>
+                          <v n="ExplicitColor">-16777216</v>
+                          <v n="CanonicalName">"Font-Standard"</v>
+                          <v n="FontName">"Arial"</v>
+                          <v n="FontSize">12</v>
+                          <o n="NamedColor" t="NamedStyleColor">
+                            <v n="Color">-16777216</v>
+                            <v n="CanonicalName">"Element-Button-FontColor"</v>
+                          </o>
+                        </o>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">550940142L</v>
+                      <v n="Value">470</v>
+                    </o>
+                    <o>
+                      <v n="Id">1473355128L</v>
+                      <v n="Value">25</v>
+                    </o>
+                    <o>
+                      <v n="Id">493260384L</v>
+                      <v n="Value">4294967295U</v>
+                    </o>
+                    <o>
+                      <v n="Id">135947015L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">2678395525L</v>
+                      <v n="Value">1U</v>
+                    </o>
+                    <o>
+                      <v n="Id">2478807622L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">390574330L</v>
+                      <v n="Value">"RESET"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2597686782L</v>
+                      <v n="Value">false</v>
+                    </o>
+                    <o>
+                      <v n="Id">494542316L</v>
+                      <l n="Value" t="ArrayList">
+                        <v>4278190080U</v>
+                        <v>4294967295U</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>4278190080U</v>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">1375557818L</v>
+                      <v n="Value">false</v>
+                    </o>
+                    <o>
+                      <v n="Id">2496894244L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">823443203L</v>
+                      <v n="Value">"8"</v>
+                    </o>
+                  </l>
+                </o>
+                <v n="VisualElementName">"Button"</v>
+                <v n="VisualElementTypeName">"VisuFbElemButton"</v>
+                <v n="VisualElementIsRectangle">true</v>
+                <v n="VisualElementIdentifier">"GenElemInst_327"</v>
+                <n n="VisualElementOfflinePaintCommands" />
+                <n n="VisualElementFrameInformation" />
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                  <v>OnMouseClick</v>
+                  <a cet="STSnippetInputAction">
+                    <o>
+                      <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.Reset;
+MAIN.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
+                    </o>
+                  </a>
+                </d>
+                <v n="VisualElementIdentification">{da0d8669-adc1-4e8c-a465-069fedb5a7a4}</v>
+                <v n="VisualElementOwningObjectGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
+                <a n="LMGuids" et="Guid" />
+                <d n="SubElements" t="Hashtable" />
+                <v n="VisualElementId">319</v>
                 <l n="UserManagementAccessRights" t="ArrayList" />
               </o>
             </l>
@@ -18603,10 +18449,10 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
               <d n="FbMethods" t="CaseInsensitiveHashtable" ckt="String" cvt="Guid">
                 <v>FB_Init</v>
                 <v>57cba636-9f58-4b84-8513-ce2eeaf09ce9</v>
-                <v>FB_Exit</v>
-                <v>6a882695-183b-4793-96e8-2fb202a1f487</v>
                 <v>FB_Reinit</v>
                 <v>09647002-9ec4-4033-a8cb-3766d1cb1234</v>
+                <v>FB_Exit</v>
+                <v>6a882695-183b-4793-96e8-2fb202a1f487</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{97d4b658-2bf4-4f7f-b4f1-4f2d5bf7660a}</v>
@@ -18650,7 +18496,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
             </o>
             <v n="DialogDut">{f69d699e-fbf8-430c-af0a-2315842d0ce5}</v>
           </o>
-          <v n="LastUsedIdForIdentifier">325</v>
+          <v n="LastUsedIdForIdentifier">327</v>
           <o n="TextDocument" t="TextDocument">
             <a n="TextLines" cet="TextLine">
               <o>
