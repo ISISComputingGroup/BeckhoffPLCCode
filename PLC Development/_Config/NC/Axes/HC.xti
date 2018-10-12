@@ -1384,6 +1384,9 @@ External Setpoint Generation:
 			</Vars>
 		</Encoder>
 		<Drive Name="Drive" DrvType="5">
+			<DrvPara>
+				<TimeComp TaskDelayCycles="1"/>
+			</DrvPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>
