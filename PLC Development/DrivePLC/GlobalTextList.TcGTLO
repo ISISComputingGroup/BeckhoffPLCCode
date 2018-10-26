@@ -6,6 +6,26 @@
         <o xml:space="preserve" t="GlobalTextListObject">
           <l n="TextList" t="ArrayList" cet="TextListRow">
             <o>
+              <v n="TextID">"94"</v>
+              <v n="TextDefault">" DISCRETE MOVES "</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"91"</v>
+              <v n="TextDefault">" GEARING "</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"92"</v>
+              <v n="TextDefault">" MULTI-GEARING "</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"90"</v>
+              <v n="TextDefault">" PARAMETERS "</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"17"</v>
               <v n="TextDefault">"%2.2f"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -53,6 +73,21 @@
             <o>
               <v n="TextID">"69"</v>
               <v n="TextDefault">"%s"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"79"</v>
+              <v n="TextDefault">"+"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"80"</v>
+              <v n="TextDefault">"-"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"82"</v>
+              <v n="TextDefault">":"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -106,6 +141,11 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"87"</v>
+              <v n="TextDefault">"Casd"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"3"</v>
               <v n="TextDefault">"CMD 28"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -128,6 +168,12 @@
             <o>
               <v n="TextID">"4"</v>
               <v n="TextDefault">"CommandList.28"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"99"</v>
+              <v n="TextDefault">"Continuous
+Motion"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -211,8 +257,48 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"93"</v>
+              <v n="TextDefault">"Gearing"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"1"</v>
               <v n="TextDefault">"GO"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"86"</v>
+              <v n="TextDefault">"HC:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"85"</v>
+              <v n="TextDefault">"HG:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"76"</v>
+              <v n="TextDefault">"HORIZONTAL CENTRE"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"75"</v>
+              <v n="TextDefault">"HORIZONTAL GAP"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"95"</v>
+              <v n="TextDefault">"I/O"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"78"</v>
+              <v n="TextDefault">"Jog Backwards"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"77"</v>
+              <v n="TextDefault">"Jog Forwards"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -346,6 +432,16 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"88"</v>
+              <v n="TextDefault">"Single Axis"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"89"</v>
+              <v n="TextDefault">"Slit Set"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"46"</v>
               <v n="TextDefault">"SWLimitNeg:"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -361,13 +457,54 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"98"</v>
+              <v n="TextDefault">"Synchronised
+Motion"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"96"</v>
+              <v n="TextDefault">"Synchronised Motion"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"97"</v>
+              <v n="TextDefault">"SynchronisedMotion"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"72"</v>
               <v n="TextDefault">"Toggle"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"84"</v>
+              <v n="TextDefault">"VC:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"23"</v>
               <v n="TextDefault">"VELOCITY:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"74"</v>
+              <v n="TextDefault">"VERTICAL CENTRE"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"73"</v>
+              <v n="TextDefault">"VERTICAL GAP"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"81"</v>
+              <v n="TextDefault">"VG"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"83"</v>
+              <v n="TextDefault">"VG:"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
           </l>

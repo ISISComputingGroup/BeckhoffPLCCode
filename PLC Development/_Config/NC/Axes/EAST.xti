@@ -1319,6 +1319,8 @@ External Setpoint Generation:
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<General UnitName="Degree"/>
+			<Dynamic AccelerationMaximum="1500"/>
+			<Velo SlowManual="10" FastManual="50" Maximum="50"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="EASTnc" EncType="1">

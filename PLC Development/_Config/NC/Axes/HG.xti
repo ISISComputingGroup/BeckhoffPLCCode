@@ -1318,6 +1318,8 @@ External Setpoint Generation:
 	<Axis Id="7" CreateSymbols="true" AxisType="1">
 		<Name>__FILENAME__</Name>
 		<AxisPara>
+			<Dynamic AccelerationMaximum="1500"/>
+			<Velo SlowManual="10" FastManual="50" Maximum="50"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="1">

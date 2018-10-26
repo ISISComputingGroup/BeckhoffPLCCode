@@ -3,6 +3,9 @@
   <GVL Name="GVL" Id="{c8d3e9d5-31b6-4526-9dc0-e43961309b0c}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
+
+	iAxis		:	UINT;
+//THESE ARE ONLY HERE TO ALLOW THE HMI TO FUNCTION WITH HOW IT IS CURRENTLY IMPLEMENTED
 	SwLimitPos	:	LREAL;
 	SwLimitNeg	:	LREAL;
 	MaxPositionLag	:	LREAL;
@@ -13,7 +16,7 @@ VAR_GLOBAL
 	
 END_VAR
 VAR_GLOBAL CONSTANT
-	axisNumMax	:	INT:=8;
+	axisNumMax	:	UINT:=8;
 END_VAR
 
 ]]></Declaration>

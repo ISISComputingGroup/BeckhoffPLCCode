@@ -53,228 +53,31 @@
     <Compile Include="VISUs\ButtonStates.TcTLO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F01_Reset.TcVIS">
+    <Compile Include="VISUs\COMMAND VISUS\Gearing.TcVIS">
       <SubType>Code</SubType>
       <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
     </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F02_Power.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F03_Read_Status.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F04_Read_Axis_Error.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F05_Read_Parameter.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F06_Read_Bool_Parameter.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F07_Write_Parameter.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F08_Write_Bool_Parameter.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F09_Read_Digital_Input.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F10_Read_Digital_Output.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F11_Write_Digital_Output.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F12_Read_Actual_Position.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F13_Read_Actual_Velocity.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F14_Read_Actual_Torque.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F15_Read_Axis_Info.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F16_Read_Motion_State.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F17_Set_Position.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F18_Set_Override.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F19_Touch_Probe.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F20_Digital_Cam_Switch.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F21_Abort_Trigger.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F22_Abort_Superposition.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F23_Cam_Table_Select.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F24_Home.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F25_Jog.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F26_Stop.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F27_Halt.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F28_Move_Absolute.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F29_Move_Relative.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F30_Move_Additive.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F31_Move_Superimposed.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F32_Move_Velocity.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F33_Move_Continuous_Absolute.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F34_Move_Continuous_Relative.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F35_Move_Modulo.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F36_Torque_Control.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F37_Position_Profile.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F38_Velocity_Profile.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F39_Acceleration_Profile.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F40_Gear_In.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F41_Gear_In_Dynamic.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F42_Gear_In_Multi_Master.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F43_Gear_Out.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F44_Halt_Phasing.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F45_Phasing_Absolute.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F46_Phasing_Relative.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F47_Cam_In.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F48_Cam_Out.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F49_Cam_Scaling.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F50_Cam_Add.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F51_Cam_Exchange.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F52_Cam_In_V2.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F53_Cam_Remove.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F54_Cam_Scaling_V2.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="VISUs\COMMAND VISUS\F00_Blank.TcVIS">
+    <Compile Include="VISUs\COMMAND VISUS\Parameters.TcVIS">
       <SubType>Code</SubType>
       <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
     </Compile>
     <Compile Include="VISUs\CommandList.TcTLO">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\ImagePool.TcIPO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\IO.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\MAINVISU.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\SlitSet.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
     </Compile>
     <Compile Include="VISUs\Visualization.TcVIS">
       <SubType>Code</SubType>

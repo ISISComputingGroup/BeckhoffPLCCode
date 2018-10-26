@@ -1,0 +1,2562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+  <Visu Name="MAINVISU" Id="{0c75beb7-bbc6-400e-b853-9d5a64f7c839}">
+    <XmlArchive>
+      <Data>
+        <o xml:space="preserve" t="VisualObject">
+          <n n="LastVisuLanguageModelEntry" />
+          <v n="UniqueIdGenerator">"3"</v>
+          <o n="VisualElemList" t="VisualElemList">
+            <l n="VisualElementList" t="VisualElemCollection" cet="GenericVisualElem">
+              <o>
+                <a n="ConfiguredComplexInputs" et="ComplexInput" />
+                <l n="Elements" t="ArrayList" />
+                <n n="VisualElementDescription" />
+                <o n="VisualElemMemberList" t="VisualElemMemberList">
+                  <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
+                    <o>
+                      <v n="Id">1904293201L</v>
+                      <v n="Value" t="Int16">100</v>
+                    </o>
+                    <o>
+                      <v n="Id">2812299069L</v>
+                      <v n="Value">4294967295U</v>
+                    </o>
+                    <o>
+                      <v n="Id">494569607L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">1649127785L</v>
+                      <v n="Value">10</v>
+                    </o>
+                    <o>
+                      <v n="Id">357335551L</v>
+                      <v n="Value">10</v>
+                    </o>
+                    <o>
+                      <v n="Id">2422045748L</v>
+                      <v n="Value">1200</v>
+                    </o>
+                    <o>
+                      <v n="Id">2134141914L</v>
+                      <v n="Value">870</v>
+                    </o>
+                    <o>
+                      <v n="Id">363316305L</v>
+                      <o n="Value" t="StructuredTypeNode">
+                        <v n="StructuredTypeNodeIsAnimation">false</v>
+                        <l n="TypeNodeChildren" t="ArrayList">
+                          <o t="DynamicArrayNode">
+                            <o n="DynamicArrayNodeCounterNode" t="BasicTypeNode">
+                              <v n="Flags">0L</v>
+                              <v n="BasicTypeNodeValue" t="Int16">3</v>
+                              <v n="BasicTypeNodeAcceptsExpression">false</v>
+                              <n n="BasicTypeNodeFastAccess" />
+                              <a n="BasicTypeNodeEnumValues" et="String" />
+                              <n n="EnumValueDisplayTextIds" />
+                              <n n="EnumValueVisibilityAttributeValues" />
+                              <n n="EnumValueLibraryId" />
+                              <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                              <l n="TypeNodeChildren" t="ArrayList" />
+                              <o n="TypeNodeType" t="TypeNodeType">
+                                <v n="TypeClass" t="TypeClass">Int</v>
+                                <v n="QualifiedName">"INT"</v>
+                                <v n="Name">"INT"</v>
+                              </o>
+                              <v n="TypeNodeName">"iCount"</v>
+                              <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                <v n="AttrFlags">1UL</v>
+                                <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                  <v>Visible</v>
+                                  <v>False</v>
+                                </d>
+                                <v n="ConvDone">true</v>
+                              </o>
+                              <v n="TypeNodeId" t="Int16">20</v>
+                              <v n="TypeNodeIdLong">87295452L</v>
+                              <v n="LibraryId">"visuelembase, 3.5.8.40 (system)"</v>
+                              <n n="DisplayTextId" />
+                              <n n="DescriptionTextID" />
+                              <v n="DescriptionUseParent">false</v>
+                            </o>
+                            <n n="DynamicArrayNodeFastAccess" />
+                            <o n="ChildTemplate" t="VisualizationNode">
+                              <v n="VisuNodeReferenceGuid">{00000000-0000-0000-0000-000000000000}</v>
+                              <n n="VisuNodeReference" />
+                              <n n="VisNodeRefs33" />
+                              <l n="TypeNodeChildren" t="ArrayList" />
+                              <o n="TypeNodeType" t="TypeNodeType">
+                                <v n="TypeClass" t="TypeClass">Userdef</v>
+                                <v n="QualifiedName">"IVisualisation"</v>
+                                <v n="Name">"IVisualisation"</v>
+                              </o>
+                              <v n="TypeNodeName">""</v>
+                              <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                <v n="AttrFlags">0UL</v>
+                                <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                  <v>ieccodeconversion_useexistinginterface</v>
+                                  <v>_3S.CoDeSys.VisuGenerated.IVisualisationIEC</v>
+                                  <v>conditionalshow</v>
+                                  <v>visu_elemdev</v>
+                                  <v>''NORMAL__COMMENT</v>
+                                  <v> interface contains additional methods to IVisualElement</v>
+                                </d>
+                                <v n="ConvDone">true</v>
+                              </o>
+                              <v n="TypeNodeId" t="Int16">1</v>
+                              <v n="TypeNodeIdLong">3861935604L</v>
+                              <n n="LibraryId" />
+                              <n n="DisplayTextId" />
+                              <n n="DescriptionTextID" />
+                              <v n="DescriptionUseParent">false</v>
+                            </o>
+                            <l n="TypeNodeChildren" t="ArrayList" cet="VisualizationNode">
+                              <o>
+                                <v n="VisuNodeReferenceGuid">{00000000-0000-0000-0000-000000000000}</v>
+                                <n n="VisuNodeReference" />
+                                <v n="VisNodeRefs33">"Visualization"</v>
+                                <l n="TypeNodeChildren" t="ArrayList" cet="StructuredTypeNode">
+                                  <o>
+                                    <v n="StructuredTypeNodeIsAnimation">false</v>
+                                    <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
+                                      <o>
+                                        <v n="Flags">16L</v>
+                                        <v n="BasicTypeNodeValue">"Single Axis"</v>
+                                        <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                        <n n="BasicTypeNodeFastAccess" />
+                                        <a n="BasicTypeNodeEnumValues" et="String" />
+                                        <n n="EnumValueDisplayTextIds" />
+                                        <n n="EnumValueVisibilityAttributeValues" />
+                                        <n n="EnumValueLibraryId" />
+                                        <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                        <l n="TypeNodeChildren" t="ArrayList" />
+                                        <o n="TypeNodeType" t="TypeNodeType">
+                                          <v n="TypeClass" t="TypeClass">String</v>
+                                          <v n="QualifiedName">"STRING"</v>
+                                          <v n="Name">"STRING"</v>
+                                        </o>
+                                        <v n="TypeNodeName">"pstTabTitle"</v>
+                                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                          <v n="AttrFlags">32UL</v>
+                                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                            <v>StringSize</v>
+                                            <v>80</v>
+                                            <v>I18nText</v>
+                                            <v></v>
+                                            <v>ieccodeconversion_useforgettersetter</v>
+                                            <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.Heading</v>
+                                            <v>ieccodeconversion_character_array</v>
+                                            <v></v>
+                                            <v>AllocateText</v>
+                                            <v></v>
+                                            <v>''DOCU__COMMENT</v>
+                                            <v> The text, the user entered resp. can modify. Therefore this is the
+ only visible member of the structure</v>
+                                            <v>DirectlyAssignable</v>
+                                            <v></v>
+                                            <v>Visu_TypeString</v>
+                                            <v></v>
+                                            <v>ieccodeconversion_gettersetter_norecursion</v>
+                                            <v></v>
+                                          </d>
+                                          <v n="ConvDone">false</v>
+                                        </o>
+                                        <v n="TypeNodeId" t="Int16">2</v>
+                                        <v n="TypeNodeIdLong">2398909109L</v>
+                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
+                                        <n n="DescriptionTextID" />
+                                        <v n="DescriptionUseParent">false</v>
+                                      </o>
+                                      <o>
+                                        <v n="Flags">16L</v>
+                                        <v n="BasicTypeNodeValue">"88"</v>
+                                        <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                        <n n="BasicTypeNodeFastAccess" />
+                                        <a n="BasicTypeNodeEnumValues" et="String" />
+                                        <n n="EnumValueDisplayTextIds" />
+                                        <n n="EnumValueVisibilityAttributeValues" />
+                                        <n n="EnumValueLibraryId" />
+                                        <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                        <l n="TypeNodeChildren" t="ArrayList" />
+                                        <o n="TypeNodeType" t="TypeNodeType">
+                                          <v n="TypeClass" t="TypeClass">String</v>
+                                          <v n="QualifiedName">"STRING"</v>
+                                          <v n="Name">"STRING"</v>
+                                        </o>
+                                        <v n="TypeNodeName">"sTextId"</v>
+                                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                          <v n="AttrFlags">1UL</v>
+                                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                            <v>ieccodeconversion_useforgettersetter</v>
+                                            <v></v>
+                                            <v>I18nId</v>
+                                            <v></v>
+                                            <v>Visible</v>
+                                            <v>False</v>
+                                            <v>''DOCU__COMMENT</v>
+                                            <v> The id of the text, needed for internationalisation</v>
+                                          </d>
+                                          <v n="ConvDone">false</v>
+                                        </o>
+                                        <v n="TypeNodeId" t="Int16">3</v>
+                                        <v n="TypeNodeIdLong">1480420536L</v>
+                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <n n="DisplayTextId" />
+                                        <n n="DescriptionTextID" />
+                                        <v n="DescriptionUseParent">false</v>
+                                      </o>
+                                      <o>
+                                        <v n="Flags">16L</v>
+                                        <v n="BasicTypeNodeValue">""</v>
+                                        <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                        <n n="BasicTypeNodeFastAccess" />
+                                        <a n="BasicTypeNodeEnumValues" et="String" />
+                                        <n n="EnumValueDisplayTextIds" />
+                                        <n n="EnumValueVisibilityAttributeValues" />
+                                        <n n="EnumValueLibraryId" />
+                                        <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                        <l n="TypeNodeChildren" t="ArrayList" />
+                                        <o n="TypeNodeType" t="TypeNodeType">
+                                          <v n="TypeClass" t="TypeClass">String</v>
+                                          <v n="QualifiedName">"STRING"</v>
+                                          <v n="Name">"STRING"</v>
+                                        </o>
+                                        <v n="TypeNodeName">"sImageId"</v>
+                                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                          <v n="AttrFlags">8606777344UL</v>
+                                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                            <v>''DOCU__COMMENT</v>
+                                            <v> The id of the image which should be displayed</v>
+                                            <v>ieccodeconversion_useforgettersetter</v>
+                                            <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.ImageID</v>
+                                            <v>Category</v>
+                                            <v>Simple|Standard</v>
+                                            <v>ImageIdNode</v>
+                                            <v></v>
+                                            <v>EditorType</v>
+                                            <v>Image</v>
+                                          </d>
+                                          <v n="ConvDone">false</v>
+                                        </o>
+                                        <v n="TypeNodeId" t="Int16">4</v>
+                                        <v n="TypeNodeIdLong">2302991252L</v>
+                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
+                                        <n n="DescriptionTextID" />
+                                        <v n="DescriptionUseParent">false</v>
+                                      </o>
+                                    </l>
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">Userdef</v>
+                                      <v n="QualifiedName">"VisuStructTab"</v>
+                                      <v n="Name">"VisuStructTab"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"[0]"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">1UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> This structure represents an internationalized text in the title of a column</v>
+                                        <v>ieccodeconversion_creategenericsetterexplicitely</v>
+                                        <v></v>
+                                        <v>conditionalshow</v>
+                                        <v>visu_coredev</v>
+                                        <v>I18n</v>
+                                        <v></v>
+                                        <v>Visible</v>
+                                        <v>False</v>
+                                        <v>ieccodeconversion_createarrayfactorymethod</v>
+                                        <v></v>
+                                        <v>ProvideDeleteButton</v>
+                                        <v></v>
+                                      </d>
+                                      <v n="ConvDone">true</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">1</v>
+                                    <v n="TypeNodeIdLong">187975896L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <n n="DisplayTextId" />
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                </l>
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">Userdef</v>
+                                  <v n="QualifiedName">"IVisualisation"</v>
+                                  <v n="Name">"IVisualisation"</v>
+                                </o>
+                                <v n="TypeNodeName">"[0]"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">0UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>ieccodeconversion_useexistinginterface</v>
+                                    <v>_3S.CoDeSys.VisuGenerated.IVisualisationIEC</v>
+                                    <v>conditionalshow</v>
+                                    <v>visu_elemdev</v>
+                                    <v>''NORMAL__COMMENT</v>
+                                    <v> interface contains additional methods to IVisualElement</v>
+                                  </d>
+                                  <v n="ConvDone">true</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">1</v>
+                                <v n="TypeNodeIdLong">2473092364L</v>
+                                <n n="LibraryId" />
+                                <n n="DisplayTextId" />
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                              <o>
+                                <v n="VisuNodeReferenceGuid">{00000000-0000-0000-0000-000000000000}</v>
+                                <n n="VisuNodeReference" />
+                                <v n="VisNodeRefs33">"SlitSet"</v>
+                                <l n="TypeNodeChildren" t="ArrayList" cet="StructuredTypeNode">
+                                  <o>
+                                    <v n="StructuredTypeNodeIsAnimation">false</v>
+                                    <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
+                                      <o>
+                                        <v n="Flags">16L</v>
+                                        <v n="BasicTypeNodeValue">"Slit Set"</v>
+                                        <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                        <n n="BasicTypeNodeFastAccess" />
+                                        <a n="BasicTypeNodeEnumValues" et="String" />
+                                        <n n="EnumValueDisplayTextIds" />
+                                        <n n="EnumValueVisibilityAttributeValues" />
+                                        <n n="EnumValueLibraryId" />
+                                        <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                        <l n="TypeNodeChildren" t="ArrayList" />
+                                        <o n="TypeNodeType" t="TypeNodeType">
+                                          <v n="TypeClass" t="TypeClass">String</v>
+                                          <v n="QualifiedName">"STRING"</v>
+                                          <v n="Name">"STRING"</v>
+                                        </o>
+                                        <v n="TypeNodeName">"pstTabTitle"</v>
+                                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                          <v n="AttrFlags">32UL</v>
+                                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                            <v>StringSize</v>
+                                            <v>80</v>
+                                            <v>I18nText</v>
+                                            <v></v>
+                                            <v>ieccodeconversion_useforgettersetter</v>
+                                            <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.Heading</v>
+                                            <v>ieccodeconversion_character_array</v>
+                                            <v></v>
+                                            <v>AllocateText</v>
+                                            <v></v>
+                                            <v>''DOCU__COMMENT</v>
+                                            <v> The text, the user entered resp. can modify. Therefore this is the
+ only visible member of the structure</v>
+                                            <v>DirectlyAssignable</v>
+                                            <v></v>
+                                            <v>Visu_TypeString</v>
+                                            <v></v>
+                                            <v>ieccodeconversion_gettersetter_norecursion</v>
+                                            <v></v>
+                                          </d>
+                                          <v n="ConvDone">false</v>
+                                        </o>
+                                        <v n="TypeNodeId" t="Int16">2</v>
+                                        <v n="TypeNodeIdLong">334730179L</v>
+                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
+                                        <n n="DescriptionTextID" />
+                                        <v n="DescriptionUseParent">false</v>
+                                      </o>
+                                      <o>
+                                        <v n="Flags">16L</v>
+                                        <v n="BasicTypeNodeValue">"89"</v>
+                                        <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                        <n n="BasicTypeNodeFastAccess" />
+                                        <a n="BasicTypeNodeEnumValues" et="String" />
+                                        <n n="EnumValueDisplayTextIds" />
+                                        <n n="EnumValueVisibilityAttributeValues" />
+                                        <n n="EnumValueLibraryId" />
+                                        <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                        <l n="TypeNodeChildren" t="ArrayList" />
+                                        <o n="TypeNodeType" t="TypeNodeType">
+                                          <v n="TypeClass" t="TypeClass">String</v>
+                                          <v n="QualifiedName">"STRING"</v>
+                                          <v n="Name">"STRING"</v>
+                                        </o>
+                                        <v n="TypeNodeName">"sTextId"</v>
+                                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                          <v n="AttrFlags">1UL</v>
+                                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                            <v>ieccodeconversion_useforgettersetter</v>
+                                            <v></v>
+                                            <v>I18nId</v>
+                                            <v></v>
+                                            <v>Visible</v>
+                                            <v>False</v>
+                                            <v>''DOCU__COMMENT</v>
+                                            <v> The id of the text, needed for internationalisation</v>
+                                          </d>
+                                          <v n="ConvDone">false</v>
+                                        </o>
+                                        <v n="TypeNodeId" t="Int16">3</v>
+                                        <v n="TypeNodeIdLong">3086944134L</v>
+                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <n n="DisplayTextId" />
+                                        <n n="DescriptionTextID" />
+                                        <v n="DescriptionUseParent">false</v>
+                                      </o>
+                                      <o>
+                                        <v n="Flags">16L</v>
+                                        <v n="BasicTypeNodeValue">""</v>
+                                        <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                        <n n="BasicTypeNodeFastAccess" />
+                                        <a n="BasicTypeNodeEnumValues" et="String" />
+                                        <n n="EnumValueDisplayTextIds" />
+                                        <n n="EnumValueVisibilityAttributeValues" />
+                                        <n n="EnumValueLibraryId" />
+                                        <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                        <l n="TypeNodeChildren" t="ArrayList" />
+                                        <o n="TypeNodeType" t="TypeNodeType">
+                                          <v n="TypeClass" t="TypeClass">String</v>
+                                          <v n="QualifiedName">"STRING"</v>
+                                          <v n="Name">"STRING"</v>
+                                        </o>
+                                        <v n="TypeNodeName">"sImageId"</v>
+                                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                          <v n="AttrFlags">8606777344UL</v>
+                                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                            <v>''DOCU__COMMENT</v>
+                                            <v> The id of the image which should be displayed</v>
+                                            <v>ieccodeconversion_useforgettersetter</v>
+                                            <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.ImageID</v>
+                                            <v>Category</v>
+                                            <v>Simple|Standard</v>
+                                            <v>ImageIdNode</v>
+                                            <v></v>
+                                            <v>EditorType</v>
+                                            <v>Image</v>
+                                          </d>
+                                          <v n="ConvDone">false</v>
+                                        </o>
+                                        <v n="TypeNodeId" t="Int16">4</v>
+                                        <v n="TypeNodeIdLong">1221198932L</v>
+                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
+                                        <n n="DescriptionTextID" />
+                                        <v n="DescriptionUseParent">false</v>
+                                      </o>
+                                    </l>
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">Userdef</v>
+                                      <v n="QualifiedName">"VisuStructTab"</v>
+                                      <v n="Name">"VisuStructTab"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"[1]"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">1UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> This structure represents an internationalized text in the title of a column</v>
+                                        <v>ieccodeconversion_creategenericsetterexplicitely</v>
+                                        <v></v>
+                                        <v>conditionalshow</v>
+                                        <v>visu_coredev</v>
+                                        <v>I18n</v>
+                                        <v></v>
+                                        <v>Visible</v>
+                                        <v>False</v>
+                                        <v>ieccodeconversion_createarrayfactorymethod</v>
+                                        <v></v>
+                                        <v>ProvideDeleteButton</v>
+                                        <v></v>
+                                      </d>
+                                      <v n="ConvDone">true</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">1</v>
+                                    <v n="TypeNodeIdLong">3648236092L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <n n="DisplayTextId" />
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                </l>
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">Userdef</v>
+                                  <v n="QualifiedName">"IVisualisation"</v>
+                                  <v n="Name">"IVisualisation"</v>
+                                </o>
+                                <v n="TypeNodeName">"[1]"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">0UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>ieccodeconversion_useexistinginterface</v>
+                                    <v>_3S.CoDeSys.VisuGenerated.IVisualisationIEC</v>
+                                    <v>conditionalshow</v>
+                                    <v>visu_elemdev</v>
+                                    <v>''NORMAL__COMMENT</v>
+                                    <v> interface contains additional methods to IVisualElement</v>
+                                  </d>
+                                  <v n="ConvDone">true</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">1</v>
+                                <v n="TypeNodeIdLong">2322814029L</v>
+                                <n n="LibraryId" />
+                                <n n="DisplayTextId" />
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                              <o>
+                                <v n="VisuNodeReferenceGuid">{00000000-0000-0000-0000-000000000000}</v>
+                                <n n="VisuNodeReference" />
+                                <v n="VisNodeRefs33">"IO"</v>
+                                <l n="TypeNodeChildren" t="ArrayList" cet="StructuredTypeNode">
+                                  <o>
+                                    <v n="StructuredTypeNodeIsAnimation">false</v>
+                                    <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
+                                      <o>
+                                        <v n="Flags">16L</v>
+                                        <n n="BasicTypeNodeValue" />
+                                        <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                        <n n="BasicTypeNodeFastAccess" />
+                                        <a n="BasicTypeNodeEnumValues" et="String" />
+                                        <n n="EnumValueDisplayTextIds" />
+                                        <n n="EnumValueVisibilityAttributeValues" />
+                                        <n n="EnumValueLibraryId" />
+                                        <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                        <l n="TypeNodeChildren" t="ArrayList" />
+                                        <o n="TypeNodeType" t="TypeNodeType">
+                                          <v n="TypeClass" t="TypeClass">String</v>
+                                          <v n="QualifiedName">"STRING"</v>
+                                          <v n="Name">"STRING"</v>
+                                        </o>
+                                        <v n="TypeNodeName">"pstTabTitle"</v>
+                                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                          <v n="AttrFlags">32UL</v>
+                                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                            <v>StringSize</v>
+                                            <v>80</v>
+                                            <v>I18nText</v>
+                                            <v></v>
+                                            <v>ieccodeconversion_useforgettersetter</v>
+                                            <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.Heading</v>
+                                            <v>ieccodeconversion_character_array</v>
+                                            <v></v>
+                                            <v>AllocateText</v>
+                                            <v></v>
+                                            <v>''DOCU__COMMENT</v>
+                                            <v> The text, the user entered resp. can modify. Therefore this is the
+ only visible member of the structure</v>
+                                            <v>DirectlyAssignable</v>
+                                            <v></v>
+                                            <v>Visu_TypeString</v>
+                                            <v></v>
+                                            <v>ieccodeconversion_gettersetter_norecursion</v>
+                                            <v></v>
+                                          </d>
+                                          <v n="ConvDone">false</v>
+                                        </o>
+                                        <v n="TypeNodeId" t="Int16">2</v>
+                                        <v n="TypeNodeIdLong">1871885848L</v>
+                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
+                                        <n n="DescriptionTextID" />
+                                        <v n="DescriptionUseParent">false</v>
+                                      </o>
+                                      <o>
+                                        <v n="Flags">16L</v>
+                                        <n n="BasicTypeNodeValue" />
+                                        <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                        <n n="BasicTypeNodeFastAccess" />
+                                        <a n="BasicTypeNodeEnumValues" et="String" />
+                                        <n n="EnumValueDisplayTextIds" />
+                                        <n n="EnumValueVisibilityAttributeValues" />
+                                        <n n="EnumValueLibraryId" />
+                                        <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                        <l n="TypeNodeChildren" t="ArrayList" />
+                                        <o n="TypeNodeType" t="TypeNodeType">
+                                          <v n="TypeClass" t="TypeClass">String</v>
+                                          <v n="QualifiedName">"STRING"</v>
+                                          <v n="Name">"STRING"</v>
+                                        </o>
+                                        <v n="TypeNodeName">"sTextId"</v>
+                                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                          <v n="AttrFlags">1UL</v>
+                                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                            <v>ieccodeconversion_useforgettersetter</v>
+                                            <v></v>
+                                            <v>I18nId</v>
+                                            <v></v>
+                                            <v>Visible</v>
+                                            <v>False</v>
+                                            <v>''DOCU__COMMENT</v>
+                                            <v> The id of the text, needed for internationalisation</v>
+                                          </d>
+                                          <v n="ConvDone">false</v>
+                                        </o>
+                                        <v n="TypeNodeId" t="Int16">3</v>
+                                        <v n="TypeNodeIdLong">1556659333L</v>
+                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <n n="DisplayTextId" />
+                                        <n n="DescriptionTextID" />
+                                        <v n="DescriptionUseParent">false</v>
+                                      </o>
+                                      <o>
+                                        <v n="Flags">16L</v>
+                                        <n n="BasicTypeNodeValue" />
+                                        <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                        <n n="BasicTypeNodeFastAccess" />
+                                        <a n="BasicTypeNodeEnumValues" et="String" />
+                                        <n n="EnumValueDisplayTextIds" />
+                                        <n n="EnumValueVisibilityAttributeValues" />
+                                        <n n="EnumValueLibraryId" />
+                                        <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                        <l n="TypeNodeChildren" t="ArrayList" />
+                                        <o n="TypeNodeType" t="TypeNodeType">
+                                          <v n="TypeClass" t="TypeClass">String</v>
+                                          <v n="QualifiedName">"STRING"</v>
+                                          <v n="Name">"STRING"</v>
+                                        </o>
+                                        <v n="TypeNodeName">"sImageId"</v>
+                                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                          <v n="AttrFlags">8606777344UL</v>
+                                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                            <v>''DOCU__COMMENT</v>
+                                            <v> The id of the image which should be displayed</v>
+                                            <v>ieccodeconversion_useforgettersetter</v>
+                                            <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.ImageID</v>
+                                            <v>Category</v>
+                                            <v>Simple|Standard</v>
+                                            <v>ImageIdNode</v>
+                                            <v></v>
+                                            <v>EditorType</v>
+                                            <v>Image</v>
+                                          </d>
+                                          <v n="ConvDone">false</v>
+                                        </o>
+                                        <v n="TypeNodeId" t="Int16">4</v>
+                                        <v n="TypeNodeIdLong">3509084757L</v>
+                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
+                                        <n n="DescriptionTextID" />
+                                        <v n="DescriptionUseParent">false</v>
+                                      </o>
+                                    </l>
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">Userdef</v>
+                                      <v n="QualifiedName">"VisuStructTab"</v>
+                                      <v n="Name">"VisuStructTab"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"[2]"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">1UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> This structure represents an internationalized text in the title of a column</v>
+                                        <v>ieccodeconversion_creategenericsetterexplicitely</v>
+                                        <v></v>
+                                        <v>conditionalshow</v>
+                                        <v>visu_coredev</v>
+                                        <v>I18n</v>
+                                        <v></v>
+                                        <v>Visible</v>
+                                        <v>False</v>
+                                        <v>ieccodeconversion_createarrayfactorymethod</v>
+                                        <v></v>
+                                        <v>ProvideDeleteButton</v>
+                                        <v></v>
+                                      </d>
+                                      <v n="ConvDone">true</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">1</v>
+                                    <v n="TypeNodeIdLong">1959430993L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <n n="DisplayTextId" />
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                </l>
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">Userdef</v>
+                                  <v n="QualifiedName">"IVisualisation"</v>
+                                  <v n="Name">"IVisualisation"</v>
+                                </o>
+                                <v n="TypeNodeName">"[2]"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">0UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>ieccodeconversion_useexistinginterface</v>
+                                    <v>_3S.CoDeSys.VisuGenerated.IVisualisationIEC</v>
+                                    <v>conditionalshow</v>
+                                    <v>visu_elemdev</v>
+                                    <v>''NORMAL__COMMENT</v>
+                                    <v> interface contains additional methods to IVisualElement</v>
+                                  </d>
+                                  <v n="ConvDone">true</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">1</v>
+                                <v n="TypeNodeIdLong">2707294094L</v>
+                                <n n="LibraryId" />
+                                <n n="DisplayTextId" />
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                            </l>
+                            <o n="TypeNodeType" t="TypeNodeType">
+                              <v n="TypeClass" t="TypeClass">Userdef</v>
+                              <v n="QualifiedName">"IVisualisation"</v>
+                              <v n="Name">"IVisualisation"</v>
+                            </o>
+                            <v n="TypeNodeName">"pReferences"</v>
+                            <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                              <v n="AttrFlags">1048577UL</v>
+                              <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                <v>Visible</v>
+                                <v>False</v>
+                                <v>ieccodeconversion_array</v>
+                                <v></v>
+                                <v>VisibleChildren</v>
+                                <v>True</v>
+                                <v>DefaultArraySize</v>
+                                <v>5</v>
+                                <v>''NORMAL__COMMENT</v>
+                                <v> We hide this node to prevent having two References nodes
+ Nevertheless we want to make sure that the children are displayed</v>
+                              </d>
+                              <v n="ConvDone">true</v>
+                            </o>
+                            <v n="TypeNodeId" t="Int16">19</v>
+                            <v n="TypeNodeIdLong">1547928903L</v>
+                            <v n="LibraryId">"visuelembase, 3.5.8.40 (system)"</v>
+                            <n n="DisplayTextId" />
+                            <n n="DescriptionTextID" />
+                            <v n="DescriptionUseParent">false</v>
+                          </o>
+                          <o t="BasicTypeNode">
+                            <v n="Flags">0L</v>
+                            <v n="BasicTypeNodeValue" t="Int16">3</v>
+                            <v n="BasicTypeNodeAcceptsExpression">false</v>
+                            <n n="BasicTypeNodeFastAccess" />
+                            <a n="BasicTypeNodeEnumValues" et="String" />
+                            <n n="EnumValueDisplayTextIds" />
+                            <n n="EnumValueVisibilityAttributeValues" />
+                            <n n="EnumValueLibraryId" />
+                            <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                            <l n="TypeNodeChildren" t="ArrayList" />
+                            <o n="TypeNodeType" t="TypeNodeType">
+                              <v n="TypeClass" t="TypeClass">Int</v>
+                              <v n="QualifiedName">"INT"</v>
+                              <v n="Name">"INT"</v>
+                            </o>
+                            <v n="TypeNodeName">"iCount"</v>
+                            <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                              <v n="AttrFlags">1UL</v>
+                              <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                <v>Visible</v>
+                                <v>False</v>
+                              </d>
+                              <v n="ConvDone">true</v>
+                            </o>
+                            <v n="TypeNodeId" t="Int16">20</v>
+                            <v n="TypeNodeIdLong">87295452L</v>
+                            <v n="LibraryId">"visuelembase, 3.5.8.40 (system)"</v>
+                            <n n="DisplayTextId" />
+                            <n n="DescriptionTextID" />
+                            <v n="DescriptionUseParent">false</v>
+                          </o>
+                        </l>
+                        <o n="TypeNodeType" t="TypeNodeType">
+                          <v n="TypeClass" t="TypeClass">Userdef</v>
+                          <v n="QualifiedName">"VisuStructReferenceList"</v>
+                          <v n="Name">"VisuStructReferenceList"</v>
+                        </o>
+                        <v n="TypeNodeName">"m_References"</v>
+                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                          <v n="AttrFlags">81920UL</v>
+                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                            <v>conditionalshow</v>
+                            <v>visu_elemdev</v>
+                            <v>DescriptionTextId</v>
+                            <v>TL_ElementProperties.Desc_ReferencedVisus</v>
+                            <v>SortFlag</v>
+                            <v>80</v>
+                            <v>AssignDestination</v>
+                            <v>Init</v>
+                            <v>Category</v>
+                            <v>Simple|Standard</v>
+                            <v>DynamicArray</v>
+                            <v></v>
+                            <v>DisplayFrameReferencesConfiguration</v>
+                            <v></v>
+                            <v>FrameReferences</v>
+                            <v></v>
+                            <v>Storable</v>
+                            <v>True</v>
+                            <v>DisplayTextId</v>
+                            <v>TL_ElementProperties.References</v>
+                          </d>
+                          <v n="ConvDone">true</v>
+                        </o>
+                        <v n="TypeNodeId" t="Int16">18</v>
+                        <v n="TypeNodeIdLong">363316305L</v>
+                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                        <v n="DisplayTextId">"TL_ElementProperties.References"</v>
+                        <v n="DescriptionTextID">"TL_ElementProperties.Desc_ReferencedVisus"</v>
+                        <v n="DescriptionUseParent">false</v>
+                      </o>
+                    </o>
+                    <o>
+                      <v n="Id">3002715997L</v>
+                      <o n="Value" t="StructuredTypeNode">
+                        <v n="StructuredTypeNodeIsAnimation">false</v>
+                        <l n="TypeNodeChildren" t="ArrayList">
+                          <o t="DynamicArrayNode">
+                            <o n="DynamicArrayNodeCounterNode" t="BasicTypeNode">
+                              <v n="Flags">0L</v>
+                              <v n="BasicTypeNodeValue" t="Int16">3</v>
+                              <v n="BasicTypeNodeAcceptsExpression">false</v>
+                              <n n="BasicTypeNodeFastAccess" />
+                              <a n="BasicTypeNodeEnumValues" et="String" />
+                              <n n="EnumValueDisplayTextIds" />
+                              <n n="EnumValueVisibilityAttributeValues" />
+                              <n n="EnumValueLibraryId" />
+                              <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                              <l n="TypeNodeChildren" t="ArrayList" />
+                              <o n="TypeNodeType" t="TypeNodeType">
+                                <v n="TypeClass" t="TypeClass">Int</v>
+                                <v n="QualifiedName">"INT"</v>
+                                <v n="Name">"INT"</v>
+                              </o>
+                              <v n="TypeNodeName">"iColumnCount"</v>
+                              <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                <v n="AttrFlags">1UL</v>
+                                <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                  <v>Visible</v>
+                                  <v>False</v>
+                                  <v>''DOCU__COMMENT</v>
+                                  <v> This variable holds the current number of tabs in the variable "Tabs"</v>
+                                </d>
+                                <v n="ConvDone">true</v>
+                              </o>
+                              <v n="TypeNodeId" t="Int16">3</v>
+                              <v n="TypeNodeIdLong">2349357054L</v>
+                              <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                              <n n="DisplayTextId" />
+                              <n n="DescriptionTextID" />
+                              <v n="DescriptionUseParent">false</v>
+                            </o>
+                            <n n="DynamicArrayNodeFastAccess" />
+                            <o n="ChildTemplate" t="StructuredTypeNode">
+                              <v n="StructuredTypeNodeIsAnimation">false</v>
+                              <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
+                                <o>
+                                  <v n="Flags">0L</v>
+                                  <n n="BasicTypeNodeValue" />
+                                  <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                  <n n="BasicTypeNodeFastAccess" />
+                                  <a n="BasicTypeNodeEnumValues" et="String" />
+                                  <n n="EnumValueDisplayTextIds" />
+                                  <n n="EnumValueVisibilityAttributeValues" />
+                                  <n n="EnumValueLibraryId" />
+                                  <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                  <l n="TypeNodeChildren" t="ArrayList" />
+                                  <o n="TypeNodeType" t="TypeNodeType">
+                                    <v n="TypeClass" t="TypeClass">String</v>
+                                    <v n="QualifiedName">"STRING"</v>
+                                    <v n="Name">"STRING"</v>
+                                  </o>
+                                  <v n="TypeNodeName">"pstTabTitle"</v>
+                                  <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                    <v n="AttrFlags">32UL</v>
+                                    <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                      <v>StringSize</v>
+                                      <v>80</v>
+                                      <v>I18nText</v>
+                                      <v></v>
+                                      <v>ieccodeconversion_useforgettersetter</v>
+                                      <v></v>
+                                      <v>DisplayTextId</v>
+                                      <v>TL_ElementProperties.Heading</v>
+                                      <v>ieccodeconversion_character_array</v>
+                                      <v></v>
+                                      <v>AllocateText</v>
+                                      <v></v>
+                                      <v>''DOCU__COMMENT</v>
+                                      <v> The text, the user entered resp. can modify. Therefore this is the
+ only visible member of the structure</v>
+                                      <v>DirectlyAssignable</v>
+                                      <v></v>
+                                      <v>Visu_TypeString</v>
+                                      <v></v>
+                                      <v>ieccodeconversion_gettersetter_norecursion</v>
+                                      <v></v>
+                                    </d>
+                                    <v n="ConvDone">false</v>
+                                  </o>
+                                  <v n="TypeNodeId" t="Int16">2</v>
+                                  <v n="TypeNodeIdLong">2696153990L</v>
+                                  <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                  <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
+                                  <n n="DescriptionTextID" />
+                                  <v n="DescriptionUseParent">false</v>
+                                </o>
+                                <o>
+                                  <v n="Flags">0L</v>
+                                  <n n="BasicTypeNodeValue" />
+                                  <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                  <n n="BasicTypeNodeFastAccess" />
+                                  <a n="BasicTypeNodeEnumValues" et="String" />
+                                  <n n="EnumValueDisplayTextIds" />
+                                  <n n="EnumValueVisibilityAttributeValues" />
+                                  <n n="EnumValueLibraryId" />
+                                  <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                  <l n="TypeNodeChildren" t="ArrayList" />
+                                  <o n="TypeNodeType" t="TypeNodeType">
+                                    <v n="TypeClass" t="TypeClass">String</v>
+                                    <v n="QualifiedName">"STRING"</v>
+                                    <v n="Name">"STRING"</v>
+                                  </o>
+                                  <v n="TypeNodeName">"sTextId"</v>
+                                  <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                    <v n="AttrFlags">1UL</v>
+                                    <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                      <v>ieccodeconversion_useforgettersetter</v>
+                                      <v></v>
+                                      <v>I18nId</v>
+                                      <v></v>
+                                      <v>Visible</v>
+                                      <v>False</v>
+                                      <v>''DOCU__COMMENT</v>
+                                      <v> The id of the text, needed for internationalisation</v>
+                                    </d>
+                                    <v n="ConvDone">false</v>
+                                  </o>
+                                  <v n="TypeNodeId" t="Int16">3</v>
+                                  <v n="TypeNodeIdLong">3883317560L</v>
+                                  <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                  <n n="DisplayTextId" />
+                                  <n n="DescriptionTextID" />
+                                  <v n="DescriptionUseParent">false</v>
+                                </o>
+                                <o>
+                                  <v n="Flags">0L</v>
+                                  <n n="BasicTypeNodeValue" />
+                                  <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                  <n n="BasicTypeNodeFastAccess" />
+                                  <a n="BasicTypeNodeEnumValues" et="String" />
+                                  <n n="EnumValueDisplayTextIds" />
+                                  <n n="EnumValueVisibilityAttributeValues" />
+                                  <n n="EnumValueLibraryId" />
+                                  <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                  <l n="TypeNodeChildren" t="ArrayList" />
+                                  <o n="TypeNodeType" t="TypeNodeType">
+                                    <v n="TypeClass" t="TypeClass">String</v>
+                                    <v n="QualifiedName">"STRING"</v>
+                                    <v n="Name">"STRING"</v>
+                                  </o>
+                                  <v n="TypeNodeName">"sImageId"</v>
+                                  <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                    <v n="AttrFlags">8606777344UL</v>
+                                    <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                      <v>''DOCU__COMMENT</v>
+                                      <v> The id of the image which should be displayed</v>
+                                      <v>ieccodeconversion_useforgettersetter</v>
+                                      <v></v>
+                                      <v>DisplayTextId</v>
+                                      <v>TL_ElementProperties.ImageID</v>
+                                      <v>Category</v>
+                                      <v>Simple|Standard</v>
+                                      <v>ImageIdNode</v>
+                                      <v></v>
+                                      <v>EditorType</v>
+                                      <v>Image</v>
+                                    </d>
+                                    <v n="ConvDone">false</v>
+                                  </o>
+                                  <v n="TypeNodeId" t="Int16">4</v>
+                                  <v n="TypeNodeIdLong">1682117473L</v>
+                                  <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                  <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
+                                  <n n="DescriptionTextID" />
+                                  <v n="DescriptionUseParent">false</v>
+                                </o>
+                              </l>
+                              <o n="TypeNodeType" t="TypeNodeType">
+                                <v n="TypeClass" t="TypeClass">Userdef</v>
+                                <v n="QualifiedName">"VisuStructTab"</v>
+                                <v n="Name">"VisuStructTab"</v>
+                              </o>
+                              <v n="TypeNodeName">""</v>
+                              <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                <v n="AttrFlags">1UL</v>
+                                <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                  <v>''DOCU__COMMENT</v>
+                                  <v> This structure represents an internationalized text in the title of a column</v>
+                                  <v>ieccodeconversion_creategenericsetterexplicitely</v>
+                                  <v></v>
+                                  <v>conditionalshow</v>
+                                  <v>visu_coredev</v>
+                                  <v>I18n</v>
+                                  <v></v>
+                                  <v>Visible</v>
+                                  <v>False</v>
+                                  <v>ieccodeconversion_createarrayfactorymethod</v>
+                                  <v></v>
+                                  <v>ProvideDeleteButton</v>
+                                  <v></v>
+                                </d>
+                                <v n="ConvDone">true</v>
+                              </o>
+                              <v n="TypeNodeId" t="Int16">1</v>
+                              <v n="TypeNodeIdLong">3072004940L</v>
+                              <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                              <n n="DisplayTextId" />
+                              <n n="DescriptionTextID" />
+                              <v n="DescriptionUseParent">false</v>
+                            </o>
+                            <l n="TypeNodeChildren" t="ArrayList" cet="StructuredTypeNode">
+                              <o>
+                                <v n="StructuredTypeNodeIsAnimation">false</v>
+                                <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
+                                  <o>
+                                    <v n="Flags">16L</v>
+                                    <v n="BasicTypeNodeValue">"Single Axis"</v>
+                                    <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                    <n n="BasicTypeNodeFastAccess" />
+                                    <a n="BasicTypeNodeEnumValues" et="String" />
+                                    <n n="EnumValueDisplayTextIds" />
+                                    <n n="EnumValueVisibilityAttributeValues" />
+                                    <n n="EnumValueLibraryId" />
+                                    <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                    <l n="TypeNodeChildren" t="ArrayList" />
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">String</v>
+                                      <v n="QualifiedName">"STRING"</v>
+                                      <v n="Name">"STRING"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"pstTabTitle"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">32UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>StringSize</v>
+                                        <v>80</v>
+                                        <v>I18nText</v>
+                                        <v></v>
+                                        <v>ieccodeconversion_useforgettersetter</v>
+                                        <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.Heading</v>
+                                        <v>ieccodeconversion_character_array</v>
+                                        <v></v>
+                                        <v>AllocateText</v>
+                                        <v></v>
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> The text, the user entered resp. can modify. Therefore this is the
+ only visible member of the structure</v>
+                                        <v>DirectlyAssignable</v>
+                                        <v></v>
+                                        <v>Visu_TypeString</v>
+                                        <v></v>
+                                        <v>ieccodeconversion_gettersetter_norecursion</v>
+                                        <v></v>
+                                      </d>
+                                      <v n="ConvDone">false</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">2</v>
+                                    <v n="TypeNodeIdLong">2398909109L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                  <o>
+                                    <v n="Flags">16L</v>
+                                    <v n="BasicTypeNodeValue">"88"</v>
+                                    <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                    <n n="BasicTypeNodeFastAccess" />
+                                    <a n="BasicTypeNodeEnumValues" et="String" />
+                                    <n n="EnumValueDisplayTextIds" />
+                                    <n n="EnumValueVisibilityAttributeValues" />
+                                    <n n="EnumValueLibraryId" />
+                                    <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                    <l n="TypeNodeChildren" t="ArrayList" />
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">String</v>
+                                      <v n="QualifiedName">"STRING"</v>
+                                      <v n="Name">"STRING"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"sTextId"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">1UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>ieccodeconversion_useforgettersetter</v>
+                                        <v></v>
+                                        <v>I18nId</v>
+                                        <v></v>
+                                        <v>Visible</v>
+                                        <v>False</v>
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> The id of the text, needed for internationalisation</v>
+                                      </d>
+                                      <v n="ConvDone">false</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">3</v>
+                                    <v n="TypeNodeIdLong">1480420536L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <n n="DisplayTextId" />
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                  <o>
+                                    <v n="Flags">16L</v>
+                                    <v n="BasicTypeNodeValue">""</v>
+                                    <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                    <n n="BasicTypeNodeFastAccess" />
+                                    <a n="BasicTypeNodeEnumValues" et="String" />
+                                    <n n="EnumValueDisplayTextIds" />
+                                    <n n="EnumValueVisibilityAttributeValues" />
+                                    <n n="EnumValueLibraryId" />
+                                    <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                    <l n="TypeNodeChildren" t="ArrayList" />
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">String</v>
+                                      <v n="QualifiedName">"STRING"</v>
+                                      <v n="Name">"STRING"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"sImageId"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">8606777344UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> The id of the image which should be displayed</v>
+                                        <v>ieccodeconversion_useforgettersetter</v>
+                                        <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.ImageID</v>
+                                        <v>Category</v>
+                                        <v>Simple|Standard</v>
+                                        <v>ImageIdNode</v>
+                                        <v></v>
+                                        <v>EditorType</v>
+                                        <v>Image</v>
+                                      </d>
+                                      <v n="ConvDone">false</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">4</v>
+                                    <v n="TypeNodeIdLong">2302991252L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                </l>
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">Userdef</v>
+                                  <v n="QualifiedName">"VisuStructTab"</v>
+                                  <v n="Name">"VisuStructTab"</v>
+                                </o>
+                                <v n="TypeNodeName">"[0]"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">1UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> This structure represents an internationalized text in the title of a column</v>
+                                    <v>ieccodeconversion_creategenericsetterexplicitely</v>
+                                    <v></v>
+                                    <v>conditionalshow</v>
+                                    <v>visu_coredev</v>
+                                    <v>I18n</v>
+                                    <v></v>
+                                    <v>Visible</v>
+                                    <v>False</v>
+                                    <v>ieccodeconversion_createarrayfactorymethod</v>
+                                    <v></v>
+                                    <v>ProvideDeleteButton</v>
+                                    <v></v>
+                                  </d>
+                                  <v n="ConvDone">true</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">1</v>
+                                <v n="TypeNodeIdLong">3342794644L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <n n="DisplayTextId" />
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                              <o>
+                                <v n="StructuredTypeNodeIsAnimation">false</v>
+                                <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
+                                  <o>
+                                    <v n="Flags">16L</v>
+                                    <v n="BasicTypeNodeValue">"Slit Set"</v>
+                                    <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                    <n n="BasicTypeNodeFastAccess" />
+                                    <a n="BasicTypeNodeEnumValues" et="String" />
+                                    <n n="EnumValueDisplayTextIds" />
+                                    <n n="EnumValueVisibilityAttributeValues" />
+                                    <n n="EnumValueLibraryId" />
+                                    <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                    <l n="TypeNodeChildren" t="ArrayList" />
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">String</v>
+                                      <v n="QualifiedName">"STRING"</v>
+                                      <v n="Name">"STRING"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"pstTabTitle"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">32UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>StringSize</v>
+                                        <v>80</v>
+                                        <v>I18nText</v>
+                                        <v></v>
+                                        <v>ieccodeconversion_useforgettersetter</v>
+                                        <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.Heading</v>
+                                        <v>ieccodeconversion_character_array</v>
+                                        <v></v>
+                                        <v>AllocateText</v>
+                                        <v></v>
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> The text, the user entered resp. can modify. Therefore this is the
+ only visible member of the structure</v>
+                                        <v>DirectlyAssignable</v>
+                                        <v></v>
+                                        <v>Visu_TypeString</v>
+                                        <v></v>
+                                        <v>ieccodeconversion_gettersetter_norecursion</v>
+                                        <v></v>
+                                      </d>
+                                      <v n="ConvDone">false</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">2</v>
+                                    <v n="TypeNodeIdLong">334730179L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                  <o>
+                                    <v n="Flags">16L</v>
+                                    <v n="BasicTypeNodeValue">"89"</v>
+                                    <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                    <n n="BasicTypeNodeFastAccess" />
+                                    <a n="BasicTypeNodeEnumValues" et="String" />
+                                    <n n="EnumValueDisplayTextIds" />
+                                    <n n="EnumValueVisibilityAttributeValues" />
+                                    <n n="EnumValueLibraryId" />
+                                    <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                    <l n="TypeNodeChildren" t="ArrayList" />
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">String</v>
+                                      <v n="QualifiedName">"STRING"</v>
+                                      <v n="Name">"STRING"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"sTextId"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">1UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>ieccodeconversion_useforgettersetter</v>
+                                        <v></v>
+                                        <v>I18nId</v>
+                                        <v></v>
+                                        <v>Visible</v>
+                                        <v>False</v>
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> The id of the text, needed for internationalisation</v>
+                                      </d>
+                                      <v n="ConvDone">false</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">3</v>
+                                    <v n="TypeNodeIdLong">3086944134L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <n n="DisplayTextId" />
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                  <o>
+                                    <v n="Flags">16L</v>
+                                    <v n="BasicTypeNodeValue">""</v>
+                                    <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                    <n n="BasicTypeNodeFastAccess" />
+                                    <a n="BasicTypeNodeEnumValues" et="String" />
+                                    <n n="EnumValueDisplayTextIds" />
+                                    <n n="EnumValueVisibilityAttributeValues" />
+                                    <n n="EnumValueLibraryId" />
+                                    <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                    <l n="TypeNodeChildren" t="ArrayList" />
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">String</v>
+                                      <v n="QualifiedName">"STRING"</v>
+                                      <v n="Name">"STRING"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"sImageId"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">8606777344UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> The id of the image which should be displayed</v>
+                                        <v>ieccodeconversion_useforgettersetter</v>
+                                        <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.ImageID</v>
+                                        <v>Category</v>
+                                        <v>Simple|Standard</v>
+                                        <v>ImageIdNode</v>
+                                        <v></v>
+                                        <v>EditorType</v>
+                                        <v>Image</v>
+                                      </d>
+                                      <v n="ConvDone">false</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">4</v>
+                                    <v n="TypeNodeIdLong">1221198932L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                </l>
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">Userdef</v>
+                                  <v n="QualifiedName">"VisuStructTab"</v>
+                                  <v n="Name">"VisuStructTab"</v>
+                                </o>
+                                <v n="TypeNodeName">"[1]"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">1UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> This structure represents an internationalized text in the title of a column</v>
+                                    <v>ieccodeconversion_creategenericsetterexplicitely</v>
+                                    <v></v>
+                                    <v>conditionalshow</v>
+                                    <v>visu_coredev</v>
+                                    <v>I18n</v>
+                                    <v></v>
+                                    <v>Visible</v>
+                                    <v>False</v>
+                                    <v>ieccodeconversion_createarrayfactorymethod</v>
+                                    <v></v>
+                                    <v>ProvideDeleteButton</v>
+                                    <v></v>
+                                  </d>
+                                  <v n="ConvDone">true</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">1</v>
+                                <v n="TypeNodeIdLong">3727019733L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <n n="DisplayTextId" />
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                              <o>
+                                <v n="StructuredTypeNodeIsAnimation">false</v>
+                                <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
+                                  <o>
+                                    <v n="Flags">16L</v>
+                                    <n n="BasicTypeNodeValue" />
+                                    <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                    <n n="BasicTypeNodeFastAccess" />
+                                    <a n="BasicTypeNodeEnumValues" et="String" />
+                                    <n n="EnumValueDisplayTextIds" />
+                                    <n n="EnumValueVisibilityAttributeValues" />
+                                    <n n="EnumValueLibraryId" />
+                                    <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                    <l n="TypeNodeChildren" t="ArrayList" />
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">String</v>
+                                      <v n="QualifiedName">"STRING"</v>
+                                      <v n="Name">"STRING"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"pstTabTitle"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">32UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>StringSize</v>
+                                        <v>80</v>
+                                        <v>I18nText</v>
+                                        <v></v>
+                                        <v>ieccodeconversion_useforgettersetter</v>
+                                        <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.Heading</v>
+                                        <v>ieccodeconversion_character_array</v>
+                                        <v></v>
+                                        <v>AllocateText</v>
+                                        <v></v>
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> The text, the user entered resp. can modify. Therefore this is the
+ only visible member of the structure</v>
+                                        <v>DirectlyAssignable</v>
+                                        <v></v>
+                                        <v>Visu_TypeString</v>
+                                        <v></v>
+                                        <v>ieccodeconversion_gettersetter_norecursion</v>
+                                        <v></v>
+                                      </d>
+                                      <v n="ConvDone">false</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">2</v>
+                                    <v n="TypeNodeIdLong">1871885848L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                  <o>
+                                    <v n="Flags">16L</v>
+                                    <n n="BasicTypeNodeValue" />
+                                    <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                    <n n="BasicTypeNodeFastAccess" />
+                                    <a n="BasicTypeNodeEnumValues" et="String" />
+                                    <n n="EnumValueDisplayTextIds" />
+                                    <n n="EnumValueVisibilityAttributeValues" />
+                                    <n n="EnumValueLibraryId" />
+                                    <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                    <l n="TypeNodeChildren" t="ArrayList" />
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">String</v>
+                                      <v n="QualifiedName">"STRING"</v>
+                                      <v n="Name">"STRING"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"sTextId"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">1UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>ieccodeconversion_useforgettersetter</v>
+                                        <v></v>
+                                        <v>I18nId</v>
+                                        <v></v>
+                                        <v>Visible</v>
+                                        <v>False</v>
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> The id of the text, needed for internationalisation</v>
+                                      </d>
+                                      <v n="ConvDone">false</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">3</v>
+                                    <v n="TypeNodeIdLong">1556659333L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <n n="DisplayTextId" />
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                  <o>
+                                    <v n="Flags">16L</v>
+                                    <n n="BasicTypeNodeValue" />
+                                    <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                    <n n="BasicTypeNodeFastAccess" />
+                                    <a n="BasicTypeNodeEnumValues" et="String" />
+                                    <n n="EnumValueDisplayTextIds" />
+                                    <n n="EnumValueVisibilityAttributeValues" />
+                                    <n n="EnumValueLibraryId" />
+                                    <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                    <l n="TypeNodeChildren" t="ArrayList" />
+                                    <o n="TypeNodeType" t="TypeNodeType">
+                                      <v n="TypeClass" t="TypeClass">String</v>
+                                      <v n="QualifiedName">"STRING"</v>
+                                      <v n="Name">"STRING"</v>
+                                    </o>
+                                    <v n="TypeNodeName">"sImageId"</v>
+                                    <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                      <v n="AttrFlags">8606777344UL</v>
+                                      <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                        <v>''DOCU__COMMENT</v>
+                                        <v> The id of the image which should be displayed</v>
+                                        <v>ieccodeconversion_useforgettersetter</v>
+                                        <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.ImageID</v>
+                                        <v>Category</v>
+                                        <v>Simple|Standard</v>
+                                        <v>ImageIdNode</v>
+                                        <v></v>
+                                        <v>EditorType</v>
+                                        <v>Image</v>
+                                      </d>
+                                      <v n="ConvDone">false</v>
+                                    </o>
+                                    <v n="TypeNodeId" t="Int16">4</v>
+                                    <v n="TypeNodeIdLong">3509084757L</v>
+                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
+                                    <n n="DescriptionTextID" />
+                                    <v n="DescriptionUseParent">false</v>
+                                  </o>
+                                </l>
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">Userdef</v>
+                                  <v n="QualifiedName">"VisuStructTab"</v>
+                                  <v n="Name">"VisuStructTab"</v>
+                                </o>
+                                <v n="TypeNodeName">"[2]"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">1UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> This structure represents an internationalized text in the title of a column</v>
+                                    <v>ieccodeconversion_creategenericsetterexplicitely</v>
+                                    <v></v>
+                                    <v>conditionalshow</v>
+                                    <v>visu_coredev</v>
+                                    <v>I18n</v>
+                                    <v></v>
+                                    <v>Visible</v>
+                                    <v>False</v>
+                                    <v>ieccodeconversion_createarrayfactorymethod</v>
+                                    <v></v>
+                                    <v>ProvideDeleteButton</v>
+                                    <v></v>
+                                  </d>
+                                  <v n="ConvDone">true</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">1</v>
+                                <v n="TypeNodeIdLong">1959430993L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <n n="DisplayTextId" />
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                            </l>
+                            <o n="TypeNodeType" t="TypeNodeType">
+                              <v n="TypeClass" t="TypeClass">Userdef</v>
+                              <v n="QualifiedName">"VisuStructTab"</v>
+                              <v n="Name">"VisuStructTab"</v>
+                            </o>
+                            <v n="TypeNodeName">"Tabs"</v>
+                            <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                              <v n="AttrFlags">0UL</v>
+                              <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                <v>DisplayTextId</v>
+                                <v>TL_ElementProperties.Tabs</v>
+                                <v>DefaultArraySize</v>
+                                <v>100</v>
+                                <v>''DOCU__COMMENT</v>
+                                <v> Points to an array, that containts the configuration of each tab</v>
+                              </d>
+                              <v n="ConvDone">true</v>
+                            </o>
+                            <v n="TypeNodeId" t="Int16">2</v>
+                            <v n="TypeNodeIdLong">2837776246L</v>
+                            <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                            <v n="DisplayTextId">"TL_ElementProperties.Tabs"</v>
+                            <n n="DescriptionTextID" />
+                            <v n="DescriptionUseParent">false</v>
+                          </o>
+                          <o t="BasicTypeNode">
+                            <v n="Flags">0L</v>
+                            <v n="BasicTypeNodeValue" t="Int16">3</v>
+                            <v n="BasicTypeNodeAcceptsExpression">false</v>
+                            <n n="BasicTypeNodeFastAccess" />
+                            <a n="BasicTypeNodeEnumValues" et="String" />
+                            <n n="EnumValueDisplayTextIds" />
+                            <n n="EnumValueVisibilityAttributeValues" />
+                            <n n="EnumValueLibraryId" />
+                            <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                            <l n="TypeNodeChildren" t="ArrayList" />
+                            <o n="TypeNodeType" t="TypeNodeType">
+                              <v n="TypeClass" t="TypeClass">Int</v>
+                              <v n="QualifiedName">"INT"</v>
+                              <v n="Name">"INT"</v>
+                            </o>
+                            <v n="TypeNodeName">"iColumnCount"</v>
+                            <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                              <v n="AttrFlags">1UL</v>
+                              <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                <v>Visible</v>
+                                <v>False</v>
+                                <v>''DOCU__COMMENT</v>
+                                <v> This variable holds the current number of tabs in the variable "Tabs"</v>
+                              </d>
+                              <v n="ConvDone">true</v>
+                            </o>
+                            <v n="TypeNodeId" t="Int16">3</v>
+                            <v n="TypeNodeIdLong">2349357054L</v>
+                            <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                            <n n="DisplayTextId" />
+                            <n n="DescriptionTextID" />
+                            <v n="DescriptionUseParent">false</v>
+                          </o>
+                        </l>
+                        <o n="TypeNodeType" t="TypeNodeType">
+                          <v n="TypeClass" t="TypeClass">Userdef</v>
+                          <v n="QualifiedName">"VisuStructTabs"</v>
+                          <v n="Name">"VisuStructTabs"</v>
+                        </o>
+                        <v n="TypeNodeName">"Tabs"</v>
+                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                          <v n="AttrFlags">1392641UL</v>
+                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                            <v>DisplayValue</v>
+                            <v></v>
+                            <v>''DOCU__COMMENT</v>
+                            <v> This structure contains the definition of the table columns.</v>
+                            <v>ProvideInsertButton</v>
+                            <v></v>
+                            <v>DisplayTextId</v>
+                            <v>TL_ElementProperties.Tabs</v>
+                            <v>Category</v>
+                            <v>Simple|Standard</v>
+                            <v>''NORMAL__COMMENT</v>
+                            <v> the node for this element in the property view should have no value, i.e. ''</v>
+                            <v>Editable</v>
+                            <v>False</v>
+                            <v>conditionalshow</v>
+                            <v>visu_coredev</v>
+                            <v>DynamicArray</v>
+                            <v></v>
+                            <v>Visible</v>
+                            <v>False</v>
+                            <v>VisibleChildren</v>
+                            <v>False</v>
+                            <v>Storable</v>
+                            <v>True</v>
+                          </d>
+                          <v n="ConvDone">true</v>
+                        </o>
+                        <v n="TypeNodeId" t="Int16">1</v>
+                        <v n="TypeNodeIdLong">3002715997L</v>
+                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                        <v n="DisplayTextId">"TL_ElementProperties.Tabs"</v>
+                        <n n="DescriptionTextID" />
+                        <v n="DescriptionUseParent">false</v>
+                      </o>
+                    </o>
+                    <o>
+                      <v n="Id">493260384L</v>
+                      <v n="Value">4294967295U</v>
+                    </o>
+                    <o>
+                      <v n="Id">135947015L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">2678395525L</v>
+                      <v n="Value">1U</v>
+                    </o>
+                    <o>
+                      <v n="Id">2340015797L</v>
+                      <v n="Value">"HCENTER"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2565699834L</v>
+                      <v n="Value">"VCENTER"</v>
+                    </o>
+                    <o>
+                      <v n="Id">390574330L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">571893170L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">2597686782L</v>
+                      <v n="Value">false</v>
+                    </o>
+                    <o>
+                      <v n="Id">3549563837L</v>
+                      <v n="Value">"FIXED"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2398909109L</v>
+                      <v n="Value">"Single Axis"</v>
+                    </o>
+                    <o>
+                      <v n="Id">1480420536L</v>
+                      <v n="Value">"88"</v>
+                    </o>
+                    <o>
+                      <v n="Id">334730179L</v>
+                      <v n="Value">"Slit Set"</v>
+                    </o>
+                    <o>
+                      <v n="Id">3086944134L</v>
+                      <v n="Value">"89"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2455048015L</v>
+                      <v n="Value">true</v>
+                    </o>
+                    <o>
+                      <v n="Id">2302991252L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">1221198932L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">2473092364L</v>
+                      <o n="Value" t="VisualizationNode">
+                        <v n="VisuNodeReferenceGuid">{00000000-0000-0000-0000-000000000000}</v>
+                        <n n="VisuNodeReference" />
+                        <v n="VisNodeRefs33">"Visualization"</v>
+                        <l n="TypeNodeChildren" t="ArrayList" cet="StructuredTypeNode">
+                          <o>
+                            <v n="StructuredTypeNodeIsAnimation">false</v>
+                            <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
+                              <o>
+                                <v n="Flags">16L</v>
+                                <v n="BasicTypeNodeValue">"Single Axis"</v>
+                                <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                <n n="BasicTypeNodeFastAccess" />
+                                <a n="BasicTypeNodeEnumValues" et="String" />
+                                <n n="EnumValueDisplayTextIds" />
+                                <n n="EnumValueVisibilityAttributeValues" />
+                                <n n="EnumValueLibraryId" />
+                                <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                <l n="TypeNodeChildren" t="ArrayList" />
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">String</v>
+                                  <v n="QualifiedName">"STRING"</v>
+                                  <v n="Name">"STRING"</v>
+                                </o>
+                                <v n="TypeNodeName">"pstTabTitle"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">32UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>StringSize</v>
+                                    <v>80</v>
+                                    <v>I18nText</v>
+                                    <v></v>
+                                    <v>ieccodeconversion_useforgettersetter</v>
+                                    <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.Heading</v>
+                                    <v>ieccodeconversion_character_array</v>
+                                    <v></v>
+                                    <v>AllocateText</v>
+                                    <v></v>
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> The text, the user entered resp. can modify. Therefore this is the
+ only visible member of the structure</v>
+                                    <v>DirectlyAssignable</v>
+                                    <v></v>
+                                    <v>Visu_TypeString</v>
+                                    <v></v>
+                                    <v>ieccodeconversion_gettersetter_norecursion</v>
+                                    <v></v>
+                                  </d>
+                                  <v n="ConvDone">false</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">2</v>
+                                <v n="TypeNodeIdLong">2398909109L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                              <o>
+                                <v n="Flags">16L</v>
+                                <v n="BasicTypeNodeValue">"88"</v>
+                                <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                <n n="BasicTypeNodeFastAccess" />
+                                <a n="BasicTypeNodeEnumValues" et="String" />
+                                <n n="EnumValueDisplayTextIds" />
+                                <n n="EnumValueVisibilityAttributeValues" />
+                                <n n="EnumValueLibraryId" />
+                                <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                <l n="TypeNodeChildren" t="ArrayList" />
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">String</v>
+                                  <v n="QualifiedName">"STRING"</v>
+                                  <v n="Name">"STRING"</v>
+                                </o>
+                                <v n="TypeNodeName">"sTextId"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">1UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>ieccodeconversion_useforgettersetter</v>
+                                    <v></v>
+                                    <v>I18nId</v>
+                                    <v></v>
+                                    <v>Visible</v>
+                                    <v>False</v>
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> The id of the text, needed for internationalisation</v>
+                                  </d>
+                                  <v n="ConvDone">false</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">3</v>
+                                <v n="TypeNodeIdLong">1480420536L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <n n="DisplayTextId" />
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                              <o>
+                                <v n="Flags">16L</v>
+                                <v n="BasicTypeNodeValue">""</v>
+                                <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                <n n="BasicTypeNodeFastAccess" />
+                                <a n="BasicTypeNodeEnumValues" et="String" />
+                                <n n="EnumValueDisplayTextIds" />
+                                <n n="EnumValueVisibilityAttributeValues" />
+                                <n n="EnumValueLibraryId" />
+                                <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                <l n="TypeNodeChildren" t="ArrayList" />
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">String</v>
+                                  <v n="QualifiedName">"STRING"</v>
+                                  <v n="Name">"STRING"</v>
+                                </o>
+                                <v n="TypeNodeName">"sImageId"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">8606777344UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> The id of the image which should be displayed</v>
+                                    <v>ieccodeconversion_useforgettersetter</v>
+                                    <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.ImageID</v>
+                                    <v>Category</v>
+                                    <v>Simple|Standard</v>
+                                    <v>ImageIdNode</v>
+                                    <v></v>
+                                    <v>EditorType</v>
+                                    <v>Image</v>
+                                  </d>
+                                  <v n="ConvDone">false</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">4</v>
+                                <v n="TypeNodeIdLong">2302991252L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                            </l>
+                            <o n="TypeNodeType" t="TypeNodeType">
+                              <v n="TypeClass" t="TypeClass">Userdef</v>
+                              <v n="QualifiedName">"VisuStructTab"</v>
+                              <v n="Name">"VisuStructTab"</v>
+                            </o>
+                            <v n="TypeNodeName">"[0]"</v>
+                            <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                              <v n="AttrFlags">1UL</v>
+                              <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                <v>''DOCU__COMMENT</v>
+                                <v> This structure represents an internationalized text in the title of a column</v>
+                                <v>ieccodeconversion_creategenericsetterexplicitely</v>
+                                <v></v>
+                                <v>conditionalshow</v>
+                                <v>visu_coredev</v>
+                                <v>I18n</v>
+                                <v></v>
+                                <v>Visible</v>
+                                <v>False</v>
+                                <v>ieccodeconversion_createarrayfactorymethod</v>
+                                <v></v>
+                                <v>ProvideDeleteButton</v>
+                                <v></v>
+                              </d>
+                              <v n="ConvDone">true</v>
+                            </o>
+                            <v n="TypeNodeId" t="Int16">1</v>
+                            <v n="TypeNodeIdLong">187975896L</v>
+                            <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                            <n n="DisplayTextId" />
+                            <n n="DescriptionTextID" />
+                            <v n="DescriptionUseParent">false</v>
+                          </o>
+                        </l>
+                        <o n="TypeNodeType" t="TypeNodeType">
+                          <v n="TypeClass" t="TypeClass">Userdef</v>
+                          <v n="QualifiedName">"IVisualisation"</v>
+                          <v n="Name">"IVisualisation"</v>
+                        </o>
+                        <v n="TypeNodeName">"[0]"</v>
+                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                          <v n="AttrFlags">0UL</v>
+                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                            <v>ieccodeconversion_useexistinginterface</v>
+                            <v>_3S.CoDeSys.VisuGenerated.IVisualisationIEC</v>
+                            <v>conditionalshow</v>
+                            <v>visu_elemdev</v>
+                            <v>''NORMAL__COMMENT</v>
+                            <v> interface contains additional methods to IVisualElement</v>
+                          </d>
+                          <v n="ConvDone">true</v>
+                        </o>
+                        <v n="TypeNodeId" t="Int16">1</v>
+                        <v n="TypeNodeIdLong">2473092364L</v>
+                        <n n="LibraryId" />
+                        <n n="DisplayTextId" />
+                        <n n="DescriptionTextID" />
+                        <v n="DescriptionUseParent">false</v>
+                      </o>
+                    </o>
+                    <o>
+                      <v n="Id">2322814029L</v>
+                      <o n="Value" t="VisualizationNode">
+                        <v n="VisuNodeReferenceGuid">{00000000-0000-0000-0000-000000000000}</v>
+                        <n n="VisuNodeReference" />
+                        <v n="VisNodeRefs33">"SlitSet"</v>
+                        <l n="TypeNodeChildren" t="ArrayList" cet="StructuredTypeNode">
+                          <o>
+                            <v n="StructuredTypeNodeIsAnimation">false</v>
+                            <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
+                              <o>
+                                <v n="Flags">16L</v>
+                                <v n="BasicTypeNodeValue">"Slit Set"</v>
+                                <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                <n n="BasicTypeNodeFastAccess" />
+                                <a n="BasicTypeNodeEnumValues" et="String" />
+                                <n n="EnumValueDisplayTextIds" />
+                                <n n="EnumValueVisibilityAttributeValues" />
+                                <n n="EnumValueLibraryId" />
+                                <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                <l n="TypeNodeChildren" t="ArrayList" />
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">String</v>
+                                  <v n="QualifiedName">"STRING"</v>
+                                  <v n="Name">"STRING"</v>
+                                </o>
+                                <v n="TypeNodeName">"pstTabTitle"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">32UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>StringSize</v>
+                                    <v>80</v>
+                                    <v>I18nText</v>
+                                    <v></v>
+                                    <v>ieccodeconversion_useforgettersetter</v>
+                                    <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.Heading</v>
+                                    <v>ieccodeconversion_character_array</v>
+                                    <v></v>
+                                    <v>AllocateText</v>
+                                    <v></v>
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> The text, the user entered resp. can modify. Therefore this is the
+ only visible member of the structure</v>
+                                    <v>DirectlyAssignable</v>
+                                    <v></v>
+                                    <v>Visu_TypeString</v>
+                                    <v></v>
+                                    <v>ieccodeconversion_gettersetter_norecursion</v>
+                                    <v></v>
+                                  </d>
+                                  <v n="ConvDone">false</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">2</v>
+                                <v n="TypeNodeIdLong">334730179L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                              <o>
+                                <v n="Flags">16L</v>
+                                <v n="BasicTypeNodeValue">"89"</v>
+                                <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                <n n="BasicTypeNodeFastAccess" />
+                                <a n="BasicTypeNodeEnumValues" et="String" />
+                                <n n="EnumValueDisplayTextIds" />
+                                <n n="EnumValueVisibilityAttributeValues" />
+                                <n n="EnumValueLibraryId" />
+                                <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                <l n="TypeNodeChildren" t="ArrayList" />
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">String</v>
+                                  <v n="QualifiedName">"STRING"</v>
+                                  <v n="Name">"STRING"</v>
+                                </o>
+                                <v n="TypeNodeName">"sTextId"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">1UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>ieccodeconversion_useforgettersetter</v>
+                                    <v></v>
+                                    <v>I18nId</v>
+                                    <v></v>
+                                    <v>Visible</v>
+                                    <v>False</v>
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> The id of the text, needed for internationalisation</v>
+                                  </d>
+                                  <v n="ConvDone">false</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">3</v>
+                                <v n="TypeNodeIdLong">3086944134L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <n n="DisplayTextId" />
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                              <o>
+                                <v n="Flags">16L</v>
+                                <v n="BasicTypeNodeValue">""</v>
+                                <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                <n n="BasicTypeNodeFastAccess" />
+                                <a n="BasicTypeNodeEnumValues" et="String" />
+                                <n n="EnumValueDisplayTextIds" />
+                                <n n="EnumValueVisibilityAttributeValues" />
+                                <n n="EnumValueLibraryId" />
+                                <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                <l n="TypeNodeChildren" t="ArrayList" />
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">String</v>
+                                  <v n="QualifiedName">"STRING"</v>
+                                  <v n="Name">"STRING"</v>
+                                </o>
+                                <v n="TypeNodeName">"sImageId"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">8606777344UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> The id of the image which should be displayed</v>
+                                    <v>ieccodeconversion_useforgettersetter</v>
+                                    <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.ImageID</v>
+                                    <v>Category</v>
+                                    <v>Simple|Standard</v>
+                                    <v>ImageIdNode</v>
+                                    <v></v>
+                                    <v>EditorType</v>
+                                    <v>Image</v>
+                                  </d>
+                                  <v n="ConvDone">false</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">4</v>
+                                <v n="TypeNodeIdLong">1221198932L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                            </l>
+                            <o n="TypeNodeType" t="TypeNodeType">
+                              <v n="TypeClass" t="TypeClass">Userdef</v>
+                              <v n="QualifiedName">"VisuStructTab"</v>
+                              <v n="Name">"VisuStructTab"</v>
+                            </o>
+                            <v n="TypeNodeName">"[1]"</v>
+                            <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                              <v n="AttrFlags">1UL</v>
+                              <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                <v>''DOCU__COMMENT</v>
+                                <v> This structure represents an internationalized text in the title of a column</v>
+                                <v>ieccodeconversion_creategenericsetterexplicitely</v>
+                                <v></v>
+                                <v>conditionalshow</v>
+                                <v>visu_coredev</v>
+                                <v>I18n</v>
+                                <v></v>
+                                <v>Visible</v>
+                                <v>False</v>
+                                <v>ieccodeconversion_createarrayfactorymethod</v>
+                                <v></v>
+                                <v>ProvideDeleteButton</v>
+                                <v></v>
+                              </d>
+                              <v n="ConvDone">true</v>
+                            </o>
+                            <v n="TypeNodeId" t="Int16">1</v>
+                            <v n="TypeNodeIdLong">3648236092L</v>
+                            <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                            <n n="DisplayTextId" />
+                            <n n="DescriptionTextID" />
+                            <v n="DescriptionUseParent">false</v>
+                          </o>
+                        </l>
+                        <o n="TypeNodeType" t="TypeNodeType">
+                          <v n="TypeClass" t="TypeClass">Userdef</v>
+                          <v n="QualifiedName">"IVisualisation"</v>
+                          <v n="Name">"IVisualisation"</v>
+                        </o>
+                        <v n="TypeNodeName">"[1]"</v>
+                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                          <v n="AttrFlags">0UL</v>
+                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                            <v>ieccodeconversion_useexistinginterface</v>
+                            <v>_3S.CoDeSys.VisuGenerated.IVisualisationIEC</v>
+                            <v>conditionalshow</v>
+                            <v>visu_elemdev</v>
+                            <v>''NORMAL__COMMENT</v>
+                            <v> interface contains additional methods to IVisualElement</v>
+                          </d>
+                          <v n="ConvDone">true</v>
+                        </o>
+                        <v n="TypeNodeId" t="Int16">1</v>
+                        <v n="TypeNodeIdLong">2322814029L</v>
+                        <n n="LibraryId" />
+                        <n n="DisplayTextId" />
+                        <n n="DescriptionTextID" />
+                        <v n="DescriptionUseParent">false</v>
+                      </o>
+                    </o>
+                    <o>
+                      <v n="Id">2707294094L</v>
+                      <o n="Value" t="VisualizationNode">
+                        <v n="VisuNodeReferenceGuid">{00000000-0000-0000-0000-000000000000}</v>
+                        <n n="VisuNodeReference" />
+                        <v n="VisNodeRefs33">"IO"</v>
+                        <l n="TypeNodeChildren" t="ArrayList" cet="StructuredTypeNode">
+                          <o>
+                            <v n="StructuredTypeNodeIsAnimation">false</v>
+                            <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
+                              <o>
+                                <v n="Flags">16L</v>
+                                <v n="BasicTypeNodeValue">"I/O"</v>
+                                <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                <n n="BasicTypeNodeFastAccess" />
+                                <a n="BasicTypeNodeEnumValues" et="String" />
+                                <n n="EnumValueDisplayTextIds" />
+                                <n n="EnumValueVisibilityAttributeValues" />
+                                <n n="EnumValueLibraryId" />
+                                <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                <l n="TypeNodeChildren" t="ArrayList" />
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">String</v>
+                                  <v n="QualifiedName">"STRING"</v>
+                                  <v n="Name">"STRING"</v>
+                                </o>
+                                <v n="TypeNodeName">"pstTabTitle"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">32UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>StringSize</v>
+                                    <v>80</v>
+                                    <v>I18nText</v>
+                                    <v></v>
+                                    <v>ieccodeconversion_useforgettersetter</v>
+                                    <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.Heading</v>
+                                    <v>ieccodeconversion_character_array</v>
+                                    <v></v>
+                                    <v>AllocateText</v>
+                                    <v></v>
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> The text, the user entered resp. can modify. Therefore this is the
+ only visible member of the structure</v>
+                                    <v>DirectlyAssignable</v>
+                                    <v></v>
+                                    <v>Visu_TypeString</v>
+                                    <v></v>
+                                    <v>ieccodeconversion_gettersetter_norecursion</v>
+                                    <v></v>
+                                  </d>
+                                  <v n="ConvDone">false</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">2</v>
+                                <v n="TypeNodeIdLong">1871885848L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                              <o>
+                                <v n="Flags">16L</v>
+                                <v n="BasicTypeNodeValue">"95"</v>
+                                <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                <n n="BasicTypeNodeFastAccess" />
+                                <a n="BasicTypeNodeEnumValues" et="String" />
+                                <n n="EnumValueDisplayTextIds" />
+                                <n n="EnumValueVisibilityAttributeValues" />
+                                <n n="EnumValueLibraryId" />
+                                <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                <l n="TypeNodeChildren" t="ArrayList" />
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">String</v>
+                                  <v n="QualifiedName">"STRING"</v>
+                                  <v n="Name">"STRING"</v>
+                                </o>
+                                <v n="TypeNodeName">"sTextId"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">1UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>ieccodeconversion_useforgettersetter</v>
+                                    <v></v>
+                                    <v>I18nId</v>
+                                    <v></v>
+                                    <v>Visible</v>
+                                    <v>False</v>
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> The id of the text, needed for internationalisation</v>
+                                  </d>
+                                  <v n="ConvDone">false</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">3</v>
+                                <v n="TypeNodeIdLong">1556659333L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <n n="DisplayTextId" />
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                              <o>
+                                <v n="Flags">16L</v>
+                                <n n="BasicTypeNodeValue" />
+                                <v n="BasicTypeNodeAcceptsExpression">false</v>
+                                <n n="BasicTypeNodeFastAccess" />
+                                <a n="BasicTypeNodeEnumValues" et="String" />
+                                <n n="EnumValueDisplayTextIds" />
+                                <n n="EnumValueVisibilityAttributeValues" />
+                                <n n="EnumValueLibraryId" />
+                                <n n="DynamicEnumMemberVisibilityCheckerTypeGuid" />
+                                <l n="TypeNodeChildren" t="ArrayList" />
+                                <o n="TypeNodeType" t="TypeNodeType">
+                                  <v n="TypeClass" t="TypeClass">String</v>
+                                  <v n="QualifiedName">"STRING"</v>
+                                  <v n="Name">"STRING"</v>
+                                </o>
+                                <v n="TypeNodeName">"sImageId"</v>
+                                <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                                  <v n="AttrFlags">8606777344UL</v>
+                                  <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                    <v>''DOCU__COMMENT</v>
+                                    <v> The id of the image which should be displayed</v>
+                                    <v>ieccodeconversion_useforgettersetter</v>
+                                    <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.ImageID</v>
+                                    <v>Category</v>
+                                    <v>Simple|Standard</v>
+                                    <v>ImageIdNode</v>
+                                    <v></v>
+                                    <v>EditorType</v>
+                                    <v>Image</v>
+                                  </d>
+                                  <v n="ConvDone">false</v>
+                                </o>
+                                <v n="TypeNodeId" t="Int16">4</v>
+                                <v n="TypeNodeIdLong">3509084757L</v>
+                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
+                                <n n="DescriptionTextID" />
+                                <v n="DescriptionUseParent">false</v>
+                              </o>
+                            </l>
+                            <o n="TypeNodeType" t="TypeNodeType">
+                              <v n="TypeClass" t="TypeClass">Userdef</v>
+                              <v n="QualifiedName">"VisuStructTab"</v>
+                              <v n="Name">"VisuStructTab"</v>
+                            </o>
+                            <v n="TypeNodeName">"[2]"</v>
+                            <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                              <v n="AttrFlags">1UL</v>
+                              <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                                <v>''DOCU__COMMENT</v>
+                                <v> This structure represents an internationalized text in the title of a column</v>
+                                <v>ieccodeconversion_creategenericsetterexplicitely</v>
+                                <v></v>
+                                <v>conditionalshow</v>
+                                <v>visu_coredev</v>
+                                <v>I18n</v>
+                                <v></v>
+                                <v>Visible</v>
+                                <v>False</v>
+                                <v>ieccodeconversion_createarrayfactorymethod</v>
+                                <v></v>
+                                <v>ProvideDeleteButton</v>
+                                <v></v>
+                              </d>
+                              <v n="ConvDone">true</v>
+                            </o>
+                            <v n="TypeNodeId" t="Int16">1</v>
+                            <v n="TypeNodeIdLong">1959430993L</v>
+                            <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                            <n n="DisplayTextId" />
+                            <n n="DescriptionTextID" />
+                            <v n="DescriptionUseParent">false</v>
+                          </o>
+                        </l>
+                        <o n="TypeNodeType" t="TypeNodeType">
+                          <v n="TypeClass" t="TypeClass">Userdef</v>
+                          <v n="QualifiedName">"IVisualisation"</v>
+                          <v n="Name">"IVisualisation"</v>
+                        </o>
+                        <v n="TypeNodeName">"[2]"</v>
+                        <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
+                          <v n="AttrFlags">0UL</v>
+                          <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
+                            <v>ieccodeconversion_useexistinginterface</v>
+                            <v>_3S.CoDeSys.VisuGenerated.IVisualisationIEC</v>
+                            <v>conditionalshow</v>
+                            <v>visu_elemdev</v>
+                            <v>''NORMAL__COMMENT</v>
+                            <v> interface contains additional methods to IVisualElement</v>
+                          </d>
+                          <v n="ConvDone">true</v>
+                        </o>
+                        <v n="TypeNodeId" t="Int16">1</v>
+                        <v n="TypeNodeIdLong">2707294094L</v>
+                        <n n="LibraryId" />
+                        <n n="DisplayTextId" />
+                        <n n="DescriptionTextID" />
+                        <v n="DescriptionUseParent">false</v>
+                      </o>
+                    </o>
+                    <o>
+                      <v n="Id">1871885848L</v>
+                      <v n="Value">"I/O"</v>
+                    </o>
+                    <o>
+                      <v n="Id">1556659333L</v>
+                      <v n="Value">"95"</v>
+                    </o>
+                  </l>
+                </o>
+                <v n="VisualElementName">"TabControl"</v>
+                <v n="VisualElementTypeName">"VisuFbTabControl"</v>
+                <v n="VisualElementIsRectangle">true</v>
+                <v n="VisualElementIdentifier">"GenElemInst_1"</v>
+                <n n="VisualElementOfflinePaintCommands" />
+                <o n="VisualElementFrameInformation" t="VisualFrameInfo">
+                  <l n="ContainedGuids" t="ArrayList" />
+                  <l n="ContainedVisualizations" t="ArrayList" />
+                  <a n="ContainedVisualizations33" cet="String">
+                    <v>Visualization</v>
+                    <v>SlitSet</v>
+                    <v>IO</v>
+                  </a>
+                </o>
+                <d n="VisualElementInputActions" t="Hashtable" />
+                <v n="VisualElementIdentification">{ea98edf3-8257-4fc3-8842-a61486681227}</v>
+                <v n="VisualElementOwningObjectGuid">{0c75beb7-bbc6-400e-b853-9d5a64f7c839}</v>
+                <a n="LMGuids" et="Guid" />
+                <d n="SubElements" t="Hashtable" />
+                <v n="VisualElementId">0</v>
+                <l n="UserManagementAccessRights" t="ArrayList" />
+              </o>
+            </l>
+            <v n="BackgroundBitmapId">""</v>
+            <v n="BackgroundColor">16777215</v>
+            <o n="Background" t="BackgroundSettings">
+              <n n="BgGradient" />
+              <a n="BgNamedColor" et="Object">
+                <v>-2830136</v>
+                <v>"Element-Frame-Color"</v>
+                <v>"Elementframecolor"</v>
+              </a>
+              <v n="BgBmpId">""</v>
+              <v n="BgUseBmp">false</v>
+              <v n="BgColor">true</v>
+              <v n="BgUseColor">-2830136</v>
+              <v n="BgUseGradient">false</v>
+            </o>
+          </o>
+          <o n="GeneratedLMMDescriptions" t="GeneratedLanguageModelEntriesData">
+            <o n="GeneratedVisuFbDescription" t="GenericFbDescription">
+              <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
+                <v>HasVisibilityAccess</v>
+                <v>4ceff40b-58d6-42bc-ae11-33d421b03e3b</v>
+                <v>ContainsPoint</v>
+                <v>9c351667-c4eb-4dac-b98e-d6f5546ef0aa</v>
+                <v>HasInputAccess</v>
+                <v>b820e59e-45e1-4219-a2c8-f44c573c91ec</v>
+                <v>HasInputAccessIntern</v>
+                <v>fe581fd9-ad2c-485d-8603-2031a85d1109</v>
+                <v>GetTooltip</v>
+                <v>d8320106-77f0-4677-b2ab-cdbc6fd47e00</v>
+                <v>GetDialogInterfaceSize</v>
+                <v>637221d7-2028-46f5-8472-27d0ff46d00d</v>
+                <v>GetUpdateRects</v>
+                <v>cb5d738d-223e-410f-a8b7-c25412773932</v>
+                <v>GetNamespace</v>
+                <v>9cc8bc48-63e7-471f-83ad-77fe8ad1c632</v>
+                <v>SetResult</v>
+                <v>1077a0e0-54d4-45fa-9ebe-39238e787681</v>
+                <v>GetTranslator</v>
+                <v>cd40d5fb-ba5c-4d84-91ad-50f351c379eb</v>
+                <v>Update</v>
+                <v>75d3c67d-9239-4518-b81f-88bb7d2a9ab6</v>
+                <v>SetClientData</v>
+                <v>fff1f319-fb36-4286-9410-d05778453362</v>
+                <v>HasVisibilityAccessIntern</v>
+                <v>f2dc3ca5-732b-46b8-8301-737c7f4636b2</v>
+                <v>GetInstance</v>
+                <v>bfe2f756-66dc-4ed0-8e75-60048ecf2599</v>
+                <v>GetClientData</v>
+                <v>8b6a6c38-2518-44fc-96b5-f254d8ee451c</v>
+                <v>Paint</v>
+                <v>b427a149-5576-46c3-bbf4-052a3b3b12af</v>
+                <v>GetElementArray</v>
+                <v>bd0ee799-2617-42ff-bbce-191f48c304c3</v>
+                <v>SetVisuFlagsInternal</v>
+                <v>df115bd2-6632-4b79-b210-e57d85aa59a6</v>
+                <v>GetText</v>
+                <v>12241399-f4db-437d-969c-615db7bd7c0c</v>
+                <v>GetTextProperties</v>
+                <v>c7f04a29-30d4-478f-865f-44c9b6255f36</v>
+                <v>Initialize</v>
+                <v>b9ea479d-e061-4d28-95cd-3392007f94e9</v>
+                <v>Destruct</v>
+                <v>4a87782e-ccb6-4e5f-a287-789083da08fa</v>
+                <v>SetStaticState</v>
+                <v>b53381c2-a1c1-4a0a-a0ae-73fe6d3741e9</v>
+                <v>GetSurroundingRect</v>
+                <v>359abc69-433e-4580-8400-204fb2aa6edc</v>
+                <v>GetResult</v>
+                <v>8b3f3600-dfa2-4744-9e70-bfa24faae2a2</v>
+                <v>GetLocalUsergroup</v>
+                <v>74004cb5-7649-4c42-956c-8795323ee8b9</v>
+                <v>GetName</v>
+                <v>92a6ec2f-4282-439f-a2c2-a2779f5481c7</v>
+                <v>GetSize</v>
+                <v>6d932437-9667-4c1d-a962-9258d4e54537</v>
+                <v>SetDialogInterface</v>
+                <v>1bf421f3-a8d3-43fd-81fe-89cccff7de76</v>
+                <v>FB_Reinit</v>
+                <v>fbd0cb45-7ce4-41c6-8e9c-8c559b6368a6</v>
+                <v>FB_Exit</v>
+                <v>e4827563-e0f8-45a5-a69b-e90b90913054</v>
+                <v>GetInitializeVersion</v>
+                <v>378d31bb-357e-4c64-b16e-d5b0d9c9aef2</v>
+                <v>GetDialogInterface</v>
+                <v>4be6d247-e1e3-4655-a4d8-6939ce82e948</v>
+                <v>GetElementIdArray</v>
+                <v>e9045def-1bd6-41ac-b607-4d9d26415794</v>
+                <v>HandleInput</v>
+                <v>3acdf80f-fa32-4169-baf6-7d24a7e78b2a</v>
+                <v>ElementInfo</v>
+                <v>47baa41a-e601-44bc-80cc-5d77acd1dd0c</v>
+              </d>
+              <v n="FbName">"NotImportant"</v>
+              <v n="FbGuid">{0c75beb7-bbc6-400e-b853-9d5a64f7c839}</v>
+            </o>
+            <v n="GeneratedGlobalVisuVarsGuid">{2965d9a2-4748-4bd9-b4a7-1186db8c1810}</v>
+            <v n="GeneratedGlobalTheVisuVarlistGuid">{993ab6d3-b9d2-4ca5-8a52-5101cfdd0f53}</v>
+            <v n="GeneratedGlobalVisuConstants">{847234e4-749f-41a7-8d10-64d437f934e0}</v>
+            <d n="GeneratedAllElementsEntries" t="Hashtable" />
+            <o n="VisuRegDesc" t="GenericFbDescription">
+              <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
+                <v>FB_Init</v>
+                <v>c8fa5265-b889-4729-acac-9ab72abc491e</v>
+                <v>FB_Reinit</v>
+                <v>be1f7f3f-b1bb-4f85-abe8-029e1ff72f8f</v>
+                <v>FB_Exit</v>
+                <v>8dbaf4c2-49a7-45d3-9406-c36ccde8f291</v>
+              </d>
+              <v n="FbName">"NotImportant"</v>
+              <v n="FbGuid">{1115f384-1a2b-4b97-82ee-872e55fe16e3}</v>
+            </o>
+            <v n="VisuRegisterGvl">{988eced8-530e-4c38-997e-194fbb1535bb}</v>
+            <n n="SettingsPou" />
+            <n n="MemManPou" />
+            <o n="InputsPou" t="GenericFbDescription">
+              <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
+                <v>ExecuteLooseCapture</v>
+                <v>bba2e808-8194-47b3-9fb8-76533e88d5f8</v>
+                <v>ExecuteMouseDblClick</v>
+                <v>9c89b39f-f29b-4784-ae2f-db7c59b89ee7</v>
+                <v>ExecuteMouseDown</v>
+                <v>f3675ad7-2bf8-43ba-bd79-3b1aecd7c3ff</v>
+                <v>ExecuteMouseUp</v>
+                <v>0fe76291-826a-4521-bc62-5e72117122c1</v>
+                <v>GetElementInfo</v>
+                <v>b8f8611c-d862-48dd-be0b-490622ffb208</v>
+                <v>abstrGetDefaultCursor</v>
+                <v>1b2f682b-0c8d-42d2-8dd4-12a5115eeb0a</v>
+                <v>ExecuteDialogClosed</v>
+                <v>2250be91-b27b-4d11-b440-5f2411c49695</v>
+                <v>ExecuteKeyUp</v>
+                <v>1ffdcfe3-b095-4701-994b-0d2c0fbf1b2d</v>
+                <v>ExecuteKeyDown</v>
+                <v>de03409b-cd95-4122-b07c-5d1c1e2bf1cc</v>
+                <v>ExecuteMouseMove</v>
+                <v>fa602893-11f8-498d-aceb-9f0f4324343d</v>
+                <v>Initialize</v>
+                <v>18bf9aa4-4334-4e0d-90a2-968cce4d1ea4</v>
+                <v>ExecuteMouseEnter</v>
+                <v>d6c939c1-d47f-4fb9-ac49-837e7054fda0</v>
+                <v>ExecuteMouseLeave</v>
+                <v>f9e88473-c489-4386-9ce1-811b7da885f7</v>
+                <v>ExecuteMouseClick</v>
+                <v>048b8b1a-41f3-4e17-8be5-bf994607dc44</v>
+              </d>
+              <v n="FbName">"NotImportant"</v>
+              <v n="FbGuid">{cc265b53-35d5-4a5e-81e3-e764c53f9f85}</v>
+            </o>
+            <v n="DialogDut">{d84be8db-c368-41a6-be8b-ccdf36a734fe}</v>
+          </o>
+          <v n="LastUsedIdForIdentifier">1</v>
+          <o n="TextDocument" t="TextDocument">
+            <a n="TextLines" cet="TextLine">
+              <o>
+                <v n="Id">2L</v>
+                <n n="Tag" />
+                <v n="Text">"VAR_IN_OUT"</v>
+              </o>
+              <o>
+                <v n="Id">3L</v>
+                <n n="Tag" />
+                <v n="Text">"	"</v>
+              </o>
+              <o>
+                <v n="Id">1L</v>
+                <n n="Tag" />
+                <v n="Text">"END_VAR"</v>
+              </o>
+            </a>
+          </o>
+          <v n="GvlCreated">false</v>
+          <n n="LMEntry" />
+          <v n="ProfileCompatibilityId">4140216668L</v>
+          <v n="LMVerMinor">0</v>
+          <v n="LMVerMajor">1</v>
+          <o n="Hotkeys" t="HotkeyConfiguration">
+            <v n="IdMin">481037385728L</v>
+            <v n="IdMax">549755813887L</v>
+            <v n="Id">481037385728L</v>
+            <v n="IdMask">549754765312L</v>
+            <v n="IdStep">1048576L</v>
+            <l2 n="Inputs" />
+          </o>
+        </o>
+      </Data>
+      <TypeList>
+        <Type n="ArrayList">System.Collections.ArrayList</Type>
+        <Type n="BackgroundSettings">{1038f12c-dd4b-4f96-87a3-a350fe8f3552}</Type>
+        <Type n="BasicTypeNode">{f7e1e748-ea0f-4fcb-b563-94837ee17e8d}</Type>
+        <Type n="Boolean">System.Boolean</Type>
+        <Type n="CaseInsensitiveHashtable">{02a85e84-ef2d-46fc-93f2-acb0bbff3eda}</Type>
+        <Type n="CaseInsensitiveHashtable_1">{7df88604-7ac5-4e36-91c4-55e4fdad3e68}</Type>
+        <Type n="ComplexInput">{1de566f6-72a7-494c-9353-9a418172c96e}</Type>
+        <Type n="DynamicArrayNode">{6c16f79c-dd98-4c29-b3ba-7042e3055542}</Type>
+        <Type n="GeneratedLanguageModelEntriesData">{703465dc-4679-4ff2-bcc3-c57d0a204da3}</Type>
+        <Type n="GenericFbDescription">{40d6dd8d-dfd0-493a-8e29-c9a35e1e6539}</Type>
+        <Type n="GenericVisualElem">{f86c2928-8614-4cca-824b-e819ac4d58c4}</Type>
+        <Type n="Guid">System.Guid</Type>
+        <Type n="Hashtable">System.Collections.Hashtable</Type>
+        <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
+        <Type n="Int16">System.Int16</Type>
+        <Type n="Int32">System.Int32</Type>
+        <Type n="Int64">System.Int64</Type>
+        <Type n="Object">System.Object</Type>
+        <Type n="String">System.String</Type>
+        <Type n="StructuredTypeNode">{503c5b2e-e80e-4ee7-ae00-c5b93a62b1aa}</Type>
+        <Type n="TextDocument">{f3878285-8e4f-490b-bb1b-9acbb7eb04db}</Type>
+        <Type n="TextLine">{a5de0b0b-1cb5-4913-ac21-9d70293ec00d}</Type>
+        <Type n="TypeClass">{16f7aa24-038f-444e-9d81-b001bc091d35}</Type>
+        <Type n="TypeNodeAttributes2">{c1464dbe-c10d-4717-be8f-63efe8638434}</Type>
+        <Type n="TypeNodeType">{b12a9636-e818-4598-ae0d-fb6a2446102c}</Type>
+        <Type n="UInt32">System.UInt32</Type>
+        <Type n="UInt64">System.UInt64</Type>
+        <Type n="VisualElemCollection">{ef9d0b20-c96e-48db-b361-2ded4063150e}</Type>
+        <Type n="VisualElemList">{f285c9a3-7019-446b-b98c-ccec3a0af8fa}</Type>
+        <Type n="VisualElemMember">{c694e3a2-5c0b-4177-ab35-cb06bd5a6a02}</Type>
+        <Type n="VisualElemMemberCollection">{a4b83bea-3742-489c-9fe8-d96d68dba7ab}</Type>
+        <Type n="VisualElemMemberList">{17e26cd1-bb9b-47fe-a3d5-18fcd63b9c96}</Type>
+        <Type n="VisualFrameInfo">{7fd6515d-f891-4717-b53f-b14197c6706c}</Type>
+        <Type n="VisualizationNode">{f8db32ff-bdd5-49e9-9014-6d9a6dea5d8c}</Type>
+        <Type n="VisualObject">{f18bec89-9fef-401d-9953-2f11739a6808}</Type>
+      </TypeList>
+    </XmlArchive>
+  </Visu>
+</TcPlcObject>

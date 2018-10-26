@@ -8,7 +8,7 @@ TYPE limitCoupling :
 	None,
 	FwSw,
 	BwSw,
-	Both
+	Both	//not implemented
 );
 END_TYPE
 ]]></Declaration>

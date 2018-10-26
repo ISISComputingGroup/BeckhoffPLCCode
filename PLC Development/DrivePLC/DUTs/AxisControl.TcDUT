@@ -22,6 +22,10 @@ STRUCT
 	fDeceleration		:	LREAL;
 	fDistance			:	LREAL;
 	fPosition			:	LREAL;
+	
+	bJogForward			:	BOOL;
+	bJogBackward		:	BOOL;
+	
 	fGearRatioNum		:	LREAL;
 	iGearRatioDen		:	UINT;
 	fGearRatio1			:	LREAL;

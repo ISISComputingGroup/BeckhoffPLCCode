@@ -6,14 +6,10 @@ VAR_GLOBAL
 	FwLimit				AT	%I*	: ARRAY[1..GVL.axisNumMax] OF BOOL;
 	BwLimit				AT  %I*	: ARRAY[1..GVL.axisNumMax] OF BOOL;
 	
-	FwLimitsCoupling2	: ARRAY [1..GVL.axisNumMax] OF ARRAY [1..GVL.axisNumMax] OF limitCoupling;
-	BwLimitsCoupling2	: ARRAY [1..GVL.axisNumMax] OF ARRAY [1..GVL.axisNumMax] OF limitCoupling;
-	
-	FwLimitsCoupling	: ARRAY [1..GVL.axisNumMax] OF ARRAY[1..GVL.axisNumMax] OF BOOL;
-	BwLimitsCoupling	: ARRAY [1..GVL.axisNumMax] OF ARRAY[1..GVL.axisNumMax] OF BOOL;
-	
-END_VAR
+	FwLimitsCoupling	: ARRAY [1..GVL.axisNumMax] OF ARRAY [1..GVL.axisNumMax] OF limitCoupling;
+	BwLimitsCoupling	: ARRAY [1..GVL.axisNumMax] OF ARRAY [1..GVL.axisNumMax] OF limitCoupling;
 
-//	axes			:	ARRAY [1..10] OF AxisControl;]]></Declaration>
+	
+END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

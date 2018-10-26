@@ -1319,8 +1319,8 @@ External Setpoint Generation:
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<General UnitName="Degree"/>
-			<Dynamic Acceleration="1000" Deceleration="1000"/>
-			<Velo RefSearch="60"/>
+			<Dynamic AccelerationMaximum="1500"/>
+			<Velo SlowManual="10" FastManual="50" Maximum="50"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="1">
@@ -1392,7 +1392,6 @@ External Setpoint Generation:
 		</Encoder>
 		<Drive Name="Drive" DrvType="5">
 			<DrvPara>
-				<Analog VeloReferenz="3600"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">

@@ -7,6 +7,16 @@ VAR
 	axes			:	ARRAY [1..10] OF AxisControl;
 	drives			:	ARRAY [1..10] OF AxDriveFB;	
 	
+	bDisableMC		:	BOOL; //boolean control if true the motion control application specific code is disabled - dumb box
+	iState			:	UINT;	//state machine index-
+
+	//Outputs that are set in the hmi and wired to power axis limit switches. Currently not confugred in any of the programme.
+	limitEnable1	AT %Q*	: BOOL;
+	limitEnable2	AT %Q*	: BOOL;	
+	i: UINT;	
+	
+	
+	//HMI VARIABLES	
 	hmiAxisSelect	:	UINT:=1;
 	//hmiAxis			:	AxisControl:=axes[hmiAxisSelect];
 	hmiMasterSelect	:	UINT:=1;
@@ -15,40 +25,281 @@ VAR
 	hmiMasterSelect3	:	UINT:=1;
 	hmiMasterSelect4	:	UINT:=1;
 	
-	
-	limitEnable1	AT %Q*	: BOOL;
-	limitEnable2	AT %Q*	: BOOL;	
-	i: INT;
+
 END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-axes[hmiAxisSelect].masterAxis:=axes[hmiMasterSelect].Axis;
-axes[hmiAxisSelect].masterAxis1:=axes[hmiMasterSelect1].Axis;
-axes[hmiAxisSelect].masterAxis2:=axes[hmiMasterSelect2].Axis;
-axes[hmiAxisSelect].masterAxis3:=axes[hmiMasterSelect3].Axis;
-axes[hmiAxisSelect].masterAxis4:=axes[hmiMasterSelect4].Axis;
+      <ST><![CDATA[//CONTROLLER CODE
+//FOR i:=1 TO GVL.axisNumMax BY 1 DO
+//	drives[i](AxisController:=axes[i]);
+//END_FOR
 
-//Going to keep the separation between these for now as you have to call drives with an axisRef anyway so that axis has to exist as a callable variable somewhere.
-FOR i:=1 TO GVL.axisNumMax BY 1 DO
-	drives[i](AxisController:=axes[i]);
+FOR GVL.iAxis:=1 TO GVL.axisNumMax BY 1 DO
+	drives[GVL.iAxis](AxisController:=axes[GVL.iAxis]);
 END_FOR
 
+CASE iState OF
+	0:	//CHECK AXIS ID's are correct. Gearing limits currently requires the assigned array index of an axis to match the NC ID.
+		//May be possible to negate this by changing axes to GVLs so that they can be seen within the drives function
+		iState:=1;
+		FOR i:=1 TO GVL.axisNumMax BY 1 DO
+			IF axes[i].Axis.NcToPlc.AxisId <> i THEN
+				iState:=999;
+			END_IF
+		END_FOR
+		
+	1:	//Gear out all axes to begin
+		FOR i:=1 TO 8 BY 1 DO
+			GearOut(i:=i);
+		END_FOR
+		iState:= 2;
+	2:	//Wait for gear out
+		IF CheckDone(iLow:=1, iHigh:=8) THEN
+			iState:=3;
+		END_IF
+	3:	//Power up axes (and set limits true as no hardware connected)
+		FOR i:=1 TO 8 BY 1 DO
+			PowerUp(i:=i);
+		END_FOR
+		iState:= 10;
+		
+	10:	//Set position of virtual gap axes based on position. In reality we would do some homing sequence of blades first then set the position
+		SlitPositions(North:=1,South:=2,East:=3,West:=4,VG:=5,VC:=6,HG:=7,HC:=8);
+		iState:=11;
+		
+	11:	//Wait for position set
+		IF CheckDone(iLow:=5,iHigh:=8) THEN
+			iState:=12;
+		END_IF		
+		
+	12:	//GEAR IN SLIT GAP AND CENTRE
+		SlitSetup(North:=1,South:=2,East:=3,West:=4,VG:=5,VC:=6,HG:=7,HC:=8);
+		iState:=13;
+	
+	13:	//WAIT FOR DONE
+		IF CheckDone(iLow:=1, iHigh:=4) THEN
+			iState:=14;
+		END_IF	
+
+	14: //ALL SETUP!	
+			IF bDisableMC THEN
+				iState:=50;
+			END_IF
+	
+	50:
+		FOR i:=1 TO 8 BY 1 DO
+			GearOut(i:=i);
+		END_FOR
+		iState:=51;
+	51:
+		IF CheckDone(iLow:=1, iHigh:=8) THEN
+			iState:=100;
+		END_IF					
+			
+	100:	//DO NOTHING
+		//Some HMI Code for multimaster gearing I would like to clear up but runs as long as Slit program not running
+		axes[hmiAxisSelect].masterAxis:=axes[hmiMasterSelect].Axis;
+		axes[hmiAxisSelect].masterAxis1:=axes[hmiMasterSelect1].Axis;
+		axes[hmiAxisSelect].masterAxis2:=axes[hmiMasterSelect2].Axis;
+		axes[hmiAxisSelect].masterAxis3:=axes[hmiMasterSelect3].Axis;
+		axes[hmiAxisSelect].masterAxis4:=axes[hmiMasterSelect4].Axis;
+		
+		IF NOT bDisableMC THEN
+			iState:=1;
+		END_IF
+	
+	999: //ERROR
+		//INOP STATE	
+END_CASE
 ]]></ST>
     </Implementation>
+    <Method Name="CheckDone" Id="{f8255e59-df7b-4af9-ada6-58c21bf850b3}">
+      <Declaration><![CDATA[METHOD CheckDone : BOOL
+VAR_INPUT
+	iLow	:	UINT;
+	iHigh	:	UINT;
+END_VAR
+
+VAR
+	i		:	UINT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CheckDone:=TRUE;
+FOR i:=iLow TO iHigh BY 1 DO
+	CheckDone:= CheckDone AND axes[i].bDone;
+END_FOR]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GearOut" Id="{c096e6fc-812d-4259-8c64-f354d37770ae}">
+      <Declaration><![CDATA[METHOD GearOut : BOOL
+VAR_INPUT
+	i	:	UINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[axes[i].eCommand:=McCommand.GearOut;
+axes[i].bExecute:=TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="PowerUp" Id="{efa4560c-311a-41aa-bbe0-0aa4eef16646}">
+      <Declaration><![CDATA[METHOD PowerUp : BOOL
+VAR_INPUT
+	i	:	UINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[axes[i].bEnable:=TRUE;
+axes[i].fOverride:=100;
+Limits.FwLimit[i]:=TRUE;	//in reality you would not set these high, this is just for testing
+Limits.BwLimit[i]:=TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SlitPositions" Id="{acef6351-9f47-442e-b66f-59c55dd95878}">
+      <Declaration><![CDATA[METHOD SlitPositions : BOOL
+VAR_INPUT
+	North	:	UINT;
+	South	:	UINT;
+	East	:	UINT;
+	West	:	UINT;
+	VG		:	UINT;
+	VC		:	UINT;
+	HG		:	UINT;
+	HC		:	UINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[axes[VG].eCommand:=McCommand.SetPosition;
+axes[VG].fPosition:=axes[North].Axis.NcToPlc.ActPos-axes[South].Axis.NcToPlc.ActPos;
+axes[VG].bExecute:=TRUE;
+
+axes[VC].eCommand:=McCommand.SetPosition;
+axes[VC].fPosition:=(axes[North].Axis.NcToPlc.ActPos+axes[South].Axis.NcToPlc.ActPos)/2;
+axes[VC].bExecute:=TRUE;
+
+axes[HG].eCommand:=McCommand.SetPosition;
+axes[HG].fPosition:=axes[East].Axis.NcToPlc.ActPos-axes[West].Axis.NcToPlc.ActPos;
+axes[HG].bExecute:=TRUE;
+
+axes[HC].eCommand:=McCommand.SetPosition;
+axes[HC].fPosition:=(axes[East].Axis.NcToPlc.ActPos+axes[West].Axis.NcToPlc.ActPos)/2;
+axes[HC].bExecute:=TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SlitSetup" Id="{9c346981-cc2d-43a8-b095-88fcece736bc}">
+      <Declaration><![CDATA[METHOD SlitSetup : BOOL
+VAR_INPUT
+	North	:	UINT;
+	South	:	UINT;
+	East	:	UINT;
+	West	:	UINT;
+	VG		:	UINT;
+	VC		:	UINT;
+	HG		:	UINT;
+	HC		:	UINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[axes[North].eCommand:= McCommand.GearInMultiMaster;
+axes[North].masterAxis1:=axes[VG].Axis;
+axes[North].masterAxis2:=axes[VC].Axis;
+axes[North].fGearRatio1:= 0.5;
+axes[North].fGearRatio2:=1;
+axes[North].bExecute:=TRUE;
+
+axes[South].eCommand:= McCommand.GearInMultiMaster;
+axes[South].masterAxis1:=axes[VG].Axis;
+axes[South].masterAxis2:=axes[VC].Axis;
+axes[South].fGearRatio1:= -0.5;
+axes[South].fGearRatio2:=1;
+axes[South].bExecute:=TRUE;
+
+axes[West].eCommand:= McCommand.GearInMultiMaster;
+axes[West].masterAxis1:=axes[HG].Axis;
+axes[West].masterAxis2:=axes[HC].Axis;
+axes[West].fGearRatio1:= -0.5;
+axes[West].fGearRatio2:=1;
+axes[West].bExecute:=TRUE;
+
+axes[East].eCommand:= McCommand.GearInMultiMaster;
+axes[East].masterAxis1:=axes[HG].Axis;
+axes[East].masterAxis2:=axes[HC].Axis;
+axes[East].fGearRatio1:= 0.5;
+axes[East].fGearRatio2:=1;
+axes[East].bExecute:=TRUE;]]></ST>
+      </Implementation>
+    </Method>
     <LineIds Name="MAIN">
-      <LineId Id="301" Count="0" />
-      <LineId Id="338" Count="0" />
-      <LineId Id="545" Count="0" />
-      <LineId Id="340" Count="1" />
-      <LineId Id="485" Count="0" />
-      <LineId Id="540" Count="0" />
-      <LineId Id="337" Count="0" />
+      <LineId Id="590" Count="0" />
       <LineId Id="249" Count="1" />
+      <LineId Id="751" Count="3" />
       <LineId Id="256" Count="0" />
-      <LineId Id="567" Count="0" />
+      <LineId Id="601" Count="0" />
+      <LineId Id="738" Count="0" />
+      <LineId Id="749" Count="0" />
+      <LineId Id="739" Count="0" />
+      <LineId Id="750" Count="0" />
+      <LineId Id="741" Count="0" />
+      <LineId Id="743" Count="1" />
+      <LineId Id="742" Count="0" />
+      <LineId Id="740" Count="0" />
+      <LineId Id="614" Count="0" />
+      <LineId Id="700" Count="0" />
+      <LineId Id="702" Count="1" />
+      <LineId Id="615" Count="0" />
+      <LineId Id="676" Count="1" />
+      <LineId Id="706" Count="1" />
+      <LineId Id="609" Count="0" />
+      <LineId Id="667" Count="1" />
+      <LineId Id="672" Count="0" />
+      <LineId Id="607" Count="0" />
+      <LineId Id="723" Count="0" />
+      <LineId Id="708" Count="0" />
+      <LineId Id="710" Count="0" />
+      <LineId Id="716" Count="2" />
+      <LineId Id="725" Count="0" />
+      <LineId Id="720" Count="1" />
+      <LineId Id="709" Count="0" />
+      <LineId Id="616" Count="0" />
+      <LineId Id="704" Count="0" />
+      <LineId Id="633" Count="6" />
+      <LineId Id="664" Count="0" />
+      <LineId Id="694" Count="2" />
+      <LineId Id="665" Count="0" />
+      <LineId Id="697" Count="0" />
+      <LineId Id="726" Count="7" />
+      <LineId Id="698" Count="0" />
+      <LineId Id="666" Count="0" />
+      <LineId Id="686" Count="5" />
+      <LineId Id="734" Count="3" />
+      <LineId Id="745" Count="0" />
+      <LineId Id="747" Count="1" />
+      <LineId Id="608" Count="0" />
+      <LineId Id="602" Count="0" />
       <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.CheckDone">
+      <LineId Id="8" Count="0" />
+      <LineId Id="12" Count="1" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.GearOut">
+      <LineId Id="9" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.PowerUp">
+      <LineId Id="6" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.SlitPositions">
+      <LineId Id="54" Count="13" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.SlitSetup">
+      <LineId Id="22" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="23" Count="23" />
+      <LineId Id="5" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
