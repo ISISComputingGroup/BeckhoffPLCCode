@@ -25,51 +25,9 @@ VAR
 	
 	//HMI VARIABLES	
 	hmiAxisSelect	:	UINT:=1;
-	//hmiAxis			:	AxisControl:=axes[hmiAxisSelect];
-	hmiMasterSelect	:	UINT:=1;
-	hmiMasterSelect1	:	UINT:=1;
-	hmiMasterSelect2	:	UINT:=1;
-	hmiMasterSelect3	:	UINT:=1;
-	hmiMasterSelect4	:	UINT:=1;
 	
-	
-	
-	
-	
-////////////////////////////////////
-//BECKHOFF ADVANCED HOMING WIP VARIABLES
 
-	StartHoming							: BOOL;
-	FinishHoming	:BOOL;
-	Enable	:	BOOL;
-	EnablePos:BOOL;
-	EnableNeg	:BOOL;
-	Axis								: ARRAY [1..3] OF AXIS_REF;
-					
-	Power								: ARRAY [1..3] OF MC_Power;
-	AxisId								: UDINT;
-	absHome	: MC_StepAbsoluteSwitch;
-	finHome	:	MC_FinishHoming;
-	Parameter	: MC_HomingParameter;
-	bExecute	:	BOOL;
-	HomeDirection	:	MC_Home_Direction;
-	SwMode		:	MC_Switch_Mode;
-	absSw		:	MC_Ref_Signal_Ref;
-	homeVel		:	LREAL;
-	homeAccel	:	LREAL;
-	homeDecel	:	LREAL;
-	homeJerk	:	LREAL;
-	homePosition	:	LREAL;
-	homeTime	:	TIME:=T#60S;
-	homeDistance	:	LREAL:=1000;
-	homeTorque	:	LREAL;
-	
-	bAbsSw								:	BOOL;	//PRETEND SWITCH
-	bPosSw								:	BOOL;
-	bNegSw								:	BOOL;
-	Buffer			:MC_BufferMode;	
-	Options2	:	ST_Home_Options2;
-	Options		:	ST_Home_Options4;
+
 
 END_VAR
 
@@ -157,6 +115,8 @@ CASE iState OF
 		//INOP STATE	
 END_CASE
 
+
+//AXIS SIMULATION
 FOR i:=1 TO GVL.axisNumMax BY 1 DO
 	IF bSimulate[i] THEN
 		simulateStage(position:=GVL.axes[i].Axis.NcToPlc.ActPos, iAxis:=i, simulated:=simulated[i]);
@@ -165,101 +125,6 @@ FOR i:=1 TO GVL.axisNumMax BY 1 DO
 END_FOR
 
 
-(* TESTING ADVANCED HOMING
-*)
-FOR i := 1 TO 3 DO
-	Axis[i]();
-
-	Power[i](	
-		Enable				:= Enable, 
-		Enable_Positive		:= EnablePos,
-		Enable_Negative		:= EnableNeg,
-		Override			:= 100.0, 
-		Axis				:= Axis[i]);
-END_FOR
-
-AxisId := 1;
-
-(* Test Tasterfeld Öffner *)
-Enable				:= TRUE;
-EnablePos			:= TRUE;
-EnableNeg			:= TRUE;
-
-//SoftEndPos			:= ;
-//SoftEndNeg			:= ;
-absSw.Level:=bAbsSw;
-Options.DisableDriveAccess:=TRUE;
-Options2.DisableDriveAccess:=TRUE;
-(* Test Tasterfeld Schliesser *)
-//CalibrationCam		:= ;
-
-//SOME SIMULATED AXIS CODE
-//LIMIT SWITCHES AT -100 and +100, ABS SW in range -10 to +10
-IF axis[1].NCtoPLC.ActPos < 10 THEN
-	bPosSw:=FALSE;
-ELSE 
-	bPosSw:= TRUE;
-END_IF
-IF axis[1].NCtoPLC.ActPos >-10 THEN
-	bNegSw:=FALSE;
-ELSE 
-	bNegSw:= TRUE;
-END_IF
-IF (axis[1].NCtoPLC.ActPos <2)AND (axis[1].NCtoPLC.ActPos >-2) THEN
-	bAbsSw:=TRUE;
-ELSE 
-	bAbsSw:= FALSe;
-END_IF
-
-IF StartHoming THEN
-	absHome(
-			Axis:=Axis[1],
-			Parameter:=Parameter,
-			Execute:=TRUE,
-			Direction:=HomeDirection, 
-			SwitchMode:=SwMode,
-			ReferenceSignal:=absSw,
-			Velocity:=homeVel,
-			Acceleration:= homeAccel,
-			Deceleration:=homeDecel,
-			Jerk:=homeJerk, 
-			TorqueLimit:=homeTorque,
-			SetPosition:=homePosition, 
-			TimeLimit:= homeTime,
-			DistanceLimit:= homeDistance,
-			PositiveLimitSwitch:=bPosSw,
-			NegativeLimitSwitch:=bNegSw,
-			BufferMode:=Buffer,
-			Options:=Options);
-	//WATCHING
-	absHome.Busy;
-	absHome.Done;
-	absHome.Error;
-	absHome.ErrorID;
-	IF absHome.Done THEN
-		StartHoming:=FALSE;
-	END_IF
-ELSE
-	absHome(
-		Axis:=Axis[1],
-		Parameter:=Parameter,
-		Execute:=FALSE);
-END_IF
-
-IF FinishHoming  THEN
-	finHome(Axis:=Axis[1],
-				Parameter:=Parameter,
-				Execute:=bExecute,
-				Distance:=5,
-				Velocity:=2,
-				Options:=Options2
-);
-	finHome.Busy;
-	finHome.Error;
-	finHome.Done;
-	
-END_IF
-//*)
 
 ]]></ST>
     </Implementation>
@@ -461,40 +326,9 @@ GVL.axes[East].bExecute:=TRUE;]]></ST>
       <LineId Id="747" Count="1" />
       <LineId Id="608" Count="0" />
       <LineId Id="849" Count="0" />
+      <LineId Id="1146" Count="1" />
       <LineId Id="1140" Count="5" />
-      <LineId Id="850" Count="24" />
-      <LineId Id="938" Count="0" />
-      <LineId Id="974" Count="0" />
-      <LineId Id="875" Count="2" />
-      <LineId Id="941" Count="0" />
-      <LineId Id="944" Count="2" />
-      <LineId Id="948" Count="1" />
-      <LineId Id="947" Count="0" />
-      <LineId Id="950" Count="9" />
-      <LineId Id="942" Count="1" />
-      <LineId Id="892" Count="0" />
-      <LineId Id="913" Count="6" />
-      <LineId Id="901" Count="0" />
-      <LineId Id="920" Count="1" />
-      <LineId Id="940" Count="0" />
-      <LineId Id="922" Count="3" />
-      <LineId Id="911" Count="0" />
-      <LineId Id="926" Count="0" />
-      <LineId Id="930" Count="0" />
-      <LineId Id="935" Count="0" />
-      <LineId Id="927" Count="2" />
-      <LineId Id="931" Count="0" />
-      <LineId Id="985" Count="2" />
-      <LineId Id="980" Count="4" />
-      <LineId Id="893" Count="0" />
-      <LineId Id="961" Count="2" />
-      <LineId Id="967" Count="0" />
-      <LineId Id="969" Count="3" />
-      <LineId Id="968" Count="0" />
-      <LineId Id="975" Count="2" />
-      <LineId Id="966" Count="0" />
-      <LineId Id="964" Count="0" />
-      <LineId Id="936" Count="1" />
+      <LineId Id="850" Count="2" />
       <LineId Id="602" Count="0" />
       <LineId Id="2" Count="0" />
     </LineIds>

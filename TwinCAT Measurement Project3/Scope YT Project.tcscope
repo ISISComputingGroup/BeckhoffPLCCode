@@ -4,8 +4,8 @@
   <Title>Scope YT Project</Title>
   <LayoutString>&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;Layout&gt;
-  &lt;Window Guid="379b3696-3797-4db7-96ae-5f2a35222fd1" LastFocused="131853834873654045" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="e3627557-a720-4c2a-9af0-d310b5d3d828" DocumentIndexInWindowGroup="1" DocumentSplitPath="0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
-  &lt;Window Guid="97332cdc-477f-498a-a8da-59f3e238ae5a" LastFocused="131854496653175978" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="e3627557-a720-4c2a-9af0-d310b5d3d828" DocumentIndexInWindowGroup="0" DocumentSplitPath="0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="379b3696-3797-4db7-96ae-5f2a35222fd1" LastFocused="131856489700084292" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="e3627557-a720-4c2a-9af0-d310b5d3d828" DocumentIndexInWindowGroup="1" DocumentSplitPath="0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
+  &lt;Window Guid="97332cdc-477f-498a-a8da-59f3e238ae5a" LastFocused="131856489709214082" DockedSize="200" PopupSize="0" FloatingLocation="-1, -1" FloatingSize="550, 400" LastOpenDockSituation="Document" LastFixedDockSituation="Document" LastFixedDockLocation="Right" LastFloatingWindowGuid="00000000-0000-0000-0000-000000000000" LastDockContainerCount="0" LastDockContainerIndex="0" DockedWorkingSize="250, 400" DockedWindowGroupGuid="00000000-0000-0000-0000-000000000000" DockedIndexInWindowGroup="0" DockedSplitPath="0" DocumentWorkingSize="250, 400" DocumentWindowGroupGuid="e3627557-a720-4c2a-9af0-d310b5d3d828" DocumentIndexInWindowGroup="0" DocumentSplitPath="0" FloatingWorkingSize="250, 400" FloatingWindowGroupGuid="00000000-0000-0000-0000-000000000000" FloatingIndexInWindowGroup="0" FloatingSplitPath="0" /&gt;
   &lt;DocumentContainer Dock="5"&gt;
     &lt;SplitLayoutSystem WorkingSize="250, 400" SplitMode="0"&gt;
       &lt;ControlLayoutSystem WorkingSize="250, 400" Guid="e3627557-a720-4c2a-9af0-d310b5d3d828" Collapsed="0" SelectedControl="97332cdc-477f-498a-a8da-59f3e238ae5a"&gt;
@@ -26,7 +26,8 @@
     <Comment></Comment>
     <ScopeStopAutoSave>
       <UseAutoSave>false</UseAutoSave>
-      <AutoSavePath></AutoSavePath>
+      <AutoSavePath>
+      </AutoSavePath>
       <FileNameMask>{SCOPE}_AutoSave_{HH_mm_ss}</FileNameMask>
     </ScopeStopAutoSave>
     <RestartRecord>false</RestartRecord>
@@ -105,74 +106,18 @@
           </Style>
           <Channels>
             <ScopeChannelSerializable>
-              <Name>bAbsSw</Name>
+              <Name>ActPos</Name>
               <IdentHandle>1</IdentHandle>
               <Acquisition>
-                <DataType>BIT</DataType>
-                <IndexGroup>16448</IndexGroup>
-                <IndexOffset>706158</IndexOffset>
+                <DataType>REAL64</DataType>
+                <IndexGroup>61462</IndexGroup>
+                <IndexOffset>760</IndexOffset>
                 <TargetPort>851</TargetPort>
-                <VariableSize>1</VariableSize>
-                <SymbolName>MAIN.bAbsSw</SymbolName>
-                <SymbolComment>PRETEND SWITCH</SymbolComment>
-                <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>36</FileHandle>
-                <UseLocalServer>true</UseLocalServer>
-                <AmsNetIdString>130.246.58.127.1.1</AmsNetIdString>
-                <SampleTime>100000</SampleTime>
-                <Disabled>false</Disabled>
-                <Oversample>0</Oversample>
-                <UseTaskSampletime>true</UseTaskSampletime>
-                <ForceOversampling>false</ForceOversampling>
-                <IsArray>false</IsArray>
-                <ArrayLength>0</ArrayLength>
-                <ContextMask>0</ContextMask>
-                <TimeOffset>0</TimeOffset>
-              </Acquisition>
-              <Style>
-                <ColorValue>-65536</ColorValue>
-                <SolidLine>true</SolidLine>
-                <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
-                <Antialias>true</Antialias>
-                <Offset>0</Offset>
-                <BitMask>18446744073709551615</BitMask>
-                <ShowCursorValue>true</ShowCursorValue>
-                <Visible>true</Visible>
-                <MarkColorValue>-65536</MarkColorValue>
-                <MarkSize>3</MarkSize>
-                <TimeShift>0</TimeShift>
-                <ScaleFactor>1</ScaleFactor>
-                <Comment></Comment>
-                <AutoMarks>true</AutoMarks>
-                <XOffset>0</XOffset>
-                <XScaleFactor>1</XScaleFactor>
-                <XBitMask>18446744073709551615</XBitMask>
-                <FillMode>64</FillMode>
-                <FillColorValue>855572480</FillColorValue>
-                <EndCap>false</EndCap>
-                <StartCap>false</StartCap>
-                <CapSize>3</CapSize>
-                <CapColorValue>-65536</CapColorValue>
-                <SeriesType>Stair</SeriesType>
-                <ShowMin>false</ShowMin>
-                <ShowMax>false</ShowMax>
-              </Style>
-              <SortPriority>-1</SortPriority>
-            </ScopeChannelSerializable>
-            <ScopeChannelSerializable>
-              <Name>bNegSw</Name>
-              <IdentHandle>2</IdentHandle>
-              <Acquisition>
-                <DataType>BIT</DataType>
-                <IndexGroup>16448</IndexGroup>
-                <IndexOffset>739682</IndexOffset>
-                <TargetPort>851</TargetPort>
-                <VariableSize>1</VariableSize>
-                <SymbolName>MAIN.bNegSw</SymbolName>
+                <VariableSize>8</VariableSize>
+                <SymbolName>MAIN.drives[1].AxisController.Axis.NcToPlc.ActPos</SymbolName>
                 <SymbolComment></SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>37</FileHandle>
+                <FileHandle>0</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>130.246.58.127.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -186,7 +131,7 @@
                 <TimeOffset>0</TimeOffset>
               </Acquisition>
               <Style>
-                <ColorValue>-16744448</ColorValue>
+                <ColorValue>-9728477</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
                 <LineWidth>1</LineWidth>
@@ -195,7 +140,7 @@
                 <BitMask>18446744073709551615</BitMask>
                 <ShowCursorValue>true</ShowCursorValue>
                 <Visible>true</Visible>
-                <MarkColorValue>-16744448</MarkColorValue>
+                <MarkColorValue>-9728477</MarkColorValue>
                 <MarkSize>3</MarkSize>
                 <TimeShift>0</TimeShift>
                 <ScaleFactor>1</ScaleFactor>
@@ -204,69 +149,13 @@
                 <XOffset>0</XOffset>
                 <XScaleFactor>1</XScaleFactor>
                 <XBitMask>18446744073709551615</XBitMask>
-                <FillMode>64</FillMode>
-                <FillColorValue>838893568</FillColorValue>
+                <FillMode>0</FillMode>
+                <FillColorValue>845909539</FillColorValue>
                 <EndCap>false</EndCap>
                 <StartCap>false</StartCap>
                 <CapSize>3</CapSize>
                 <CapColorValue>-65536</CapColorValue>
-                <SeriesType>Stair</SeriesType>
-                <ShowMin>false</ShowMin>
-                <ShowMax>false</ShowMax>
-              </Style>
-              <SortPriority>-1</SortPriority>
-            </ScopeChannelSerializable>
-            <ScopeChannelSerializable>
-              <Name>bPosSw</Name>
-              <IdentHandle>3</IdentHandle>
-              <Acquisition>
-                <DataType>BIT</DataType>
-                <IndexGroup>16448</IndexGroup>
-                <IndexOffset>706159</IndexOffset>
-                <TargetPort>851</TargetPort>
-                <VariableSize>1</VariableSize>
-                <SymbolName>MAIN.bPosSw</SymbolName>
-                <SymbolComment></SymbolComment>
-                <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>38</FileHandle>
-                <UseLocalServer>true</UseLocalServer>
-                <AmsNetIdString>130.246.58.127.1.1</AmsNetIdString>
-                <SampleTime>100000</SampleTime>
-                <Disabled>false</Disabled>
-                <Oversample>0</Oversample>
-                <UseTaskSampletime>true</UseTaskSampletime>
-                <ForceOversampling>false</ForceOversampling>
-                <IsArray>false</IsArray>
-                <ArrayLength>0</ArrayLength>
-                <ContextMask>0</ContextMask>
-                <TimeOffset>0</TimeOffset>
-              </Acquisition>
-              <Style>
-                <ColorValue>-16776961</ColorValue>
-                <SolidLine>true</SolidLine>
-                <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
-                <Antialias>true</Antialias>
-                <Offset>0</Offset>
-                <BitMask>18446744073709551615</BitMask>
-                <ShowCursorValue>true</ShowCursorValue>
-                <Visible>true</Visible>
-                <MarkColorValue>-16776961</MarkColorValue>
-                <MarkSize>3</MarkSize>
-                <TimeShift>0</TimeShift>
-                <ScaleFactor>1</ScaleFactor>
-                <Comment></Comment>
-                <AutoMarks>true</AutoMarks>
-                <XOffset>0</XOffset>
-                <XScaleFactor>1</XScaleFactor>
-                <XBitMask>18446744073709551615</XBitMask>
-                <FillMode>64</FillMode>
-                <FillColorValue>838861055</FillColorValue>
-                <EndCap>false</EndCap>
-                <StartCap>false</StartCap>
-                <CapSize>3</CapSize>
-                <CapColorValue>-65536</CapColorValue>
-                <SeriesType>Stair</SeriesType>
+                <SeriesType>Line</SeriesType>
                 <ShowMin>false</ShowMin>
                 <ShowMax>false</ShowMax>
               </Style>
@@ -302,74 +191,18 @@
           </Style>
           <Channels>
             <ScopeChannelSerializable>
-              <Name>ActPos</Name>
-              <IdentHandle>4</IdentHandle>
-              <Acquisition>
-                <DataType>REAL64</DataType>
-                <IndexGroup>16649</IndexGroup>
-                <IndexOffset>65538</IndexOffset>
-                <TargetPort>501</TargetPort>
-                <VariableSize>8</VariableSize>
-                <SymbolName>Axes.HomeTest.ActPos</SymbolName>
-                <SymbolComment></SymbolComment>
-                <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>39</FileHandle>
-                <UseLocalServer>true</UseLocalServer>
-                <AmsNetIdString>130.246.58.127.1.1</AmsNetIdString>
-                <SampleTime>20000</SampleTime>
-                <Disabled>false</Disabled>
-                <Oversample>0</Oversample>
-                <UseTaskSampletime>true</UseTaskSampletime>
-                <ForceOversampling>false</ForceOversampling>
-                <IsArray>false</IsArray>
-                <ArrayLength>0</ArrayLength>
-                <ContextMask>0</ContextMask>
-                <TimeOffset>0</TimeOffset>
-              </Acquisition>
-              <Style>
-                <ColorValue>-23296</ColorValue>
-                <SolidLine>true</SolidLine>
-                <Marks>false</Marks>
-                <LineWidth>1</LineWidth>
-                <Antialias>true</Antialias>
-                <Offset>0</Offset>
-                <BitMask>18446744073709551615</BitMask>
-                <ShowCursorValue>true</ShowCursorValue>
-                <Visible>true</Visible>
-                <MarkColorValue>-23296</MarkColorValue>
-                <MarkSize>3</MarkSize>
-                <TimeShift>0</TimeShift>
-                <ScaleFactor>1</ScaleFactor>
-                <Comment></Comment>
-                <AutoMarks>true</AutoMarks>
-                <XOffset>0</XOffset>
-                <XScaleFactor>1</XScaleFactor>
-                <XBitMask>18446744073709551615</XBitMask>
-                <FillMode>0</FillMode>
-                <FillColorValue>855614720</FillColorValue>
-                <EndCap>false</EndCap>
-                <StartCap>false</StartCap>
-                <CapSize>3</CapSize>
-                <CapColorValue>-65536</CapColorValue>
-                <SeriesType>Line</SeriesType>
-                <ShowMin>false</ShowMin>
-                <ShowMax>false</ShowMax>
-              </Style>
-              <SortPriority>-1</SortPriority>
-            </ScopeChannelSerializable>
-            <ScopeChannelSerializable>
-              <Name>StartHoming</Name>
-              <IdentHandle>5</IdentHandle>
+              <Name>PositiveLimitSwitch</Name>
+              <IdentHandle>2</IdentHandle>
               <Acquisition>
                 <DataType>BIT</DataType>
                 <IndexGroup>16448</IndexGroup>
-                <IndexOffset>702666</IndexOffset>
+                <IndexOffset>544088</IndexOffset>
                 <TargetPort>851</TargetPort>
                 <VariableSize>1</VariableSize>
-                <SymbolName>MAIN.StartHoming</SymbolName>
-                <SymbolComment>/////////////////////////////////</SymbolComment>
+                <SymbolName>MAIN.drives[1].MCStepAbsoluteSwitch.PositiveLimitSwitch</SymbolName>
+                <SymbolComment> V - Beckhoff proprietary input </SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>40</FileHandle>
+                <FileHandle>0</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>130.246.58.127.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -383,7 +216,7 @@
                 <TimeOffset>0</TimeOffset>
               </Acquisition>
               <Style>
-                <ColorValue>-14774017</ColorValue>
+                <ColorValue>-8355840</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
                 <LineWidth>1</LineWidth>
@@ -391,8 +224,8 @@
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
                 <ShowCursorValue>true</ShowCursorValue>
-                <Visible>false</Visible>
-                <MarkColorValue>-14774017</MarkColorValue>
+                <Visible>true</Visible>
+                <MarkColorValue>-8355840</MarkColorValue>
                 <MarkSize>3</MarkSize>
                 <TimeShift>0</TimeShift>
                 <ScaleFactor>1</ScaleFactor>
@@ -402,7 +235,7 @@
                 <XScaleFactor>1</XScaleFactor>
                 <XBitMask>18446744073709551615</XBitMask>
                 <FillMode>64</FillMode>
-                <FillColorValue>840863999</FillColorValue>
+                <FillColorValue>847282176</FillColorValue>
                 <EndCap>false</EndCap>
                 <StartCap>false</StartCap>
                 <CapSize>3</CapSize>
@@ -414,18 +247,18 @@
               <SortPriority>-1</SortPriority>
             </ScopeChannelSerializable>
             <ScopeChannelSerializable>
-              <Name>Done</Name>
-              <IdentHandle>6</IdentHandle>
+              <Name>NegativeLimitSwitch</Name>
+              <IdentHandle>3</IdentHandle>
               <Acquisition>
                 <DataType>BIT</DataType>
                 <IndexGroup>16448</IndexGroup>
-                <IndexOffset>706270</IndexOffset>
+                <IndexOffset>544089</IndexOffset>
                 <TargetPort>851</TargetPort>
                 <VariableSize>1</VariableSize>
-                <SymbolName>MAIN.absHome.Done</SymbolName>
-                <SymbolComment> B </SymbolComment>
+                <SymbolName>MAIN.drives[1].MCStepAbsoluteSwitch.NegativeLimitSwitch</SymbolName>
+                <SymbolComment> V - Beckhoff proprietary input </SymbolComment>
                 <IsSymbolBased>true</IsSymbolBased>
-                <FileHandle>41</FileHandle>
+                <FileHandle>0</FileHandle>
                 <UseLocalServer>true</UseLocalServer>
                 <AmsNetIdString>130.246.58.127.1.1</AmsNetIdString>
                 <SampleTime>100000</SampleTime>
@@ -439,7 +272,7 @@
                 <TimeOffset>0</TimeOffset>
               </Acquisition>
               <Style>
-                <ColorValue>-65281</ColorValue>
+                <ColorValue>-16711681</ColorValue>
                 <SolidLine>true</SolidLine>
                 <Marks>false</Marks>
                 <LineWidth>1</LineWidth>
@@ -447,8 +280,8 @@
                 <Offset>0</Offset>
                 <BitMask>18446744073709551615</BitMask>
                 <ShowCursorValue>true</ShowCursorValue>
-                <Visible>false</Visible>
-                <MarkColorValue>-65281</MarkColorValue>
+                <Visible>true</Visible>
+                <MarkColorValue>-16711681</MarkColorValue>
                 <MarkSize>3</MarkSize>
                 <TimeShift>0</TimeShift>
                 <ScaleFactor>1</ScaleFactor>
@@ -458,7 +291,63 @@
                 <XScaleFactor>1</XScaleFactor>
                 <XBitMask>18446744073709551615</XBitMask>
                 <FillMode>64</FillMode>
-                <FillColorValue>855572735</FillColorValue>
+                <FillColorValue>838926335</FillColorValue>
+                <EndCap>false</EndCap>
+                <StartCap>false</StartCap>
+                <CapSize>3</CapSize>
+                <CapColorValue>-65536</CapColorValue>
+                <SeriesType>Stair</SeriesType>
+                <ShowMin>false</ShowMin>
+                <ShowMax>false</ShowMax>
+              </Style>
+              <SortPriority>-1</SortPriority>
+            </ScopeChannelSerializable>
+            <ScopeChannelSerializable>
+              <Name>Level</Name>
+              <IdentHandle>4</IdentHandle>
+              <Acquisition>
+                <DataType>BIT</DataType>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>544020</IndexOffset>
+                <TargetPort>851</TargetPort>
+                <VariableSize>1</VariableSize>
+                <SymbolName>MAIN.drives[1].MCStepAbsoluteSwitch.ReferenceSignal.Level</SymbolName>
+                <SymbolComment></SymbolComment>
+                <IsSymbolBased>true</IsSymbolBased>
+                <FileHandle>0</FileHandle>
+                <UseLocalServer>true</UseLocalServer>
+                <AmsNetIdString>130.246.58.127.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
+                <Disabled>false</Disabled>
+                <Oversample>0</Oversample>
+                <UseTaskSampletime>true</UseTaskSampletime>
+                <ForceOversampling>false</ForceOversampling>
+                <IsArray>false</IsArray>
+                <ArrayLength>0</ArrayLength>
+                <ContextMask>0</ContextMask>
+                <TimeOffset>0</TimeOffset>
+              </Acquisition>
+              <Style>
+                <ColorValue>-5952982</ColorValue>
+                <SolidLine>true</SolidLine>
+                <Marks>false</Marks>
+                <LineWidth>1</LineWidth>
+                <Antialias>true</Antialias>
+                <Offset>0</Offset>
+                <BitMask>18446744073709551615</BitMask>
+                <ShowCursorValue>true</ShowCursorValue>
+                <Visible>true</Visible>
+                <MarkColorValue>-5952982</MarkColorValue>
+                <MarkSize>3</MarkSize>
+                <TimeShift>0</TimeShift>
+                <ScaleFactor>1</ScaleFactor>
+                <Comment></Comment>
+                <AutoMarks>true</AutoMarks>
+                <XOffset>0</XOffset>
+                <XScaleFactor>1</XScaleFactor>
+                <XBitMask>18446744073709551615</XBitMask>
+                <FillMode>64</FillMode>
+                <FillColorValue>849685034</FillColorValue>
                 <EndCap>false</EndCap>
                 <StartCap>false</StartCap>
                 <CapSize>3</CapSize>
@@ -494,7 +383,7 @@
       <MasterChart>00000000-0000-0000-0000-000000000000</MasterChart>
     </ScopeChartSerializable>
     <ScopeChartSerializable>
-      <Name>Chart(1)</Name>
+      <Name>HiddenVals</Name>
       <GUID>379b3696-3797-4db7-96ae-5f2a35222fd1</GUID>
       <Style>
         <BackgroundColorValue>-1118482</BackgroundColorValue>
@@ -538,7 +427,149 @@
         <SortPriority>-1</SortPriority>
         <Invert>false</Invert>
       </XAxis>
-      <YAxes />
+      <YAxes>
+        <ScopeYAxisSerializable>
+          <Caption>Axis (3)</Caption>
+          <Name>Axis (3)</Name>
+          <Style>
+            <Visible>true</Visible>
+            <Enabled>true</Enabled>
+            <ColorValue>-13676721</ColorValue>
+            <UseGrid>true</UseGrid>
+            <Ticks>10</Ticks>
+            <LineWidth>1</LineWidth>
+            <AutoScale>true</AutoScale>
+            <AxisMin>0</AxisMin>
+            <AxisMax>0</AxisMax>
+            <ScaleFactor>0</ScaleFactor>
+            <ShowCursorValue>true</ShowCursorValue>
+            <GridColorValue>-13676721</GridColorValue>
+            <GridLineWidth>1</GridLineWidth>
+            <UseSubGrid>false</UseSubGrid>
+            <SubDivisions>5</SubDivisions>
+            <Logarithmic>false</Logarithmic>
+            <Comment />
+            <ShowName>false</ShowName>
+            <Precision>6</Precision>
+            <ScaleMode>AutoGrowOnly</ScaleMode>
+          </Style>
+          <Channels>
+            <ScopeChannelSerializable>
+              <Name>Done</Name>
+              <IdentHandle>5</IdentHandle>
+              <Acquisition>
+                <DataType>BIT</DataType>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>544094</IndexOffset>
+                <TargetPort>851</TargetPort>
+                <VariableSize>1</VariableSize>
+                <SymbolName>MAIN.drives[1].MCStepAbsoluteSwitch.Done</SymbolName>
+                <SymbolComment> B </SymbolComment>
+                <IsSymbolBased>true</IsSymbolBased>
+                <FileHandle>0</FileHandle>
+                <UseLocalServer>true</UseLocalServer>
+                <AmsNetIdString>130.246.58.127.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
+                <Disabled>false</Disabled>
+                <Oversample>0</Oversample>
+                <UseTaskSampletime>true</UseTaskSampletime>
+                <ForceOversampling>false</ForceOversampling>
+                <IsArray>false</IsArray>
+                <ArrayLength>0</ArrayLength>
+                <ContextMask>0</ContextMask>
+                <TimeOffset>0</TimeOffset>
+              </Acquisition>
+              <Style>
+                <ColorValue>-16777088</ColorValue>
+                <SolidLine>true</SolidLine>
+                <Marks>false</Marks>
+                <LineWidth>1</LineWidth>
+                <Antialias>true</Antialias>
+                <Offset>0</Offset>
+                <BitMask>18446744073709551615</BitMask>
+                <ShowCursorValue>true</ShowCursorValue>
+                <Visible>true</Visible>
+                <MarkColorValue>-16777088</MarkColorValue>
+                <MarkSize>3</MarkSize>
+                <TimeShift>0</TimeShift>
+                <ScaleFactor>1</ScaleFactor>
+                <Comment></Comment>
+                <AutoMarks>true</AutoMarks>
+                <XOffset>0</XOffset>
+                <XScaleFactor>1</XScaleFactor>
+                <XBitMask>18446744073709551615</XBitMask>
+                <FillMode>64</FillMode>
+                <FillColorValue>838860928</FillColorValue>
+                <EndCap>false</EndCap>
+                <StartCap>false</StartCap>
+                <CapSize>3</CapSize>
+                <CapColorValue>-65536</CapColorValue>
+                <SeriesType>Stair</SeriesType>
+                <ShowMin>false</ShowMin>
+                <ShowMax>false</ShowMax>
+              </Style>
+              <SortPriority>-1</SortPriority>
+            </ScopeChannelSerializable>
+            <ScopeChannelSerializable>
+              <Name>Execute</Name>
+              <IdentHandle>6</IdentHandle>
+              <Acquisition>
+                <DataType>BIT</DataType>
+                <IndexGroup>16448</IndexGroup>
+                <IndexOffset>544008</IndexOffset>
+                <TargetPort>851</TargetPort>
+                <VariableSize>1</VariableSize>
+                <SymbolName>MAIN.drives[1].MCStepAbsoluteSwitch.Execute</SymbolName>
+                <SymbolComment> B </SymbolComment>
+                <IsSymbolBased>true</IsSymbolBased>
+                <FileHandle>0</FileHandle>
+                <UseLocalServer>true</UseLocalServer>
+                <AmsNetIdString>130.246.58.127.1.1</AmsNetIdString>
+                <SampleTime>100000</SampleTime>
+                <Disabled>false</Disabled>
+                <Oversample>0</Oversample>
+                <UseTaskSampletime>true</UseTaskSampletime>
+                <ForceOversampling>false</ForceOversampling>
+                <IsArray>false</IsArray>
+                <ArrayLength>0</ArrayLength>
+                <ContextMask>0</ContextMask>
+                <TimeOffset>0</TimeOffset>
+              </Acquisition>
+              <Style>
+                <ColorValue>-65281</ColorValue>
+                <SolidLine>true</SolidLine>
+                <Marks>false</Marks>
+                <LineWidth>1</LineWidth>
+                <Antialias>true</Antialias>
+                <Offset>0</Offset>
+                <BitMask>18446744073709551615</BitMask>
+                <ShowCursorValue>true</ShowCursorValue>
+                <Visible>true</Visible>
+                <MarkColorValue>-65281</MarkColorValue>
+                <MarkSize>3</MarkSize>
+                <TimeShift>0</TimeShift>
+                <ScaleFactor>1</ScaleFactor>
+                <Comment></Comment>
+                <AutoMarks>true</AutoMarks>
+                <XOffset>0</XOffset>
+                <XScaleFactor>1</XScaleFactor>
+                <XBitMask>18446744073709551615</XBitMask>
+                <FillMode>64</FillMode>
+                <FillColorValue>855572735</FillColorValue>
+                <EndCap>false</EndCap>
+                <StartCap>false</StartCap>
+                <CapSize>3</CapSize>
+                <CapColorValue>-65536</CapColorValue>
+                <SeriesType>Stair</SeriesType>
+                <ShowMin>false</ShowMin>
+                <ShowMax>false</ShowMax>
+              </Style>
+              <SortPriority>-1</SortPriority>
+            </ScopeChannelSerializable>
+          </Channels>
+          <SortPriority>-1</SortPriority>
+        </ScopeYAxisSerializable>
+      </YAxes>
       <XYAxes />
       <CursorModule>
         <Cursors />
@@ -571,7 +602,7 @@
             <Threshold>1</Threshold>
             <Enabled>true</Enabled>
             <UseXScopeClient>false</UseXScopeClient>
-            <ConnectedChannelHandle>5</ConnectedChannelHandle>
+            <ConnectedChannelHandle>6</ConnectedChannelHandle>
             <SortPriority>-1</SortPriority>
           </ScopeTriggerSingleSetSerializable>
         </TriggerSets>
@@ -602,7 +633,7 @@
             <Threshold>1</Threshold>
             <Enabled>true</Enabled>
             <UseXScopeClient>false</UseXScopeClient>
-            <ConnectedChannelHandle>6</ConnectedChannelHandle>
+            <ConnectedChannelHandle>5</ConnectedChannelHandle>
             <SortPriority>-1</SortPriority>
           </ScopeTriggerSingleSetSerializable>
         </TriggerSets>
