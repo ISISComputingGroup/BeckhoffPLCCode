@@ -182,12 +182,12 @@
                     <v n="VisualElementIdentifier">"GenElemInst_360"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.HomeStepAbsoluteSwitch;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
+                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.HomeStepAbsoluteSwitch;
+GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -326,7 +326,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].fHomeVelocity"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].fHomeVelocity"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -348,7 +348,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].fHomeVelocity"</v>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].fHomeVelocity"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -496,7 +496,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].fHomePosition"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].fHomePosition"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -518,7 +518,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].fHomePosition"</v>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].fHomePosition"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -1159,12 +1159,12 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_374"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.HomeFinish;
-MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
+                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.HomeFinish;
+GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -1255,7 +1255,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].MCSignalRef.Level"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].MCSignalRef.Level"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -1575,7 +1575,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].fHomeDistance"</v>
+                      <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].fHomeDistance"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -1597,7 +1597,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                   <v>OnMouseClick</v>
                   <a cet="InputBoxInputAction">
                     <o>
-                      <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].fHomeDistance"</v>
+                      <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].fHomeDistance"</v>
                       <v n="InputType">"Default"</v>
                       <v n="InputBoxMin">""</v>
                       <v n="InputBoxMax">""</v>
@@ -1843,10 +1843,10 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
               <d n="FbMethods" t="CaseInsensitiveHashtable" ckt="String" cvt="Guid">
                 <v>FB_Init</v>
                 <v>68660202-f7db-4f03-9222-89d4488fe500</v>
-                <v>FB_Exit</v>
-                <v>2ef799c1-34ce-4019-894f-61a310d4ffca</v>
                 <v>FB_Reinit</v>
                 <v>d1baea6f-8ca5-4c2a-a379-17c55373bf41</v>
+                <v>FB_Exit</v>
+                <v>2ef799c1-34ce-4019-894f-61a310d4ffca</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{d134c833-9b0a-4006-aa1e-d76060b3fa47}</v>
@@ -1937,7 +1937,6 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
         <Type n="Guid">System.Guid</Type>
         <Type n="Hashtable">System.Collections.Hashtable</Type>
         <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
-        <Type n="IInputAction[]">_3S.CoDeSys.VisualElem.IInputAction[], VisualElem, Version=3.5.8.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="InputBoxInputAction">{e8e7e747-f76f-4dee-ab1c-b9637e41ac26}</Type>
         <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.8.40, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="Int16">System.Int16</Type>
@@ -1948,6 +1947,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
         <Type n="Object">System.Object</Type>
         <Type n="String">System.String</Type>
         <Type n="STSnippetInputAction">{6302d3fe-6ea5-4c42-819a-a9734a133b3d}</Type>
+        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=3.5.8.40, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="TextDocument">{f3878285-8e4f-490b-bb1b-9acbb7eb04db}</Type>
         <Type n="TextLine">{a5de0b0b-1cb5-4913-ac21-9d70293ec00d}</Type>
         <Type n="UInt32">System.UInt32</Type>

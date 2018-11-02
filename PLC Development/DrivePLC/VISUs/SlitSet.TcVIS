@@ -456,7 +456,7 @@
                     </o>
                     <o>
                       <v n="Id">2738717112L</v>
-                      <v n="Value">"-MAIN.axes[1].Axis.NcToPlc.ActPos"</v>
+                      <v n="Value">"-GVL.axes[1].Axis.NcToPlc.ActPos"</v>
                     </o>
                   </l>
                 </o>
@@ -614,7 +614,7 @@
                     </o>
                     <o>
                       <v n="Id">2738717112L</v>
-                      <v n="Value">"-MAIN.axes[2].Axis.NcToPlc.ActPos"</v>
+                      <v n="Value">"-GVL.axes[2].Axis.NcToPlc.ActPos"</v>
                     </o>
                   </l>
                 </o>
@@ -772,7 +772,7 @@
                     </o>
                     <o>
                       <v n="Id">3560616238L</v>
-                      <v n="Value">"MAIN.axes[3].Axis.NcToPlc.ActPos"</v>
+                      <v n="Value">"GVL.axes[3].Axis.NcToPlc.ActPos"</v>
                     </o>
                   </l>
                 </o>
@@ -930,7 +930,7 @@
                     </o>
                     <o>
                       <v n="Id">3560616238L</v>
-                      <v n="Value">"MAIN.axes[4].Axis.NcToPlc.ActPos"</v>
+                      <v n="Value">"GVL.axes[4].Axis.NcToPlc.ActPos"</v>
                     </o>
                   </l>
                 </o>
@@ -1688,7 +1688,7 @@
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"MAIN.axes[5].Axis.NcToPlc.ActPos"</v>
+                      <v n="Value">"GVL.axes[5].Axis.NcToPlc.ActPos"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -1722,7 +1722,7 @@
                       <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                         <o>
                           <v n="Id">1186196937L</v>
-                          <v n="Value">"MAIN.axes[5].bJogForward"</v>
+                          <v n="Value">"GVL.axes[5].bJogForward"</v>
                         </o>
                       </l>
                     </o>
@@ -1903,11 +1903,11 @@
                 <v n="VisualElementIdentifier">"GenElemInst_39"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
-                      <v n="STSnippet">"MAIN.axes[5].eCommand:=McCommand.Jog;"</v>
+                      <v n="STSnippet">"GVL.axes[5].eCommand:=McCommand.Jog;"</v>
                     </o>
                   </a>
                 </d>
@@ -1926,7 +1926,7 @@
                       <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                         <o>
                           <v n="Id">1186196937L</v>
-                          <v n="Value">"MAIN.axes[5].bJogBackward"</v>
+                          <v n="Value">"GVL.axes[5].bJogBackward"</v>
                         </o>
                       </l>
                     </o>
@@ -2107,11 +2107,11 @@
                 <v n="VisualElementIdentifier">"GenElemInst_41"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
-                      <v n="STSnippet">"MAIN.axes[5].eCommand:=McCommand.Jog;"</v>
+                      <v n="STSnippet">"GVL.axes[5].eCommand:=McCommand.Jog;"</v>
                     </o>
                   </a>
                 </d>
@@ -2550,7 +2550,7 @@
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"MAIN.axes[6].Axis.NcToPlc.ActPos"</v>
+                      <v n="Value">"GVL.axes[6].Axis.NcToPlc.ActPos"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -2584,7 +2584,7 @@
                       <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                         <o>
                           <v n="Id">1186196937L</v>
-                          <v n="Value">"MAIN.axes[6].bJogForward"</v>
+                          <v n="Value">"GVL.axes[6].bJogForward"</v>
                         </o>
                       </l>
                     </o>
@@ -2765,11 +2765,11 @@
                 <v n="VisualElementIdentifier">"GenElemInst_71"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
-                      <v n="STSnippet">"MAIN.axes[6].eCommand:=McCommand.Jog;"</v>
+                      <v n="STSnippet">"GVL.axes[6].eCommand:=McCommand.Jog;"</v>
                     </o>
                   </a>
                 </d>
@@ -2788,7 +2788,7 @@
                       <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                         <o>
                           <v n="Id">1186196937L</v>
-                          <v n="Value">"MAIN.axes[6].bJogBackward"</v>
+                          <v n="Value">"GVL.axes[6].bJogBackward"</v>
                         </o>
                       </l>
                     </o>
@@ -2969,11 +2969,11 @@
                 <v n="VisualElementIdentifier">"GenElemInst_73"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
-                      <v n="STSnippet">"MAIN.axes[6].eCommand:=McCommand.Jog;"</v>
+                      <v n="STSnippet">"GVL.axes[6].eCommand:=McCommand.Jog;"</v>
                     </o>
                   </a>
                 </d>
@@ -3412,7 +3412,7 @@
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"MAIN.axes[7].Axis.NcToPlc.ActPos"</v>
+                      <v n="Value">"GVL.axes[7].Axis.NcToPlc.ActPos"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -3446,7 +3446,7 @@
                       <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                         <o>
                           <v n="Id">1186196937L</v>
-                          <v n="Value">"MAIN.axes[7].bJogForward"</v>
+                          <v n="Value">"GVL.axes[7].bJogForward"</v>
                         </o>
                       </l>
                     </o>
@@ -3627,11 +3627,11 @@
                 <v n="VisualElementIdentifier">"GenElemInst_81"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
-                      <v n="STSnippet">"MAIN.axes[7].eCommand:=McCommand.Jog;"</v>
+                      <v n="STSnippet">"GVL.axes[7].eCommand:=McCommand.Jog;"</v>
                     </o>
                   </a>
                 </d>
@@ -3650,7 +3650,7 @@
                       <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                         <o>
                           <v n="Id">1186196937L</v>
-                          <v n="Value">"MAIN.axes[7].bJogBackward"</v>
+                          <v n="Value">"GVL.axes[7].bJogBackward"</v>
                         </o>
                       </l>
                     </o>
@@ -3831,11 +3831,11 @@
                 <v n="VisualElementIdentifier">"GenElemInst_83"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
-                      <v n="STSnippet">"MAIN.axes[7].eCommand:=McCommand.Jog;"</v>
+                      <v n="STSnippet">"GVL.axes[7].eCommand:=McCommand.Jog;"</v>
                     </o>
                   </a>
                 </d>
@@ -4274,7 +4274,7 @@
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"MAIN.axes[8].Axis.NcToPlc.ActPos"</v>
+                      <v n="Value">"GVL.axes[8].Axis.NcToPlc.ActPos"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -4308,7 +4308,7 @@
                       <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                         <o>
                           <v n="Id">1186196937L</v>
-                          <v n="Value">"MAIN.axes[8].bJogForward"</v>
+                          <v n="Value">"GVL.axes[8].bJogForward"</v>
                         </o>
                       </l>
                     </o>
@@ -4489,11 +4489,11 @@
                 <v n="VisualElementIdentifier">"GenElemInst_91"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
-                      <v n="STSnippet">"MAIN.axes[8].eCommand:=McCommand.Jog;"</v>
+                      <v n="STSnippet">"GVL.axes[8].eCommand:=McCommand.Jog;"</v>
                     </o>
                   </a>
                 </d>
@@ -4512,7 +4512,7 @@
                       <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                         <o>
                           <v n="Id">1186196937L</v>
-                          <v n="Value">"MAIN.axes[8].bJogBackward"</v>
+                          <v n="Value">"GVL.axes[8].bJogBackward"</v>
                         </o>
                       </l>
                     </o>
@@ -4693,11 +4693,11 @@
                 <v n="VisualElementIdentifier">"GenElemInst_93"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
-                      <v n="STSnippet">"MAIN.axes[8].eCommand:=McCommand.Jog;"</v>
+                      <v n="STSnippet">"GVL.axes[8].eCommand:=McCommand.Jog;"</v>
                     </o>
                   </a>
                 </d>
@@ -4882,8 +4882,6 @@
                 <v>53db70ab-7395-4188-9277-dcc849c7c51d</v>
                 <v>ContainsPoint</v>
                 <v>2a28d5bc-c7af-40e6-ba26-3c2a234d685d</v>
-                <v>FB_Reinit</v>
-                <v>5ffa9d8a-1f2d-4cd3-864f-e0b26ef3765b</v>
                 <v>HasInputAccess</v>
                 <v>fec1db80-480c-4867-b9e3-1fda7a7887d2</v>
                 <v>HasInputAccessIntern</v>
@@ -4922,6 +4920,8 @@
                 <v>54f80378-9fa3-4ff9-93a3-4a86e782bc0b</v>
                 <v>Initialize</v>
                 <v>d96be751-3d9f-4908-b840-9be1f318c3e6</v>
+                <v>Destruct</v>
+                <v>e0fece79-4704-4f99-ba94-98dc02448719</v>
                 <v>SetStaticState</v>
                 <v>78d6d978-ce92-4c49-9e32-4fe3b7c6678f</v>
                 <v>GetSurroundingRect</v>
@@ -4936,8 +4936,8 @@
                 <v>f0e60a93-3224-4023-bc10-82eafba8ca35</v>
                 <v>SetDialogInterface</v>
                 <v>d0f9589d-b568-49c6-acf4-29dfaa016928</v>
-                <v>Destruct</v>
-                <v>e0fece79-4704-4f99-ba94-98dc02448719</v>
+                <v>FB_Reinit</v>
+                <v>5ffa9d8a-1f2d-4cd3-864f-e0b26ef3765b</v>
                 <v>FB_Exit</v>
                 <v>ae4b3e4d-cdde-4971-b9c6-ab182e207529</v>
                 <v>GetInitializeVersion</v>
@@ -4962,10 +4962,10 @@
               <d n="FbMethods" t="CaseInsensitiveHashtable" ckt="String" cvt="Guid">
                 <v>FB_Init</v>
                 <v>80b122ba-f42a-47c5-8ef7-1e56af1b4e97</v>
-                <v>FB_Exit</v>
-                <v>3c7f9e07-9fe1-4bc1-82fc-6a099c47d451</v>
                 <v>FB_Reinit</v>
                 <v>9e30454e-98e9-42b5-ab75-5b20ff287db8</v>
+                <v>FB_Exit</v>
+                <v>3c7f9e07-9fe1-4bc1-82fc-6a099c47d451</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{318ad389-4d2e-4b7d-9e9a-a096de9d3598}</v>
@@ -5056,7 +5056,6 @@
         <Type n="Guid">System.Guid</Type>
         <Type n="Hashtable">System.Collections.Hashtable</Type>
         <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
-        <Type n="IInputAction[]">_3S.CoDeSys.VisualElem.IInputAction[], VisualElem, Version=3.5.8.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="Int16">System.Int16</Type>
         <Type n="Int32">System.Int32</Type>
         <Type n="Int64">System.Int64</Type>
@@ -5065,6 +5064,7 @@
         <Type n="Object">System.Object</Type>
         <Type n="String">System.String</Type>
         <Type n="STSnippetInputAction">{6302d3fe-6ea5-4c42-819a-a9734a133b3d}</Type>
+        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=3.5.8.40, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="TextDocument">{f3878285-8e4f-490b-bb1b-9acbb7eb04db}</Type>
         <Type n="TextLine">{a5de0b0b-1cb5-4913-ac21-9d70293ec00d}</Type>
         <Type n="UInt32">System.UInt32</Type>

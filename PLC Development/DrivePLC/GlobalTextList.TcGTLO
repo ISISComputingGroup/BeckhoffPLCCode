@@ -31,6 +31,11 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"124"</v>
+              <v n="TextDefault">" POWER "</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"115"</v>
               <v n="TextDefault">" Simulation "</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -151,6 +156,11 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"121"</v>
+              <v n="TextDefault">"AXIS NAME:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"21"</v>
               <v n="TextDefault">"AXIS SELECT"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -161,8 +171,18 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"120"</v>
+              <v n="TextDefault">"AXIS SELECTION:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"14"</v>
               <v n="TextDefault">"BW"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"123"</v>
+              <v n="TextDefault">"BW ENABLED"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -282,6 +302,11 @@ Motion"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"122"</v>
+              <v n="TextDefault">"FW ENABLED"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"34"</v>
               <v n="TextDefault">"GEAR IN"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -369,6 +394,11 @@ Motion"</v>
             <o>
               <v n="TextID">"67"</v>
               <v n="TextDefault">"MASTER3:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"125"</v>
+              <v n="TextDefault">"MASTER4:"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>

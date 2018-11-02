@@ -5,7 +5,7 @@
 VAR
 	{attribute 'OPC.UA.DA' := '1'}
 	{attribute 'OPC.UA.DA.StructuredType' := '1'}
-	axes			:	ARRAY [1..GVL.axisNumMax] OF AxisControl;
+	//axes			:	ARRAY [1..GVL.axisNumMax] OF AxisControl;
 	
 	//Simulate virtual axes
 	simulated		:	ARRAY [1..GVL.axisNumMax] OF ST_SimulateStage;
@@ -81,7 +81,8 @@ END_VAR
 //END_FOR
 
 FOR GVL.iAxis:=1 TO GVL.axisNumMax BY 1 DO
-	drives[GVL.iAxis](AxisController:=axes[GVL.iAxis]);
+	drives[GVL.iAxis](AxisController:=GVL.axes[GVL.iAxis]);
+	//drives[GVL.iAxis](AxisController:=axes[GVL.iAxis]);
 END_FOR
 
 CASE iState OF
@@ -89,7 +90,7 @@ CASE iState OF
 		//May be possible to negate this by changing axes to GVLs so that they can be seen within the drives function - CASE 0 NO LONGER REQ
 		iState:=1;
 		FOR i:=1 TO GVL.axisNumMax BY 1 DO
-			IF axes[i].Axis.NcToPlc.AxisId <> i THEN
+			IF GVL.axes[i].Axis.NcToPlc.AxisId <> i THEN
 				iState:=999;
 			END_IF
 		END_FOR
@@ -155,8 +156,8 @@ CASE iState OF
 		END_IF
 		FOR i:=1 TO GVL.axisNumMax BY 1 DO
 			IF bSimulate[i] THEN
-				simulateStage(position:=axes[i].Axis.NcToPlc.ActPos, iAxis:=i, simulated:=simulated[i]);
-				axes[i].MCSignalRef.Level:=simulated[i].absSw;
+				simulateStage(position:=GVL.axes[i].Axis.NcToPlc.ActPos, iAxis:=i, simulated:=simulated[i]);
+				GVL.axes[i].MCSignalRef.Level:=simulated[i].absSw;
 			END_IF
 		END_FOR
 		
@@ -278,7 +279,7 @@ END_VAR]]></Declaration>
       <Implementation>
         <ST><![CDATA[CheckDone:=TRUE;
 FOR i:=iLow TO iHigh BY 1 DO
-	CheckDone:= CheckDone AND axes[i].bDone;
+	CheckDone:= CheckDone AND GVL.axes[i].bDone;
 END_FOR]]></ST>
       </Implementation>
     </Method>
@@ -289,8 +290,8 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[axes[i].eCommand:=McCommand.GearOut;
-axes[i].bExecute:=TRUE;]]></ST>
+        <ST><![CDATA[GVL.axes[i].eCommand:=McCommand.GearOut;
+GVL.axes[i].bExecute:=TRUE;]]></ST>
       </Implementation>
     </Method>
     <Method Name="PowerUp" Id="{efa4560c-311a-41aa-bbe0-0aa4eef16646}">
@@ -300,8 +301,8 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[axes[i].bEnable:=TRUE;
-axes[i].fOverride:=100;
+        <ST><![CDATA[GVL.axes[i].bEnable:=TRUE;
+GVL.axes[i].fOverride:=100;
 Limits.FwLimit[i]:=TRUE;	//in reality you would not set these high, this is just for testing
 Limits.BwLimit[i]:=TRUE;]]></ST>
       </Implementation>
@@ -352,21 +353,21 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[axes[VG].eCommand:=McCommand.SetPosition;
-axes[VG].fPosition:=axes[North].Axis.NcToPlc.ActPos-axes[South].Axis.NcToPlc.ActPos;
-axes[VG].bExecute:=TRUE;
+        <ST><![CDATA[GVL.axes[VG].eCommand:=McCommand.SetPosition;
+GVL.axes[VG].fPosition:=GVL.axes[North].Axis.NcToPlc.ActPos-GVL.axes[South].Axis.NcToPlc.ActPos;
+GVL.axes[VG].bExecute:=TRUE;
 
-axes[VC].eCommand:=McCommand.SetPosition;
-axes[VC].fPosition:=(axes[North].Axis.NcToPlc.ActPos+axes[South].Axis.NcToPlc.ActPos)/2;
-axes[VC].bExecute:=TRUE;
+GVL.axes[VC].eCommand:=McCommand.SetPosition;
+GVL.axes[VC].fPosition:=(GVL.axes[North].Axis.NcToPlc.ActPos+GVL.axes[South].Axis.NcToPlc.ActPos)/2;
+GVL.axes[VC].bExecute:=TRUE;
 
-axes[HG].eCommand:=McCommand.SetPosition;
-axes[HG].fPosition:=axes[East].Axis.NcToPlc.ActPos-axes[West].Axis.NcToPlc.ActPos;
-axes[HG].bExecute:=TRUE;
+GVL.axes[HG].eCommand:=McCommand.SetPosition;
+GVL.axes[HG].fPosition:=GVL.axes[East].Axis.NcToPlc.ActPos-GVL.axes[West].Axis.NcToPlc.ActPos;
+GVL.axes[HG].bExecute:=TRUE;
 
-axes[HC].eCommand:=McCommand.SetPosition;
-axes[HC].fPosition:=(axes[East].Axis.NcToPlc.ActPos+axes[West].Axis.NcToPlc.ActPos)/2;
-axes[HC].bExecute:=TRUE;]]></ST>
+GVL.axes[HC].eCommand:=McCommand.SetPosition;
+GVL.axes[HC].fPosition:=(GVL.axes[East].Axis.NcToPlc.ActPos+GVL.axes[West].Axis.NcToPlc.ActPos)/2;
+GVL.axes[HC].bExecute:=TRUE;]]></ST>
       </Implementation>
     </Method>
     <Method Name="SlitSetup" Id="{9c346981-cc2d-43a8-b095-88fcece736bc}">
@@ -383,39 +384,41 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[axes[North].eCommand:= McCommand.GearInMultiMaster;
-axes[North].masterAxis1:=axes[VG].Axis;
-axes[North].masterAxis2:=axes[VC].Axis;
-axes[North].fGearRatio1:= 0.5;
-axes[North].fGearRatio2:=1;
-axes[North].bExecute:=TRUE;
+        <ST><![CDATA[GVL.axes[North].eCommand:= McCommand.GearInMultiMaster;
+GVL.axes[North].masterAxis1:=VG;
+GVL.axes[North].masterAxis2:=VC;
+GVL.axes[North].fGearRatio1:= 0.5;
+GVL.axes[North].fGearRatio2:=1;
+GVL.axes[North].bExecute:=TRUE;
 
-axes[South].eCommand:= McCommand.GearInMultiMaster;
-axes[South].masterAxis1:=axes[VG].Axis;
-axes[South].masterAxis2:=axes[VC].Axis;
-axes[South].fGearRatio1:= -0.5;
-axes[South].fGearRatio2:=1;
-axes[South].bExecute:=TRUE;
+GVL.axes[South].eCommand:= McCommand.GearInMultiMaster;
+GVL.axes[South].masterAxis1:=VG;
+GVL.axes[South].masterAxis2:=VC;
+GVL.axes[South].fGearRatio1:= -0.5;
+GVL.axes[South].fGearRatio2:=1;
+GVL.axes[South].bExecute:=TRUE;
 
-axes[West].eCommand:= McCommand.GearInMultiMaster;
-axes[West].masterAxis1:=axes[HG].Axis;
-axes[West].masterAxis2:=axes[HC].Axis;
-axes[West].fGearRatio1:= -0.5;
-axes[West].fGearRatio2:=1;
-axes[West].bExecute:=TRUE;
+GVL.axes[West].eCommand:= McCommand.GearInMultiMaster;
+GVL.axes[West].masterAxis1:=HG;
+GVL.axes[West].masterAxis2:=HC;
+GVL.axes[West].fGearRatio1:= -0.5;
+GVL.axes[West].fGearRatio2:=1;
+GVL.axes[West].bExecute:=TRUE;
 
-axes[East].eCommand:= McCommand.GearInMultiMaster;
-axes[East].masterAxis1:=axes[HG].Axis;
-axes[East].masterAxis2:=axes[HC].Axis;
-axes[East].fGearRatio1:= 0.5;
-axes[East].fGearRatio2:=1;
-axes[East].bExecute:=TRUE;]]></ST>
+GVL.axes[East].eCommand:= McCommand.GearInMultiMaster;
+GVL.axes[East].masterAxis1:=HG;
+GVL.axes[East].masterAxis2:=HC;
+GVL.axes[East].fGearRatio1:= 0.5;
+GVL.axes[East].fGearRatio2:=1;
+GVL.axes[East].bExecute:=TRUE;]]></ST>
       </Implementation>
     </Method>
     <LineIds Name="MAIN">
       <LineId Id="590" Count="0" />
       <LineId Id="249" Count="1" />
-      <LineId Id="751" Count="3" />
+      <LineId Id="751" Count="2" />
+      <LineId Id="1067" Count="0" />
+      <LineId Id="754" Count="0" />
       <LineId Id="256" Count="0" />
       <LineId Id="601" Count="0" />
       <LineId Id="738" Count="0" />

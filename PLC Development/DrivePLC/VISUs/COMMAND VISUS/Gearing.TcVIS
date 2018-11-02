@@ -317,7 +317,7 @@
                         </o>
                         <o>
                           <v n="Id">397264524L</v>
-                          <v n="Value">"MAIN.hmiMasterSelect"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].masterAxis"</v>
                         </o>
                       </l>
                     </o>
@@ -327,7 +327,23 @@
                     <v n="VisualElementIdentifier">"GenElemInst_72"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" />
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                      <v>OnMouseClick</v>
+                      <a cet="InputBoxInputAction">
+                        <o>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].masterAxis"</v>
+                          <v n="InputType">"Default"</v>
+                          <v n="InputBoxMin">""</v>
+                          <v n="InputBoxMax">""</v>
+                          <v n="InputBoxDialogTitle">""</v>
+                          <v n="Password">false</v>
+                          <v n="UseTextOutputVariable">false</v>
+                          <v n="TextOutputVariableInitialized">false</v>
+                          <v n="OtherVarConversion">""</v>
+                          <v n="Format">""</v>
+                        </o>
+                      </a>
+                    </d>
                     <v n="VisualElementIdentification">{e2a20716-25b3-4375-849d-520a33f7b0ca}</v>
                     <v n="VisualElementOwningObjectGuid">{2b912947-8f75-4479-907b-17dd521d3090}</v>
                     <a n="LMGuids" et="Guid" />
@@ -613,7 +629,7 @@
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].fGearRatioNum"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].fGearRatioNum"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -635,7 +651,7 @@
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].fGearRatioNum"</v>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].fGearRatioNum"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -933,7 +949,7 @@
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].iGearRatioDen"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].iGearRatioDen"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -955,7 +971,7 @@
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].iGearRatioDen"</v>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].iGearRatioDen"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -1299,8 +1315,8 @@
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.GearIn;
-MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
+                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.GearIn;
+GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -1485,8 +1501,8 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.GearOut;
-MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
+                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.GearOut;
+GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -1565,7 +1581,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].iAxisState=500"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].iAxisState=500"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -1828,7 +1844,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].iAxisState=500"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].iAxisState=500"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -2156,7 +2172,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">397264524L</v>
-                          <v n="Value">"MAIN.hmiMasterSelect1"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].masterAxis1"</v>
                         </o>
                       </l>
                     </o>
@@ -2166,7 +2182,23 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_260"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" />
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                      <v>OnMouseClick</v>
+                      <a cet="InputBoxInputAction">
+                        <o>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].masterAxis1"</v>
+                          <v n="InputType">"Default"</v>
+                          <v n="InputBoxMin">""</v>
+                          <v n="InputBoxMax">""</v>
+                          <v n="InputBoxDialogTitle">""</v>
+                          <v n="Password">false</v>
+                          <v n="UseTextOutputVariable">false</v>
+                          <v n="TextOutputVariableInitialized">false</v>
+                          <v n="OtherVarConversion">""</v>
+                          <v n="Format">""</v>
+                        </o>
+                      </a>
+                    </d>
                     <v n="VisualElementIdentification">{cd435006-6119-4762-9070-1c170cc9398f}</v>
                     <v n="VisualElementOwningObjectGuid">{2b912947-8f75-4479-907b-17dd521d3090}</v>
                     <a n="LMGuids" et="Guid" />
@@ -2452,7 +2484,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].fGearRatio1"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].fGearRatio1"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -2474,7 +2506,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].fGearRatio1"</v>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].fGearRatio1"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -2818,8 +2850,8 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.GearInMultiMaster;
-MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
+                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.GearInMultiMaster;
+GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -3004,8 +3036,8 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"MAIN.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.GearOut;
-MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
+                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.GearOut;
+GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                       </a>
                     </d>
@@ -3172,7 +3204,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">397264524L</v>
-                          <v n="Value">"MAIN.hmiMasterSelect2"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].masterAxis2"</v>
                         </o>
                       </l>
                     </o>
@@ -3182,7 +3214,23 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_274"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" />
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                      <v>OnMouseClick</v>
+                      <a cet="InputBoxInputAction">
+                        <o>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].masterAxis2"</v>
+                          <v n="InputType">"Default"</v>
+                          <v n="InputBoxMin">""</v>
+                          <v n="InputBoxMax">""</v>
+                          <v n="InputBoxDialogTitle">""</v>
+                          <v n="Password">false</v>
+                          <v n="UseTextOutputVariable">false</v>
+                          <v n="TextOutputVariableInitialized">false</v>
+                          <v n="OtherVarConversion">""</v>
+                          <v n="Format">""</v>
+                        </o>
+                      </a>
+                    </d>
                     <v n="VisualElementIdentification">{915deacb-979f-4275-a34c-25ca66d934dd}</v>
                     <v n="VisualElementOwningObjectGuid">{2b912947-8f75-4479-907b-17dd521d3090}</v>
                     <a n="LMGuids" et="Guid" />
@@ -3346,7 +3394,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">397264524L</v>
-                          <v n="Value">"MAIN.hmiMasterSelect3"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].masterAxis3"</v>
                         </o>
                       </l>
                     </o>
@@ -3356,7 +3404,23 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_282"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" />
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                      <v>OnMouseClick</v>
+                      <a cet="InputBoxInputAction">
+                        <o>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].masterAxis3"</v>
+                          <v n="InputType">"Default"</v>
+                          <v n="InputBoxMin">""</v>
+                          <v n="InputBoxMax">""</v>
+                          <v n="InputBoxDialogTitle">""</v>
+                          <v n="Password">false</v>
+                          <v n="UseTextOutputVariable">false</v>
+                          <v n="TextOutputVariableInitialized">false</v>
+                          <v n="OtherVarConversion">""</v>
+                          <v n="Format">""</v>
+                        </o>
+                      </a>
+                    </d>
                     <v n="VisualElementIdentification">{40fdc632-2c27-4b6e-a75a-0a1e85baa1ea}</v>
                     <v n="VisualElementOwningObjectGuid">{2b912947-8f75-4479-907b-17dd521d3090}</v>
                     <a n="LMGuids" et="Guid" />
@@ -3520,7 +3584,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">397264524L</v>
-                          <v n="Value">"MAIN.hmiMasterSelect4"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].masterAxis4"</v>
                         </o>
                       </l>
                     </o>
@@ -3530,7 +3594,23 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_286"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" />
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                      <v>OnMouseClick</v>
+                      <a cet="InputBoxInputAction">
+                        <o>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].masterAxis4"</v>
+                          <v n="InputType">"Default"</v>
+                          <v n="InputBoxMin">""</v>
+                          <v n="InputBoxMax">""</v>
+                          <v n="InputBoxDialogTitle">""</v>
+                          <v n="Password">false</v>
+                          <v n="UseTextOutputVariable">false</v>
+                          <v n="TextOutputVariableInitialized">false</v>
+                          <v n="OtherVarConversion">""</v>
+                          <v n="Format">""</v>
+                        </o>
+                      </a>
+                    </d>
                     <v n="VisualElementIdentification">{e6c082b4-99df-4cd5-8da5-1a5e22c94d71}</v>
                     <v n="VisualElementOwningObjectGuid">{2b912947-8f75-4479-907b-17dd521d3090}</v>
                     <a n="LMGuids" et="Guid" />
@@ -4408,7 +4488,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">390574330L</v>
-                          <v n="Value">"MASTER1:"</v>
+                          <v n="Value">"MASTER4:"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
@@ -4420,7 +4500,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
-                          <v n="Value">"65"</v>
+                          <v n="Value">"125"</v>
                         </o>
                       </l>
                     </o>
@@ -4566,7 +4646,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].fGearRatio2"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].fGearRatio2"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -4588,7 +4668,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].fGearRatio2"</v>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].fGearRatio2"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -4736,7 +4816,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].fGearRatio3"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].fGearRatio3"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -4758,7 +4838,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].fGearRatio3"</v>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].fGearRatio3"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -4906,7 +4986,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].fGearRatio4"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].fGearRatio4"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -4928,7 +5008,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
-                          <v n="InputBoxVariable">"MAIN.axes[MAIN.hmiAxisSelect].fGearRatio4"</v>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].fGearRatio4"</v>
                           <v n="InputType">"Default"</v>
                           <v n="InputBoxMin">""</v>
                           <v n="InputBoxMax">""</v>
@@ -5076,7 +5156,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiMasterSelect1].sAxisName"</v>
+                          <v n="Value">"GVL.axes[GVL.axes[MAIN.hmiAxisSelect].masterAxis1].sAxisName"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -5230,7 +5310,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiMasterSelect2].sAxisName"</v>
+                          <v n="Value">"GVL.axes[GVL.axes[MAIN.hmiAxisSelect].masterAxis2].sAxisName"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -5384,7 +5464,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiMasterSelect3].sAxisName"</v>
+                          <v n="Value">"GVL.axes[GVL.axes[MAIN.hmiAxisSelect].masterAxis3].sAxisName"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -5538,7 +5618,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiMasterSelect4].sAxisName"</v>
+                          <v n="Value">"GVL.axes[GVL.axes[MAIN.hmiAxisSelect].masterAxis4].sAxisName"</v>
                         </o>
                         <o>
                           <v n="Id">2597686782L</v>
@@ -5838,10 +5918,10 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
               <d n="FbMethods" t="CaseInsensitiveHashtable" ckt="String" cvt="Guid">
                 <v>FB_Init</v>
                 <v>51f1cbec-7407-416c-9714-659f2a2b60a1</v>
-                <v>FB_Exit</v>
-                <v>cc71aa4b-11ce-4fe0-a051-d6afdc7568e2</v>
                 <v>FB_Reinit</v>
                 <v>c90e9acc-d361-45d9-a4d8-44de0b595f30</v>
+                <v>FB_Exit</v>
+                <v>cc71aa4b-11ce-4fe0-a051-d6afdc7568e2</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{5b72c14b-d153-4b39-a5e3-e1f3abde2f71}</v>
@@ -5932,6 +6012,7 @@ MAIN.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
         <Type n="Guid">System.Guid</Type>
         <Type n="Hashtable">System.Collections.Hashtable</Type>
         <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
+        <Type n="IInputAction[]">_3S.CoDeSys.VisualElem.IInputAction[], VisualElem, Version=3.5.8.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="InputBoxInputAction">{e8e7e747-f76f-4dee-ab1c-b9637e41ac26}</Type>
         <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.8.40, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="Int16">System.Int16</Type>

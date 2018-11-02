@@ -9,6 +9,8 @@ STRUCT
 	eCommand			:	McCommand;
 	
 	bEnable				: 	BOOL;
+	bFwEnabled			:	BOOL;	//READBACK
+	bBwEnabled			:	BOOL;	//READBACK
 
 	fOverride			:	LREAL;
 	fVelocity			:	LREAL;
@@ -67,15 +69,15 @@ STRUCT
 	{attribute 'OPC.UA.DA' := '0'}
 	Axis				:	AXIS_REF;
 	{attribute 'OPC.UA.DA' := '0'}
-	masterAxis			:	AXIS_REF;
+	masterAxis			:	UINT:=1;
 	{attribute 'OPC.UA.DA' := '0'}
-	masterAxis1			:	AXIS_REF;
+	masterAxis1			:	UINT:=1;
 	{attribute 'OPC.UA.DA' := '0'}
-	masterAxis2			:	AXIS_REF;
+	masterAxis2			:	UINT:=1;
 	{attribute 'OPC.UA.DA' := '0'}
-	masterAxis3			:	AXIS_REF;
+	masterAxis3			:	UINT:=1;
 	{attribute 'OPC.UA.DA' := '0'}
-	masterAxis4			:	AXIS_REF;
+	masterAxis4			:	UINT:=1;
 	
 END_STRUCT
 END_TYPE

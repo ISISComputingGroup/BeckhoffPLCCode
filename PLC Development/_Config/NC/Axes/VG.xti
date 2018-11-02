@@ -1392,7 +1392,6 @@ External Setpoint Generation:
 			<DrvPara>
 				<Analog ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
-				<ParameterChanged>49</ParameterChanged>
 			</DrvPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
