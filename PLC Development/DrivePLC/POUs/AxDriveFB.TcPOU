@@ -26,7 +26,7 @@ VAR
 
 
 //FBs as defined by PLC Open Standard
-//Functions that are commented out have not been implemented yet
+//Functions that are commented out have not been implemented yet, any listed as "NOT IMPLEMENTED" are not in the Beckhoff P2P library
 	//ADMIN                                                                         
 	MCReset						:	MC_Reset;											
 	MCPower						:	MC_Power;										
@@ -54,16 +54,16 @@ VAR
 	
 	//MCHome					:	MC_Home;											
 	MCJog						:	MC_Jog;												
-	//MCStop					:	MC_Stop;											
-	//MCHalt					:	MC_Halt;											
+	////////MCStop					:	MC_Stop;											
+	////////MCHalt					:	MC_Halt;											
 	MCMoveAbsolute				:	MC_MoveAbsolute;									
 	MCMoveRelative				:	MC_MoveRelative;									
 	//MCMoveAdditive			:	MC_MoveAdditive;									
 	//MCMoveSuperimposed		:	MC_MoveSuperimposed;								
-	//MCMoveVelocity			:	MC_MoveVelocity;									
+	////////MCMoveVelocity			:	MC_MoveVelocity;									
 	//MCMoveContinuousAbsolute	:	MC_MoveContinuousAbsolute;						
 	//MCMoveContinuousRelative	:	MC_MoveContinuousRelative;						
-	//MCMoveModulo				:	MC_MoveModulo;										
+	////////MCMoveModulo				:	MC_MoveModulo;										
 	//MCTorqueControl			:	MC_TorqueControl;			//NOT IMPLEMENTED		
 	//MCPositionProfile			:	MC_PositionProfile;			//NOT IMPLEMENTED		
 	//MCVelocityProfile			:	MC_VelocityProfile;			//NOT IMPLEMENTED		
@@ -84,7 +84,25 @@ VAR
 	//MCCamRemove				:	MC_CamRemove;										
 	//MCCamScalingV2			:	MC_CamScaling_V2;									
 
-	//MOTION	
+	//HOMING AND HOMING STEPS
+	MCFinishHoming	:	MC_FinishHoming;
+	//MCHomeDirect		:	MC_HomeDirect;
+	//MCAbortHoming		:	MC_AbortHoming;
+	MCStepAbsoluteSwitch	:	MC_StepAbsoluteSwitch;
+	//MCStepBlock			:	MC_StepBlock;
+	//MCStepBlockLagBased	:	MC_StepBlockLagBased;
+	//MCStepLimitSwitch		:	MC_StepLimitSwitch;
+	//MCStepReferencePulse	:	MC_StepReferencePulse;
+	
+	
+	//MCSignalRef			:	MC_Ref_Signal_Ref;
+
+	StOptions				:	ST_Home_Options;
+	StOptions2				:	ST_Home_Options2;
+	StOptions3				:	ST_Home_Options3;
+	StOptions4				:	ST_Home_Options4;
+	MCHomingParameter		:	MC_HomingParameter;		//Must be passed between homing steps.									
+	
 	//MCHomeRef	:	MC_StepReferencePulse;
 	//MCHomeLim	:	MC_StepLimitSwitch;
 	//MCHomeAbs	:	MC_StepAbsoluteSwitch;
@@ -134,8 +152,8 @@ END_IF
 //																						//
 //////////////////////////////////////////////////////////////////////////////////////////
 //Set EnableFW and EnableBW flags based on axis limit states to begin
-FwLimitsEnabled :=Limits.FwLimit[AxisController.Axis.NcToPlc.AxisId];
-BwLimitsEnabled :=Limits.BwLimit[AxisController.Axis.NcToPlc.AxisId];
+FwLimitsEnabled :=Limits.FwLimit[GVL.iAxis];
+BwLimitsEnabled :=Limits.BwLimit[GVL.iAxis];
 
 //Allow Master axes to listen to slave axes
 //Look through array structure that manages forward and backward coupling for axis, if a slave is present check whether it is
@@ -252,6 +270,10 @@ MCGearOut.Execute:=FALSE;
 MCJog(Axis:=AxisController.Axis);
 MCJog.JogBackwards:=FALSE;
 MCJog.JogForward:=FALSE;
+MCStepAbsoluteSwitch(Axis:=AxisController.Axis,Parameter:=MCHomingParameter);
+MCStepAbsoluteSwitch.Execute:=FALSE;
+MCFinishHoming(Axis:=AxisController.Axis,Parameter:=MCHomingParameter);
+MCFinishHoming.Execute:=FALSE;
 
 //If we're not doing anything or have just done something we no longer latch on the given command
 IF NOT AxisController.AXIS.Status.HasJob OR AxisController.bDone THEN
@@ -459,8 +481,8 @@ CASE eCommandLatched OF
 	MCCommand.GearOut:
 		//Clear limit link of this slave to master. Cycle through all master arrays clearing link
 		FOR iIndex:=1 TO GVL.axisNumMax BY 1 DO
-			Limits.FwLimitsCoupling[iIndex][AxisController.Axis.NcToPlc.AxisId]:=LimitCoupling.None;
-			Limits.BwLimitsCoupling[iIndex][AxisController.Axis.NcToPlc.AxisId]:=LimitCoupling.None;
+			Limits.FwLimitsCoupling[iIndex][GVL.iAxis]:=LimitCoupling.None;
+			Limits.BwLimitsCoupling[iIndex][GVL.iAxis]:=LimitCoupling.None;
 		END_FOR
 		
 		MCGearOut.Execute:=AxisController.bExecute;
@@ -485,6 +507,62 @@ CASE eCommandLatched OF
 		IF NOT MCJog.Busy THEN
 			eCommandLatched:=MCCommand.Idle;
 		END_IF
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	MCCommand.HomeStepAbsoluteSwitch:
+		//Issue: If execute not held high the function will not reverse on its own to find the abs switch when hitting a limit
+		//You have to reissue the command. I want to try and keep bExecute high
+		IF (NOT Limits.FwLimit[GVL.iAxis]) OR (NOT Limits.BwLimit[GVL.iAxis]) THEN
+			MCStepAbsoluteSwitch.Execute:=TRUE;
+		ELSE	
+			MCStepAbsoluteSwitch.Execute:=AxisController.bExecute;
+		END_IF
+		
+		//MCStepAbsoluteSwitch.Execute:=AxisController.bExecute;
+		MCStepAbsoluteSwitch.Direction:= AxisController.MCHomeDirection;
+		MCStepAbsoluteSwitch.SwitchMode:=AxisController.McSwitchMode;
+		MCStepAbsoluteSwitch.ReferenceSignal:=AxisController.MCSignalRef;
+		MCStepAbsoluteSwitch.Velocity:=AxisController.fHomeVelocity;
+		MCStepAbsoluteSwitch.Acceleration:=0;
+		MCStepAbsoluteSwitch.Deceleration:=0;
+		MCStepAbsoluteSwitch.Jerk:=0;
+		MCStepAbsoluteSwitch.TorqueLimit:=AxisController.fHomeTorque;
+		MCStepAbsoluteSwitch.SetPosition:=AxisController.fHomePosition;
+		MCStepAbsoluteSwitch.TimeLimit:=AxisController.tHomeTimeLimit;
+		MCStepAbsoluteSwitch.DistanceLimit:=AxisController.fHomeDistanceLimit;
+		MCStepAbsoluteSwitch.PositiveLimitSwitch:= NOT Limits.FwLimit[GVL.iAxis];	//Inverted logic to normal operation
+		MCStepAbsoluteSwitch.NegativeLimitSwitch:= NOT Limits.BwLimit[GVL.iAxis];	//Inverted logic to normal operation
+		MCStepAbsoluteSwitch.BufferMode:=AxisController.buffer;
+		StOptions4.DisableDriveAccess:=TRUE;
+		MCStepAbsoluteSwitch.Options:=StOptions4;
+		
+		bDone:=MCStepAbsoluteSwitch.Done;
+		AxisController.bBusy:=MCStepAbsoluteSwitch.Busy;
+		IF MCStepAbsoluteSwitch.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:=MCStepAbsoluteSwitch.ErrorID;
+		END_IF
+		IF NOT MCStepAbsoluteSwitch.Busy THEN
+			eCommandLatched:=MCCommand.Idle;
+		END_IF
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	MCCommand.HomeFinish:
+		MCFinishHoming.Execute:=AxisController.bExecute;
+		MCFinishHoming.Distance:=AxisController.fHomeDistance;
+		MCFinishHoming.Velocity:=AxisController.fHomeVelocity;
+		StOptions2.DisableDriveAccess:=TRUE;
+		MCFinishHoming.Options:=StOptions2;
+		
+		bDone:=MCFinishHoming.Done;
+		AxisController.bBusy:=MCFinishHoming.Busy;
+		IF MCFinishHoming.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:=MCFinishHoming.ErrorID;
+		END_IF
+		IF NOT MCFinishHoming.Busy THEN
+			eCommandLAtched:=MCCommand.Idle;
+		END_IF
+		
+		
 
 END_CASE
 
@@ -592,6 +670,8 @@ AxisController.bDone:=doneLatch.Q1;]]></ST>
       <LineId Id="3413" Count="0" />
       <LineId Id="2808" Count="0" />
       <LineId Id="3619" Count="2" />
+      <LineId Id="3788" Count="1" />
+      <LineId Id="3809" Count="1" />
       <LineId Id="2831" Count="0" />
       <LineId Id="3390" Count="0" />
       <LineId Id="2832" Count="2" />
@@ -724,6 +804,32 @@ AxisController.bDone:=doneLatch.Q1;]]></ST>
       <LineId Id="3632" Count="0" />
       <LineId Id="3631" Count="0" />
       <LineId Id="3633" Count="2" />
+      <LineId Id="3747" Count="1" />
+      <LineId Id="3811" Count="0" />
+      <LineId Id="3814" Count="0" />
+      <LineId Id="3812" Count="0" />
+      <LineId Id="3818" Count="1" />
+      <LineId Id="3816" Count="1" />
+      <LineId Id="3813" Count="0" />
+      <LineId Id="3749" Count="0" />
+      <LineId Id="3753" Count="0" />
+      <LineId Id="3750" Count="0" />
+      <LineId Id="3755" Count="11" />
+      <LineId Id="3768" Count="0" />
+      <LineId Id="3767" Count="0" />
+      <LineId Id="3769" Count="0" />
+      <LineId Id="3779" Count="3" />
+      <LineId Id="3784" Count="0" />
+      <LineId Id="3783" Count="0" />
+      <LineId Id="3785" Count="2" />
+      <LineId Id="3791" Count="4" />
+      <LineId Id="3797" Count="0" />
+      <LineId Id="3796" Count="0" />
+      <LineId Id="3798" Count="4" />
+      <LineId Id="3804" Count="0" />
+      <LineId Id="3803" Count="0" />
+      <LineId Id="3805" Count="3" />
+      <LineId Id="3790" Count="0" />
       <LineId Id="3622" Count="1" />
       <LineId Id="385" Count="0" />
       <LineId Id="3526" Count="0" />

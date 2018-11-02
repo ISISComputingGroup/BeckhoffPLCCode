@@ -1,20 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
   <DUT Name="AxisControl" Id="{07f0d91d-99a7-4d94-ba45-f0716edb872f}">
-    <Declaration><![CDATA[TYPE AxisControl :
+    <Declaration><![CDATA[{attribute 'OPC.UA.DA' := '1'}
+TYPE AxisControl :
 STRUCT
 	bExecute			:	BOOL;
 	bReset				:	BOOL;
 	eCommand			:	McCommand;
-	Axis				:	AXIS_REF;
-	masterAxis			:	AXIS_REF;
-	masterAxis1			:	AXIS_REF;
-	masterAxis2			:	AXIS_REF;
-	masterAxis3			:	AXIS_REF;
-	masterAxis4			:	AXIS_REF;
+	
 	bEnable				: 	BOOL;
-	//bEnFW		AT	%I*	:	BOOL;	REPLACED BY LIMITS GLOBAL STRUCTURE
-	//bEnBW		AT	%I*	:	BOOL;
 
 	fOverride			:	LREAL;
 	fVelocity			:	LREAL;
@@ -56,6 +50,33 @@ STRUCT
 	bSoftLimPosEn		:	BOOL;
 	bSoftLimNegEn		:	BOOL;
 	bPosLagEn			:	BOOL;
+	
+	
+	buffer				:	MC_BufferMode;	
+	//Homing
+	fHomeVelocity		:	LREAL:=1;	//init for testing purposes
+	fHomeTorque			:	LREAL;
+	fHomePosition		:	LREAL;
+	fHomeDistance		:	LREAL;
+	tHomeTimeLimit		:	TIME:=T#60S;	//init for testing purposes
+	fHomeDistanceLimit	:	LREAL:=2000;	//init for testing purposes
+	MCHomeDirection		:	MC_Home_Direction:=	mcSwitchPositive;	//init for testing purposes
+	MCSwitchMode			:	MC_Switch_Mode:= mcRisingEdge;		//init for testing purposes
+	MCSignalRef			:	MC_Ref_Signal_Ref;	//In structure for testing purposes so I can simulate level of signal without hardware
+	
+	{attribute 'OPC.UA.DA' := '0'}
+	Axis				:	AXIS_REF;
+	{attribute 'OPC.UA.DA' := '0'}
+	masterAxis			:	AXIS_REF;
+	{attribute 'OPC.UA.DA' := '0'}
+	masterAxis1			:	AXIS_REF;
+	{attribute 'OPC.UA.DA' := '0'}
+	masterAxis2			:	AXIS_REF;
+	{attribute 'OPC.UA.DA' := '0'}
+	masterAxis3			:	AXIS_REF;
+	{attribute 'OPC.UA.DA' := '0'}
+	masterAxis4			:	AXIS_REF;
+	
 END_STRUCT
 END_TYPE
 ]]></Declaration>

@@ -3,9 +3,16 @@
   <POU Name="MAIN" Id="{0ea98677-ea3a-4346-a22a-d9ad819fe0c1}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-//VERSION 3!!!
-	axes			:	ARRAY [1..10] OF AxisControl;
-	drives			:	ARRAY [1..10] OF AxDriveFB;	
+	{attribute 'OPC.UA.DA' := '1'}
+	{attribute 'OPC.UA.DA.StructuredType' := '1'}
+	axes			:	ARRAY [1..GVL.axisNumMax] OF AxisControl;
+	
+	//Simulate virtual axes
+	simulated		:	ARRAY [1..GVL.axisNumMax] OF ST_SimulateStage;
+	bSimulate		:	ARRAY [1..GVL.axisNumMax] OF BOOL;	//Do we want to simulate?
+	
+	//{attribute 'OPC.UA.DA' := '0'}
+	drives			:	ARRAY [1..GVL.axisNumMax] OF AxDriveFB;	
 	
 	bDisableMC		:	BOOL; //boolean control if true the motion control application specific code is disabled - dumb box
 	iState			:	UINT;	//state machine index-
@@ -25,6 +32,44 @@ VAR
 	hmiMasterSelect3	:	UINT:=1;
 	hmiMasterSelect4	:	UINT:=1;
 	
+	
+	
+	
+	
+////////////////////////////////////
+//BECKHOFF ADVANCED HOMING WIP VARIABLES
+
+	StartHoming							: BOOL;
+	FinishHoming	:BOOL;
+	Enable	:	BOOL;
+	EnablePos:BOOL;
+	EnableNeg	:BOOL;
+	Axis								: ARRAY [1..3] OF AXIS_REF;
+					
+	Power								: ARRAY [1..3] OF MC_Power;
+	AxisId								: UDINT;
+	absHome	: MC_StepAbsoluteSwitch;
+	finHome	:	MC_FinishHoming;
+	Parameter	: MC_HomingParameter;
+	bExecute	:	BOOL;
+	HomeDirection	:	MC_Home_Direction;
+	SwMode		:	MC_Switch_Mode;
+	absSw		:	MC_Ref_Signal_Ref;
+	homeVel		:	LREAL;
+	homeAccel	:	LREAL;
+	homeDecel	:	LREAL;
+	homeJerk	:	LREAL;
+	homePosition	:	LREAL;
+	homeTime	:	TIME:=T#60S;
+	homeDistance	:	LREAL:=1000;
+	homeTorque	:	LREAL;
+	
+	bAbsSw								:	BOOL;	//PRETEND SWITCH
+	bPosSw								:	BOOL;
+	bNegSw								:	BOOL;
+	Buffer			:MC_BufferMode;	
+	Options2	:	ST_Home_Options2;
+	Options		:	ST_Home_Options4;
 
 END_VAR
 
@@ -41,7 +86,7 @@ END_FOR
 
 CASE iState OF
 	0:	//CHECK AXIS ID's are correct. Gearing limits currently requires the assigned array index of an axis to match the NC ID.
-		//May be possible to negate this by changing axes to GVLs so that they can be seen within the drives function
+		//May be possible to negate this by changing axes to GVLs so that they can be seen within the drives function - CASE 0 NO LONGER REQ
 		iState:=1;
 		FOR i:=1 TO GVL.axisNumMax BY 1 DO
 			IF axes[i].Axis.NcToPlc.AxisId <> i THEN
@@ -99,19 +144,125 @@ CASE iState OF
 			
 	100:	//DO NOTHING
 		//Some HMI Code for multimaster gearing I would like to clear up but runs as long as Slit program not running
-		axes[hmiAxisSelect].masterAxis:=axes[hmiMasterSelect].Axis;
-		axes[hmiAxisSelect].masterAxis1:=axes[hmiMasterSelect1].Axis;
-		axes[hmiAxisSelect].masterAxis2:=axes[hmiMasterSelect2].Axis;
-		axes[hmiAxisSelect].masterAxis3:=axes[hmiMasterSelect3].Axis;
-		axes[hmiAxisSelect].masterAxis4:=axes[hmiMasterSelect4].Axis;
+		//axes[hmiAxisSelect].masterAxis:=axes[hmiMasterSelect].Axis;
+		//axes[hmiAxisSelect].masterAxis1:=axes[hmiMasterSelect1].Axis;
+		//axes[hmiAxisSelect].masterAxis2:=axes[hmiMasterSelect2].Axis;
+		//axes[hmiAxisSelect].masterAxis3:=axes[hmiMasterSelect3].Axis;
+		//axes[hmiAxisSelect].masterAxis4:=axes[hmiMasterSelect4].Axis;
 		
 		IF NOT bDisableMC THEN
 			iState:=1;
 		END_IF
+		FOR i:=1 TO GVL.axisNumMax BY 1 DO
+			IF bSimulate[i] THEN
+				simulateStage(position:=axes[i].Axis.NcToPlc.ActPos, iAxis:=i, simulated:=simulated[i]);
+				axes[i].MCSignalRef.Level:=simulated[i].absSw;
+			END_IF
+		END_FOR
+		
 	
 	999: //ERROR
 		//INOP STATE	
 END_CASE
+
+
+
+(* TESTING ADVANCED HOMING
+*)
+FOR i := 1 TO 3 DO
+	Axis[i]();
+
+	Power[i](	
+		Enable				:= Enable, 
+		Enable_Positive		:= EnablePos,
+		Enable_Negative		:= EnableNeg,
+		Override			:= 100.0, 
+		Axis				:= Axis[i]);
+END_FOR
+
+AxisId := 1;
+
+(* Test Tasterfeld Öffner *)
+Enable				:= TRUE;
+EnablePos			:= TRUE;
+EnableNeg			:= TRUE;
+
+//SoftEndPos			:= ;
+//SoftEndNeg			:= ;
+absSw.Level:=bAbsSw;
+Options.DisableDriveAccess:=TRUE;
+Options2.DisableDriveAccess:=TRUE;
+(* Test Tasterfeld Schliesser *)
+//CalibrationCam		:= ;
+
+//SOME SIMULATED AXIS CODE
+//LIMIT SWITCHES AT -100 and +100, ABS SW in range -10 to +10
+IF axis[1].NCtoPLC.ActPos < 10 THEN
+	bPosSw:=FALSE;
+ELSE 
+	bPosSw:= TRUE;
+END_IF
+IF axis[1].NCtoPLC.ActPos >-10 THEN
+	bNegSw:=FALSE;
+ELSE 
+	bNegSw:= TRUE;
+END_IF
+IF (axis[1].NCtoPLC.ActPos <2)AND (axis[1].NCtoPLC.ActPos >-2) THEN
+	bAbsSw:=TRUE;
+ELSE 
+	bAbsSw:= FALSe;
+END_IF
+
+IF StartHoming THEN
+	absHome(
+			Axis:=Axis[1],
+			Parameter:=Parameter,
+			Execute:=TRUE,
+			Direction:=HomeDirection, 
+			SwitchMode:=SwMode,
+			ReferenceSignal:=absSw,
+			Velocity:=homeVel,
+			Acceleration:= homeAccel,
+			Deceleration:=homeDecel,
+			Jerk:=homeJerk, 
+			TorqueLimit:=homeTorque,
+			SetPosition:=homePosition, 
+			TimeLimit:= homeTime,
+			DistanceLimit:= homeDistance,
+			PositiveLimitSwitch:=bPosSw,
+			NegativeLimitSwitch:=bNegSw,
+			BufferMode:=Buffer,
+			Options:=Options);
+	//WATCHING
+	absHome.Busy;
+	absHome.Done;
+	absHome.Error;
+	absHome.ErrorID;
+	IF absHome.Done THEN
+		StartHoming:=FALSE;
+	END_IF
+ELSE
+	absHome(
+		Axis:=Axis[1],
+		Parameter:=Parameter,
+		Execute:=FALSE);
+END_IF
+
+IF FinishHoming  THEN
+	finHome(Axis:=Axis[1],
+				Parameter:=Parameter,
+				Execute:=bExecute,
+				Distance:=5,
+				Velocity:=2,
+				Options:=Options2
+);
+	finHome.Busy;
+	finHome.Error;
+	finHome.Done;
+	
+END_IF
+//*)
+
 ]]></ST>
     </Implementation>
     <Method Name="CheckDone" Id="{f8255e59-df7b-4af9-ada6-58c21bf850b3}">
@@ -153,6 +304,38 @@ END_VAR
 axes[i].fOverride:=100;
 Limits.FwLimit[i]:=TRUE;	//in reality you would not set these high, this is just for testing
 Limits.BwLimit[i]:=TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="simulateStage" Id="{deb827a7-c982-4c31-9561-f2bd7c832d23}">
+      <Declaration><![CDATA[METHOD simulateStage : BOOL
+VAR_INPUT
+	position	:	LREAL;
+	iAxis		:	UINT;
+END_VAR
+VAR_IN_OUT
+	simulated	:	ST_SimulateStage;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF position <simulated.fHighLim THEN
+	Limits.FwLimit[iAxis]:=TRUE;
+ELSE
+	Limits.FwLimit[iAxis]:=FALSE;	
+END_IF
+
+IF position >simulated.fLowLim THEN
+	Limits.BwLimit[iAxis]:=TRUE;
+ELSE
+	Limits.BwLimit[iAxis]:=FALSE;	
+END_IF
+
+IF position<simulated.fHighAbs AND position>simulated.fLowAbs THEN
+	simulated.absSw:=TRUE;
+ELSE
+	simulated.absSw:=FALSE;
+END_IF
+
+]]></ST>
       </Implementation>
     </Method>
     <Method Name="SlitPositions" Id="{acef6351-9f47-442e-b66f-59c55dd95878}">
@@ -272,9 +455,48 @@ axes[East].bExecute:=TRUE;]]></ST>
       <LineId Id="666" Count="0" />
       <LineId Id="686" Count="5" />
       <LineId Id="734" Count="3" />
+      <LineId Id="1061" Count="1" />
+      <LineId Id="1064" Count="0" />
+      <LineId Id="1066" Count="0" />
+      <LineId Id="1065" Count="0" />
+      <LineId Id="1063" Count="0" />
+      <LineId Id="1059" Count="0" />
       <LineId Id="745" Count="0" />
       <LineId Id="747" Count="1" />
       <LineId Id="608" Count="0" />
+      <LineId Id="849" Count="25" />
+      <LineId Id="938" Count="0" />
+      <LineId Id="974" Count="0" />
+      <LineId Id="875" Count="2" />
+      <LineId Id="941" Count="0" />
+      <LineId Id="944" Count="2" />
+      <LineId Id="948" Count="1" />
+      <LineId Id="947" Count="0" />
+      <LineId Id="950" Count="9" />
+      <LineId Id="942" Count="1" />
+      <LineId Id="892" Count="0" />
+      <LineId Id="913" Count="6" />
+      <LineId Id="901" Count="0" />
+      <LineId Id="920" Count="1" />
+      <LineId Id="940" Count="0" />
+      <LineId Id="922" Count="3" />
+      <LineId Id="911" Count="0" />
+      <LineId Id="926" Count="0" />
+      <LineId Id="930" Count="0" />
+      <LineId Id="935" Count="0" />
+      <LineId Id="927" Count="2" />
+      <LineId Id="931" Count="0" />
+      <LineId Id="985" Count="2" />
+      <LineId Id="980" Count="4" />
+      <LineId Id="893" Count="0" />
+      <LineId Id="961" Count="2" />
+      <LineId Id="967" Count="0" />
+      <LineId Id="969" Count="3" />
+      <LineId Id="968" Count="0" />
+      <LineId Id="975" Count="2" />
+      <LineId Id="966" Count="0" />
+      <LineId Id="964" Count="0" />
+      <LineId Id="936" Count="1" />
       <LineId Id="602" Count="0" />
       <LineId Id="2" Count="0" />
     </LineIds>
@@ -289,6 +511,19 @@ axes[East].bExecute:=TRUE;]]></ST>
     </LineIds>
     <LineIds Name="MAIN.PowerUp">
       <LineId Id="6" Count="2" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.simulateStage">
+      <LineId Id="34" Count="0" />
+      <LineId Id="36" Count="1" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="38" Count="5" />
+      <LineId Id="30" Count="1" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="46" Count="1" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="25" Count="0" />
       <LineId Id="5" Count="0" />
     </LineIds>
     <LineIds Name="MAIN.SlitPositions">

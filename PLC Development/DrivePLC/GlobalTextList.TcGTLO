@@ -6,6 +6,11 @@
         <o xml:space="preserve" t="GlobalTextListObject">
           <l n="TextList" t="ArrayList" cet="TextListRow">
             <o>
+              <v n="TextID">"100"</v>
+              <v n="TextDefault">" ADVANCED HOMING "</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"94"</v>
               <v n="TextDefault">" DISCRETE MOVES "</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -23,6 +28,11 @@
             <o>
               <v n="TextID">"90"</v>
               <v n="TextDefault">" PARAMETERS "</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"115"</v>
+              <v n="TextDefault">" Simulation "</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -96,6 +106,16 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"118"</v>
+              <v n="TextDefault">"Absolute Flag High Position"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"119"</v>
+              <v n="TextDefault">"Absolute Flag Low Position"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"5"</v>
               <v n="TextDefault">"Absolute Position"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -108,6 +128,11 @@
             <o>
               <v n="TextID">"53"</v>
               <v n="TextDefault">"ActualVelocity"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"106"</v>
+              <v n="TextDefault">"Adv. Homing"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -138,6 +163,11 @@
             <o>
               <v n="TextID">"14"</v>
               <v n="TextDefault">"BW"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"111"</v>
+              <v n="TextDefault">"CALIBRATED"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -187,6 +217,11 @@ Motion"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"107"</v>
+              <v n="TextDefault">"Disable MC"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"39"</v>
               <v n="TextDefault">"DISCRETE MOVES"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -199,6 +234,11 @@ Motion"</v>
             <o>
               <v n="TextID">"7"</v>
               <v n="TextDefault">"DISTANCE:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"103"</v>
+              <v n="TextDefault">"Distance:"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -229,6 +269,11 @@ Motion"</v>
             <o>
               <v n="TextID">"62"</v>
               <v n="TextDefault">"ERROR"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"105"</v>
+              <v n="TextDefault">"FINISH HOMING"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -277,6 +322,11 @@ Motion"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"116"</v>
+              <v n="TextDefault">"High Limit Position"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"76"</v>
               <v n="TextDefault">"HORIZONTAL CENTRE"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -299,6 +349,11 @@ Motion"</v>
             <o>
               <v n="TextID">"77"</v>
               <v n="TextDefault">"Jog Forwards"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"117"</v>
+              <v n="TextDefault">"Low Limit Position"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -432,6 +487,41 @@ Motion"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"102"</v>
+              <v n="TextDefault">"Set Position:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"108"</v>
+              <v n="TextDefault">"Simulate Abs"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"112"</v>
+              <v n="TextDefault">"Simulate AbsSw/Pulse"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"110"</v>
+              <v n="TextDefault">"Simulate NegLim"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"109"</v>
+              <v n="TextDefault">"Simulate PosLim"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"113"</v>
+              <v n="TextDefault">"Simulated Axis"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"114"</v>
+              <v n="TextDefault">"Simulation"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"88"</v>
               <v n="TextDefault">"Single Axis"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -439,6 +529,11 @@ Motion"</v>
             <o>
               <v n="TextID">"89"</v>
               <v n="TextDefault">"Slit Set"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"104"</v>
+              <v n="TextDefault">"STEP ABS SW"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -485,6 +580,11 @@ Motion"</v>
             <o>
               <v n="TextID">"23"</v>
               <v n="TextDefault">"VELOCITY:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"101"</v>
+              <v n="TextDefault">"Velocity:"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>

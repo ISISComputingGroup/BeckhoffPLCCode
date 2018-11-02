@@ -54,7 +54,17 @@ TYPE McCommand :
 	CamExchange,
 	CamInV2,
 	CamRemove,
-	CamScalingV2
+	CamScalingV2,
+	
+	//HOMING
+	HomeFinish,
+	HomeDirect,
+	HomeAbort,
+	HomeStepAbsoluteSwitch,
+	HomeStepBlock,
+	HomeStepBlockLagBased,
+	HomeStepLimitSwitch,
+	HomeStepReferencePulse
 	
 );
 END_TYPE

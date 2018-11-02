@@ -24,5 +24,6 @@
 		<Axis File="VC.xti" Id="6"/>
 		<Axis File="HG.xti" Id="7"/>
 		<Axis File="HC.xti" Id="8"/>
+		<Axis File="HomeTest.xti" Id="9"/>
 	</NC>
 </TcSmItem>
