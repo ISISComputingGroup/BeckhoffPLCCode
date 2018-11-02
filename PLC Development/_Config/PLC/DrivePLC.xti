@@ -1042,6 +1042,14 @@ External Setpoint Generation:
 					</SubVar>
 				</Var>
 				<Var>
+					<Name>Limits.FwLimit</Name>
+					<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Limits.BwLimit</Name>
+					<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
+				</Var>
+				<Var>
 					<Name>GVL.axes[1].Axis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
@@ -1432,14 +1440,6 @@ External Setpoint Generation:
 ]]>
 						</Comment>
 					</SubVar>
-				</Var>
-				<Var>
-					<Name>Limits.FwLimit</Name>
-					<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
-				</Var>
-				<Var>
-					<Name>Limits.BwLimit</Name>
-					<Type GUID="{151D7251-619F-AE55-6E9D-9E71EAB7FCB9}">ARRAY [1..8] OF BOOL</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="2">

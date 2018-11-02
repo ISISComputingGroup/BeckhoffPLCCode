@@ -144,28 +144,25 @@ CASE iState OF
 		END_IF					
 			
 	100:	//DO NOTHING
-		//Some HMI Code for multimaster gearing I would like to clear up but runs as long as Slit program not running
-		//axes[hmiAxisSelect].masterAxis:=axes[hmiMasterSelect].Axis;
-		//axes[hmiAxisSelect].masterAxis1:=axes[hmiMasterSelect1].Axis;
-		//axes[hmiAxisSelect].masterAxis2:=axes[hmiMasterSelect2].Axis;
-		//axes[hmiAxisSelect].masterAxis3:=axes[hmiMasterSelect3].Axis;
-		//axes[hmiAxisSelect].masterAxis4:=axes[hmiMasterSelect4].Axis;
+
+
 		
 		IF NOT bDisableMC THEN
 			iState:=1;
 		END_IF
-		FOR i:=1 TO GVL.axisNumMax BY 1 DO
-			IF bSimulate[i] THEN
-				simulateStage(position:=GVL.axes[i].Axis.NcToPlc.ActPos, iAxis:=i, simulated:=simulated[i]);
-				GVL.axes[i].MCSignalRef.Level:=simulated[i].absSw;
-			END_IF
-		END_FOR
+
 		
 	
 	999: //ERROR
 		//INOP STATE	
 END_CASE
 
+FOR i:=1 TO GVL.axisNumMax BY 1 DO
+	IF bSimulate[i] THEN
+		simulateStage(position:=GVL.axes[i].Axis.NcToPlc.ActPos, iAxis:=i, simulated:=simulated[i]);
+		GVL.axes[i].MCSignalRef.Level:=simulated[i].absSw;
+	END_IF
+END_FOR
 
 
 (* TESTING ADVANCED HOMING
@@ -456,18 +453,16 @@ GVL.axes[East].bExecute:=TRUE;]]></ST>
       <LineId Id="726" Count="7" />
       <LineId Id="698" Count="0" />
       <LineId Id="666" Count="0" />
-      <LineId Id="686" Count="5" />
+      <LineId Id="686" Count="1" />
       <LineId Id="734" Count="3" />
-      <LineId Id="1061" Count="1" />
-      <LineId Id="1064" Count="0" />
-      <LineId Id="1066" Count="0" />
-      <LineId Id="1065" Count="0" />
-      <LineId Id="1063" Count="0" />
+      <LineId Id="1061" Count="0" />
       <LineId Id="1059" Count="0" />
       <LineId Id="745" Count="0" />
       <LineId Id="747" Count="1" />
       <LineId Id="608" Count="0" />
-      <LineId Id="849" Count="25" />
+      <LineId Id="849" Count="0" />
+      <LineId Id="1140" Count="5" />
+      <LineId Id="850" Count="24" />
       <LineId Id="938" Count="0" />
       <LineId Id="974" Count="0" />
       <LineId Id="875" Count="2" />

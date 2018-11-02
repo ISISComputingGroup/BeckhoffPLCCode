@@ -8,12 +8,12 @@
           <l n="TextList" t="ArrayList" cet="TextListRow">
             <o>
               <v n="TextID">"0"</v>
-              <v n="TextDefault">"Disabled"</v>
+              <v n="TextDefault">"Enable"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
               <v n="TextID">"1"</v>
-              <v n="TextDefault">"Enabled"</v>
+              <v n="TextDefault">"Disable"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>

@@ -1201,7 +1201,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">1647042231L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bSoftLimPosEn"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].bSoftLimPosEn"</v>
                         </o>
                         <o>
                           <v n="Id">2812299069L</v>
@@ -1321,7 +1321,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">3774423699L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bSoftLimPosEn"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].bSoftLimPosEn"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
@@ -1413,7 +1413,7 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:=TRUE;
                         </o>
                         <o>
                           <v n="Id">1647042231L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bSoftLimNegEn"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].bSoftLimNegEn"</v>
                         </o>
                         <o>
                           <v n="Id">2812299069L</v>
@@ -1533,7 +1533,7 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:=TRUE;
                         </o>
                         <o>
                           <v n="Id">3774423699L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bSoftLimNegEn"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].bSoftLimNegEn"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
@@ -3855,7 +3855,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">1647042231L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bPosLagEn"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].bPosLagEn"</v>
                         </o>
                         <o>
                           <v n="Id">2812299069L</v>
@@ -3975,7 +3975,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">3774423699L</v>
-                          <v n="Value">"MAIN.axes[MAIN.hmiAxisSelect].bPosLagEn"</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].bPosLagEn"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
@@ -7578,7 +7578,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">390574330L</v>
-                      <v n="Value">"GVL.axesRS "</v>
+                      <v n="Value">" Parameters "</v>
                     </o>
                     <o>
                       <v n="Id">3729828405L</v>
@@ -7622,7 +7622,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">823443203L</v>
-                      <v n="Value">"90"</v>
+                      <v n="Value">"126"</v>
                     </o>
                   </l>
                 </o>
