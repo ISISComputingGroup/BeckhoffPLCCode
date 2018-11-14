@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <GVL Name="Limits" Id="{bc15940f-38e2-463e-88a6-afd29e0a1edc}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	FwLimit				AT	%I*	: ARRAY[1..GVL.axisNumMax] OF BOOL;
 	BwLimit				AT  %I*	: ARRAY[1..GVL.axisNumMax] OF BOOL;
 	
-	FwLimitsCoupling	: ARRAY [1..GVL.axisNumMax] OF ARRAY [1..GVL.axisNumMax] OF limitCoupling;
-	BwLimitsCoupling	: ARRAY [1..GVL.axisNumMax] OF ARRAY [1..GVL.axisNumMax] OF limitCoupling;
+	coupledFwLimit		: ARRAY [1..GVL.axisNumMax] OF ARRAY [1..5] OF ST_MasterCoupling;
+	coupledBwLimit		: ARRAY [1..GVL.axisNumMax] OF ARRAY [1..5] OF ST_MasterCoupling;
 
-	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

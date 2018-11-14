@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <POU Name="MAIN" Id="{0ea98677-ea3a-4346-a22a-d9ad819fe0c1}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
@@ -33,17 +33,69 @@ END_VAR
 
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//CONTROLLER CODE
-//FOR i:=1 TO GVL.axisNumMax BY 1 DO
-//	drives[i](AxisController:=axes[i]);
-//END_FOR
+      <ST><![CDATA[AXES();
+PROG();
+SIMULATE();
 
-FOR GVL.iAxis:=1 TO GVL.axisNumMax BY 1 DO
+
+
+
+
+
+
+]]></ST>
+    </Implementation>
+    <Action Name="AXES" Id="{64e9147a-f428-4655-bd0f-63c28bb82a85}">
+      <Implementation>
+        <ST><![CDATA[FOR GVL.iAxis:=1 TO GVL.axisNumMax BY 1 DO
 	drives[GVL.iAxis](AxisController:=GVL.axes[GVL.iAxis]);
-	//drives[GVL.iAxis](AxisController:=axes[GVL.iAxis]);
-END_FOR
+END_FOR]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="CheckDone" Id="{f8255e59-df7b-4af9-ada6-58c21bf850b3}">
+      <Declaration><![CDATA[METHOD CheckDone : BOOL
+VAR_INPUT
+	iLow	:	UINT;
+	iHigh	:	UINT;
+END_VAR
 
-CASE iState OF
+VAR
+	i		:	UINT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CheckDone:=TRUE;
+FOR i:=iLow TO iHigh BY 1 DO
+	CheckDone:= CheckDone AND GVL.axes[i].bDone;
+END_FOR]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GearOut" Id="{c096e6fc-812d-4259-8c64-f354d37770ae}">
+      <Declaration><![CDATA[METHOD GearOut : BOOL
+VAR_INPUT
+	i	:	UINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[GVL.axes[i].eCommand:=eMcCommand.GearOut;
+GVL.axes[i].bExecute:=TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="PowerUp" Id="{efa4560c-311a-41aa-bbe0-0aa4eef16646}">
+      <Declaration><![CDATA[METHOD PowerUp : BOOL
+VAR_INPUT
+	i	:	UINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[GVL.axes[i].bEnable:=TRUE;
+GVL.axes[i].fOverride:=100;
+Limits.FwLimit[i]:=TRUE;	//in reality you would not set these high, this is just for testing
+Limits.BwLimit[i]:=TRUE;]]></ST>
+      </Implementation>
+    </Method>
+    <Action Name="PROG" Id="{a83d747a-28b8-44b3-812d-dbc6c7a4a77b}">
+      <Implementation>
+        <ST><![CDATA[CASE iState OF
 	0:	//CHECK AXIS ID's are correct. Gearing limits currently requires the assigned array index of an axis to match the NC ID.
 		//May be possible to negate this by changing axes to GVLs so that they can be seen within the drives function - CASE 0 NO LONGER REQ
 		iState:=1;
@@ -113,62 +165,21 @@ CASE iState OF
 	
 	999: //ERROR
 		//INOP STATE	
-END_CASE
-
-
-//AXIS SIMULATION
+END_CASE]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="SIMULATE" Id="{3ab21edf-3a61-475f-a4eb-e4bcda8bf9cd}">
+      <Implementation>
+        <ST><![CDATA[//AXIS SIMULATION
 FOR i:=1 TO GVL.axisNumMax BY 1 DO
 	IF bSimulate[i] THEN
 		simulateStage(position:=GVL.axes[i].Axis.NcToPlc.ActPos, iAxis:=i, simulated:=simulated[i]);
 		GVL.axes[i].MCSignalRef.Level:=simulated[i].absSw;
 	END_IF
 END_FOR
-
-
-
 ]]></ST>
-    </Implementation>
-    <Method Name="CheckDone" Id="{f8255e59-df7b-4af9-ada6-58c21bf850b3}">
-      <Declaration><![CDATA[METHOD CheckDone : BOOL
-VAR_INPUT
-	iLow	:	UINT;
-	iHigh	:	UINT;
-END_VAR
-
-VAR
-	i		:	UINT;
-END_VAR]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[CheckDone:=TRUE;
-FOR i:=iLow TO iHigh BY 1 DO
-	CheckDone:= CheckDone AND GVL.axes[i].bDone;
-END_FOR]]></ST>
       </Implementation>
-    </Method>
-    <Method Name="GearOut" Id="{c096e6fc-812d-4259-8c64-f354d37770ae}">
-      <Declaration><![CDATA[METHOD GearOut : BOOL
-VAR_INPUT
-	i	:	UINT;
-END_VAR
-]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[GVL.axes[i].eCommand:=McCommand.GearOut;
-GVL.axes[i].bExecute:=TRUE;]]></ST>
-      </Implementation>
-    </Method>
-    <Method Name="PowerUp" Id="{efa4560c-311a-41aa-bbe0-0aa4eef16646}">
-      <Declaration><![CDATA[METHOD PowerUp : BOOL
-VAR_INPUT
-	i	:	UINT;
-END_VAR
-]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[GVL.axes[i].bEnable:=TRUE;
-GVL.axes[i].fOverride:=100;
-Limits.FwLimit[i]:=TRUE;	//in reality you would not set these high, this is just for testing
-Limits.BwLimit[i]:=TRUE;]]></ST>
-      </Implementation>
-    </Method>
+    </Action>
     <Method Name="simulateStage" Id="{deb827a7-c982-4c31-9561-f2bd7c832d23}">
       <Declaration><![CDATA[METHOD simulateStage : BOOL
 VAR_INPUT
@@ -215,19 +226,19 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[GVL.axes[VG].eCommand:=McCommand.SetPosition;
+        <ST><![CDATA[GVL.axes[VG].eCommand:=eMcCommand.SetPosition;
 GVL.axes[VG].fPosition:=GVL.axes[North].Axis.NcToPlc.ActPos-GVL.axes[South].Axis.NcToPlc.ActPos;
 GVL.axes[VG].bExecute:=TRUE;
 
-GVL.axes[VC].eCommand:=McCommand.SetPosition;
+GVL.axes[VC].eCommand:=eMcCommand.SetPosition;
 GVL.axes[VC].fPosition:=(GVL.axes[North].Axis.NcToPlc.ActPos+GVL.axes[South].Axis.NcToPlc.ActPos)/2;
 GVL.axes[VC].bExecute:=TRUE;
 
-GVL.axes[HG].eCommand:=McCommand.SetPosition;
+GVL.axes[HG].eCommand:=eMcCommand.SetPosition;
 GVL.axes[HG].fPosition:=GVL.axes[East].Axis.NcToPlc.ActPos-GVL.axes[West].Axis.NcToPlc.ActPos;
 GVL.axes[HG].bExecute:=TRUE;
 
-GVL.axes[HC].eCommand:=McCommand.SetPosition;
+GVL.axes[HC].eCommand:=eMcCommand.SetPosition;
 GVL.axes[HC].fPosition:=(GVL.axes[East].Axis.NcToPlc.ActPos+GVL.axes[West].Axis.NcToPlc.ActPos)/2;
 GVL.axes[HC].bExecute:=TRUE;]]></ST>
       </Implementation>
@@ -246,91 +257,49 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[GVL.axes[North].eCommand:= McCommand.GearInMultiMaster;
-GVL.axes[North].masterAxis1:=VG;
-GVL.axes[North].masterAxis2:=VC;
-GVL.axes[North].fGearRatio1:= 0.5;
-GVL.axes[North].fGearRatio2:=1;
+        <ST><![CDATA[GVL.axes[North].eCommand:= eMcCommand.GearInMultiMaster;
 GVL.axes[North].bExecute:=TRUE;
+GVL.axes[NORTH].masterAxes[1].i:=VG;
+GVL.axes[NORTH].masterAxes[2].i:=VC;
+GVL.axes[NORTH].masterAxes[1].ratio:=0.5;
+GVL.axes[NORTH].masterAxes[2].ratio:=1;
 
-GVL.axes[South].eCommand:= McCommand.GearInMultiMaster;
-GVL.axes[South].masterAxis1:=VG;
-GVL.axes[South].masterAxis2:=VC;
-GVL.axes[South].fGearRatio1:= -0.5;
-GVL.axes[South].fGearRatio2:=1;
+GVL.axes[South].eCommand:= eMcCommand.GearInMultiMaster;
 GVL.axes[South].bExecute:=TRUE;
+GVL.axes[South].masterAxes[1].i:=VG;
+GVL.axes[South].masterAxes[2].i:=VC;
+GVL.axes[South].masterAxes[1].ratio:=-0.5;
+GVL.axes[South].masterAxes[2].ratio:=1;
 
-GVL.axes[West].eCommand:= McCommand.GearInMultiMaster;
-GVL.axes[West].masterAxis1:=HG;
-GVL.axes[West].masterAxis2:=HC;
-GVL.axes[West].fGearRatio1:= -0.5;
-GVL.axes[West].fGearRatio2:=1;
+GVL.axes[West].eCommand:= eMcCommand.GearInMultiMaster;
 GVL.axes[West].bExecute:=TRUE;
+GVL.axes[West].masterAxes[1].i:=HG;
+GVL.axes[West].masterAxes[2].i:=HC;
+GVL.axes[West].masterAxes[1].ratio:=-0.5;
+GVL.axes[West].masterAxes[2].ratio:=1;
 
-GVL.axes[East].eCommand:= McCommand.GearInMultiMaster;
-GVL.axes[East].masterAxis1:=HG;
-GVL.axes[East].masterAxis2:=HC;
-GVL.axes[East].fGearRatio1:= 0.5;
-GVL.axes[East].fGearRatio2:=1;
-GVL.axes[East].bExecute:=TRUE;]]></ST>
+
+GVL.axes[East].eCommand:= eMcCommand.GearInMultiMaster;
+GVL.axes[East].bExecute:=TRUE;
+GVL.axes[East].masterAxes[1].i:=HG;
+GVL.axes[East].masterAxes[2].i:=HC;
+GVL.axes[East].masterAxes[1].ratio:=0.5;
+GVL.axes[East].masterAxes[2].ratio:=1;]]></ST>
       </Implementation>
     </Method>
     <LineIds Name="MAIN">
-      <LineId Id="590" Count="0" />
-      <LineId Id="249" Count="1" />
-      <LineId Id="751" Count="2" />
-      <LineId Id="1067" Count="0" />
-      <LineId Id="754" Count="0" />
       <LineId Id="256" Count="0" />
+      <LineId Id="1178" Count="1" />
       <LineId Id="601" Count="0" />
-      <LineId Id="738" Count="0" />
-      <LineId Id="749" Count="0" />
-      <LineId Id="739" Count="0" />
-      <LineId Id="750" Count="0" />
-      <LineId Id="741" Count="0" />
-      <LineId Id="743" Count="1" />
-      <LineId Id="742" Count="0" />
-      <LineId Id="740" Count="0" />
-      <LineId Id="614" Count="0" />
-      <LineId Id="700" Count="0" />
-      <LineId Id="702" Count="1" />
-      <LineId Id="615" Count="0" />
-      <LineId Id="676" Count="1" />
-      <LineId Id="706" Count="1" />
-      <LineId Id="609" Count="0" />
-      <LineId Id="667" Count="1" />
-      <LineId Id="672" Count="0" />
-      <LineId Id="607" Count="0" />
-      <LineId Id="723" Count="0" />
-      <LineId Id="708" Count="0" />
-      <LineId Id="710" Count="0" />
-      <LineId Id="716" Count="2" />
-      <LineId Id="725" Count="0" />
-      <LineId Id="720" Count="1" />
-      <LineId Id="709" Count="0" />
-      <LineId Id="616" Count="0" />
-      <LineId Id="704" Count="0" />
-      <LineId Id="633" Count="6" />
-      <LineId Id="664" Count="0" />
-      <LineId Id="694" Count="2" />
-      <LineId Id="665" Count="0" />
-      <LineId Id="697" Count="0" />
-      <LineId Id="726" Count="7" />
-      <LineId Id="698" Count="0" />
-      <LineId Id="666" Count="0" />
-      <LineId Id="686" Count="1" />
-      <LineId Id="734" Count="3" />
-      <LineId Id="1061" Count="0" />
-      <LineId Id="1059" Count="0" />
-      <LineId Id="745" Count="0" />
-      <LineId Id="747" Count="1" />
-      <LineId Id="608" Count="0" />
       <LineId Id="849" Count="0" />
       <LineId Id="1146" Count="1" />
-      <LineId Id="1140" Count="5" />
-      <LineId Id="850" Count="2" />
+      <LineId Id="851" Count="1" />
       <LineId Id="602" Count="0" />
       <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.AXES">
+      <LineId Id="3" Count="1" />
+      <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="MAIN.CheckDone">
       <LineId Id="8" Count="0" />
@@ -344,6 +313,14 @@ GVL.axes[East].bExecute:=TRUE;]]></ST>
     <LineIds Name="MAIN.PowerUp">
       <LineId Id="6" Count="2" />
       <LineId Id="5" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.PROG">
+      <LineId Id="2" Count="69" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="MAIN.SIMULATE">
+      <LineId Id="2" Count="6" />
+      <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="MAIN.simulateStage">
       <LineId Id="34" Count="0" />
@@ -364,9 +341,24 @@ GVL.axes[East].bExecute:=TRUE;]]></ST>
     </LineIds>
     <LineIds Name="MAIN.SlitSetup">
       <LineId Id="22" Count="0" />
-      <LineId Id="21" Count="0" />
-      <LineId Id="23" Count="23" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="27" Count="1" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="64" Count="2" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="34" Count="1" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="69" Count="2" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="41" Count="1" />
       <LineId Id="5" Count="0" />
+      <LineId Id="73" Count="2" />
+      <LineId Id="72" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

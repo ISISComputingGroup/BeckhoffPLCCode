@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <GlobalTextList Name="GlobalTextList" Id="{3952725a-7703-435b-968a-90fb4cde3082}">
     <XmlArchive>
       <Data>
@@ -507,6 +507,11 @@ Motion"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"885"</v>
+              <v n="TextDefault">"Read Position:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"26"</v>
               <v n="TextDefault">"REL.MOVE"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -572,6 +577,11 @@ Motion"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"229"</v>
+              <v n="TextDefault">"STOP"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"46"</v>
               <v n="TextDefault">"SWLimitNeg:"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -610,6 +620,21 @@ Motion"</v>
             <o>
               <v n="TextID">"84"</v>
               <v n="TextDefault">"VC:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"973"</v>
+              <v n="TextDefault">"VELOCITY"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"1158"</v>
+              <v n="TextDefault">"Velocity"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"662"</v>
+              <v n="TextDefault">"VELOCITY MOVE"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>

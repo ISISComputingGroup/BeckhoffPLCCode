@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <GVL Name="GVL" Id="{c8d3e9d5-31b6-4526-9dc0-e43961309b0c}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-
-	iAxis		:	UINT;
-	axes			:	ARRAY [1..GVL.axisNumMax] OF AxisControl;
+	iAxis		:	UINT;												//Indexing variable for exposing which axis currently being run though drive function block
+	axes			:	ARRAY [1..GVL.axisNumMax] OF ST_AxisControl;	//Global array of axisControl structure for holding axis parameters and controls
 
 //THESE ARE ONLY HERE TO ALLOW THE HMI TO FUNCTION WITH HOW IT IS CURRENTLY IMPLEMENTED
 	SwLimitPos	:	LREAL;

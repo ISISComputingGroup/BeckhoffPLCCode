@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <POU Name="AxDriveFB" Id="{aef7aef0-3971-449b-83a3-6f8c4c2f7d04}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK AxDriveFB
 VAR_INPUT
 
 END_VAR
 VAR_IN_OUT
-	AxisController		:	AxisControl;
+	AxisController		:	ST_AxisControl;
 END_VAR
 VAR_OUTPUT
 
 END_VAR
 VAR
-	eCommandLatched		:	McCommand;		//Internally latched command signal, new commands cannot be issued until existing commands have completed.
+	eCommandLatched		:	eMcCommand;		//Internally latched command signal, new commands cannot be issued until existing commands have completed.
 											//This may need to change for sequencing
 	doneLatch	:	SR;			//Used to set done signal in AxisController DUT
 	bError		:	BOOL;		//Not currently implemented but may be used in future similar to bDone once more error management is implemented
 	bDone		:	BOOL;		//Interal done flag which will be used for latching on an external done located in AxisController DUT
 	iParam		:	INT:=1;		//index of NC parameters FBs, no 0 index on array so initialised to 1
 	iIndex		:	UINT;		//index value used for limit coupling
+	iMasterIndex		:	UINT;
 	
 	//Boolean to store EnableFw and EnableBw of MCPower FB
 	FwLimitsEnabled	:	BOOL;	
 	BWLimitsEnabled	:	BOOL;
-
 
 //FBs as defined by PLC Open Standard
 //Functions that are commented out have not been implemented yet, any listed as "NOT IMPLEMENTED" are not in the Beckhoff P2P library
@@ -54,13 +54,13 @@ VAR
 	
 	//MCHome					:	MC_Home;											
 	MCJog						:	MC_Jog;												
-	////////MCStop					:	MC_Stop;											
+	MCStop					:	MC_Stop;											
 	////////MCHalt					:	MC_Halt;											
 	MCMoveAbsolute				:	MC_MoveAbsolute;									
 	MCMoveRelative				:	MC_MoveRelative;									
 	//MCMoveAdditive			:	MC_MoveAdditive;									
 	//MCMoveSuperimposed		:	MC_MoveSuperimposed;								
-	////////MCMoveVelocity			:	MC_MoveVelocity;									
+	MCMoveVelocity			:	MC_MoveVelocity;									
 	//MCMoveContinuousAbsolute	:	MC_MoveContinuousAbsolute;						
 	//MCMoveContinuousRelative	:	MC_MoveContinuousRelative;						
 	////////MCMoveModulo				:	MC_MoveModulo;										
@@ -108,6 +108,9 @@ VAR
 	//MCHomeAbs	:	MC_StepAbsoluteSwitch;
 	//homingSw	:	MC_Ref_Signal_Ref;
 	//homingStruct:	MC_HomingParameter;
+	
+	dir	:	MC_Direction;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -161,21 +164,31 @@ BwLimitsEnabled :=Limits.BwLimit[GVL.iAxis];
 //This check used to use the AxisID value from the NC however this had issues as incorrectly set NC IDs would break
 //A GVL is now used to check what axis we are currently running
 FOR iIndex:=1 TO GVL.axisNumMax BY 1 DO
-	IF Limits.FwLimitsCoupling[GVL.iAxis][iIndex]= limitCoupling.FwSw AND NOT Limits.FwLimit[iIndex] THEN
-		FwLimitsEnabled:=FALSE;
-	END_IF
-	IF Limits.FwLimitsCoupling[GVL.iAxis][iIndex]= limitCoupling.BwSw AND NOT Limits.BwLimit[iIndex] THEN
-		FwLimitsEnabled:=FALSE;
-	END_IF
-	IF Limits.BwLimitsCoupling[GVL.iAxis][iIndex]= limitCoupling.BwSw AND NOT Limits.BwLimit[iIndex] THEN
-		BwLimitsEnabled:=FALSE;
-	END_IF
-	IF Limits.BwLimitsCoupling[GVL.iAxis][iIndex]= limitCoupling.FwSw AND NOT Limits.FwLimit[iIndex] THEN
-		BwLimitsEnabled:=FALSE;
-	END_IF
+	FOR iMasterIndex:=1 TO 5 BY 1 DO
+		IF Limits.coupledFwLimit[iIndex][iMasterIndex].iMasterAxis = GVL.iAxis THEN
+			IF Limits.coupledFwLimit[iIndex][iMasterIndex].eLimitType=eLimitCoupling.FwSw AND NOT Limits.FwLimit[iIndex] THEN
+				FwLimitsEnabled:=FALSE;
+			END_IF
+			IF Limits.coupledFwLimit[iIndex][iMasterIndex].eLimitType=eLimitCoupling.BwSw AND NOT Limits.BwLimit[iIndex] THEN
+				FwLimitsEnabled:=FALSE;
+			END_IF
+			IF Limits.coupledBwLimit[iIndex][iMasterIndex].eLimitType=eLimitCoupling.FwSw AND NOT Limits.FwLimit[iIndex] THEN
+				BwLimitsEnabled:=FALSE;
+			END_IF
+			IF Limits.coupledBwLimit[iIndex][iMasterIndex].eLimitType=eLimitCoupling.BwSw AND NOT Limits.BwLimit[iIndex] THEN
+				BwLimitsEnabled:=FALSE;
+			END_IF
+		END_IF
+	END_FOR
 END_FOR
+
 AxisController.bFwEnabled:=FwLimitsEnabled;		//STATUS FEEDBACK
 AxisController.bBwEnabled:=BwLimitsEnabled;		//STATUS FEEDBACk
+
+
+
+
+
 
 
 //////////////////////////////////////////////////////////
@@ -213,7 +226,7 @@ MCPower(
 MCReadParameter(Axis:=AxisController.AXIS,ParameterNumber:=iParam);
 IF MCReadParameter.Valid THEN
 	MCReadParameter.Enable:=FALSE;
-	AxisController.fParametersOut[iParam]:=MCReadParameter.Value;
+	AxisController.fParameters[iParam]:=MCReadParameter.Value;
 	iParam:= iParam+1;
 	IF iParam>17 THEN
 		iParam:=1;
@@ -223,19 +236,19 @@ ELSE
 END_IF
 
 //To save on using a separate bool parameter read just converting the REALs to BOOLS and storing in flags
-IF AxisController.fParametersOut[RWParameter.EnableLimitPos]=1 THEN
+IF AxisController.fParameters[eRWParameter.EnableLimitPos]=1 THEN
 	AxisController.bSoftLimPosEn:=TRUE;
 ELSE
 	AxisController.bSoftLimPosEn:=FALSE;
 END_IF
 
-IF AxisController.fParametersOut[RWParameter.EnableLimitNeg]=1 THEN
+IF AxisController.fParameters[eRWParameter.EnableLimitNeg]=1 THEN
 	AxisController.bSoftLimNegEn:=TRUE;
 ELSE
 	AxisController.bSoftLimNegEn:=FALSE;
 END_IF
 
-IF AxisController.fParametersOut[RWParameter.EnablePosLagMonitoring]=1 THEN
+IF AxisController.fParameters[eRWParameter.EnablePosLagMonitoring]=1 THEN
 	AxisController.bPosLagEn:=TRUE;
 ELSE
 	AxisController.bPosLagEn:=FALSE;
@@ -265,11 +278,9 @@ MCMoveAbsolute.Execute:=FALSE;
 MCMoveRelative(Axis:=AxisController.Axis);
 MCMoveRelative.Execute:=FALSE;
 
-//MCGearIn(Slave:=AxisController.Axis, Master:=AxisController.masterAxis);
 MCGearIn(Slave:=AxisController.Axis, Master:=GVL.axes[AxisController.masterAxis].Axis);
 MCGearIn.Execute:=FALSE;
-//MCGearInMultiMaster(Master1:=AxisController.masterAxis1,Master2:=AxisController.masterAxis2,Master3:=AxisController.masterAxis3,Master4:=AxisController.masterAxis4,Slave:=AxisController.Axis);
-MCGearInMultiMaster(Master1:=GVL.axes[AxisController.masterAxis1].Axis,Master2:=GVL.axes[AxisController.masterAxis2].Axis,Master3:=GVL.axes[AxisController.masterAxis3].Axis,Master4:=GVL.axes[AxisController.masterAxis4].Axis,Slave:=AxisController.Axis);
+MCGearInMultiMaster(Master1:=GVL.axes[AxisController.masterAxes[1].i].Axis,Master2:=GVL.axes[AxisController.masterAxes[2].i].Axis,Master3:=GVL.axes[AxisController.masterAxes[3].i].Axis,Master4:=GVL.axes[AxisController.masterAxes[4].i].Axis,Slave:=AxisController.Axis);
 MCGearInMultiMaster.Enable:=FALSE;	//NOT EXECUTE AS FB ALLOWS CONTINUAL UPDATING OF RATIOS WHILST ENABLED, testing move here
 MCGearOut(Slave:=AxisController.Axis);
 MCGearOut.Execute:=FALSE;
@@ -281,6 +292,12 @@ MCStepAbsoluteSwitch(Axis:=AxisController.Axis,Parameter:=MCHomingParameter);
 MCStepAbsoluteSwitch.Execute:=FALSE;
 MCFinishHoming(Axis:=AxisController.Axis,Parameter:=MCHomingParameter);
 MCFinishHoming.Execute:=FALSE;
+
+MCMoveVelocity(Axis:=AxisController.Axis);
+MCMoveVelocity.Execute:=FALSE;
+
+MCStop(Axis:=AxisController.Axis);
+MCStop.Execute:=FALSE;
 
 //If we're not doing anything or have just done something we no longer latch on the given command
 IF NOT AxisController.AXIS.Status.HasJob OR AxisController.bDone THEN
@@ -299,11 +316,11 @@ END_IF
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 CASE eCommandLatched OF
 	
-	MCCommand.Idle:
+	eMcCommand.Idle:
 		AxisController.bBusy	:=FALSE;
 		AxisController.bExecute	:=FALSE;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
-	MCCommand.Reset:
+	eMcCommand.Reset:
 		AxisController.bError	:=FALSE;
 		MCReset.Execute:=AxisController.bReset;
 		bDone:=McReset.Done;
@@ -315,11 +332,11 @@ CASE eCommandLatched OF
 		
 		//Clear command and erase reset flag.
 		IF NOT MCReset.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 			AxisController.bReset:=FALSE;
 		END_IF
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	MCCommand.WriteParameter:		
+	eMcCommand.WriteParameter:		
 		MCWriteParameter.Execute:=AxisController.bExecute;
 		MCWriteParameter.ParameterNumber:=AxisController.iParameterIndex;
 		MCWriteParameter.Value:=AxisController.fParameterValue;
@@ -331,10 +348,10 @@ CASE eCommandLatched OF
 		END_IF
 		
 		IF NOT MCWriteParameter.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 		END_IF			
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	MCCommand.WriteBoolParameter:	
+	eMcCommand.WriteBoolParameter:	
 		MCWriteBoolParameter.Execute:=AxisController.bExecute;
 		MCWriteBoolParameter.ParameterNumber:=AxisController.iParameterIndex;
 		MCWriteBoolParameter.Value:=AxisController.bInput;
@@ -347,10 +364,10 @@ CASE eCommandLatched OF
 		END_IF
 				
 		IF NOT MCWriteBoolParameter.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 		END_IF	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	MCCommand.SetPosition:	
+	eMcCommand.SetPosition:	
 		MCSetPosition.Execute:=AxisController.bExecute;
 		MCSetPosition.Position:=AxisController.fPosition;
 		AxisController.bBusy:=MCSetPosition.Busy;
@@ -360,10 +377,10 @@ CASE eCommandLatched OF
 			AxisController.iErrorID:= MCSetPosition.ErrorID;
 		END_IF
 		IF NOT MCSetPosition.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 		END_IF
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	MCCommand.MoveAbsolute:	
+	eMcCommand.MoveAbsolute:	
 		MCMoveAbsolute.Execute:=AxisController.bExecute;
 		MCMoveAbsolute.Position:=AxisController.fPosition;
 		MCMoveAbsolute.Velocity:=AxisController.fVelocity;
@@ -380,10 +397,10 @@ CASE eCommandLatched OF
 			AxisController.iErrorID:=MCMoveAbsolute.ErrorID;
 		END_IF
 		IF NOT MCMoveAbsolute.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 		END_IF
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	MCCommand.MoveRelative:		//MOVE RELATIVE
+	eMcCommand.MoveRelative:		//MOVE RELATIVE
 		MCMoveRelative.Execute:=AxisController.bExecute;
 		MCMoveRelative.Distance:=AxisController.fDistance;
 		MCMoveRelative.Velocity:=AxisController.fVelocity;
@@ -398,19 +415,24 @@ CASE eCommandLatched OF
 			AxisController.iErrorID:=MCMoveRelative.ErrorID;
 		END_IF
 		IF NOT MCMoveRelative.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 		END_IF		
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	MCCommand.GearIn:
+	eMcCommand.GearIn:
 	
 		//Dependent on +ve or -ve gear ratio determines whether to link Fw to Fw and Bw to Bw or Fw to Bw and Bw to Fw
 		IF AxisController.fGearRatioNum>0 THEN
-			Limits.FwLimitsCoupling[AxisController.masterAxis][GVL.iAxis]:=limitCoupling.FwSw;
-			Limits.BwLimitsCoupling[AxisController.masterAxis][GVL.iAxis]:=limitCoupling.BwSw;
+			Limits.coupledFwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.FwSw;
+			Limits.coupledFwLimit[GVL.iAxis][1].iMasterAxis:=AxisController.masterAxis;
+			Limits.coupledBwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.BwSw;
+			Limits.coupledBwLimit[GVL.iAxis][1].iMasterAxis:=AxisController.masterAxis;
+			
 		END_IF
 		IF AxisController.fGearRatioNum<0 THEN
-			Limits.FwLimitsCoupling[AxisController.masterAxis][GVL.iAxis]:=limitCoupling.BwSw;
-			Limits.BwLimitsCoupling[AxisController.masterAxis][GVL.iAxis]:=LimitCoupling.FwSw;
+			Limits.coupledFwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.BwSw;
+			Limits.coupledFwLimit[GVL.iAxis][1].iMasterAxis:=AxisController.masterAxis;
+			Limits.coupledBwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.FwSw;
+			Limits.coupledBwLimit[GVL.iAxis][1].iMasterAxis:=AxisController.masterAxis;
 		END_IF
 		
 		MCGearIn.Execute:=AxisController.bExecute;
@@ -423,52 +445,35 @@ CASE eCommandLatched OF
 		END_IF
 		bDone:=McGearIn.InGear;
 		IF NOT MCGearIn.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 		END_IF
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	MCCommand.GearInMultiMaster:
-		IF AxisController.fGearRatio1>0 THEN
-			Limits.FwLimitsCoupling[AxisController.masterAxis1][GVL.iAxis]:=limitCoupling.FwSw;
-			Limits.BwLimitsCoupling[AxisController.masterAxis1][GVL.iAxis]:=limitCoupling.BwSw;
-		END_IF
-		IF AxisController.fGearRatio1<0 THEN
-			Limits.FwLimitsCoupling[AxisController.masterAxis1][GVL.iAxis]:=limitCoupling.BwSw;
-			Limits.BwLimitsCoupling[AxisController.masterAxis1][GVL.iAxis]:=LimitCoupling.FwSw;
-		END_IF
-		IF AxisController.fGearRatio2>0 THEN
-			Limits.FwLimitsCoupling[AxisController.masterAxis2][GVL.iAxis]:=limitCoupling.FwSw;
-			Limits.BwLimitsCoupling[AxisController.masterAxis2][GVL.iAxis]:=limitCoupling.BwSw;
-		END_IF
-		IF AxisController.fGearRatio2<0 THEN
-			Limits.FwLimitsCoupling[AxisController.masterAxis2][GVL.iAxis]:=limitCoupling.BwSw;
-			Limits.BwLimitsCoupling[AxisController.masterAxis2][GVL.iAxis]:=LimitCoupling.FwSw;
-		END_IF
-		IF AxisController.fGearRatio3>0 THEN
-			Limits.FwLimitsCoupling[AxisController.masterAxis3][GVL.iAxis]:=limitCoupling.FwSw;
-			Limits.BwLimitsCoupling[AxisController.masterAxis3][GVL.iAxis]:=limitCoupling.BwSw;
-		END_IF
-		IF AxisController.fGearRatio3<0 THEN
-			Limits.FwLimitsCoupling[AxisController.masterAxis3][GVL.iAxis]:=limitCoupling.BwSw;
-			Limits.BwLimitsCoupling[AxisController.masterAxis3][GVL.iAxis]:=LimitCoupling.FwSw;
-		END_IF
-		IF AxisController.fGearRatio4>0 THEN
-			Limits.FwLimitsCoupling[AxisController.masterAxis4][GVL.iAxis]:=limitCoupling.FwSw;
-			Limits.BwLimitsCoupling[AxisController.masterAxis4][GVL.iAxis]:=limitCoupling.BwSw;
-		END_IF
-		IF AxisController.fGearRatio4<0 THEN
-			Limits.FwLimitsCoupling[AxisController.masterAxis4][GVL.iAxis]:=limitCoupling.BwSw;
-			Limits.BwLimitsCoupling[AxisController.masterAxis4][GVL.iAxis]:=LimitCoupling.FwSw;
-		END_IF
+	eMcCommand.GearInMultiMaster:		
+		//Set up limits
+		FOR iMasterIndex:=1 TO 4 BY 1 DO
+			IF AxisController.masterAxes[iMasterIndex].ratio>0 THEN
+				Limits.coupledFwLimit[GVL.iAxis][iMasterIndex+1].eLimitType:=eLimitCoupling.FwSw;				
+				Limits.coupledBwLimit[GVL.iAxis][iMasterIndex+1].eLimitType:=eLimitCoupling.BwSw;				
+			END_IF
+			IF AxisController.masterAxes[iMasterIndex].ratio<0 THEN
+				Limits.coupledFwLimit[GVL.iAxis][iMasterIndex+1].eLimitType:=eLimitCoupling.BwSw;
+				Limits.coupledBwLimit[GVL.iAxis][iMasterIndex+1].eLimitType:=eLimitCoupling.FwSw;
+			END_IF
+			Limits.coupledFwLimit[GVL.iAxis][iMasterIndex+1].iMasterAxis:=AxisController.masterAxes[iMasterIndex].i;
+			Limits.coupledBwLimit[GVL.iAxis][iMasterIndex+1].iMasterAxis:=AxisController.masterAxes[iMasterIndex].i;
+		END_FOR
+		
+
 		
 		//issue with this MC block (other than everything...) is that it doesn't conform to the standard and use an execute signal. The execute
 		//signal in any other block determines that when it is high one of either error,done,busy must be on. That is not the case with this block
 		//what happens is it triggers, doesn't register a busy and so immediately clears as done.
 		
 		MCGearInMultiMaster.Enable:=AxisController.bExecute;
-		MCGearInMultiMaster.GearRatio1:=AxisController.fGearRatio1;
-		MCGearInMultiMaster.GearRatio2:=AxisController.fGearRatio2;
-		MCGearInMultiMaster.GearRatio3:=AxisController.fGearRatio3;
-		MCGearInMultiMaster.GearRatio4:=AxisController.fGearRatio4;
+		MCGearInMultiMaster.GearRatio1:=AxisController.masterAxes[1].ratio;
+		MCGearInMultiMaster.GearRatio2:=AxisController.masterAxes[2].ratio;
+		MCGearInMultiMaster.GearRatio3:=AxisController.masterAxes[3].ratio;
+		MCGearInMultiMaster.GearRatio4:=AxisController.masterAxes[4].ratio;
 		
 		AxisController.bBusy:=MCGearInMultiMaster.Busy;
 		IF MCGearInMultiMaster.Enable THEN
@@ -482,16 +487,16 @@ CASE eCommandLatched OF
 			AxisController.iErrorID:=MCGearInMultiMaster.ErrorID;
 		END_IF
 		IF NOT MCGearInMultiMaster.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 		END_IF
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	MCCommand.GearOut:
-		//Clear limit link of this slave to master. Cycle through all master arrays clearing link
-		FOR iIndex:=1 TO GVL.axisNumMax BY 1 DO
-			Limits.FwLimitsCoupling[iIndex][GVL.iAxis]:=LimitCoupling.None;
-			Limits.BwLimitsCoupling[iIndex][GVL.iAxis]:=LimitCoupling.None;
-		END_FOR
-		
+	eMcCommand.GearOut:		
+		//Gearout - remove all masters from slave
+		FOR iMasterIndex:=1 TO 5 BY 1 DO
+				Limits.coupledFwLimit[GVL.iAxis][iMasterIndex].eLimitType:=eLimitCoupling.None;
+				Limits.coupledBwLimit[GVL.iAxis][iMasterIndex].eLimitType:=eLimitCoupling.None;
+		END_FOR		
+	
 		MCGearOut.Execute:=AxisController.bExecute;
 		AxisController.bBusy:=MCGearOut.Busy;
 		bDone:=MCGearOut.Done;
@@ -500,10 +505,10 @@ CASE eCommandLatched OF
 			AxisController.iErrorID:=MCGearOut.ErrorID;
 		END_IF
 		IF NOT MCGearOut.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 		END_IF
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
-	MCCommand.Jog:
+	eMcCommand.Jog:
 		MCJog.JogForward:=AxisController.bJogForward;
 		MCJog.JogBackwards:=AxisController.bJogBackward;
 		bDone:=MCJog.Done;
@@ -512,10 +517,10 @@ CASE eCommandLatched OF
 			AxisController.iErrorID:=MCJog.ErrorID;
 		END_IF
 		IF NOT MCJog.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 		END_IF
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
-	MCCommand.HomeStepAbsoluteSwitch:
+	eMcCommand.HomeStepAbsoluteSwitch:
 		//Issue: If execute not held high the function will not reverse on its own to find the abs switch when hitting a limit
 		//You have to reissue the command. I want to try and keep bExecute high
 		IF (NOT Limits.FwLimit[GVL.iAxis]) OR (NOT Limits.BwLimit[GVL.iAxis]) THEN
@@ -523,11 +528,10 @@ CASE eCommandLatched OF
 		ELSE	
 			MCStepAbsoluteSwitch.Execute:=AxisController.bExecute;
 		END_IF
-		
-		//MCStepAbsoluteSwitch.Execute:=AxisController.bExecute;
-		MCStepAbsoluteSwitch.Direction:= AxisController.MCHomeDirection;
-		MCStepAbsoluteSwitch.SwitchMode:=AxisController.McSwitchMode;
-		MCStepAbsoluteSwitch.ReferenceSignal:=AxisController.MCSignalRef;
+	
+		MCStepAbsoluteSwitch.Direction:= AxisController.mcHomeDirection;
+		MCStepAbsoluteSwitch.SwitchMode:=AxisController.mcSwitchMode;
+		MCStepAbsoluteSwitch.ReferenceSignal:=AxisController.mcSignalRef;
 		MCStepAbsoluteSwitch.Velocity:=AxisController.fHomeVelocity;
 		MCStepAbsoluteSwitch.Acceleration:=0;
 		MCStepAbsoluteSwitch.Deceleration:=0;
@@ -549,10 +553,10 @@ CASE eCommandLatched OF
 			AxisController.iErrorID:=MCStepAbsoluteSwitch.ErrorID;
 		END_IF
 		IF NOT MCStepAbsoluteSwitch.Busy THEN
-			eCommandLatched:=MCCommand.Idle;
+			eCommandLatched:=eMcCommand.Idle;
 		END_IF
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
-	MCCommand.HomeFinish:
+	eMcCommand.HomeFinish:
 		MCFinishHoming.Execute:=AxisController.bExecute;
 		MCFinishHoming.Distance:=AxisController.fHomeDistance;
 		MCFinishHoming.Velocity:=AxisController.fHomeVelocity;
@@ -566,8 +570,48 @@ CASE eCommandLatched OF
 			AxisController.iErrorID:=MCFinishHoming.ErrorID;
 		END_IF
 		IF NOT MCFinishHoming.Busy THEN
-			eCommandLAtched:=MCCommand.Idle;
+			eCommandLAtched:=eMcCommand.Idle;
 		END_IF
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	eMcCommand.MoveVelocity:
+		MCMoveVelocity.Execute:=AxisController.bExecute;
+		MCMoveVelocity.Acceleration:=AxisController.fAcceleration;
+		MCMoveVelocity.Deceleration:=AxisController.fDeceleration;
+		
+		IF AxisController.fVelocity>= 0 THEN
+			MCMoveVelocity.Velocity:=AxisController.fVelocity;
+			MCMoveVelocity.Direction:= MC_Positive_Direction;
+		ELSE
+			MCMoveVelocity.Velocity:=ABS(AxisController.fVelocity);
+			MCMoveVelocity.Direction:= MC_Negative_Direction;
+		END_IF
+		
+		bDone:=MCMoveVelocity.InVelocity;
+		AxisController.bBusy:=MCMoveVelocity.Busy;
+		IF MCMoveVelocity.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:=MCMoveVelocity.ErrorID;
+		END_IF
+		IF NOT MCMoveVelocity.Busy THEN
+			eCommandLatched:=eMcCommand.Idle;
+		END_IF
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	eMcCommand.Stop:
+		McStop.Execute:=AxisController.bExecute;
+		McStop.Deceleration:=AxisController.fDeceleration;
+		McStop.Deceleration:=500;
+		McStop.Jerk:=0;
+		
+		bDone:=McStop.Done;
+		AxisController.bBusy:=McStop.Busy;
+		IF MCStop.Error THEN
+			AxisController.bError:= TRUE;
+			AxisController.iErrorID:=MCStop.ErrorId;
+		END_IF
+		IF	NOT MCStop.Busy THEN
+			eCommandLatched:=eMcCommand.Idle;
+		END_IF
+		
 		
 		
 
@@ -600,267 +644,46 @@ doneLatch(SET1:=bDone,RESET:=(AxisController.bBusy OR AxisController.bError));
 AxisController.bDone:=doneLatch.Q1;]]></ST>
     </Implementation>
     <LineIds Name="AxDriveFB">
-      <LineId Id="3527" Count="0" />
-      <LineId Id="379" Count="0" />
-      <LineId Id="978" Count="0" />
-      <LineId Id="3509" Count="3" />
-      <LineId Id="3515" Count="1" />
-      <LineId Id="3513" Count="0" />
-      <LineId Id="2596" Count="0" />
-      <LineId Id="986" Count="0" />
-      <LineId Id="568" Count="0" />
-      <LineId Id="574" Count="1" />
-      <LineId Id="577" Count="1" />
-      <LineId Id="581" Count="5" />
-      <LineId Id="1128" Count="1" />
-      <LineId Id="1126" Count="1" />
-      <LineId Id="587" Count="1" />
-      <LineId Id="569" Count="0" />
-      <LineId Id="2597" Count="0" />
-      <LineId Id="3444" Count="1" />
-      <LineId Id="3503" Count="3" />
-      <LineId Id="3443" Count="0" />
-      <LineId Id="3507" Count="1" />
-      <LineId Id="3020" Count="1" />
-      <LineId Id="3195" Count="0" />
-      <LineId Id="3211" Count="0" />
-      <LineId Id="3451" Count="2" />
-      <LineId Id="3458" Count="0" />
-      <LineId Id="3196" Count="1" />
-      <LineId Id="3456" Count="1" />
-      <LineId Id="3203" Count="2" />
-      <LineId Id="3202" Count="0" />
-      <LineId Id="3206" Count="4" />
-      <LineId Id="3198" Count="0" />
-      <LineId Id="3932" Count="2" />
-      <LineId Id="3199" Count="0" />
-      <LineId Id="3500" Count="0" />
-      <LineId Id="3459" Count="0" />
-      <LineId Id="3495" Count="3" />
-      <LineId Id="3501" Count="1" />
-      <LineId Id="3499" Count="0" />
-      <LineId Id="3015" Count="0" />
-      <LineId Id="3055" Count="10" />
-      <LineId Id="3016" Count="0" />
-      <LineId Id="438" Count="0" />
-      <LineId Id="3494" Count="0" />
-      <LineId Id="3487" Count="6" />
-      <LineId Id="1705" Count="0" />
-      <LineId Id="1727" Count="0" />
-      <LineId Id="1780" Count="0" />
-      <LineId Id="2611" Count="1" />
-      <LineId Id="1783" Count="3" />
-      <LineId Id="1778" Count="1" />
-      <LineId Id="1777" Count="0" />
-      <LineId Id="2613" Count="1" />
-      <LineId Id="1945" Count="1" />
-      <LineId Id="1948" Count="2" />
-      <LineId Id="2616" Count="0" />
-      <LineId Id="1951" Count="4" />
-      <LineId Id="2620" Count="0" />
-      <LineId Id="1956" Count="4" />
-      <LineId Id="1947" Count="0" />
-      <LineId Id="1715" Count="0" />
-      <LineId Id="3395" Count="0" />
-      <LineId Id="3475" Count="4" />
-      <LineId Id="2820" Count="0" />
-      <LineId Id="2638" Count="0" />
-      <LineId Id="2705" Count="0" />
-      <LineId Id="2639" Count="2" />
-      <LineId Id="2643" Count="1" />
-      <LineId Id="2660" Count="1" />
-      <LineId Id="2703" Count="1" />
-      <LineId Id="2719" Count="1" />
-      <LineId Id="2828" Count="0" />
-      <LineId Id="2830" Count="0" />
-      <LineId Id="3820" Count="0" />
-      <LineId Id="2774" Count="0" />
-      <LineId Id="3822" Count="0" />
-      <LineId Id="2775" Count="0" />
-      <LineId Id="2789" Count="0" />
-      <LineId Id="3823" Count="0" />
-      <LineId Id="3415" Count="0" />
-      <LineId Id="3413" Count="0" />
-      <LineId Id="2808" Count="0" />
-      <LineId Id="3821" Count="0" />
-      <LineId Id="3619" Count="2" />
-      <LineId Id="3788" Count="1" />
-      <LineId Id="3809" Count="1" />
-      <LineId Id="2831" Count="0" />
-      <LineId Id="3390" Count="0" />
-      <LineId Id="2832" Count="2" />
-      <LineId Id="2964" Count="0" />
-      <LineId Id="1707" Count="1" />
-      <LineId Id="595" Count="0" />
-      <LineId Id="3468" Count="4" />
-      <LineId Id="1173" Count="0" />
-      <LineId Id="3474" Count="0" />
-      <LineId Id="3473" Count="0" />
-      <LineId Id="2702" Count="0" />
-      <LineId Id="2632" Count="2" />
-      <LineId Id="591" Count="0" />
-      <LineId Id="2654" Count="0" />
-      <LineId Id="2972" Count="0" />
-      <LineId Id="2623" Count="2" />
-      <LineId Id="2698" Count="1" />
-      <LineId Id="2701" Count="0" />
-      <LineId Id="2700" Count="0" />
-      <LineId Id="2626" Count="0" />
-      <LineId Id="2636" Count="0" />
-      <LineId Id="2629" Count="1" />
-      <LineId Id="2635" Count="0" />
-      <LineId Id="2631" Count="0" />
-      <LineId Id="1345" Count="0" />
-      <LineId Id="1278" Count="0" />
-      <LineId Id="1787" Count="0" />
-      <LineId Id="2646" Count="0" />
-      <LineId Id="2648" Count="2" />
-      <LineId Id="2694" Count="1" />
-      <LineId Id="2697" Count="0" />
-      <LineId Id="2696" Count="0" />
-      <LineId Id="2651" Count="0" />
-      <LineId Id="1974" Count="0" />
-      <LineId Id="2655" Count="1" />
-      <LineId Id="1355" Count="0" />
-      <LineId Id="1279" Count="0" />
-      <LineId Id="2662" Count="0" />
-      <LineId Id="2678" Count="0" />
-      <LineId Id="2680" Count="2" />
-      <LineId Id="2689" Count="0" />
-      <LineId Id="2693" Count="0" />
-      <LineId Id="2690" Count="0" />
-      <LineId Id="2692" Count="0" />
-      <LineId Id="2691" Count="0" />
-      <LineId Id="2683" Count="0" />
-      <LineId Id="2686" Count="2" />
-      <LineId Id="1357" Count="0" />
-      <LineId Id="1288" Count="0" />
-      <LineId Id="2706" Count="0" />
-      <LineId Id="2708" Count="0" />
-      <LineId Id="2710" Count="2" />
-      <LineId Id="2714" Count="0" />
-      <LineId Id="2716" Count="0" />
-      <LineId Id="2715" Count="0" />
-      <LineId Id="2713" Count="0" />
-      <LineId Id="2717" Count="1" />
-      <LineId Id="2709" Count="0" />
-      <LineId Id="1299" Count="0" />
-      <LineId Id="2721" Count="0" />
-      <LineId Id="2723" Count="5" />
-      <LineId Id="2818" Count="0" />
-      <LineId Id="2729" Count="1" />
-      <LineId Id="2819" Count="0" />
-      <LineId Id="2731" Count="1" />
-      <LineId Id="2734" Count="0" />
-      <LineId Id="2733" Count="0" />
-      <LineId Id="2735" Count="2" />
-      <LineId Id="1404" Count="0" />
-      <LineId Id="1300" Count="0" />
-      <LineId Id="2758" Count="15" />
-      <LineId Id="1431" Count="0" />
-      <LineId Id="1311" Count="0" />
-      <LineId Id="3528" Count="0" />
-      <LineId Id="3220" Count="0" />
-      <LineId Id="3222" Count="0" />
-      <LineId Id="3218" Count="1" />
-      <LineId Id="3214" Count="0" />
-      <LineId Id="3216" Count="0" />
-      <LineId Id="3037" Count="2" />
-      <LineId Id="3217" Count="0" />
-      <LineId Id="2776" Count="3" />
-      <LineId Id="2781" Count="1" />
-      <LineId Id="2784" Count="0" />
-      <LineId Id="2783" Count="0" />
-      <LineId Id="2780" Count="0" />
-      <LineId Id="2785" Count="0" />
-      <LineId Id="2787" Count="1" />
-      <LineId Id="1455" Count="0" />
-      <LineId Id="1313" Count="0" />
-      <LineId Id="3233" Count="0" />
-      <LineId Id="3226" Count="6" />
-      <LineId Id="3234" Count="15" />
-      <LineId Id="3041" Count="0" />
-      <LineId Id="3250" Count="7" />
-      <LineId Id="3396" Count="0" />
-      <LineId Id="3398" Count="1" />
-      <LineId Id="3397" Count="0" />
-      <LineId Id="3042" Count="0" />
-      <LineId Id="2791" Count="3" />
-      <LineId Id="2797" Count="0" />
-      <LineId Id="3418" Count="0" />
-      <LineId Id="2969" Count="0" />
-      <LineId Id="3421" Count="0" />
-      <LineId Id="3423" Count="0" />
-      <LineId Id="3422" Count="0" />
-      <LineId Id="3410" Count="1" />
-      <LineId Id="2799" Count="1" />
-      <LineId Id="2802" Count="0" />
-      <LineId Id="2801" Count="0" />
-      <LineId Id="3426" Count="0" />
-      <LineId Id="2805" Count="1" />
-      <LineId Id="2804" Count="0" />
-      <LineId Id="1314" Count="0" />
-      <LineId Id="3034" Count="0" />
-      <LineId Id="3029" Count="0" />
-      <LineId Id="3223" Count="1" />
-      <LineId Id="3031" Count="0" />
-      <LineId Id="3033" Count="0" />
-      <LineId Id="2809" Count="1" />
-      <LineId Id="2968" Count="0" />
-      <LineId Id="2811" Count="1" />
-      <LineId Id="2814" Count="0" />
-      <LineId Id="2813" Count="0" />
-      <LineId Id="2815" Count="2" />
-      <LineId Id="1486" Count="0" />
-      <LineId Id="592" Count="0" />
-      <LineId Id="3625" Count="1" />
-      <LineId Id="3628" Count="2" />
-      <LineId Id="3632" Count="0" />
-      <LineId Id="3631" Count="0" />
-      <LineId Id="3633" Count="2" />
-      <LineId Id="3747" Count="1" />
-      <LineId Id="3811" Count="0" />
-      <LineId Id="3814" Count="0" />
-      <LineId Id="3812" Count="0" />
-      <LineId Id="3818" Count="1" />
-      <LineId Id="3816" Count="1" />
-      <LineId Id="3813" Count="0" />
-      <LineId Id="3749" Count="0" />
-      <LineId Id="3753" Count="0" />
-      <LineId Id="3750" Count="0" />
-      <LineId Id="3755" Count="11" />
-      <LineId Id="3768" Count="0" />
-      <LineId Id="3767" Count="0" />
-      <LineId Id="3769" Count="0" />
-      <LineId Id="3779" Count="3" />
-      <LineId Id="3784" Count="0" />
-      <LineId Id="3783" Count="0" />
-      <LineId Id="3785" Count="2" />
-      <LineId Id="3791" Count="4" />
-      <LineId Id="3797" Count="0" />
-      <LineId Id="3796" Count="0" />
-      <LineId Id="3798" Count="4" />
-      <LineId Id="3804" Count="0" />
-      <LineId Id="3803" Count="0" />
-      <LineId Id="3805" Count="3" />
-      <LineId Id="3790" Count="0" />
-      <LineId Id="3622" Count="1" />
-      <LineId Id="385" Count="0" />
-      <LineId Id="3526" Count="0" />
-      <LineId Id="800" Count="0" />
-      <LineId Id="3521" Count="4" />
-      <LineId Id="3519" Count="1" />
-      <LineId Id="801" Count="2" />
-      <LineId Id="398" Count="0" />
-      <LineId Id="668" Count="0" />
-      <LineId Id="404" Count="0" />
-      <LineId Id="1963" Count="1" />
-      <LineId Id="2970" Count="0" />
-      <LineId Id="405" Count="0" />
-      <LineId Id="390" Count="0" />
-      <LineId Id="3636" Count="1" />
-      <LineId Id="355" Count="0" />
-      <LineId Id="3424" Count="1" />
+      <LineId Id="4351" Count="48" />
+      <LineId Id="5036" Count="16" />
+      <LineId Id="5034" Count="0" />
+      <LineId Id="4413" Count="1" />
+      <LineId Id="5033" Count="0" />
+      <LineId Id="4416" Count="0" />
+      <LineId Id="4418" Count="1" />
+      <LineId Id="4433" Count="0" />
+      <LineId Id="4435" Count="16" />
+      <LineId Id="4454" Count="71" />
+      <LineId Id="4527" Count="2" />
+      <LineId Id="5030" Count="0" />
+      <LineId Id="4532" Count="140" />
+      <LineId Id="4676" Count="1" />
+      <LineId Id="4680" Count="0" />
+      <LineId Id="4997" Count="0" />
+      <LineId Id="4681" Count="2" />
+      <LineId Id="4998" Count="2" />
+      <LineId Id="4691" Count="16" />
+      <LineId Id="5031" Count="1" />
+      <LineId Id="5002" Count="0" />
+      <LineId Id="5004" Count="0" />
+      <LineId Id="5015" Count="0" />
+      <LineId Id="5005" Count="0" />
+      <LineId Id="5018" Count="1" />
+      <LineId Id="5021" Count="0" />
+      <LineId Id="5017" Count="0" />
+      <LineId Id="5023" Count="1" />
+      <LineId Id="5003" Count="0" />
+      <LineId Id="4741" Count="0" />
+      <LineId Id="4790" Count="6" />
+      <LineId Id="5026" Count="2" />
+      <LineId Id="5025" Count="0" />
+      <LineId Id="4801" Count="16" />
+      <LineId Id="4824" Count="0" />
+      <LineId Id="4826" Count="0" />
+      <LineId Id="4828" Count="0" />
+      <LineId Id="4831" Count="0" />
+      <LineId Id="4834" Count="0" />
+      <LineId Id="4836" Count="144" />
       <LineId Id="9" Count="0" />
     </LineIds>
   </POU>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
-  <DUT Name="RWParameter" Id="{c447df6e-eb2d-45c9-864d-804940e7dc5d}">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <DUT Name="eRWParameter" Id="{c447df6e-eb2d-45c9-864d-804940e7dc5d}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 {attribute 'strict'}
-TYPE RWParameter :
+TYPE eRWParameter :
 (
 	CommandedPosition 		:= 1,	//REAL		R	- Commanded position
 	SWLimitPos				:= 2,	//REAL		R/W	- Positive Software limit switch position
@@ -22,10 +22,6 @@ TYPE RWParameter :
 	MaxDecelerationAppl		:= 15,	//REAL		R/W	- Maximal allowed deceleration of the axis in the application
 	MaxJerkSystem			:= 16,	//REAL		R	- Maximum allowed jerk of the axis in the motion system
 	MaxJerkAppl				:= 17	//REAL		R/W	- Maximum allowed jerk of the axis in the application
-	
-
-	
-	
 );
 END_TYPE
 ]]></Declaration>

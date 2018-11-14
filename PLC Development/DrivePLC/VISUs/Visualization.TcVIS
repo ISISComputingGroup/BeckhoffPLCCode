@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <Visu Name="Visualization" Id="{91dd2de5-17c4-4aa2-8a01-4e0028983367}">
     <XmlArchive>
       <Data>
@@ -99,7 +99,7 @@
                         </o>
                         <o>
                           <v n="Id">357335551L</v>
-                          <v n="Value">30</v>
+                          <v n="Value">20</v>
                         </o>
                         <o>
                           <v n="Id">2422045748L</v>
@@ -241,7 +241,7 @@
                         </o>
                         <o>
                           <v n="Id">357335551L</v>
-                          <v n="Value">30</v>
+                          <v n="Value">20</v>
                         </o>
                         <o>
                           <v n="Id">2422045748L</v>
@@ -292,7 +292,7 @@
                         </o>
                         <o>
                           <v n="Id">1473355128L</v>
-                          <v n="Value">45</v>
+                          <v n="Value">35</v>
                         </o>
                         <o>
                           <v n="Id">493260384L</v>
@@ -352,11 +352,11 @@
                     <v n="VisualElementIdentifier">"GenElemInst_57"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.MoveAbsolute;
+                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=eMcCommand.MoveAbsolute;
 GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                       </a>
@@ -456,7 +456,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">357335551L</v>
-                          <v n="Value">70</v>
+                          <v n="Value">60</v>
                         </o>
                         <o>
                           <v n="Id">2422045748L</v>
@@ -598,7 +598,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">357335551L</v>
-                          <v n="Value">70</v>
+                          <v n="Value">60</v>
                         </o>
                         <o>
                           <v n="Id">2422045748L</v>
@@ -649,7 +649,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">1473355128L</v>
-                          <v n="Value">85</v>
+                          <v n="Value">75</v>
                         </o>
                         <o>
                           <v n="Id">493260384L</v>
@@ -713,7 +713,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.MoveRelative;
+                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=eMcCommand.MoveRelative;
 GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                       </a>
@@ -800,7 +800,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">357335551L</v>
-                          <v n="Value">120</v>
+                          <v n="Value">140</v>
                         </o>
                         <o>
                           <v n="Id">2422045748L</v>
@@ -808,7 +808,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2134141914L</v>
-                          <v n="Value">40</v>
+                          <v n="Value">30</v>
                         </o>
                         <o>
                           <v n="Id">1651471674L</v>
@@ -854,7 +854,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">1473355128L</v>
-                          <v n="Value">140</v>
+                          <v n="Value">155</v>
                         </o>
                         <o>
                           <v n="Id">493260384L</v>
@@ -918,7 +918,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.Jog;"</v>
+                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=eMcCommand.Jog;"</v>
                         </o>
                       </a>
                     </d>
@@ -1004,7 +1004,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">357335551L</v>
-                          <v n="Value">120</v>
+                          <v n="Value">140</v>
                         </o>
                         <o>
                           <v n="Id">2422045748L</v>
@@ -1012,7 +1012,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">2134141914L</v>
-                          <v n="Value">40</v>
+                          <v n="Value">30</v>
                         </o>
                         <o>
                           <v n="Id">1651471674L</v>
@@ -1058,7 +1058,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                         </o>
                         <o>
                           <v n="Id">1473355128L</v>
-                          <v n="Value">140</v>
+                          <v n="Value">155</v>
                         </o>
                         <o>
                           <v n="Id">493260384L</v>
@@ -1122,7 +1122,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
-                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.Jog;"</v>
+                          <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=eMcCommand.Jog;"</v>
                         </o>
                       </a>
                     </d>
@@ -1131,6 +1131,176 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     <a n="LMGuids" et="Guid" />
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">343</v>
+                    <l n="UserManagementAccessRights" t="ArrayList" />
+                  </o>
+                  <o>
+                    <a n="ConfiguredComplexInputs" et="ComplexInput" />
+                    <l n="Elements" t="ArrayList" />
+                    <n n="VisualElementDescription" />
+                    <o n="VisualElemMemberList" t="VisualElemMemberList">
+                      <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
+                        <o>
+                          <v n="Id">571893170L</v>
+                          <v n="Value">""</v>
+                        </o>
+                        <o>
+                          <v n="Id">494569607L</v>
+                          <l n="Value" t="ArrayList" cet="NamedStyleColor">
+                            <o>
+                              <v n="Color">-2830136</v>
+                              <v n="CanonicalName">"Element-Frame-Color"</v>
+                            </o>
+                          </l>
+                        </o>
+                        <o>
+                          <v n="Id">2812299069L</v>
+                          <l n="Value" t="ArrayList" cet="NamedStyleColor">
+                            <o>
+                              <v n="Color">-1</v>
+                              <v n="CanonicalName">"Element-Fill-Color"</v>
+                            </o>
+                          </l>
+                        </o>
+                        <o>
+                          <v n="Id">135947015L</v>
+                          <l n="Value" t="ArrayList" cet="NamedStyleColor">
+                            <o>
+                              <v n="Color">-65536</v>
+                              <v n="CanonicalName">"Element-Alarm-Frame-Color"</v>
+                            </o>
+                          </l>
+                        </o>
+                        <o>
+                          <v n="Id">493260384L</v>
+                          <l n="Value" t="ArrayList" cet="NamedStyleColor">
+                            <o>
+                              <v n="Color">-12337</v>
+                              <v n="CanonicalName">"Element-Alarm-Fill-Color"</v>
+                            </o>
+                          </l>
+                        </o>
+                        <o>
+                          <v n="Id">2340015797L</v>
+                          <v n="Value">"HCENTER"</v>
+                        </o>
+                        <o>
+                          <v n="Id">2565699834L</v>
+                          <v n="Value">"VCENTER"</v>
+                        </o>
+                        <o>
+                          <v n="Id">4134387352L</v>
+                          <v n="Value">"NONE"</v>
+                        </o>
+                        <o>
+                          <v n="Id">1603690730L</v>
+                          <v n="Value">"Arial"</v>
+                        </o>
+                        <o>
+                          <v n="Id">4253639993L</v>
+                          <v n="Value" t="Int16">12</v>
+                        </o>
+                        <o>
+                          <v n="Id">2729990903L</v>
+                          <v n="Value">0U</v>
+                        </o>
+                        <o>
+                          <v n="Id">1213979116L</v>
+                          <v n="Value">0U</v>
+                        </o>
+                        <o>
+                          <v n="Id">3488306084L</v>
+                          <v n="Value">4278190080U</v>
+                        </o>
+                        <o>
+                          <v n="Id">1999528970L</v>
+                          <v n="Value">"&lt;toggle/tap variable&gt;"</v>
+                        </o>
+                        <o>
+                          <v n="Id">1649127785L</v>
+                          <v n="Value">10</v>
+                        </o>
+                        <o>
+                          <v n="Id">357335551L</v>
+                          <v n="Value">100</v>
+                        </o>
+                        <o>
+                          <v n="Id">2422045748L</v>
+                          <v n="Value">120</v>
+                        </o>
+                        <o>
+                          <v n="Id">2134141914L</v>
+                          <v n="Value">30</v>
+                        </o>
+                        <o>
+                          <v n="Id">3729828405L</v>
+                          <l n="Value" t="ArrayList" cet="NamedStyleFont">
+                            <o>
+                              <v n="FontStyle">0</v>
+                              <v n="ExplicitColor">-16777216</v>
+                              <v n="CanonicalName">"Font-Standard"</v>
+                              <v n="FontName">"Arial"</v>
+                              <v n="FontSize">12</v>
+                              <o n="NamedColor" t="NamedStyleColor">
+                                <v n="Color">-16777216</v>
+                                <v n="CanonicalName">"Font-Default-Color"</v>
+                              </o>
+                            </o>
+                          </l>
+                        </o>
+                        <o>
+                          <v n="Id">1337389588L</v>
+                          <v n="Value">"FROM_STYLE"</v>
+                        </o>
+                        <o>
+                          <v n="Id">2678395525L</v>
+                          <v n="Value">1U</v>
+                        </o>
+                        <o>
+                          <v n="Id">390574330L</v>
+                          <v n="Value">"%4.2f"</v>
+                        </o>
+                        <o>
+                          <v n="Id">2477733581L</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].fVelocity"</v>
+                        </o>
+                        <o>
+                          <v n="Id">2597686782L</v>
+                          <v n="Value">false</v>
+                        </o>
+                        <o>
+                          <v n="Id">823443203L</v>
+                          <v n="Value">"16"</v>
+                        </o>
+                      </l>
+                    </o>
+                    <v n="VisualElementName">"Textfield"</v>
+                    <v n="VisualElementTypeName">"VisuFbElemTextfield"</v>
+                    <v n="VisualElementIsRectangle">true</v>
+                    <v n="VisualElementIdentifier">"GenElemInst_24"</v>
+                    <n n="VisualElementOfflinePaintCommands" />
+                    <n n="VisualElementFrameInformation" />
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
+                      <v>OnMouseClick</v>
+                      <a cet="InputBoxInputAction">
+                        <o>
+                          <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].fVelocity"</v>
+                          <v n="InputType">"Default"</v>
+                          <v n="InputBoxMin">""</v>
+                          <v n="InputBoxMax">""</v>
+                          <v n="InputBoxDialogTitle">""</v>
+                          <v n="Password">false</v>
+                          <v n="UseTextOutputVariable">false</v>
+                          <v n="TextOutputVariableInitialized">true</v>
+                          <v n="OtherVarConversion">""</v>
+                          <v n="Format">""</v>
+                        </o>
+                      </a>
+                    </d>
+                    <v n="VisualElementIdentification">{5f6c09ef-ad5f-4416-9fce-f2457f996ed2}</v>
+                    <v n="VisualElementOwningObjectGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
+                    <a n="LMGuids" et="Guid" />
+                    <d n="SubElements" t="Hashtable" />
+                    <v n="VisualElementId">22</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
                   </o>
                 </l>
@@ -1385,15 +1555,15 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">580</v>
+                      <v n="Value">520</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">120</v>
+                      <v n="Value">60</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
-                      <v n="Value">100</v>
+                      <v n="Value">160</v>
                     </o>
                     <o>
                       <v n="Id">2134141914L</v>
@@ -1641,176 +1811,6 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">494569607L</v>
-                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
-                        <o>
-                          <v n="Color">-2830136</v>
-                          <v n="CanonicalName">"Element-Frame-Color"</v>
-                        </o>
-                      </l>
-                    </o>
-                    <o>
-                      <v n="Id">2812299069L</v>
-                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
-                        <o>
-                          <v n="Color">-1</v>
-                          <v n="CanonicalName">"Element-Fill-Color"</v>
-                        </o>
-                      </l>
-                    </o>
-                    <o>
-                      <v n="Id">135947015L</v>
-                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
-                        <o>
-                          <v n="Color">-65536</v>
-                          <v n="CanonicalName">"Element-Alarm-Frame-Color"</v>
-                        </o>
-                      </l>
-                    </o>
-                    <o>
-                      <v n="Id">493260384L</v>
-                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
-                        <o>
-                          <v n="Color">-12337</v>
-                          <v n="CanonicalName">"Element-Alarm-Fill-Color"</v>
-                        </o>
-                      </l>
-                    </o>
-                    <o>
-                      <v n="Id">2340015797L</v>
-                      <v n="Value">"HCENTER"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2565699834L</v>
-                      <v n="Value">"VCENTER"</v>
-                    </o>
-                    <o>
-                      <v n="Id">4134387352L</v>
-                      <v n="Value">"NONE"</v>
-                    </o>
-                    <o>
-                      <v n="Id">1603690730L</v>
-                      <v n="Value">"Arial"</v>
-                    </o>
-                    <o>
-                      <v n="Id">4253639993L</v>
-                      <v n="Value" t="Int16">12</v>
-                    </o>
-                    <o>
-                      <v n="Id">2729990903L</v>
-                      <v n="Value">0U</v>
-                    </o>
-                    <o>
-                      <v n="Id">1213979116L</v>
-                      <v n="Value">0U</v>
-                    </o>
-                    <o>
-                      <v n="Id">3488306084L</v>
-                      <v n="Value">4278190080U</v>
-                    </o>
-                    <o>
-                      <v n="Id">1999528970L</v>
-                      <v n="Value">"&lt;toggle/tap variable&gt;"</v>
-                    </o>
-                    <o>
-                      <v n="Id">1649127785L</v>
-                      <v n="Value">580</v>
-                    </o>
-                    <o>
-                      <v n="Id">357335551L</v>
-                      <v n="Value">80</v>
-                    </o>
-                    <o>
-                      <v n="Id">2422045748L</v>
-                      <v n="Value">100</v>
-                    </o>
-                    <o>
-                      <v n="Id">2134141914L</v>
-                      <v n="Value">30</v>
-                    </o>
-                    <o>
-                      <v n="Id">3729828405L</v>
-                      <l n="Value" t="ArrayList" cet="NamedStyleFont">
-                        <o>
-                          <v n="FontStyle">0</v>
-                          <v n="ExplicitColor">-16777216</v>
-                          <v n="CanonicalName">"Font-Standard"</v>
-                          <v n="FontName">"Arial"</v>
-                          <v n="FontSize">12</v>
-                          <o n="NamedColor" t="NamedStyleColor">
-                            <v n="Color">-16777216</v>
-                            <v n="CanonicalName">"Font-Default-Color"</v>
-                          </o>
-                        </o>
-                      </l>
-                    </o>
-                    <o>
-                      <v n="Id">1337389588L</v>
-                      <v n="Value">"FROM_STYLE"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2678395525L</v>
-                      <v n="Value">1U</v>
-                    </o>
-                    <o>
-                      <v n="Id">390574330L</v>
-                      <v n="Value">"%4.2f"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2477733581L</v>
-                      <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].fVelocity"</v>
-                    </o>
-                    <o>
-                      <v n="Id">2597686782L</v>
-                      <v n="Value">false</v>
-                    </o>
-                    <o>
-                      <v n="Id">823443203L</v>
-                      <v n="Value">"16"</v>
-                    </o>
-                  </l>
-                </o>
-                <v n="VisualElementName">"Textfield"</v>
-                <v n="VisualElementTypeName">"VisuFbElemTextfield"</v>
-                <v n="VisualElementIsRectangle">true</v>
-                <v n="VisualElementIdentifier">"GenElemInst_24"</v>
-                <n n="VisualElementOfflinePaintCommands" />
-                <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
-                  <v>OnMouseClick</v>
-                  <a cet="InputBoxInputAction">
-                    <o>
-                      <v n="InputBoxVariable">"GVL.axes[MAIN.hmiAxisSelect].fVelocity"</v>
-                      <v n="InputType">"Default"</v>
-                      <v n="InputBoxMin">""</v>
-                      <v n="InputBoxMax">""</v>
-                      <v n="InputBoxDialogTitle">""</v>
-                      <v n="Password">false</v>
-                      <v n="UseTextOutputVariable">false</v>
-                      <v n="TextOutputVariableInitialized">true</v>
-                      <v n="OtherVarConversion">""</v>
-                      <v n="Format">""</v>
-                    </o>
-                  </a>
-                </d>
-                <v n="VisualElementIdentification">{5f6c09ef-ad5f-4416-9fce-f2457f996ed2}</v>
-                <v n="VisualElementOwningObjectGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
-                <a n="LMGuids" et="Guid" />
-                <d n="SubElements" t="Hashtable" />
-                <v n="VisualElementId">22</v>
-                <l n="UserManagementAccessRights" t="ArrayList" />
-              </o>
-              <o>
-                <a n="ConfiguredComplexInputs" et="ComplexInput" />
-                <l n="Elements" t="ArrayList" />
-                <n n="VisualElementDescription" />
-                <o n="VisualElemMemberList" t="VisualElemMemberList">
-                  <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
-                    <o>
-                      <v n="Id">571893170L</v>
-                      <v n="Value">""</v>
-                    </o>
-                    <o>
-                      <v n="Id">494569607L</v>
                       <o n="Value" t="NamedStyleColor">
                         <v n="Color">16777215</v>
                         <v n="CanonicalName">"White"</v>
@@ -1993,7 +1993,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">2340015797L</v>
-                      <v n="Value">"RIGHT"</v>
+                      <v n="Value">"LEFT"</v>
                     </o>
                     <o>
                       <v n="Id">2565699834L</v>
@@ -2029,15 +2029,15 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">450</v>
+                      <v n="Value">1010</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">80</v>
+                      <v n="Value">160</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
-                      <v n="Value">120</v>
+                      <v n="Value">100</v>
                     </o>
                     <o>
                       <v n="Id">2134141914L</v>
@@ -2069,7 +2069,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">390574330L</v>
-                      <v n="Value">"VELOCITY:"</v>
+                      <v n="Value">"Velocity"</v>
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
@@ -2081,7 +2081,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">823443203L</v>
-                      <v n="Value">"23"</v>
+                      <v n="Value">"1158"</v>
                     </o>
                   </l>
                 </o>
@@ -2252,108 +2252,6 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
               <o>
                 <a n="ConfiguredComplexInputs" et="ComplexInput" />
                 <l n="Elements" t="ArrayList" cet="GenericVisualElem">
-                  <o>
-                    <a n="ConfiguredComplexInputs" et="ComplexInput" />
-                    <l n="Elements" t="ArrayList" />
-                    <n n="VisualElementDescription" />
-                    <o n="VisualElemMemberList" t="VisualElemMemberList">
-                      <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
-                        <o>
-                          <v n="Id">1931512087L</v>
-                          <v n="Value">"TOGGLE"</v>
-                        </o>
-                        <o>
-                          <v n="Id">300685745L</v>
-                          <v n="Value">false</v>
-                        </o>
-                        <o>
-                          <v n="Id">2812299069L</v>
-                          <v n="Value">4294967295U</v>
-                        </o>
-                        <o>
-                          <v n="Id">494569607L</v>
-                          <v n="Value">4278190080U</v>
-                        </o>
-                        <o>
-                          <v n="Id">1649127785L</v>
-                          <v n="Value">10</v>
-                        </o>
-                        <o>
-                          <v n="Id">357335551L</v>
-                          <v n="Value">20</v>
-                        </o>
-                        <o>
-                          <v n="Id">2422045748L</v>
-                          <v n="Value">50</v>
-                        </o>
-                        <o>
-                          <v n="Id">2134141914L</v>
-                          <v n="Value">50</v>
-                        </o>
-                        <o>
-                          <v n="Id">4062784938L</v>
-                          <v n="Value">"Element-Switch-PushSwitchLed-Gray"</v>
-                        </o>
-                        <o>
-                          <v n="Id">493260384L</v>
-                          <v n="Value">4294967295U</v>
-                        </o>
-                        <o>
-                          <v n="Id">135947015L</v>
-                          <v n="Value">4278190080U</v>
-                        </o>
-                        <o>
-                          <v n="Id">2678395525L</v>
-                          <v n="Value">1U</v>
-                        </o>
-                        <o>
-                          <v n="Id">2340015797L</v>
-                          <v n="Value">"HCENTER"</v>
-                        </o>
-                        <o>
-                          <v n="Id">2565699834L</v>
-                          <v n="Value">"VCENTER"</v>
-                        </o>
-                        <o>
-                          <v n="Id">296037572L</v>
-                          <v n="Value">""</v>
-                        </o>
-                        <o>
-                          <v n="Id">390574330L</v>
-                          <v n="Value">""</v>
-                        </o>
-                        <o>
-                          <v n="Id">571893170L</v>
-                          <v n="Value">""</v>
-                        </o>
-                        <o>
-                          <v n="Id">1357176423L</v>
-                          <v n="Value">true</v>
-                        </o>
-                        <o>
-                          <v n="Id">743958181L</v>
-                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].bEnable"</v>
-                        </o>
-                        <o>
-                          <v n="Id">2597686782L</v>
-                          <v n="Value">false</v>
-                        </o>
-                      </l>
-                    </o>
-                    <v n="VisualElementName">"PushSwitchLed"</v>
-                    <v n="VisualElementTypeName">"VisuFbElemPushSwitchLed"</v>
-                    <v n="VisualElementIsRectangle">true</v>
-                    <v n="VisualElementIdentifier">"GenElemInst_35"</v>
-                    <n n="VisualElementOfflinePaintCommands" />
-                    <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" />
-                    <v n="VisualElementIdentification">{b4a09b26-8d4e-4f80-9664-c0462553126a}</v>
-                    <v n="VisualElementOwningObjectGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
-                    <a n="LMGuids" et="Guid" />
-                    <d n="SubElements" t="Hashtable" />
-                    <v n="VisualElementId">30</v>
-                    <l n="UserManagementAccessRights" t="ArrayList" />
-                  </o>
                   <o>
                     <a n="ConfiguredComplexInputs" et="ComplexInput" />
                     <l n="Elements" t="ArrayList" />
@@ -3198,6 +3096,108 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     <a n="LMGuids" et="Guid" />
                     <d n="SubElements" t="Hashtable" />
                     <v n="VisualElementId">304</v>
+                    <l n="UserManagementAccessRights" t="ArrayList" />
+                  </o>
+                  <o>
+                    <a n="ConfiguredComplexInputs" et="ComplexInput" />
+                    <l n="Elements" t="ArrayList" />
+                    <n n="VisualElementDescription" />
+                    <o n="VisualElemMemberList" t="VisualElemMemberList">
+                      <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
+                        <o>
+                          <v n="Id">1931512087L</v>
+                          <v n="Value">"TOGGLE"</v>
+                        </o>
+                        <o>
+                          <v n="Id">300685745L</v>
+                          <v n="Value">false</v>
+                        </o>
+                        <o>
+                          <v n="Id">2812299069L</v>
+                          <v n="Value">4294967295U</v>
+                        </o>
+                        <o>
+                          <v n="Id">494569607L</v>
+                          <v n="Value">4278190080U</v>
+                        </o>
+                        <o>
+                          <v n="Id">1649127785L</v>
+                          <v n="Value">10</v>
+                        </o>
+                        <o>
+                          <v n="Id">357335551L</v>
+                          <v n="Value">20</v>
+                        </o>
+                        <o>
+                          <v n="Id">2422045748L</v>
+                          <v n="Value">50</v>
+                        </o>
+                        <o>
+                          <v n="Id">2134141914L</v>
+                          <v n="Value">50</v>
+                        </o>
+                        <o>
+                          <v n="Id">4062784938L</v>
+                          <v n="Value">"Element-Switch-PushSwitchLed-Gray"</v>
+                        </o>
+                        <o>
+                          <v n="Id">493260384L</v>
+                          <v n="Value">4294967295U</v>
+                        </o>
+                        <o>
+                          <v n="Id">135947015L</v>
+                          <v n="Value">4278190080U</v>
+                        </o>
+                        <o>
+                          <v n="Id">2678395525L</v>
+                          <v n="Value">1U</v>
+                        </o>
+                        <o>
+                          <v n="Id">2340015797L</v>
+                          <v n="Value">"HCENTER"</v>
+                        </o>
+                        <o>
+                          <v n="Id">2565699834L</v>
+                          <v n="Value">"VCENTER"</v>
+                        </o>
+                        <o>
+                          <v n="Id">296037572L</v>
+                          <v n="Value">""</v>
+                        </o>
+                        <o>
+                          <v n="Id">390574330L</v>
+                          <v n="Value">""</v>
+                        </o>
+                        <o>
+                          <v n="Id">571893170L</v>
+                          <v n="Value">""</v>
+                        </o>
+                        <o>
+                          <v n="Id">1357176423L</v>
+                          <v n="Value">true</v>
+                        </o>
+                        <o>
+                          <v n="Id">743958181L</v>
+                          <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].bEnable"</v>
+                        </o>
+                        <o>
+                          <v n="Id">2597686782L</v>
+                          <v n="Value">false</v>
+                        </o>
+                      </l>
+                    </o>
+                    <v n="VisualElementName">"PushSwitchLed"</v>
+                    <v n="VisualElementTypeName">"VisuFbElemPushSwitchLed"</v>
+                    <v n="VisualElementIsRectangle">true</v>
+                    <v n="VisualElementIdentifier">"GenElemInst_35"</v>
+                    <n n="VisualElementOfflinePaintCommands" />
+                    <n n="VisualElementFrameInformation" />
+                    <d n="VisualElementInputActions" t="Hashtable" />
+                    <v n="VisualElementIdentification">{b4a09b26-8d4e-4f80-9664-c0462553126a}</v>
+                    <v n="VisualElementOwningObjectGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
+                    <a n="LMGuids" et="Guid" />
+                    <d n="SubElements" t="Hashtable" />
+                    <v n="VisualElementId">30</v>
                     <l n="UserManagementAccessRights" t="ArrayList" />
                   </o>
                 </l>
@@ -4883,7 +4883,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">170</v>
+                      <v n="Value">210</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -4891,7 +4891,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">2134141914L</v>
-                      <v n="Value">70</v>
+                      <v n="Value">30</v>
                     </o>
                     <o>
                       <v n="Id">1651471674L</v>
@@ -4937,7 +4937,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
-                      <v n="Value">205</v>
+                      <v n="Value">225</v>
                     </o>
                     <o>
                       <v n="Id">493260384L</v>
@@ -5001,7 +5001,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
-                      <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=McCommand.Reset;
+                      <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=eMcCommand.Reset;
 GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                     </o>
                   </a>
@@ -6050,16 +6050,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>ieccodeconversion_character_array</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>ieccodeconversion_character_array</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>Visu_TypeString</v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -6068,7 +6068,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">2</v>
                                         <v n="TypeNodeIdLong">2398909109L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -6106,7 +6106,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">3</v>
                                         <v n="TypeNodeIdLong">1480420536L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <n n="DisplayTextId" />
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -6135,12 +6135,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v> The id of the image which should be displayed</v>
                                             <v>ieccodeconversion_useforgettersetter</v>
                                             <v></v>
-                                            <v>DisplayTextId</v>
-                                            <v>TL_ElementProperties.ImageID</v>
+                                            <v>NoResizeOnValueChange</v>
+                                            <v></v>
                                             <v>Category</v>
                                             <v>Simple|Standard</v>
                                             <v>ImageIdNode</v>
                                             <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.ImageID</v>
                                             <v>EditorType</v>
                                             <v>Image</v>
                                           </d>
@@ -6148,7 +6150,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">4</v>
                                         <v n="TypeNodeIdLong">2302991252L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -6223,7 +6225,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
                                       <o>
                                         <v n="Flags">16L</v>
-                                        <v n="BasicTypeNodeValue">""</v>
+                                        <v n="BasicTypeNodeValue">"Parameters"</v>
                                         <v n="BasicTypeNodeAcceptsExpression">false</v>
                                         <n n="BasicTypeNodeFastAccess" />
                                         <a n="BasicTypeNodeEnumValues" et="String" />
@@ -6249,16 +6251,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>ieccodeconversion_character_array</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>ieccodeconversion_character_array</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>Visu_TypeString</v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -6267,14 +6269,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">2</v>
                                         <v n="TypeNodeIdLong">334730179L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
                                       </o>
                                       <o>
                                         <v n="Flags">16L</v>
-                                        <v n="BasicTypeNodeValue">""</v>
+                                        <v n="BasicTypeNodeValue">"41"</v>
                                         <v n="BasicTypeNodeAcceptsExpression">false</v>
                                         <n n="BasicTypeNodeFastAccess" />
                                         <a n="BasicTypeNodeEnumValues" et="String" />
@@ -6305,7 +6307,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">3</v>
                                         <v n="TypeNodeIdLong">3086944134L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <n n="DisplayTextId" />
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -6334,12 +6336,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v> The id of the image which should be displayed</v>
                                             <v>ieccodeconversion_useforgettersetter</v>
                                             <v></v>
-                                            <v>DisplayTextId</v>
-                                            <v>TL_ElementProperties.ImageID</v>
+                                            <v>NoResizeOnValueChange</v>
+                                            <v></v>
                                             <v>Category</v>
                                             <v>Simple|Standard</v>
                                             <v>ImageIdNode</v>
                                             <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.ImageID</v>
                                             <v>EditorType</v>
                                             <v>Image</v>
                                           </d>
@@ -6347,7 +6351,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">4</v>
                                         <v n="TypeNodeIdLong">1221198932L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -6448,16 +6452,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>ieccodeconversion_character_array</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>ieccodeconversion_character_array</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>Visu_TypeString</v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -6466,7 +6470,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">2</v>
                                         <v n="TypeNodeIdLong">1871885848L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -6504,7 +6508,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">3</v>
                                         <v n="TypeNodeIdLong">1556659333L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <n n="DisplayTextId" />
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -6533,12 +6537,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v> The id of the image which should be displayed</v>
                                             <v>ieccodeconversion_useforgettersetter</v>
                                             <v></v>
-                                            <v>DisplayTextId</v>
-                                            <v>TL_ElementProperties.ImageID</v>
+                                            <v>NoResizeOnValueChange</v>
+                                            <v></v>
                                             <v>Category</v>
                                             <v>Simple|Standard</v>
                                             <v>ImageIdNode</v>
                                             <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.ImageID</v>
                                             <v>EditorType</v>
                                             <v>Image</v>
                                           </d>
@@ -6546,7 +6552,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">4</v>
                                         <v n="TypeNodeIdLong">3509084757L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -6647,16 +6653,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>ieccodeconversion_character_array</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>ieccodeconversion_character_array</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>Visu_TypeString</v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -6665,7 +6671,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">2</v>
                                         <v n="TypeNodeIdLong">4070397806L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -6703,7 +6709,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">3</v>
                                         <v n="TypeNodeIdLong">3003832251L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <n n="DisplayTextId" />
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -6732,12 +6738,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v> The id of the image which should be displayed</v>
                                             <v>ieccodeconversion_useforgettersetter</v>
                                             <v></v>
-                                            <v>DisplayTextId</v>
-                                            <v>TL_ElementProperties.ImageID</v>
+                                            <v>NoResizeOnValueChange</v>
+                                            <v></v>
                                             <v>Category</v>
                                             <v>Simple|Standard</v>
                                             <v>ImageIdNode</v>
                                             <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.ImageID</v>
                                             <v>EditorType</v>
                                             <v>Image</v>
                                           </d>
@@ -6745,7 +6753,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         </o>
                                         <v n="TypeNodeId" t="Int16">4</v>
                                         <v n="TypeNodeIdLong">279362965L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -7155,16 +7163,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>ieccodeconversion_character_array</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>ieccodeconversion_character_array</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>Visu_TypeString</v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -7173,7 +7181,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">2</v>
                                     <v n="TypeNodeIdLong">2398909109L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7211,7 +7219,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">3</v>
                                     <v n="TypeNodeIdLong">1480420536L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <n n="DisplayTextId" />
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7240,12 +7248,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v> The id of the image which should be displayed</v>
                                         <v>ieccodeconversion_useforgettersetter</v>
                                         <v></v>
-                                        <v>DisplayTextId</v>
-                                        <v>TL_ElementProperties.ImageID</v>
+                                        <v>NoResizeOnValueChange</v>
+                                        <v></v>
                                         <v>Category</v>
                                         <v>Simple|Standard</v>
                                         <v>ImageIdNode</v>
                                         <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.ImageID</v>
                                         <v>EditorType</v>
                                         <v>Image</v>
                                       </d>
@@ -7253,7 +7263,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">4</v>
                                     <v n="TypeNodeIdLong">2302991252L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7287,7 +7297,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">1</v>
                                 <v n="TypeNodeIdLong">3342794644L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -7297,7 +7307,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
                                   <o>
                                     <v n="Flags">16L</v>
-                                    <v n="BasicTypeNodeValue">""</v>
+                                    <v n="BasicTypeNodeValue">"Parameters"</v>
                                     <v n="BasicTypeNodeAcceptsExpression">false</v>
                                     <n n="BasicTypeNodeFastAccess" />
                                     <a n="BasicTypeNodeEnumValues" et="String" />
@@ -7323,16 +7333,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>ieccodeconversion_character_array</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>ieccodeconversion_character_array</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>Visu_TypeString</v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -7341,14 +7351,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">2</v>
                                     <v n="TypeNodeIdLong">334730179L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
                                   </o>
                                   <o>
                                     <v n="Flags">16L</v>
-                                    <v n="BasicTypeNodeValue">""</v>
+                                    <v n="BasicTypeNodeValue">"41"</v>
                                     <v n="BasicTypeNodeAcceptsExpression">false</v>
                                     <n n="BasicTypeNodeFastAccess" />
                                     <a n="BasicTypeNodeEnumValues" et="String" />
@@ -7379,7 +7389,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">3</v>
                                     <v n="TypeNodeIdLong">3086944134L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <n n="DisplayTextId" />
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7408,12 +7418,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v> The id of the image which should be displayed</v>
                                         <v>ieccodeconversion_useforgettersetter</v>
                                         <v></v>
-                                        <v>DisplayTextId</v>
-                                        <v>TL_ElementProperties.ImageID</v>
+                                        <v>NoResizeOnValueChange</v>
+                                        <v></v>
                                         <v>Category</v>
                                         <v>Simple|Standard</v>
                                         <v>ImageIdNode</v>
                                         <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.ImageID</v>
                                         <v>EditorType</v>
                                         <v>Image</v>
                                       </d>
@@ -7421,7 +7433,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">4</v>
                                     <v n="TypeNodeIdLong">1221198932L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7454,8 +7466,8 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                   <v n="ConvDone">true</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">1</v>
-                                <v n="TypeNodeIdLong">3648236092L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="TypeNodeIdLong">3727019733L</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -7491,16 +7503,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>ieccodeconversion_character_array</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>ieccodeconversion_character_array</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>Visu_TypeString</v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -7509,7 +7521,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">2</v>
                                     <v n="TypeNodeIdLong">1871885848L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7547,7 +7559,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">3</v>
                                     <v n="TypeNodeIdLong">1556659333L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <n n="DisplayTextId" />
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7576,12 +7588,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v> The id of the image which should be displayed</v>
                                         <v>ieccodeconversion_useforgettersetter</v>
                                         <v></v>
-                                        <v>DisplayTextId</v>
-                                        <v>TL_ElementProperties.ImageID</v>
+                                        <v>NoResizeOnValueChange</v>
+                                        <v></v>
                                         <v>Category</v>
                                         <v>Simple|Standard</v>
                                         <v>ImageIdNode</v>
                                         <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.ImageID</v>
                                         <v>EditorType</v>
                                         <v>Image</v>
                                       </d>
@@ -7589,7 +7603,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">4</v>
                                     <v n="TypeNodeIdLong">3509084757L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7623,7 +7637,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">1</v>
                                 <v n="TypeNodeIdLong">4110982422L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -7659,16 +7673,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>ieccodeconversion_character_array</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>ieccodeconversion_character_array</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>Visu_TypeString</v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -7677,7 +7691,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">2</v>
                                     <v n="TypeNodeIdLong">4070397806L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7715,7 +7729,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">3</v>
                                     <v n="TypeNodeIdLong">3003832251L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <n n="DisplayTextId" />
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7744,12 +7758,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v> The id of the image which should be displayed</v>
                                         <v>ieccodeconversion_useforgettersetter</v>
                                         <v></v>
-                                        <v>DisplayTextId</v>
-                                        <v>TL_ElementProperties.ImageID</v>
+                                        <v>NoResizeOnValueChange</v>
+                                        <v></v>
                                         <v>Category</v>
                                         <v>Simple|Standard</v>
                                         <v>ImageIdNode</v>
                                         <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.ImageID</v>
                                         <v>EditorType</v>
                                         <v>Image</v>
                                       </d>
@@ -7757,7 +7773,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     </o>
                                     <v n="TypeNodeId" t="Int16">4</v>
                                     <v n="TypeNodeIdLong">279362965L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -7791,7 +7807,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">1</v>
                                 <v n="TypeNodeIdLong">3960712279L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8023,16 +8039,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>ieccodeconversion_character_array</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>ieccodeconversion_character_array</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>Visu_TypeString</v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -8041,7 +8057,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">2</v>
                                 <v n="TypeNodeIdLong">2398909109L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8079,7 +8095,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">3</v>
                                 <v n="TypeNodeIdLong">1480420536L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8108,12 +8124,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v> The id of the image which should be displayed</v>
                                     <v>ieccodeconversion_useforgettersetter</v>
                                     <v></v>
-                                    <v>DisplayTextId</v>
-                                    <v>TL_ElementProperties.ImageID</v>
+                                    <v>NoResizeOnValueChange</v>
+                                    <v></v>
                                     <v>Category</v>
                                     <v>Simple|Standard</v>
                                     <v>ImageIdNode</v>
                                     <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.ImageID</v>
                                     <v>EditorType</v>
                                     <v>Image</v>
                                   </d>
@@ -8121,7 +8139,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">4</v>
                                 <v n="TypeNodeIdLong">2302991252L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8225,16 +8243,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>ieccodeconversion_character_array</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>ieccodeconversion_character_array</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>Visu_TypeString</v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -8243,7 +8261,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">2</v>
                                 <v n="TypeNodeIdLong">334730179L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8281,7 +8299,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">3</v>
                                 <v n="TypeNodeIdLong">3086944134L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8310,12 +8328,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v> The id of the image which should be displayed</v>
                                     <v>ieccodeconversion_useforgettersetter</v>
                                     <v></v>
-                                    <v>DisplayTextId</v>
-                                    <v>TL_ElementProperties.ImageID</v>
+                                    <v>NoResizeOnValueChange</v>
+                                    <v></v>
                                     <v>Category</v>
                                     <v>Simple|Standard</v>
                                     <v>ImageIdNode</v>
                                     <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.ImageID</v>
                                     <v>EditorType</v>
                                     <v>Image</v>
                                   </d>
@@ -8323,7 +8343,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">4</v>
                                 <v n="TypeNodeIdLong">1221198932L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8427,16 +8447,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>ieccodeconversion_character_array</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>ieccodeconversion_character_array</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>Visu_TypeString</v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -8445,7 +8465,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">2</v>
                                 <v n="TypeNodeIdLong">1871885848L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8483,7 +8503,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">3</v>
                                 <v n="TypeNodeIdLong">1556659333L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8512,12 +8532,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v> The id of the image which should be displayed</v>
                                     <v>ieccodeconversion_useforgettersetter</v>
                                     <v></v>
-                                    <v>DisplayTextId</v>
-                                    <v>TL_ElementProperties.ImageID</v>
+                                    <v>NoResizeOnValueChange</v>
+                                    <v></v>
                                     <v>Category</v>
                                     <v>Simple|Standard</v>
                                     <v>ImageIdNode</v>
                                     <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.ImageID</v>
                                     <v>EditorType</v>
                                     <v>Image</v>
                                   </d>
@@ -8525,7 +8547,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">4</v>
                                 <v n="TypeNodeIdLong">3509084757L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8629,16 +8651,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>ieccodeconversion_character_array</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>ieccodeconversion_character_array</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>Visu_TypeString</v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -8647,7 +8669,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">2</v>
                                 <v n="TypeNodeIdLong">4070397806L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8685,7 +8707,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">3</v>
                                 <v n="TypeNodeIdLong">3003832251L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8714,12 +8736,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v> The id of the image which should be displayed</v>
                                     <v>ieccodeconversion_useforgettersetter</v>
                                     <v></v>
-                                    <v>DisplayTextId</v>
-                                    <v>TL_ElementProperties.ImageID</v>
+                                    <v>NoResizeOnValueChange</v>
+                                    <v></v>
                                     <v>Category</v>
                                     <v>Simple|Standard</v>
                                     <v>ImageIdNode</v>
                                     <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.ImageID</v>
                                     <v>EditorType</v>
                                     <v>Image</v>
                                   </d>
@@ -8727,7 +8751,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">4</v>
                                 <v n="TypeNodeIdLong">279362965L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -8898,11 +8922,11 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">450</v>
+                      <v n="Value">390</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">120</v>
+                      <v n="Value">60</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -8938,7 +8962,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">390574330L</v>
-                      <v n="Value">"RB POSITION:"</v>
+                      <v n="Value">"Read Position:"</v>
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
@@ -8950,7 +8974,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                     </o>
                     <o>
                       <v n="Id">823443203L</v>
-                      <v n="Value">"24"</v>
+                      <v n="Value">"885"</v>
                     </o>
                   </l>
                 </o>
@@ -9448,6 +9472,383 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                 <v n="VisualElementId">369</v>
                 <l n="UserManagementAccessRights" t="ArrayList" />
               </o>
+              <o>
+                <a n="ConfiguredComplexInputs" et="ComplexInput" />
+                <l n="Elements" t="ArrayList" />
+                <n n="VisualElementDescription" />
+                <o n="VisualElemMemberList" t="VisualElemMemberList">
+                  <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
+                    <o>
+                      <v n="Id">571893170L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">2340015797L</v>
+                      <v n="Value">"HCENTER"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2565699834L</v>
+                      <v n="Value">"VCENTER"</v>
+                    </o>
+                    <o>
+                      <v n="Id">4134387352L</v>
+                      <v n="Value">"NONE"</v>
+                    </o>
+                    <o>
+                      <v n="Id">1603690730L</v>
+                      <v n="Value">"Arial"</v>
+                    </o>
+                    <o>
+                      <v n="Id">4253639993L</v>
+                      <v n="Value" t="Int16">12</v>
+                    </o>
+                    <o>
+                      <v n="Id">2729990903L</v>
+                      <v n="Value">0U</v>
+                    </o>
+                    <o>
+                      <v n="Id">1213979116L</v>
+                      <v n="Value">0U</v>
+                    </o>
+                    <o>
+                      <v n="Id">3488306084L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">1647042231L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">2812299069L</v>
+                      <v n="Value">4294967295U</v>
+                    </o>
+                    <o>
+                      <v n="Id">494569607L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">1649127785L</v>
+                      <v n="Value">520</v>
+                    </o>
+                    <o>
+                      <v n="Id">357335551L</v>
+                      <v n="Value">130</v>
+                    </o>
+                    <o>
+                      <v n="Id">2422045748L</v>
+                      <v n="Value">159</v>
+                    </o>
+                    <o>
+                      <v n="Id">2134141914L</v>
+                      <v n="Value">30</v>
+                    </o>
+                    <o>
+                      <v n="Id">1651471674L</v>
+                      <v n="Value">true</v>
+                    </o>
+                    <o>
+                      <v n="Id">2341735680L</v>
+                      <l n="Value" t="ArrayList" cet="UInt32">
+                        <v>4278222848</v>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">438423234L</v>
+                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
+                        <o>
+                          <v n="Color">-2830136</v>
+                          <v n="CanonicalName">"Element-Alarm-Fill-Color"</v>
+                        </o>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">3729828405L</v>
+                      <l n="Value" t="ArrayList" cet="NamedStyleFont">
+                        <o>
+                          <v n="FontStyle">0</v>
+                          <v n="ExplicitColor">-16777216</v>
+                          <v n="CanonicalName">"Font-Standard"</v>
+                          <v n="FontName">"Arial"</v>
+                          <v n="FontSize">12</v>
+                          <o n="NamedColor" t="NamedStyleColor">
+                            <v n="Color">-1</v>
+                            <v n="CanonicalName">"White"</v>
+                          </o>
+                        </o>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">550940142L</v>
+                      <v n="Value">599</v>
+                    </o>
+                    <o>
+                      <v n="Id">1473355128L</v>
+                      <v n="Value">145</v>
+                    </o>
+                    <o>
+                      <v n="Id">493260384L</v>
+                      <v n="Value">4294967295U</v>
+                    </o>
+                    <o>
+                      <v n="Id">135947015L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">2678395525L</v>
+                      <v n="Value">1U</v>
+                    </o>
+                    <o>
+                      <v n="Id">2478807622L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">390574330L</v>
+                      <v n="Value">"VELOCITY MOVE"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2597686782L</v>
+                      <v n="Value">false</v>
+                    </o>
+                    <o>
+                      <v n="Id">494542316L</v>
+                      <l n="Value" t="ArrayList">
+                        <v>4278190080U</v>
+                        <v>4294967295U</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>4278190080U</v>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">1375557818L</v>
+                      <v n="Value">false</v>
+                    </o>
+                    <o>
+                      <v n="Id">2496894244L</v>
+                      <v n="Value">"GVL.axes[MAIN.hmiAxisSelect].iAxisState=500"</v>
+                    </o>
+                    <o>
+                      <v n="Id">823443203L</v>
+                      <v n="Value">"662"</v>
+                    </o>
+                  </l>
+                </o>
+                <v n="VisualElementName">"Button"</v>
+                <v n="VisualElementTypeName">"VisuFbElemButton"</v>
+                <v n="VisualElementIsRectangle">true</v>
+                <v n="VisualElementIdentifier">"GenElemInst_395"</v>
+                <n n="VisualElementOfflinePaintCommands" />
+                <n n="VisualElementFrameInformation" />
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
+                  <v>OnMouseClick</v>
+                  <a cet="STSnippetInputAction">
+                    <o>
+                      <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=eMcCommand.MoveVelocity;
+GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
+                    </o>
+                  </a>
+                </d>
+                <v n="VisualElementIdentification">{eedd205f-1136-4edd-ad28-6b0e90fcabaf}</v>
+                <v n="VisualElementOwningObjectGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
+                <a n="LMGuids" et="Guid" />
+                <d n="SubElements" t="Hashtable" />
+                <v n="VisualElementId">372</v>
+                <l n="UserManagementAccessRights" t="ArrayList" />
+              </o>
+              <o>
+                <a n="ConfiguredComplexInputs" et="ComplexInput" />
+                <l n="Elements" t="ArrayList" />
+                <n n="VisualElementDescription" />
+                <o n="VisualElemMemberList" t="VisualElemMemberList">
+                  <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
+                    <o>
+                      <v n="Id">571893170L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">2340015797L</v>
+                      <v n="Value">"HCENTER"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2565699834L</v>
+                      <v n="Value">"VCENTER"</v>
+                    </o>
+                    <o>
+                      <v n="Id">4134387352L</v>
+                      <v n="Value">"NONE"</v>
+                    </o>
+                    <o>
+                      <v n="Id">1603690730L</v>
+                      <v n="Value">"Arial"</v>
+                    </o>
+                    <o>
+                      <v n="Id">4253639993L</v>
+                      <v n="Value" t="Int16">12</v>
+                    </o>
+                    <o>
+                      <v n="Id">2729990903L</v>
+                      <v n="Value">0U</v>
+                    </o>
+                    <o>
+                      <v n="Id">1213979116L</v>
+                      <v n="Value">0U</v>
+                    </o>
+                    <o>
+                      <v n="Id">3488306084L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">1647042231L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">2812299069L</v>
+                      <v n="Value">4294967295U</v>
+                    </o>
+                    <o>
+                      <v n="Id">494569607L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">1649127785L</v>
+                      <v n="Value">520</v>
+                    </o>
+                    <o>
+                      <v n="Id">357335551L</v>
+                      <v n="Value">170</v>
+                    </o>
+                    <o>
+                      <v n="Id">2422045748L</v>
+                      <v n="Value">158</v>
+                    </o>
+                    <o>
+                      <v n="Id">2134141914L</v>
+                      <v n="Value">30</v>
+                    </o>
+                    <o>
+                      <v n="Id">1651471674L</v>
+                      <v n="Value">true</v>
+                    </o>
+                    <o>
+                      <v n="Id">2341735680L</v>
+                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
+                        <o>
+                          <v n="Color">-12337</v>
+                          <v n="CanonicalName">"Element-Alarm-Fill-Color"</v>
+                        </o>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">438423234L</v>
+                      <l n="Value" t="ArrayList" cet="NamedStyleColor">
+                        <o>
+                          <v n="Color">-2830136</v>
+                          <v n="CanonicalName">"Element-Alarm-Fill-Color"</v>
+                        </o>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">3729828405L</v>
+                      <l n="Value" t="ArrayList" cet="NamedStyleFont">
+                        <o>
+                          <v n="FontStyle">0</v>
+                          <v n="ExplicitColor">-16777216</v>
+                          <v n="CanonicalName">"Font-Standard"</v>
+                          <v n="FontName">"Arial"</v>
+                          <v n="FontSize">12</v>
+                          <o n="NamedColor" t="NamedStyleColor">
+                            <v n="Color">-16777216</v>
+                            <v n="CanonicalName">"Element-Button-FontColor"</v>
+                          </o>
+                        </o>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">550940142L</v>
+                      <v n="Value">599</v>
+                    </o>
+                    <o>
+                      <v n="Id">1473355128L</v>
+                      <v n="Value">185</v>
+                    </o>
+                    <o>
+                      <v n="Id">493260384L</v>
+                      <v n="Value">4294967295U</v>
+                    </o>
+                    <o>
+                      <v n="Id">135947015L</v>
+                      <v n="Value">4278190080U</v>
+                    </o>
+                    <o>
+                      <v n="Id">2678395525L</v>
+                      <v n="Value">1U</v>
+                    </o>
+                    <o>
+                      <v n="Id">2478807622L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">390574330L</v>
+                      <v n="Value">"STOP"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2597686782L</v>
+                      <v n="Value">false</v>
+                    </o>
+                    <o>
+                      <v n="Id">494542316L</v>
+                      <l n="Value" t="ArrayList">
+                        <v>4278190080U</v>
+                        <v>4294967295U</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>0</v>
+                        <v>4278190080U</v>
+                      </l>
+                    </o>
+                    <o>
+                      <v n="Id">1375557818L</v>
+                      <v n="Value">false</v>
+                    </o>
+                    <o>
+                      <v n="Id">2496894244L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
+                      <v n="Id">823443203L</v>
+                      <v n="Value">"229"</v>
+                    </o>
+                  </l>
+                </o>
+                <v n="VisualElementName">"Button"</v>
+                <v n="VisualElementTypeName">"VisuFbElemButton"</v>
+                <v n="VisualElementIsRectangle">true</v>
+                <v n="VisualElementIdentifier">"GenElemInst_397"</v>
+                <n n="VisualElementOfflinePaintCommands" />
+                <n n="VisualElementFrameInformation" />
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                  <v>OnMouseClick</v>
+                  <a cet="STSnippetInputAction">
+                    <o>
+                      <v n="STSnippet">"GVL.axes[MAIN.hmiAxisSelect].eCommand:=eMcCommand.Stop;
+GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
+                    </o>
+                  </a>
+                </d>
+                <v n="VisualElementIdentification">{7331b68c-6ff1-4719-9514-6b4b6cb219bf}</v>
+                <v n="VisualElementOwningObjectGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
+                <a n="LMGuids" et="Guid" />
+                <d n="SubElements" t="Hashtable" />
+                <v n="VisualElementId">375</v>
+                <l n="UserManagementAccessRights" t="ArrayList" />
+              </o>
             </l>
             <v n="BackgroundBitmapId">""</v>
             <v n="BackgroundColor">16777215</v>
@@ -9469,77 +9870,65 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
             <o n="GeneratedVisuFbDescription" t="GenericFbDescription">
               <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
                 <v>HasVisibilityAccess</v>
-                <v>f2bb5419-c03a-4e28-95c8-3fdd54507e07</v>
+                <v>92f13429-9954-4c69-9a27-4975e36d20a3</v>
                 <v>ContainsPoint</v>
-                <v>68b5a036-811f-4fe0-97da-ae5d4945621b</v>
+                <v>ac054f4c-2477-4aaf-b13f-3e4e840790a2</v>
                 <v>HasInputAccess</v>
-                <v>26b1248a-1472-46f6-b67d-15b21c1c4a60</v>
+                <v>4dace34f-29cc-41e9-86cb-4aabcd229d20</v>
                 <v>HasInputAccessIntern</v>
-                <v>3c779307-f54e-4400-b667-e2fb9f142783</v>
+                <v>36f3e172-0152-4e9f-bc2d-12684792447c</v>
                 <v>GetTooltip</v>
-                <v>171ee249-4797-4232-a8d3-c0ba2b0d28e6</v>
-                <v>GetDialogInterfaceSize</v>
-                <v>f91de98d-00ea-4241-83bf-9c2a5423649a</v>
+                <v>c5cbc88c-1a68-416e-ba1b-12153b7821a9</v>
                 <v>GetUpdateRects</v>
-                <v>7813b7f2-f057-4e04-bc0c-2bc68d023849</v>
+                <v>3e42d0a0-ac5b-4002-af9f-4cfa04bb9746</v>
                 <v>GetNamespace</v>
-                <v>1f217695-7c7e-4dd2-aaf2-d0ab9837175d</v>
-                <v>SetResult</v>
-                <v>d0240388-44cd-420f-857f-2525e49bf02b</v>
+                <v>addfd730-5b28-432f-8d9e-b4785836af8b</v>
                 <v>GetTranslator</v>
-                <v>91b5548a-0a97-42c8-babd-dee62cf9f15a</v>
+                <v>64f05a96-37d0-4b19-b47d-1418464010f3</v>
                 <v>Update</v>
-                <v>f830d312-f890-4414-a44c-a530efbd56ab</v>
+                <v>0876e381-ac16-4891-8801-17d34233e154</v>
                 <v>SetClientData</v>
-                <v>12e53c79-31fa-481b-a3aa-255b9fdbc18c</v>
-                <v>HasVisibilityAccessIntern</v>
-                <v>4f022e3b-a733-4316-be72-92e29d1458e1</v>
-                <v>GetInstance</v>
-                <v>dacdbfdf-0ff6-4099-b092-a455ee8e6579</v>
+                <v>3feb0386-0034-4242-addf-253630493a8c</v>
                 <v>GetClientData</v>
-                <v>3d2484dd-759c-4c5d-b08e-f67f018347c6</v>
+                <v>31716227-5594-4888-9056-622cc026b30c</v>
                 <v>Paint</v>
-                <v>679df776-e2d8-4eb7-9baa-182bdc83c5f8</v>
+                <v>ceaa71d5-5a4e-4ea3-b752-e650786e1ec2</v>
                 <v>GetElementArray</v>
-                <v>800100b0-a846-4d44-aba0-091e5a433844</v>
+                <v>905deddf-cad6-48f2-b77e-94ec2f7f9692</v>
                 <v>SetVisuFlagsInternal</v>
-                <v>f1ffe54c-ca5c-4f7a-8438-38ceacbdbecf</v>
+                <v>07c1cb10-820e-4f81-82ef-2a9c85266e6a</v>
                 <v>GetText</v>
-                <v>61812b9a-0c3b-4f20-be3e-6cdfd64c8446</v>
+                <v>1febac86-c512-43fb-8cdb-48fcdaecd0be</v>
                 <v>GetTextProperties</v>
-                <v>fa6d1acb-0480-4ea6-92e2-ee9d9e879a16</v>
+                <v>67559a46-41da-4e85-ae0a-8dbb5299e941</v>
                 <v>Initialize</v>
-                <v>30b24d94-53af-477c-8637-ceccafebe838</v>
-                <v>Destruct</v>
-                <v>33f0d980-aab6-4ef6-a344-2bb635ffa098</v>
-                <v>SetStaticState</v>
-                <v>d3d03433-6e8b-4d8d-b9b4-3be5c1412543</v>
+                <v>60971751-1139-468d-a336-9df0737b59e4</v>
+                <v>HasVisibilityAccessIntern</v>
+                <v>68c8f942-0729-478c-92b3-5149f2674144</v>
                 <v>GetSurroundingRect</v>
-                <v>c8fc454c-5db9-4eea-a1bc-65d7e5f50a32</v>
-                <v>GetResult</v>
-                <v>675facb2-8330-452d-8b78-a9b8e9a02984</v>
-                <v>GetLocalUsergroup</v>
-                <v>fc821f6f-918c-435d-98c2-989a6245ff62</v>
-                <v>GetName</v>
-                <v>92c91e20-75de-424a-b623-47746461f424</v>
-                <v>GetSize</v>
-                <v>bc0d8c0d-e3c5-4448-84f7-6d3be4664d68</v>
-                <v>SetDialogInterface</v>
-                <v>310fa203-7094-4748-8461-3eb080973e33</v>
-                <v>FB_Reinit</v>
-                <v>64c622c0-497d-40e6-aa1c-6b76decb605e</v>
-                <v>FB_Exit</v>
-                <v>e9f8f826-a779-420e-90b6-2827559d4633</v>
-                <v>GetInitializeVersion</v>
-                <v>fd47361f-f44f-4350-896d-2895386b8d27</v>
-                <v>GetDialogInterface</v>
-                <v>469add01-ba3b-4315-9bbd-1990966aaa17</v>
-                <v>GetElementIdArray</v>
-                <v>3f978051-1a62-4cf7-9731-6b1a94fb0516</v>
-                <v>HandleInput</v>
-                <v>10f8903b-b99f-4960-8a67-91ed69411fdf</v>
+                <v>fd14b990-edf9-4657-8f08-76dc8e566921</v>
                 <v>ElementInfo</v>
-                <v>3775249c-02a6-4328-89bf-c33fe7a2490a</v>
+                <v>e7fcc138-4529-4642-ab2e-c74802b6ec57</v>
+                <v>SetStaticState</v>
+                <v>74913b68-fbf8-466e-a60e-13ae9dbc5410</v>
+                <v>GetLocalUsergroup</v>
+                <v>bc24c9e1-1d5f-4da2-a1d4-21813142f723</v>
+                <v>GetName</v>
+                <v>abe90b7b-6d0b-4012-811c-c18fc7e0de21</v>
+                <v>GetSize</v>
+                <v>5a6e46da-2e8a-419b-88e7-d4eb2b6ce9c0</v>
+                <v>FB_Reinit</v>
+                <v>d6da4ed3-16ef-4bab-9dde-adbe9edeb3c3</v>
+                <v>FB_Exit</v>
+                <v>734ce837-1ab2-49e5-94d1-fe788755fcde</v>
+                <v>GetInitializeVersion</v>
+                <v>b27cfded-8d2a-4893-8db9-b83bf336f4e3</v>
+                <v>GetElementIdArray</v>
+                <v>91b8edd3-7e5f-4543-86cb-107830f4c8f1</v>
+                <v>HandleInput</v>
+                <v>bf109aef-fcbe-4dbd-bbf0-f10985c21ae9</v>
+                <v>Destruct</v>
+                <v>f5a14d11-ef86-44e3-8cb2-c74427445bf0</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
@@ -9599,7 +9988,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
             </o>
             <v n="DialogDut">{f69d699e-fbf8-430c-af0a-2315842d0ce5}</v>
           </o>
-          <v n="LastUsedIdForIdentifier">393</v>
+          <v n="LastUsedIdForIdentifier">397</v>
           <o n="TextDocument" t="TextDocument">
             <a n="TextLines" cet="TextLine">
               <o>
@@ -9649,8 +10038,9 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
         <Type n="Guid">System.Guid</Type>
         <Type n="Hashtable">System.Collections.Hashtable</Type>
         <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
+        <Type n="IInputAction[]">_3S.CoDeSys.VisualElem.IInputAction[], VisualElem, Version=3.5.10.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="InputBoxInputAction">{e8e7e747-f76f-4dee-ab1c-b9637e41ac26}</Type>
-        <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.8.40, Culture=neutral, PublicKeyToken=null</Type>
+        <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.10.32, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="Int16">System.Int16</Type>
         <Type n="Int32">System.Int32</Type>
         <Type n="Int64">System.Int64</Type>
@@ -9661,7 +10051,7 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
         <Type n="String">System.String</Type>
         <Type n="StructuredTypeNode">{503c5b2e-e80e-4ee7-ae00-c5b93a62b1aa}</Type>
         <Type n="STSnippetInputAction">{6302d3fe-6ea5-4c42-819a-a9734a133b3d}</Type>
-        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=3.5.8.40, Culture=neutral, PublicKeyToken=null</Type>
+        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=3.5.10.32, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="TextDocument">{f3878285-8e4f-490b-bb1b-9acbb7eb04db}</Type>
         <Type n="TextLine">{a5de0b0b-1cb5-4913-ac21-9d70293ec00d}</Type>
         <Type n="TypeClass">{16f7aa24-038f-444e-9d81-b001bc091d35}</Type>

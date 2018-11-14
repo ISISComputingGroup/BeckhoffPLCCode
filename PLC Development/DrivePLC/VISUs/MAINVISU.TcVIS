@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <Visu Name="MAINVISU" Id="{0c75beb7-bbc6-400e-b853-9d5a64f7c839}">
     <XmlArchive>
       <Data>
@@ -148,16 +148,16 @@
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>Visu_TypeString</v>
-                                            <v></v>
                                             <v>ieccodeconversion_character_array</v>
+                                            <v></v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -166,7 +166,7 @@
                                         </o>
                                         <v n="TypeNodeId" t="Int16">2</v>
                                         <v n="TypeNodeIdLong">2398909109L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -204,7 +204,7 @@
                                         </o>
                                         <v n="TypeNodeId" t="Int16">3</v>
                                         <v n="TypeNodeIdLong">1480420536L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <n n="DisplayTextId" />
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -233,12 +233,14 @@
                                             <v> The id of the image which should be displayed</v>
                                             <v>ieccodeconversion_useforgettersetter</v>
                                             <v></v>
-                                            <v>DisplayTextId</v>
-                                            <v>TL_ElementProperties.ImageID</v>
+                                            <v>NoResizeOnValueChange</v>
+                                            <v></v>
                                             <v>Category</v>
                                             <v>Simple|Standard</v>
                                             <v>ImageIdNode</v>
                                             <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.ImageID</v>
                                             <v>EditorType</v>
                                             <v>Image</v>
                                           </d>
@@ -246,7 +248,7 @@
                                         </o>
                                         <v n="TypeNodeId" t="Int16">4</v>
                                         <v n="TypeNodeIdLong">2302991252L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -347,16 +349,16 @@
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>Visu_TypeString</v>
-                                            <v></v>
                                             <v>ieccodeconversion_character_array</v>
+                                            <v></v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -365,7 +367,7 @@
                                         </o>
                                         <v n="TypeNodeId" t="Int16">2</v>
                                         <v n="TypeNodeIdLong">334730179L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -403,7 +405,7 @@
                                         </o>
                                         <v n="TypeNodeId" t="Int16">3</v>
                                         <v n="TypeNodeIdLong">3086944134L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <n n="DisplayTextId" />
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -432,12 +434,14 @@
                                             <v> The id of the image which should be displayed</v>
                                             <v>ieccodeconversion_useforgettersetter</v>
                                             <v></v>
-                                            <v>DisplayTextId</v>
-                                            <v>TL_ElementProperties.ImageID</v>
+                                            <v>NoResizeOnValueChange</v>
+                                            <v></v>
                                             <v>Category</v>
                                             <v>Simple|Standard</v>
                                             <v>ImageIdNode</v>
                                             <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.ImageID</v>
                                             <v>EditorType</v>
                                             <v>Image</v>
                                           </d>
@@ -445,7 +449,7 @@
                                         </o>
                                         <v n="TypeNodeId" t="Int16">4</v>
                                         <v n="TypeNodeIdLong">1221198932L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -520,7 +524,7 @@
                                     <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
                                       <o>
                                         <v n="Flags">16L</v>
-                                        <n n="BasicTypeNodeValue" />
+                                        <v n="BasicTypeNodeValue">"I/O"</v>
                                         <v n="BasicTypeNodeAcceptsExpression">false</v>
                                         <n n="BasicTypeNodeFastAccess" />
                                         <a n="BasicTypeNodeEnumValues" et="String" />
@@ -546,16 +550,16 @@
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>Visu_TypeString</v>
-                                            <v></v>
                                             <v>ieccodeconversion_character_array</v>
+                                            <v></v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -564,14 +568,14 @@
                                         </o>
                                         <v n="TypeNodeId" t="Int16">2</v>
                                         <v n="TypeNodeIdLong">1871885848L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
                                       </o>
                                       <o>
                                         <v n="Flags">16L</v>
-                                        <n n="BasicTypeNodeValue" />
+                                        <v n="BasicTypeNodeValue">"95"</v>
                                         <v n="BasicTypeNodeAcceptsExpression">false</v>
                                         <n n="BasicTypeNodeFastAccess" />
                                         <a n="BasicTypeNodeEnumValues" et="String" />
@@ -602,14 +606,14 @@
                                         </o>
                                         <v n="TypeNodeId" t="Int16">3</v>
                                         <v n="TypeNodeIdLong">1556659333L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <n n="DisplayTextId" />
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
                                       </o>
                                       <o>
                                         <v n="Flags">16L</v>
-                                        <n n="BasicTypeNodeValue" />
+                                        <v n="BasicTypeNodeValue">""</v>
                                         <v n="BasicTypeNodeAcceptsExpression">false</v>
                                         <n n="BasicTypeNodeFastAccess" />
                                         <a n="BasicTypeNodeEnumValues" et="String" />
@@ -631,12 +635,14 @@
                                             <v> The id of the image which should be displayed</v>
                                             <v>ieccodeconversion_useforgettersetter</v>
                                             <v></v>
-                                            <v>DisplayTextId</v>
-                                            <v>TL_ElementProperties.ImageID</v>
+                                            <v>NoResizeOnValueChange</v>
+                                            <v></v>
                                             <v>Category</v>
                                             <v>Simple|Standard</v>
                                             <v>ImageIdNode</v>
                                             <v></v>
+                                            <v>DisplayTextId</v>
+                                            <v>TL_ElementProperties.ImageID</v>
                                             <v>EditorType</v>
                                             <v>Image</v>
                                           </d>
@@ -644,7 +650,7 @@
                                         </o>
                                         <v n="TypeNodeId" t="Int16">4</v>
                                         <v n="TypeNodeIdLong">3509084757L</v>
-                                        <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                        <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                         <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                         <n n="DescriptionTextID" />
                                         <v n="DescriptionUseParent">false</v>
@@ -721,12 +727,12 @@
                               <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
                                 <v>Visible</v>
                                 <v>False</v>
-                                <v>ieccodeconversion_array</v>
-                                <v></v>
-                                <v>VisibleChildren</v>
-                                <v>True</v>
                                 <v>DefaultArraySize</v>
                                 <v>5</v>
+                                <v>VisibleChildren</v>
+                                <v>True</v>
+                                <v>ieccodeconversion_array</v>
+                                <v></v>
                                 <v>''NORMAL__COMMENT</v>
                                 <v> We hide this node to prevent having two References nodes
  Nevertheless we want to make sure that the children are displayed</v>
@@ -782,8 +788,8 @@
                         <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
                           <v n="AttrFlags">81920UL</v>
                           <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
-                            <v>conditionalshow</v>
-                            <v>visu_elemdev</v>
+                            <v>DisplayFrameReferencesConfiguration</v>
+                            <v></v>
                             <v>DescriptionTextId</v>
                             <v>TL_ElementProperties.Desc_ReferencedVisus</v>
                             <v>SortFlag</v>
@@ -794,14 +800,14 @@
                             <v>Simple|Standard</v>
                             <v>DynamicArray</v>
                             <v></v>
-                            <v>DisplayFrameReferencesConfiguration</v>
-                            <v></v>
+                            <v>conditionalshow</v>
+                            <v>visu_elemdev</v>
                             <v>FrameReferences</v>
                             <v></v>
-                            <v>Storable</v>
-                            <v>True</v>
                             <v>DisplayTextId</v>
                             <v>TL_ElementProperties.References</v>
+                            <v>Storable</v>
+                            <v>True</v>
                           </d>
                           <v n="ConvDone">true</v>
                         </o>
@@ -885,16 +891,16 @@
                                       <v></v>
                                       <v>DisplayTextId</v>
                                       <v>TL_ElementProperties.Heading</v>
-                                      <v>Visu_TypeString</v>
-                                      <v></v>
                                       <v>ieccodeconversion_character_array</v>
+                                      <v></v>
+                                      <v>AllocateText</v>
                                       <v></v>
                                       <v>''DOCU__COMMENT</v>
                                       <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                       <v>DirectlyAssignable</v>
                                       <v></v>
-                                      <v>AllocateText</v>
+                                      <v>Visu_TypeString</v>
                                       <v></v>
                                       <v>ieccodeconversion_gettersetter_norecursion</v>
                                       <v></v>
@@ -1054,16 +1060,16 @@
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>Visu_TypeString</v>
-                                        <v></v>
                                         <v>ieccodeconversion_character_array</v>
+                                        <v></v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -1072,7 +1078,7 @@
                                     </o>
                                     <v n="TypeNodeId" t="Int16">2</v>
                                     <v n="TypeNodeIdLong">2398909109L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -1110,7 +1116,7 @@
                                     </o>
                                     <v n="TypeNodeId" t="Int16">3</v>
                                     <v n="TypeNodeIdLong">1480420536L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <n n="DisplayTextId" />
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -1139,12 +1145,14 @@
                                         <v> The id of the image which should be displayed</v>
                                         <v>ieccodeconversion_useforgettersetter</v>
                                         <v></v>
-                                        <v>DisplayTextId</v>
-                                        <v>TL_ElementProperties.ImageID</v>
+                                        <v>NoResizeOnValueChange</v>
+                                        <v></v>
                                         <v>Category</v>
                                         <v>Simple|Standard</v>
                                         <v>ImageIdNode</v>
                                         <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.ImageID</v>
                                         <v>EditorType</v>
                                         <v>Image</v>
                                       </d>
@@ -1152,7 +1160,7 @@
                                     </o>
                                     <v n="TypeNodeId" t="Int16">4</v>
                                     <v n="TypeNodeIdLong">2302991252L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -1186,7 +1194,7 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">1</v>
                                 <v n="TypeNodeIdLong">3342794644L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -1222,16 +1230,16 @@
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>Visu_TypeString</v>
-                                        <v></v>
                                         <v>ieccodeconversion_character_array</v>
+                                        <v></v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -1240,7 +1248,7 @@
                                     </o>
                                     <v n="TypeNodeId" t="Int16">2</v>
                                     <v n="TypeNodeIdLong">334730179L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -1278,7 +1286,7 @@
                                     </o>
                                     <v n="TypeNodeId" t="Int16">3</v>
                                     <v n="TypeNodeIdLong">3086944134L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <n n="DisplayTextId" />
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -1307,12 +1315,14 @@
                                         <v> The id of the image which should be displayed</v>
                                         <v>ieccodeconversion_useforgettersetter</v>
                                         <v></v>
-                                        <v>DisplayTextId</v>
-                                        <v>TL_ElementProperties.ImageID</v>
+                                        <v>NoResizeOnValueChange</v>
+                                        <v></v>
                                         <v>Category</v>
                                         <v>Simple|Standard</v>
                                         <v>ImageIdNode</v>
                                         <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.ImageID</v>
                                         <v>EditorType</v>
                                         <v>Image</v>
                                       </d>
@@ -1320,7 +1330,7 @@
                                     </o>
                                     <v n="TypeNodeId" t="Int16">4</v>
                                     <v n="TypeNodeIdLong">1221198932L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -1354,7 +1364,7 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">1</v>
                                 <v n="TypeNodeIdLong">3727019733L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -1364,7 +1374,7 @@
                                 <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
                                   <o>
                                     <v n="Flags">16L</v>
-                                    <n n="BasicTypeNodeValue" />
+                                    <v n="BasicTypeNodeValue">"I/O"</v>
                                     <v n="BasicTypeNodeAcceptsExpression">false</v>
                                     <n n="BasicTypeNodeFastAccess" />
                                     <a n="BasicTypeNodeEnumValues" et="String" />
@@ -1390,16 +1400,16 @@
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>Visu_TypeString</v>
-                                        <v></v>
                                         <v>ieccodeconversion_character_array</v>
+                                        <v></v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -1408,14 +1418,14 @@
                                     </o>
                                     <v n="TypeNodeId" t="Int16">2</v>
                                     <v n="TypeNodeIdLong">1871885848L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
                                   </o>
                                   <o>
                                     <v n="Flags">16L</v>
-                                    <n n="BasicTypeNodeValue" />
+                                    <v n="BasicTypeNodeValue">"95"</v>
                                     <v n="BasicTypeNodeAcceptsExpression">false</v>
                                     <n n="BasicTypeNodeFastAccess" />
                                     <a n="BasicTypeNodeEnumValues" et="String" />
@@ -1446,14 +1456,14 @@
                                     </o>
                                     <v n="TypeNodeId" t="Int16">3</v>
                                     <v n="TypeNodeIdLong">1556659333L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <n n="DisplayTextId" />
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
                                   </o>
                                   <o>
                                     <v n="Flags">16L</v>
-                                    <n n="BasicTypeNodeValue" />
+                                    <v n="BasicTypeNodeValue">""</v>
                                     <v n="BasicTypeNodeAcceptsExpression">false</v>
                                     <n n="BasicTypeNodeFastAccess" />
                                     <a n="BasicTypeNodeEnumValues" et="String" />
@@ -1475,12 +1485,14 @@
                                         <v> The id of the image which should be displayed</v>
                                         <v>ieccodeconversion_useforgettersetter</v>
                                         <v></v>
-                                        <v>DisplayTextId</v>
-                                        <v>TL_ElementProperties.ImageID</v>
+                                        <v>NoResizeOnValueChange</v>
+                                        <v></v>
                                         <v>Category</v>
                                         <v>Simple|Standard</v>
                                         <v>ImageIdNode</v>
                                         <v></v>
+                                        <v>DisplayTextId</v>
+                                        <v>TL_ElementProperties.ImageID</v>
                                         <v>EditorType</v>
                                         <v>Image</v>
                                       </d>
@@ -1488,7 +1500,7 @@
                                     </o>
                                     <v n="TypeNodeId" t="Int16">4</v>
                                     <v n="TypeNodeIdLong">3509084757L</v>
-                                    <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                    <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                     <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                     <n n="DescriptionTextID" />
                                     <v n="DescriptionUseParent">false</v>
@@ -1521,8 +1533,8 @@
                                   <v n="ConvDone">true</v>
                                 </o>
                                 <v n="TypeNodeId" t="Int16">1</v>
-                                <v n="TypeNodeIdLong">1959430993L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="TypeNodeIdLong">4110982422L</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -1697,6 +1709,18 @@
                       <v n="Value">""</v>
                     </o>
                     <o>
+                      <v n="Id">1871885848L</v>
+                      <v n="Value">"I/O"</v>
+                    </o>
+                    <o>
+                      <v n="Id">1556659333L</v>
+                      <v n="Value">"95"</v>
+                    </o>
+                    <o>
+                      <v n="Id">3509084757L</v>
+                      <v n="Value">""</v>
+                    </o>
+                    <o>
                       <v n="Id">2473092364L</v>
                       <o n="Value" t="VisualizationNode">
                         <v n="VisuNodeReferenceGuid">{00000000-0000-0000-0000-000000000000}</v>
@@ -1734,16 +1758,16 @@
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>Visu_TypeString</v>
-                                    <v></v>
                                     <v>ieccodeconversion_character_array</v>
+                                    <v></v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -1752,7 +1776,7 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">2</v>
                                 <v n="TypeNodeIdLong">2398909109L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -1790,7 +1814,7 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">3</v>
                                 <v n="TypeNodeIdLong">1480420536L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -1819,12 +1843,14 @@
                                     <v> The id of the image which should be displayed</v>
                                     <v>ieccodeconversion_useforgettersetter</v>
                                     <v></v>
-                                    <v>DisplayTextId</v>
-                                    <v>TL_ElementProperties.ImageID</v>
+                                    <v>NoResizeOnValueChange</v>
+                                    <v></v>
                                     <v>Category</v>
                                     <v>Simple|Standard</v>
                                     <v>ImageIdNode</v>
                                     <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.ImageID</v>
                                     <v>EditorType</v>
                                     <v>Image</v>
                                   </d>
@@ -1832,7 +1858,7 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">4</v>
                                 <v n="TypeNodeIdLong">2302991252L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -1936,16 +1962,16 @@
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>Visu_TypeString</v>
-                                    <v></v>
                                     <v>ieccodeconversion_character_array</v>
+                                    <v></v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -1954,7 +1980,7 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">2</v>
                                 <v n="TypeNodeIdLong">334730179L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -1992,7 +2018,7 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">3</v>
                                 <v n="TypeNodeIdLong">3086944134L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -2021,12 +2047,14 @@
                                     <v> The id of the image which should be displayed</v>
                                     <v>ieccodeconversion_useforgettersetter</v>
                                     <v></v>
-                                    <v>DisplayTextId</v>
-                                    <v>TL_ElementProperties.ImageID</v>
+                                    <v>NoResizeOnValueChange</v>
+                                    <v></v>
                                     <v>Category</v>
                                     <v>Simple|Standard</v>
                                     <v>ImageIdNode</v>
                                     <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.ImageID</v>
                                     <v>EditorType</v>
                                     <v>Image</v>
                                   </d>
@@ -2034,7 +2062,7 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">4</v>
                                 <v n="TypeNodeIdLong">1221198932L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -2138,16 +2166,16 @@
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>Visu_TypeString</v>
-                                    <v></v>
                                     <v>ieccodeconversion_character_array</v>
+                                    <v></v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -2156,7 +2184,7 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">2</v>
                                 <v n="TypeNodeIdLong">1871885848L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.Heading"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -2194,14 +2222,14 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">3</v>
                                 <v n="TypeNodeIdLong">1556659333L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <n n="DisplayTextId" />
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
                               </o>
                               <o>
                                 <v n="Flags">16L</v>
-                                <n n="BasicTypeNodeValue" />
+                                <v n="BasicTypeNodeValue">""</v>
                                 <v n="BasicTypeNodeAcceptsExpression">false</v>
                                 <n n="BasicTypeNodeFastAccess" />
                                 <a n="BasicTypeNodeEnumValues" et="String" />
@@ -2223,12 +2251,14 @@
                                     <v> The id of the image which should be displayed</v>
                                     <v>ieccodeconversion_useforgettersetter</v>
                                     <v></v>
-                                    <v>DisplayTextId</v>
-                                    <v>TL_ElementProperties.ImageID</v>
+                                    <v>NoResizeOnValueChange</v>
+                                    <v></v>
                                     <v>Category</v>
                                     <v>Simple|Standard</v>
                                     <v>ImageIdNode</v>
                                     <v></v>
+                                    <v>DisplayTextId</v>
+                                    <v>TL_ElementProperties.ImageID</v>
                                     <v>EditorType</v>
                                     <v>Image</v>
                                   </d>
@@ -2236,7 +2266,7 @@
                                 </o>
                                 <v n="TypeNodeId" t="Int16">4</v>
                                 <v n="TypeNodeIdLong">3509084757L</v>
-                                <v n="LibraryId">"visuelems, 3.5.8.40 (system)"</v>
+                                <v n="LibraryId">"visuelems, 3.5.10.40 (system)"</v>
                                 <v n="DisplayTextId">"TL_ElementProperties.ImageID"</v>
                                 <n n="DescriptionTextID" />
                                 <v n="DescriptionUseParent">false</v>
@@ -2302,14 +2332,6 @@
                         <v n="DescriptionUseParent">false</v>
                       </o>
                     </o>
-                    <o>
-                      <v n="Id">1871885848L</v>
-                      <v n="Value">"I/O"</v>
-                    </o>
-                    <o>
-                      <v n="Id">1556659333L</v>
-                      <v n="Value">"95"</v>
-                    </o>
                   </l>
                 </o>
                 <v n="VisualElementName">"TabControl"</v>
@@ -2355,77 +2377,61 @@
             <o n="GeneratedVisuFbDescription" t="GenericFbDescription">
               <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
                 <v>HasVisibilityAccess</v>
-                <v>4ceff40b-58d6-42bc-ae11-33d421b03e3b</v>
+                <v>bd4193dd-6f8c-42c8-aec0-30213c72a597</v>
                 <v>ContainsPoint</v>
-                <v>9c351667-c4eb-4dac-b98e-d6f5546ef0aa</v>
-                <v>HasInputAccess</v>
-                <v>b820e59e-45e1-4219-a2c8-f44c573c91ec</v>
-                <v>HasInputAccessIntern</v>
-                <v>fe581fd9-ad2c-485d-8603-2031a85d1109</v>
-                <v>GetTooltip</v>
-                <v>d8320106-77f0-4677-b2ab-cdbc6fd47e00</v>
-                <v>GetDialogInterfaceSize</v>
-                <v>637221d7-2028-46f5-8472-27d0ff46d00d</v>
-                <v>GetUpdateRects</v>
-                <v>cb5d738d-223e-410f-a8b7-c25412773932</v>
-                <v>GetNamespace</v>
-                <v>9cc8bc48-63e7-471f-83ad-77fe8ad1c632</v>
-                <v>SetResult</v>
-                <v>1077a0e0-54d4-45fa-9ebe-39238e787681</v>
-                <v>GetTranslator</v>
-                <v>cd40d5fb-ba5c-4d84-91ad-50f351c379eb</v>
-                <v>Update</v>
-                <v>75d3c67d-9239-4518-b81f-88bb7d2a9ab6</v>
-                <v>SetClientData</v>
-                <v>fff1f319-fb36-4286-9410-d05778453362</v>
-                <v>HasVisibilityAccessIntern</v>
-                <v>f2dc3ca5-732b-46b8-8301-737c7f4636b2</v>
-                <v>GetInstance</v>
-                <v>bfe2f756-66dc-4ed0-8e75-60048ecf2599</v>
-                <v>GetClientData</v>
-                <v>8b6a6c38-2518-44fc-96b5-f254d8ee451c</v>
-                <v>Paint</v>
-                <v>b427a149-5576-46c3-bbf4-052a3b3b12af</v>
-                <v>GetElementArray</v>
-                <v>bd0ee799-2617-42ff-bbce-191f48c304c3</v>
-                <v>SetVisuFlagsInternal</v>
-                <v>df115bd2-6632-4b79-b210-e57d85aa59a6</v>
-                <v>GetText</v>
-                <v>12241399-f4db-437d-969c-615db7bd7c0c</v>
-                <v>GetTextProperties</v>
-                <v>c7f04a29-30d4-478f-865f-44c9b6255f36</v>
-                <v>Initialize</v>
-                <v>b9ea479d-e061-4d28-95cd-3392007f94e9</v>
-                <v>Destruct</v>
-                <v>4a87782e-ccb6-4e5f-a287-789083da08fa</v>
+                <v>a4e9402f-860f-4cb9-8df4-2a2f32421f9e</v>
                 <v>SetStaticState</v>
-                <v>b53381c2-a1c1-4a0a-a0ae-73fe6d3741e9</v>
+                <v>103b955b-c302-4d0e-936c-a56245ce21e0</v>
+                <v>Update</v>
+                <v>94ffa36f-26b5-4d7b-ab62-9cb721339755</v>
+                <v>GetTooltip</v>
+                <v>cdb6b339-29b2-4166-8476-29937dc83b65</v>
+                <v>GetUpdateRects</v>
+                <v>c5a9bd3a-1e54-4788-abe8-53b32e4b7b4d</v>
+                <v>GetNamespace</v>
+                <v>64306bf0-92d8-4e30-bc9b-113d4627040c</v>
+                <v>GetTranslator</v>
+                <v>a56fbef0-57a5-4f7a-80af-fd7415fb411a</v>
+                <v>SetClientData</v>
+                <v>95c12aa0-3d95-478c-a7bd-1621a2920be9</v>
+                <v>GetClientData</v>
+                <v>3ecca32b-68b6-4b31-b49a-24b8133b463a</v>
+                <v>Destruct</v>
+                <v>99bb90d0-adb1-4809-a03f-e196ac9aed44</v>
+                <v>Paint</v>
+                <v>fcaaff6b-0eb2-400a-a8c1-c1756742fc5c</v>
+                <v>GetElementArray</v>
+                <v>dea66373-6336-45ec-a42d-71e31cdc40ad</v>
+                <v>SetVisuFlagsInternal</v>
+                <v>14972a10-432e-4721-921f-274713d9fd01</v>
+                <v>GetText</v>
+                <v>9f4b3e42-7705-4435-b37a-ea032ca8f48f</v>
+                <v>GetTextProperties</v>
+                <v>c626ca60-08f0-43bf-96fe-3a3605088b28</v>
+                <v>Initialize</v>
+                <v>79f352b6-0ae5-49f5-8af0-d8300053929b</v>
+                <v>HasInputAccess</v>
+                <v>662cf19e-3a30-4fc7-8d73-9427da8ed3ea</v>
                 <v>GetSurroundingRect</v>
-                <v>359abc69-433e-4580-8400-204fb2aa6edc</v>
-                <v>GetResult</v>
-                <v>8b3f3600-dfa2-4744-9e70-bfa24faae2a2</v>
+                <v>4bb490b9-491d-4adb-9eaf-0dc6bcc82091</v>
                 <v>GetLocalUsergroup</v>
-                <v>74004cb5-7649-4c42-956c-8795323ee8b9</v>
+                <v>2dcd62d9-c385-442e-8ff7-6b3e1b76c1b3</v>
                 <v>GetName</v>
-                <v>92a6ec2f-4282-439f-a2c2-a2779f5481c7</v>
+                <v>3cd03ac0-29cb-4efb-b06d-f59f6e6a7af1</v>
                 <v>GetSize</v>
-                <v>6d932437-9667-4c1d-a962-9258d4e54537</v>
-                <v>SetDialogInterface</v>
-                <v>1bf421f3-a8d3-43fd-81fe-89cccff7de76</v>
+                <v>5a9eadac-8a8d-454d-b190-ab2e955f9532</v>
                 <v>FB_Reinit</v>
-                <v>fbd0cb45-7ce4-41c6-8e9c-8c559b6368a6</v>
+                <v>0317489d-69b8-43cf-8a04-ec33bf3e8e15</v>
                 <v>FB_Exit</v>
-                <v>e4827563-e0f8-45a5-a69b-e90b90913054</v>
+                <v>d9ae220d-9cdb-4bc5-be43-ae8c46c20141</v>
                 <v>GetInitializeVersion</v>
-                <v>378d31bb-357e-4c64-b16e-d5b0d9c9aef2</v>
-                <v>GetDialogInterface</v>
-                <v>4be6d247-e1e3-4655-a4d8-6939ce82e948</v>
+                <v>7998697b-431e-4c8c-9cf7-2d3471ae1c0e</v>
                 <v>GetElementIdArray</v>
-                <v>e9045def-1bd6-41ac-b607-4d9d26415794</v>
+                <v>b00ee28e-edc2-42b5-8c06-2ec7f31b9512</v>
                 <v>HandleInput</v>
-                <v>3acdf80f-fa32-4169-baf6-7d24a7e78b2a</v>
+                <v>ab197e9c-3841-4e3c-9fa1-58f62c1282e3</v>
                 <v>ElementInfo</v>
-                <v>47baa41a-e601-44bc-80cc-5d77acd1dd0c</v>
+                <v>dcbd9777-bf49-49f7-b7bb-d35dfbc543f4</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{0c75beb7-bbc6-400e-b853-9d5a64f7c839}</v>
@@ -2438,10 +2444,10 @@
               <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
                 <v>FB_Init</v>
                 <v>c8fa5265-b889-4729-acac-9ab72abc491e</v>
-                <v>FB_Exit</v>
-                <v>8dbaf4c2-49a7-45d3-9406-c36ccde8f291</v>
                 <v>FB_Reinit</v>
                 <v>be1f7f3f-b1bb-4f85-abe8-029e1ff72f8f</v>
+                <v>FB_Exit</v>
+                <v>8dbaf4c2-49a7-45d3-9406-c36ccde8f291</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{1115f384-1a2b-4b97-82ee-872e55fe16e3}</v>
