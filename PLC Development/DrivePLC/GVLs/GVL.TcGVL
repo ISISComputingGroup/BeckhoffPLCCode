@@ -6,7 +6,7 @@ VAR_GLOBAL
 	iAxis		:	UINT;												//Indexing variable for exposing which axis currently being run though drive function block
 	axes			:	ARRAY [1..GVL.axisNumMax] OF ST_AxisControl;	//Global array of axisControl structure for holding axis parameters and controls
 
-//THESE ARE ONLY HERE TO ALLOW THE HMI TO FUNCTION WITH HOW IT IS CURRENTLY IMPLEMENTED
+//HMI Parameters	-	These can hopefully be removed on upgrading to the new HMI tool
 	SwLimitPos	:	LREAL;
 	SwLimitNeg	:	LREAL;
 	MaxPositionLag	:	LREAL;

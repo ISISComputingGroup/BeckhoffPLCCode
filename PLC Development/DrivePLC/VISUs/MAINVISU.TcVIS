@@ -148,16 +148,16 @@
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>ieccodeconversion_character_array</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>ieccodeconversion_character_array</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>Visu_TypeString</v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -349,16 +349,16 @@
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>ieccodeconversion_character_array</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>ieccodeconversion_character_array</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>Visu_TypeString</v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -550,16 +550,16 @@
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>ieccodeconversion_character_array</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>ieccodeconversion_character_array</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>Visu_TypeString</v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -727,12 +727,12 @@
                               <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
                                 <v>Visible</v>
                                 <v>False</v>
-                                <v>DefaultArraySize</v>
-                                <v>5</v>
-                                <v>VisibleChildren</v>
-                                <v>True</v>
                                 <v>ieccodeconversion_array</v>
                                 <v></v>
+                                <v>VisibleChildren</v>
+                                <v>True</v>
+                                <v>DefaultArraySize</v>
+                                <v>5</v>
                                 <v>''NORMAL__COMMENT</v>
                                 <v> We hide this node to prevent having two References nodes
  Nevertheless we want to make sure that the children are displayed</v>
@@ -788,8 +788,8 @@
                         <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
                           <v n="AttrFlags">81920UL</v>
                           <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
-                            <v>DisplayFrameReferencesConfiguration</v>
-                            <v></v>
+                            <v>conditionalshow</v>
+                            <v>visu_elemdev</v>
                             <v>DescriptionTextId</v>
                             <v>TL_ElementProperties.Desc_ReferencedVisus</v>
                             <v>SortFlag</v>
@@ -800,14 +800,14 @@
                             <v>Simple|Standard</v>
                             <v>DynamicArray</v>
                             <v></v>
-                            <v>conditionalshow</v>
-                            <v>visu_elemdev</v>
+                            <v>DisplayFrameReferencesConfiguration</v>
+                            <v></v>
                             <v>FrameReferences</v>
                             <v></v>
-                            <v>DisplayTextId</v>
-                            <v>TL_ElementProperties.References</v>
                             <v>Storable</v>
                             <v>True</v>
+                            <v>DisplayTextId</v>
+                            <v>TL_ElementProperties.References</v>
                           </d>
                           <v n="ConvDone">true</v>
                         </o>
@@ -891,16 +891,16 @@
                                       <v></v>
                                       <v>DisplayTextId</v>
                                       <v>TL_ElementProperties.Heading</v>
-                                      <v>ieccodeconversion_character_array</v>
+                                      <v>Visu_TypeString</v>
                                       <v></v>
-                                      <v>AllocateText</v>
+                                      <v>ieccodeconversion_character_array</v>
                                       <v></v>
                                       <v>''DOCU__COMMENT</v>
                                       <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                       <v>DirectlyAssignable</v>
                                       <v></v>
-                                      <v>Visu_TypeString</v>
+                                      <v>AllocateText</v>
                                       <v></v>
                                       <v>ieccodeconversion_gettersetter_norecursion</v>
                                       <v></v>
@@ -1060,16 +1060,16 @@
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>ieccodeconversion_character_array</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>ieccodeconversion_character_array</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>Visu_TypeString</v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -1230,16 +1230,16 @@
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>ieccodeconversion_character_array</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>ieccodeconversion_character_array</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>Visu_TypeString</v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -1400,16 +1400,16 @@
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>ieccodeconversion_character_array</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>ieccodeconversion_character_array</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>Visu_TypeString</v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -1758,16 +1758,16 @@
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>ieccodeconversion_character_array</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>ieccodeconversion_character_array</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>Visu_TypeString</v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -1962,16 +1962,16 @@
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>ieccodeconversion_character_array</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>ieccodeconversion_character_array</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>Visu_TypeString</v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -2166,16 +2166,16 @@
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>ieccodeconversion_character_array</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>ieccodeconversion_character_array</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>Visu_TypeString</v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -2396,8 +2396,6 @@
                 <v>95c12aa0-3d95-478c-a7bd-1621a2920be9</v>
                 <v>GetClientData</v>
                 <v>3ecca32b-68b6-4b31-b49a-24b8133b463a</v>
-                <v>Destruct</v>
-                <v>99bb90d0-adb1-4809-a03f-e196ac9aed44</v>
                 <v>Paint</v>
                 <v>fcaaff6b-0eb2-400a-a8c1-c1756742fc5c</v>
                 <v>GetElementArray</v>
@@ -2414,6 +2412,8 @@
                 <v>662cf19e-3a30-4fc7-8d73-9427da8ed3ea</v>
                 <v>GetSurroundingRect</v>
                 <v>4bb490b9-491d-4adb-9eaf-0dc6bcc82091</v>
+                <v>ElementInfo</v>
+                <v>dcbd9777-bf49-49f7-b7bb-d35dfbc543f4</v>
                 <v>GetLocalUsergroup</v>
                 <v>2dcd62d9-c385-442e-8ff7-6b3e1b76c1b3</v>
                 <v>GetName</v>
@@ -2430,8 +2430,8 @@
                 <v>b00ee28e-edc2-42b5-8c06-2ec7f31b9512</v>
                 <v>HandleInput</v>
                 <v>ab197e9c-3841-4e3c-9fa1-58f62c1282e3</v>
-                <v>ElementInfo</v>
-                <v>dcbd9777-bf49-49f7-b7bb-d35dfbc543f4</v>
+                <v>Destruct</v>
+                <v>99bb90d0-adb1-4809-a03f-e196ac9aed44</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{0c75beb7-bbc6-400e-b853-9d5a64f7c839}</v>
@@ -2444,10 +2444,10 @@
               <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
                 <v>FB_Init</v>
                 <v>c8fa5265-b889-4729-acac-9ab72abc491e</v>
-                <v>FB_Reinit</v>
-                <v>be1f7f3f-b1bb-4f85-abe8-029e1ff72f8f</v>
                 <v>FB_Exit</v>
                 <v>8dbaf4c2-49a7-45d3-9406-c36ccde8f291</v>
+                <v>FB_Reinit</v>
+                <v>be1f7f3f-b1bb-4f85-abe8-029e1ff72f8f</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{1115f384-1a2b-4b97-82ee-872e55fe16e3}</v>

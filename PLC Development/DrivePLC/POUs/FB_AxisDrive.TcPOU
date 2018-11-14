@@ -1,73 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
-  <POU Name="AxDriveFB" Id="{aef7aef0-3971-449b-83a3-6f8c4c2f7d04}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK AxDriveFB
+  <POU Name="FB_AxisDrive" Id="{aef7aef0-3971-449b-83a3-6f8c4c2f7d04}" SpecialFunc="None">
+    <Declaration><![CDATA[(*
+	Function for motion control of single axis.
+	Provides an interface to PLC Open motion control blocks.
+	Controls linking of limit switches from slave to master axes.
+*)
+FUNCTION_BLOCK FB_AxisDrive
 VAR_INPUT
-
 END_VAR
 VAR_IN_OUT
 	AxisController		:	ST_AxisControl;
 END_VAR
 VAR_OUTPUT
-
 END_VAR
 VAR
 	eCommandLatched		:	eMcCommand;		//Internally latched command signal, new commands cannot be issued until existing commands have completed.
-											//This may need to change for sequencing
-	doneLatch	:	SR;			//Used to set done signal in AxisController DUT
-	bError		:	BOOL;		//Not currently implemented but may be used in future similar to bDone once more error management is implemented
-	bDone		:	BOOL;		//Interal done flag which will be used for latching on an external done located in AxisController DUT
-	iParam		:	INT:=1;		//index of NC parameters FBs, no 0 index on array so initialised to 1
-	iIndex		:	UINT;		//index value used for limit coupling
-	iMasterIndex		:	UINT;
+	doneLatch	:	SR;						//Used to set done signal in AxisController DUT
+	bDone		:	BOOL;					//Interal done flag which will be used for latching on an external done located in AxisController DUT
+	iParam		:	INT:=1;					//index of NC parameters FBs, no 0 index on array so initialised to 1
+	iIndex		:	UINT;					//index value used for limit coupling
+	iMasterIndex		:	UINT;			//index value used for limit coupling
 	
 	//Boolean to store EnableFw and EnableBw of MCPower FB
 	FwLimitsEnabled	:	BOOL;	
 	BWLimitsEnabled	:	BOOL;
+	
+	mcDirection	:	MC_Direction;			//Direction control required in function blocks
 
-//FBs as defined by PLC Open Standard
-//Functions that are commented out have not been implemented yet, any listed as "NOT IMPLEMENTED" are not in the Beckhoff P2P library
-	//ADMIN                                                                         
+(*
+Motion Function blocks taken from the PLC OPEN standard as defined by PLC Open Standard
+Function blocks commented out are yet to be added but the intention is to add these.
+Those listed as //NOT IMPLEMENTED have come from the standard but Beckhoff do not support, 
+these have been added just as a placeholder for future support.
+*)
+	//Not Implemented
+	//MCReadDigitalInput		:	MC_ReadDigitalInput;			//NOT IMPLEMENTED		
+	//MCReadDigitalOutput		:	MC_ReadDigitalOutput;			//NOT IMPLEMENTED	
+	//MCWriteDigitalOutput		:	MC_WriteDigitalOutput;			//NOT IMPLEMENTED
+	//MCReadActualTorque		:	MC_ReadActualTorque;			//NOT IMPLEMENTED	
+	//MCReadAxisInfo			:	MC_ReadAxisInfo;				//NOT IMPLEMENTED	
+	//MCReadMotionState			:	MC_ReadMotionState;				//NOT IMPLEMENTED
+	//MCDigitalCamSwitch		:	MC_DigitalCamSwitch;			//NOT IMPLEMENTED
+	//MCTorqueControl			:	MC_TorqueControl;				//NOT IMPLEMENTED		
+	//MCPositionProfile			:	MC_PositionProfile;				//NOT IMPLEMENTED		
+	//MCVelocityProfile			:	MC_VelocityProfile;				//NOT IMPLEMENTED		
+	//MCAccelerationProfile		:	MC_AccelerationProfile;			//NOT IMPLEMENTED
+	
+	
+	(* Administrative Function Blocks *)                                                                     
 	MCReset						:	MC_Reset;											
 	MCPower						:	MC_Power;										
 	//MCReadStatus				:	MC_ReadStatus;					//Same as Axis.ReadStatus();						
 	//MCReadAxisError			:	MC_ReadAxisError;									
-	MCReadParameter				:	MC_ReadParameter;									
-	//MCReadBoolParameter		:	MC_ReadBoolParameter;			//not required, can be covered be McReadParameter						
+	MCReadParameter				:	MC_ReadParameter;														
 	MCWriteParameter			:	MC_WriteParameter;										
 	MCWriteBoolParameter		:	MC_WriteBoolParameter;								
-	//MCReadDigitalInput		:	MC_ReadDigitalInput;			//NOT IMPLEMENTED		
-	//MCReadDigitalOutput		:	MC_ReadDigitalOutput;			//NOT IMPLEMENTED	
-	//MCWriteDigitalOutput		:	MC_WriteDigitalOutput;			//NOT IMPLEMENTED	
+		
 	//MCReadActualPosition		:	MC_ReadActualPosition;								
 	//MCReadActualVelocity		:	MC_ReadActualVelocity;								
-	//MCReadActualTorque		:	MC_ReadActualTorque;			//NOT IMPLEMENTED	
-	//MCReadAxisInfo			:	MC_ReadAxisInfo;				//NOT IMPLEMENTED	
-	//MCReadMotionState			:	MC_ReadMotionState;				//NOT IMPLEMENTED	
+		
 	MCSetPosition				:	MC_SetPosition;										
 	//MCSetOverride				:	MC_SetOverride;										
 	//MCTouchProbe				:	MC_TouchProbe;										
-	//MCDigitalCamSwitch		:	MC_DigitalCamSwitch;			//NOT IMPLEMENTED	
+		
 	//MCAbortTrigger			:	MC_AbortTrigger;									
-	//MCAbortSuperposition		:	MC_AbortSuperposition;			//HaltSuperimposed?	
+	//MCAbortSuperposition		:	MC_AbortSuperposition;			//Listed as HaltSuperimposed in PLC Open standard	
 	//MCCamTableSelect			:	MC_CamTableSelect;									
 	
+	(* Motion Function Blocks *)
 	//MCHome					:	MC_Home;											
 	MCJog						:	MC_Jog;												
-	MCStop					:	MC_Stop;											
-	////////MCHalt					:	MC_Halt;											
+	MCStop						:	MC_Stop;											
+	//MCHalt					:	MC_Halt;											
 	MCMoveAbsolute				:	MC_MoveAbsolute;									
 	MCMoveRelative				:	MC_MoveRelative;									
 	//MCMoveAdditive			:	MC_MoveAdditive;									
 	//MCMoveSuperimposed		:	MC_MoveSuperimposed;								
-	MCMoveVelocity			:	MC_MoveVelocity;									
+	MCMoveVelocity				:	MC_MoveVelocity;									
 	//MCMoveContinuousAbsolute	:	MC_MoveContinuousAbsolute;						
 	//MCMoveContinuousRelative	:	MC_MoveContinuousRelative;						
-	////////MCMoveModulo				:	MC_MoveModulo;										
-	//MCTorqueControl			:	MC_TorqueControl;			//NOT IMPLEMENTED		
-	//MCPositionProfile			:	MC_PositionProfile;			//NOT IMPLEMENTED		
-	//MCVelocityProfile			:	MC_VelocityProfile;			//NOT IMPLEMENTED		
-	//MCAccelerationProfile		:	MC_AccelerationProfile;		//NOT IMPLEMENTED		
+	//MCMoveModulo				:	MC_MoveModulo;										
+	
+	(* Synchronised Motion Function Blocks *)		
 	MCGearIn					:	MC_GearIn;											
 	//MCGearInDyn				:	MC_GearInDyn;										
 	MCGearInMultiMaster			:	MC_GearInMultiMaster;								
@@ -84,10 +99,10 @@ VAR
 	//MCCamRemove				:	MC_CamRemove;										
 	//MCCamScalingV2			:	MC_CamScaling_V2;									
 
-	//HOMING AND HOMING STEPS
-	MCFinishHoming	:	MC_FinishHoming;
-	//MCHomeDirect		:	MC_HomeDirect;
-	//MCAbortHoming		:	MC_AbortHoming;
+	(* Advanced Homing Steps and Finishing Moves *)
+	MCFinishHoming			:	MC_FinishHoming;
+	//MCHomeDirect			:	MC_HomeDirect;
+	//MCAbortHoming			:	MC_AbortHoming;
 	MCStepAbsoluteSwitch	:	MC_StepAbsoluteSwitch;
 	//MCStepBlock			:	MC_StepBlock;
 	//MCStepBlockLagBased	:	MC_StepBlockLagBased;
@@ -95,22 +110,14 @@ VAR
 	//MCStepReferencePulse	:	MC_StepReferencePulse;
 	
 	
+	(* Additional variable structures required for Advanced Homing *)
 	//MCSignalRef			:	MC_Ref_Signal_Ref;
-
 	StOptions				:	ST_Home_Options;
 	StOptions2				:	ST_Home_Options2;
 	StOptions3				:	ST_Home_Options3;
 	StOptions4				:	ST_Home_Options4;
 	MCHomingParameter		:	MC_HomingParameter;		//Must be passed between homing steps.									
-	
-	//MCHomeRef	:	MC_StepReferencePulse;
-	//MCHomeLim	:	MC_StepLimitSwitch;
-	//MCHomeAbs	:	MC_StepAbsoluteSwitch;
-	//homingSw	:	MC_Ref_Signal_Ref;
-	//homingStruct:	MC_HomingParameter;
-	
-	dir	:	MC_Direction;
-
+		
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -125,7 +132,7 @@ END_VAR
 // 																	//
 //////////////////////////////////////////////////////////////////////
                                                             
-//Numerical state for axis states - may use later for buffering functions.
+//Numerical representation for axis states - may use later for buffering functions.
 IF AxisController.AXIS.Status.Disabled THEN
 	AxisController.iAxisState:=		100;
 ELSIF AxisController.AXIS.Status.StandStill THEN
@@ -154,27 +161,35 @@ END_IF
 // |_____|___|_|  |_|___| |_|   |____/  \_/\_/  |___| |_| \____|_| |_|_____|____/		//
 //																						//
 //////////////////////////////////////////////////////////////////////////////////////////
-//Set EnableFW and EnableBW flags based on axis limit states to begin
+
+//Initialise Foward and Backward limits to the hardware limit switches for this axis
 FwLimitsEnabled :=Limits.FwLimit[GVL.iAxis];
 BwLimitsEnabled :=Limits.BwLimit[GVL.iAxis];
 
-//Allow Master axes to listen to slave axes
-//Look through array structure that manages forward and backward coupling for axis, if a slave is present check whether it is
-//a FW limit or BW limit that matters and compare this against the hardware status.
-//This check used to use the AxisID value from the NC however this had issues as incorrectly set NC IDs would break
-//A GVL is now used to check what axis we are currently running
+(*
+Cycle through Limits.coupledFwLimit and Limits.coupledBwLimit.
+Looking to see if any axes have the current axis (GVL.iAxis) listed as a master.
+If this axis is listed as a master, check the hardware limits of that slave.
+Gear ratio determines whether we are looking for a Forward or a Backward limit on the slave axis. 
+If the limit switch is disabled, disable motion for this axis.
+*)
 FOR iIndex:=1 TO GVL.axisNumMax BY 1 DO
 	FOR iMasterIndex:=1 TO 5 BY 1 DO
+		//If listed as a master
 		IF Limits.coupledFwLimit[iIndex][iMasterIndex].iMasterAxis = GVL.iAxis THEN
+			//If forward limit linked to forward of slave, check forward limit of slave
 			IF Limits.coupledFwLimit[iIndex][iMasterIndex].eLimitType=eLimitCoupling.FwSw AND NOT Limits.FwLimit[iIndex] THEN
 				FwLimitsEnabled:=FALSE;
 			END_IF
+			//If forward limit linked to backwardof slave, check forward limit of slave
 			IF Limits.coupledFwLimit[iIndex][iMasterIndex].eLimitType=eLimitCoupling.BwSw AND NOT Limits.BwLimit[iIndex] THEN
 				FwLimitsEnabled:=FALSE;
 			END_IF
+			//If backward limit linked to forward of slave, check forward limit of slave
 			IF Limits.coupledBwLimit[iIndex][iMasterIndex].eLimitType=eLimitCoupling.FwSw AND NOT Limits.FwLimit[iIndex] THEN
 				BwLimitsEnabled:=FALSE;
 			END_IF
+			//If backward limit linked to backward of slave, check backward limit of slave
 			IF Limits.coupledBwLimit[iIndex][iMasterIndex].eLimitType=eLimitCoupling.BwSw AND NOT Limits.BwLimit[iIndex] THEN
 				BwLimitsEnabled:=FALSE;
 			END_IF
@@ -182,14 +197,8 @@ FOR iIndex:=1 TO GVL.axisNumMax BY 1 DO
 	END_FOR
 END_FOR
 
-AxisController.bFwEnabled:=FwLimitsEnabled;		//STATUS FEEDBACK
-AxisController.bBwEnabled:=BwLimitsEnabled;		//STATUS FEEDBACk
-
-
-
-
-
-
+AxisController.bFwEnabled:=FwLimitsEnabled;		//Feedback to ST_AxisControl that forward positioning is available
+AxisController.bBwEnabled:=BwLimitsEnabled;		//Feedback to ST_AxisControl that backward positioning is available
 
 //////////////////////////////////////////////////////////
 //  ____   _____        _______ ____    _   _ ____  	//
@@ -199,7 +208,10 @@ AxisController.bBwEnabled:=BwLimitsEnabled;		//STATUS FEEDBACk
 // |_|    \___/  \_/\_/  |_____|_| \_\  \___/|_|   		//
 //														//
 /////////////////////////////////////////////////////////// 
-                                               
+(*
+Power up the axis.
+Externally fed variables are bEnabled and fOverride, limits all controlled internally.
+*)                                           
 MCPower(
 	Axis:=AxisController.Axis,
 	Enable:=AxisController.bEnable,
@@ -213,7 +225,6 @@ MCPower(
 	ErrorID=>
 );
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  ____  _____    _    ____    ____   _    ____     _    __  __ _____ _____ _____ ____  ____  			//
 // |  _ \| ____|  / \  |  _ \  |  _ \ / \  |  _ \   / \  |  \/  | ____|_   _| ____|  _ \/ ___| 			//
@@ -222,7 +233,12 @@ MCPower(
 // |_| \_|_____/_/   \_|____/  |_| /_/   \_|_| \_/_/   \_|_|  |_|_____| |_| |_____|_| \_|____/ 			//
 //                                                                                           			//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Read in motion parameters: cycle through the 17 available
+(*
+Check NC parameters available from MCReadParameter FB (17 in total)
+See eRWParameter DUT for complete list or PLC OPEN documentation
+To call all 17 from a single functionblock instance only 1 can be checked per cycle so there will be at minimum a 34 cycle delay checking each parameter
+The MCReadParameter does also cover the functionality of MCReadBoolParameter so these booleans are separately converted from the MCReadParameter call
+*)
 MCReadParameter(Axis:=AxisController.AXIS,ParameterNumber:=iParam);
 IF MCReadParameter.Valid THEN
 	MCReadParameter.Enable:=FALSE;
@@ -235,19 +251,17 @@ ELSE
 	MCReadParameter.Enable:=TRUE;
 END_IF
 
-//To save on using a separate bool parameter read just converting the REALs to BOOLS and storing in flags
+//Convert LREALS to BOOLS
 IF AxisController.fParameters[eRWParameter.EnableLimitPos]=1 THEN
 	AxisController.bSoftLimPosEn:=TRUE;
 ELSE
 	AxisController.bSoftLimPosEn:=FALSE;
 END_IF
-
 IF AxisController.fParameters[eRWParameter.EnableLimitNeg]=1 THEN
 	AxisController.bSoftLimNegEn:=TRUE;
 ELSE
 	AxisController.bSoftLimNegEn:=FALSE;
 END_IF
-
 IF AxisController.fParameters[eRWParameter.EnablePosLagMonitoring]=1 THEN
 	AxisController.bPosLagEn:=TRUE;
 ELSE
@@ -262,34 +276,48 @@ END_IF
 // |_|  |_|\____| |_|    \___/|_| \_|\____| |_| |___\___/|_| \_|  \____/_/   \_|_____|_____|____/ 		//
 //                                         																//                                                      
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Call MC Function Blocks and clear execute signals
-//Function blocks will hold done and error signals for 1 cycle with no execute held
+(*
+Call MC Function Blocks and clear execute signals
+Any MC function blocks added to the state machine must be called here with the given format.
+Some FBs have slightly differing structures so these should aim to conform to the existing structure
+Function blocks will hold done and error signals for 1 cycle with no execute held
+*)
 MCReadParameter(Axis:=AxisController.Axis);	//Reading in motion parameters, using one functionblock for all params means need to disable
+
 MCReset(Axis:=AxisController.Axis);
 MCReset.Execute:=FALSE;
+
 MCWriteParameter(Axis:=AxisController.Axis);
 MCWriteParameter.Execute:=FALSE;
+
 MCWriteBoolParameter(Axis:=AxisController.Axis);
 MCWriteBoolParameter.Execute:=FALSE;
+
 MCSetPosition(Axis:=AxisController.Axis);
 MCSetPosition.Execute:=FALSE;
+
 MCMoveAbsolute(Axis:=AxisController.Axis);
 MCMoveAbsolute.Execute:=FALSE;
+
 MCMoveRelative(Axis:=AxisController.Axis);
 MCMoveRelative.Execute:=FALSE;
 
 MCGearIn(Slave:=AxisController.Axis, Master:=GVL.axes[AxisController.masterAxis].Axis);
 MCGearIn.Execute:=FALSE;
+
 MCGearInMultiMaster(Master1:=GVL.axes[AxisController.masterAxes[1].i].Axis,Master2:=GVL.axes[AxisController.masterAxes[2].i].Axis,Master3:=GVL.axes[AxisController.masterAxes[3].i].Axis,Master4:=GVL.axes[AxisController.masterAxes[4].i].Axis,Slave:=AxisController.Axis);
-MCGearInMultiMaster.Enable:=FALSE;	//NOT EXECUTE AS FB ALLOWS CONTINUAL UPDATING OF RATIOS WHILST ENABLED, testing move here
+MCGearInMultiMaster.Enable:=FALSE;	//NOT EXECUTE AS FB ALLOWS CONTINUAL UPDATING OF RATIOS WHILST ENABLED
+
 MCGearOut(Slave:=AxisController.Axis);
 MCGearOut.Execute:=FALSE;
 
 MCJog(Axis:=AxisController.Axis);
 MCJog.JogBackwards:=FALSE;
 MCJog.JogForward:=FALSE;
+
 MCStepAbsoluteSwitch(Axis:=AxisController.Axis,Parameter:=MCHomingParameter);
 MCStepAbsoluteSwitch.Execute:=FALSE;
+
 MCFinishHoming(Axis:=AxisController.Axis,Parameter:=MCHomingParameter);
 MCFinishHoming.Execute:=FALSE;
 
@@ -299,13 +327,6 @@ MCMoveVelocity.Execute:=FALSE;
 MCStop(Axis:=AxisController.Axis);
 MCStop.Execute:=FALSE;
 
-//If we're not doing anything or have just done something we no longer latch on the given command
-IF NOT AxisController.AXIS.Status.HasJob OR AxisController.bDone THEN
-	eCommandLatched:=AxisController.eCommand;
-END_IF
-
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //   ____ ___  __  __ __  __    _    _   _ ____     ____    _    ____  _____   ____ _____  _  _____ _____ __  __ _____ _   _ _____ ____ 	// 
 //  / ___/ _ \|  \/  |  \/  |  / \  | \ | |  _ \   / ___|  / \  / ___|| ____| / ___|_   _|/ \|_   _| ____|  \/  | ____| \ | |_   _/ ___| 	//
@@ -314,6 +335,38 @@ END_IF
 //  \____\___/|_|  |_|_|  |_/_/   \_|_| \_|____/   \____/_/   \_|____/|_____| |____/ |_/_/   \_|_| |_____|_|  |_|_____|_| \_| |_| |____/	//
 //																																			//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+(*
+Internal statemachine to handle motion control flow and logic.
+Functions are NOT called in this statemachine, these just update values given to the state machine. This was the method recommended by Beckhoff
+The following basic wrapper should be used for adding new function blocks. Any that do not conform to this should be modified to conform
+Notably some FBs have no .Done but do have .Active
+	
+	mcFunctionBlock.Execute		:=AxisController.bExecute;
+	mcFunctionBlock.misc1..n	:=AxisController.misc1..n;
+	
+	bDone:=mcFunctionBlock.Done;
+	AxisController.bBusy:= mcFunctionBlock.Busy;
+	
+	If mcFunctionBlock.Error THEN
+		AxisController.bError:=TRUE;
+		AxisController.iErrorID:= mcFunctionBlock.ErrorID;
+	END_IF
+	IF NOT mcFunctionBlock.Busy THEN
+		eCommandLatched:=eMcCommand.Idle;
+	END_IF
+	
+Function block specific parameters should be added to the ST_AxisControl if not already listed
+eCommandLatched is currently being used to hold control flow logic so that users cannot send new commands until previous ones have complete.
+This will definitely need to be modified to allow buffering in the future and to allow stop/halt commands 
+but I haven't looked in to the best way to do this yet.	
+
+It may be that it doesn't matter if it is latched at all as we can rely on waiting for the done signal before sending subsequent commands if it really matters
+*)
+//If we're not doing anything or have just done something we no longer latch on the given command
+IF NOT AxisController.AXIS.Status.HasJob OR AxisController.bDone THEN
+	eCommandLatched:=AxisController.eCommand;
+END_IF
 CASE eCommandLatched OF
 	
 	eMcCommand.Idle:
@@ -323,14 +376,13 @@ CASE eCommandLatched OF
 	eMcCommand.Reset:
 		AxisController.bError	:=FALSE;
 		MCReset.Execute:=AxisController.bReset;
+		
 		bDone:=McReset.Done;
 		AxisController.bBusy:=MCReset.Busy;
 		IF MCReset.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCReset.ErrorID;	
 		END_IF
-		
-		//Clear command and erase reset flag.
 		IF NOT MCReset.Busy THEN
 			eCommandLatched:=eMcCommand.Idle;
 			AxisController.bReset:=FALSE;
@@ -340,13 +392,14 @@ CASE eCommandLatched OF
 		MCWriteParameter.Execute:=AxisController.bExecute;
 		MCWriteParameter.ParameterNumber:=AxisController.iParameterIndex;
 		MCWriteParameter.Value:=AxisController.fParameterValue;
+		
 		bDone:=MCWriteParameter.Done;
 		AxisController.bBusy:= MCWriteParameter.Busy;
+		
 		IF MCWriteParameter.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCWriteParameter.ErrorID;	
-		END_IF
-		
+		END_IF	
 		IF NOT MCWriteParameter.Busy THEN
 			eCommandLatched:=eMcCommand.Idle;
 		END_IF			
@@ -355,14 +408,14 @@ CASE eCommandLatched OF
 		MCWriteBoolParameter.Execute:=AxisController.bExecute;
 		MCWriteBoolParameter.ParameterNumber:=AxisController.iParameterIndex;
 		MCWriteBoolParameter.Value:=AxisController.bInput;
+		
 		bDone:=MCWriteBoolParameter.Done;
 		AxisController.bBusy:=MCWriteBoolParameter.Busy;
 		
 		IF MCWriteBoolParameter.Error THEN
 			AxisController.bError:= TRUE;
 			AxisController.iErrorID:=MCWriteBoolParameter.ErrorID;
-		END_IF
-				
+		END_IF			
 		IF NOT MCWriteBoolParameter.Busy THEN
 			eCommandLatched:=eMcCommand.Idle;
 		END_IF	
@@ -370,8 +423,10 @@ CASE eCommandLatched OF
 	eMcCommand.SetPosition:	
 		MCSetPosition.Execute:=AxisController.bExecute;
 		MCSetPosition.Position:=AxisController.fPosition;
+		
 		AxisController.bBusy:=MCSetPosition.Busy;
 		bDone:=MCSetPosition.Done;
+		
 		IF MCSetPosition.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:= MCSetPosition.ErrorID;
@@ -400,7 +455,7 @@ CASE eCommandLatched OF
 			eCommandLatched:=eMcCommand.Idle;
 		END_IF
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	eMcCommand.MoveRelative:		//MOVE RELATIVE
+	eMcCommand.MoveRelative:		
 		MCMoveRelative.Execute:=AxisController.bExecute;
 		MCMoveRelative.Distance:=AxisController.fDistance;
 		MCMoveRelative.Velocity:=AxisController.fVelocity;
@@ -408,8 +463,10 @@ CASE eCommandLatched OF
 		MCMoveRelative.Deceleration:=AxisController.fDeceleration;
 		MCMoveRelative.Jerk:=0;
 		MCMoveRelative.BufferMode:=MC_BufferMode.MC_Buffered;
+		
 		bDone:=MCMoveRelative.Done;
 		AxisController.bBusy:=MCMoveRelative.Busy;
+		
 		IF MCMoveRelative.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCMoveRelative.ErrorID;
@@ -419,7 +476,6 @@ CASE eCommandLatched OF
 		END_IF		
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	eMcCommand.GearIn:
-	
 		//Dependent on +ve or -ve gear ratio determines whether to link Fw to Fw and Bw to Bw or Fw to Bw and Bw to Fw
 		IF AxisController.fGearRatioNum>0 THEN
 			Limits.coupledFwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.FwSw;
@@ -438,12 +494,14 @@ CASE eCommandLatched OF
 		MCGearIn.Execute:=AxisController.bExecute;
 		MCGearIn.RatioNumerator:=AxisController.fGearRatioNum;
 		MCGearIn.RatioDenominator:=AxisController.iGearRatioDen;
+		
+		bDone:=McGearIn.InGear;
 		AxisController.bBusy:=MCGearIn.Busy;
+		
 		IF MCGearIn.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCGearIn.ErrorID;
-		END_IF
-		bDone:=McGearIn.InGear;
+		END_IF		
 		IF NOT MCGearIn.Busy THEN
 			eCommandLatched:=eMcCommand.Idle;
 		END_IF
@@ -465,10 +523,10 @@ CASE eCommandLatched OF
 		
 
 		
-		//issue with this MC block (other than everything...) is that it doesn't conform to the standard and use an execute signal. The execute
-		//signal in any other block determines that when it is high one of either error,done,busy must be on. That is not the case with this block
-		//what happens is it triggers, doesn't register a busy and so immediately clears as done.
-		
+		(*	Issue with this MC block (other than everything...) is that it doesn't conform to the standard and use an execute signal. The execute
+			signal in any other block determines that when it is high one of either error,done,busy must be on. That is not the case with this block
+			what happens is it triggers, doesn't register a busy and so immediately clears as done. If has been modified to conform.
+		*)
 		MCGearInMultiMaster.Enable:=AxisController.bExecute;
 		MCGearInMultiMaster.GearRatio1:=AxisController.masterAxes[1].ratio;
 		MCGearInMultiMaster.GearRatio2:=AxisController.masterAxes[2].ratio;
@@ -481,7 +539,7 @@ CASE eCommandLatched OF
 			bDone:=FALSE;
 		END_IF
 
-		bDone:=MCGearInMultiMaster.InGear;	// This does not work, the InGear seems to trigger before they are in gear, "active" flag does not work either.
+		bDone:=MCGearInMultiMaster.InGear;	
 		IF MCGearInMultiMaster.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCGearInMultiMaster.ErrorID;
@@ -498,6 +556,7 @@ CASE eCommandLatched OF
 		END_FOR		
 	
 		MCGearOut.Execute:=AxisController.bExecute;
+		
 		AxisController.bBusy:=MCGearOut.Busy;
 		bDone:=MCGearOut.Done;
 		IF MCGearOut.Error THEN
@@ -511,7 +570,9 @@ CASE eCommandLatched OF
 	eMcCommand.Jog:
 		MCJog.JogForward:=AxisController.bJogForward;
 		MCJog.JogBackwards:=AxisController.bJogBackward;
+		
 		bDone:=MCJog.Done;
+		
 		IF MCJog.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCJog.ErrorID;
@@ -543,11 +604,12 @@ CASE eCommandLatched OF
 		MCStepAbsoluteSwitch.PositiveLimitSwitch:= NOT Limits.FwLimit[GVL.iAxis];	//Inverted logic to normal operation
 		MCStepAbsoluteSwitch.NegativeLimitSwitch:= NOT Limits.BwLimit[GVL.iAxis];	//Inverted logic to normal operation
 		MCStepAbsoluteSwitch.BufferMode:=AxisController.buffer;
-		StOptions4.DisableDriveAccess:=TRUE;
+		StOptions4.DisableDriveAccess:=TRUE;		//May be able to remove
 		MCStepAbsoluteSwitch.Options:=StOptions4;
 		
 		bDone:=MCStepAbsoluteSwitch.Done;
 		AxisController.bBusy:=MCStepAbsoluteSwitch.Busy;
+		
 		IF MCStepAbsoluteSwitch.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCStepAbsoluteSwitch.ErrorID;
@@ -560,11 +622,13 @@ CASE eCommandLatched OF
 		MCFinishHoming.Execute:=AxisController.bExecute;
 		MCFinishHoming.Distance:=AxisController.fHomeDistance;
 		MCFinishHoming.Velocity:=AxisController.fHomeVelocity;
-		StOptions2.DisableDriveAccess:=TRUE;
+		
+		StOptions2.DisableDriveAccess:=TRUE;	//May be able to remove
 		MCFinishHoming.Options:=StOptions2;
 		
 		bDone:=MCFinishHoming.Done;
 		AxisController.bBusy:=MCFinishHoming.Busy;
+		
 		IF MCFinishHoming.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCFinishHoming.ErrorID;
@@ -578,6 +642,7 @@ CASE eCommandLatched OF
 		MCMoveVelocity.Acceleration:=AxisController.fAcceleration;
 		MCMoveVelocity.Deceleration:=AxisController.fDeceleration;
 		
+		//Simple logic to allow negative velocity inputs rather than having to set the direction object
 		IF AxisController.fVelocity>= 0 THEN
 			MCMoveVelocity.Velocity:=AxisController.fVelocity;
 			MCMoveVelocity.Direction:= MC_Positive_Direction;
@@ -588,6 +653,7 @@ CASE eCommandLatched OF
 		
 		bDone:=MCMoveVelocity.InVelocity;
 		AxisController.bBusy:=MCMoveVelocity.Busy;
+		
 		IF MCMoveVelocity.Error THEN
 			AxisController.bError:=TRUE;
 			AxisController.iErrorID:=MCMoveVelocity.ErrorID;
@@ -604,6 +670,7 @@ CASE eCommandLatched OF
 		
 		bDone:=McStop.Done;
 		AxisController.bBusy:=McStop.Busy;
+		
 		IF MCStop.Error THEN
 			AxisController.bError:= TRUE;
 			AxisController.iErrorID:=MCStop.ErrorId;
@@ -612,9 +679,6 @@ CASE eCommandLatched OF
 			eCommandLatched:=eMcCommand.Idle;
 		END_IF
 		
-		
-		
-
 END_CASE
 
 ////////////////////////////////////////// 
@@ -625,44 +689,132 @@ END_CASE
 // |_|   |_____/_/   \_\____|____/ 		//
 //                                		//
 //////////////////////////////////////////
-AxisController.bMoving:=AxisController.Axis.Status.Moving;
-
-//Logic to latch on the done signal. As per the standard, unless the execute line is held high, there will be no done 
-//output, so this latches that signal the one cycle it is on.
-//doneLatch(SET1:=bDone,RESET:=AxisController.bBUSY OR AxisController.bERROR);
-//AxisController.latchDONE:=doneLatch.Q1;
-//
-//errorLatch(SET1:=AxisController.bERROR, RESET:=AxisController.bBUSY OR bDone);
-//AxisController.latchERROR:=errorLatch.Q1;
-
-			
+AxisController.bMoving:=AxisController.Axis.Status.Moving;	
 AxisController.bExecute:=FALSE;
 
+(*
+As we never hold Execute high, the done signal from each function block will only stay on for 1 cycle tick
+The following logic just uses an SR latch to hold this done signal TRUE until it is cleared either by an error or the axis going busy
 
-
+Errors are always latched as they are only ever set by a FB error and cleared by a reset command
+*)
 doneLatch(SET1:=bDone,RESET:=(AxisController.bBusy OR AxisController.bError));
 AxisController.bDone:=doneLatch.Q1;]]></ST>
     </Implementation>
-    <LineIds Name="AxDriveFB">
-      <LineId Id="4351" Count="48" />
-      <LineId Id="5036" Count="16" />
+    <LineIds Name="FB_AxisDrive">
+      <LineId Id="4351" Count="39" />
+      <LineId Id="5281" Count="0" />
+      <LineId Id="4391" Count="3" />
+      <LineId Id="4399" Count="0" />
+      <LineId Id="5283" Count="4" />
+      <LineId Id="5282" Count="0" />
+      <LineId Id="5036" Count="2" />
+      <LineId Id="5289" Count="0" />
+      <LineId Id="5039" Count="0" />
+      <LineId Id="5288" Count="0" />
+      <LineId Id="5040" Count="1" />
+      <LineId Id="5290" Count="0" />
+      <LineId Id="5042" Count="2" />
+      <LineId Id="5291" Count="0" />
+      <LineId Id="5045" Count="2" />
+      <LineId Id="5292" Count="0" />
+      <LineId Id="5048" Count="4" />
       <LineId Id="5034" Count="0" />
       <LineId Id="4413" Count="1" />
       <LineId Id="5033" Count="0" />
-      <LineId Id="4416" Count="0" />
-      <LineId Id="4418" Count="1" />
-      <LineId Id="4433" Count="0" />
-      <LineId Id="4435" Count="16" />
-      <LineId Id="4454" Count="71" />
+      <LineId Id="4437" Count="8" />
+      <LineId Id="5293" Count="0" />
+      <LineId Id="5295" Count="1" />
+      <LineId Id="5294" Count="0" />
+      <LineId Id="4447" Count="4" />
+      <LineId Id="4454" Count="6" />
+      <LineId Id="4462" Count="9" />
+      <LineId Id="5298" Count="2" />
+      <LineId Id="5302" Count="0" />
+      <LineId Id="5297" Count="0" />
+      <LineId Id="4472" Count="17" />
+      <LineId Id="4491" Count="4" />
+      <LineId Id="4497" Count="14" />
+      <LineId Id="5303" Count="0" />
+      <LineId Id="5305" Count="1" />
+      <LineId Id="4512" Count="0" />
+      <LineId Id="5304" Count="0" />
+      <LineId Id="4513" Count="0" />
+      <LineId Id="5307" Count="0" />
+      <LineId Id="4514" Count="1" />
+      <LineId Id="5308" Count="0" />
+      <LineId Id="4516" Count="1" />
+      <LineId Id="5309" Count="0" />
+      <LineId Id="4518" Count="1" />
+      <LineId Id="5310" Count="0" />
+      <LineId Id="4520" Count="1" />
+      <LineId Id="5311" Count="0" />
+      <LineId Id="4522" Count="1" />
+      <LineId Id="5312" Count="0" />
+      <LineId Id="4524" Count="1" />
       <LineId Id="4527" Count="2" />
+      <LineId Id="5313" Count="0" />
       <LineId Id="5030" Count="0" />
-      <LineId Id="4532" Count="140" />
+      <LineId Id="4532" Count="0" />
+      <LineId Id="5314" Count="0" />
+      <LineId Id="4533" Count="5" />
+      <LineId Id="5315" Count="0" />
+      <LineId Id="4539" Count="1" />
+      <LineId Id="5316" Count="0" />
+      <LineId Id="4541" Count="7" />
+      <LineId Id="5318" Count="0" />
+      <LineId Id="4557" Count="7" />
+      <LineId Id="5324" Count="0" />
+      <LineId Id="5323" Count="0" />
+      <LineId Id="5326" Count="0" />
+      <LineId Id="5330" Count="0" />
+      <LineId Id="5327" Count="0" />
+      <LineId Id="5362" Count="0" />
+      <LineId Id="5329" Count="0" />
+      <LineId Id="5347" Count="5" />
+      <LineId Id="5359" Count="0" />
+      <LineId Id="5353" Count="5" />
+      <LineId Id="5331" Count="0" />
+      <LineId Id="5360" Count="0" />
+      <LineId Id="5332" Count="0" />
+      <LineId Id="5364" Count="1" />
+      <LineId Id="5367" Count="0" />
+      <LineId Id="5366" Count="0" />
+      <LineId Id="5325" Count="0" />
+      <LineId Id="5320" Count="2" />
+      <LineId Id="5319" Count="0" />
+      <LineId Id="4565" Count="8" />
+      <LineId Id="5369" Count="0" />
+      <LineId Id="4574" Count="5" />
+      <LineId Id="4582" Count="8" />
+      <LineId Id="5368" Count="0" />
+      <LineId Id="4591" Count="1" />
+      <LineId Id="5370" Count="0" />
+      <LineId Id="4593" Count="3" />
+      <LineId Id="4598" Count="7" />
+      <LineId Id="5371" Count="0" />
+      <LineId Id="4606" Count="6" />
+      <LineId Id="4614" Count="6" />
+      <LineId Id="5372" Count="0" />
+      <LineId Id="4621" Count="1" />
+      <LineId Id="5373" Count="0" />
+      <LineId Id="4623" Count="35" />
+      <LineId Id="5374" Count="0" />
+      <LineId Id="4659" Count="1" />
+      <LineId Id="5375" Count="0" />
+      <LineId Id="4661" Count="8" />
+      <LineId Id="4671" Count="1" />
       <LineId Id="4676" Count="1" />
       <LineId Id="4680" Count="0" />
       <LineId Id="4997" Count="0" />
       <LineId Id="4681" Count="2" />
       <LineId Id="4998" Count="2" />
-      <LineId Id="4691" Count="16" />
+      <LineId Id="4691" Count="5" />
+      <LineId Id="5376" Count="1" />
+      <LineId Id="4697" Count="0" />
+      <LineId Id="5378" Count="0" />
+      <LineId Id="4698" Count="3" />
+      <LineId Id="4703" Count="4" />
       <LineId Id="5031" Count="1" />
       <LineId Id="5002" Count="0" />
       <LineId Id="5004" Count="0" />
@@ -683,7 +835,33 @@ AxisController.bDone:=doneLatch.Q1;]]></ST>
       <LineId Id="4828" Count="0" />
       <LineId Id="4831" Count="0" />
       <LineId Id="4834" Count="0" />
-      <LineId Id="4836" Count="144" />
+      <LineId Id="4836" Count="1" />
+      <LineId Id="5379" Count="0" />
+      <LineId Id="4838" Count="12" />
+      <LineId Id="5380" Count="0" />
+      <LineId Id="4851" Count="0" />
+      <LineId Id="5381" Count="0" />
+      <LineId Id="4852" Count="35" />
+      <LineId Id="5382" Count="0" />
+      <LineId Id="4888" Count="11" />
+      <LineId Id="5383" Count="0" />
+      <LineId Id="4900" Count="4" />
+      <LineId Id="5384" Count="0" />
+      <LineId Id="4905" Count="13" />
+      <LineId Id="5385" Count="0" />
+      <LineId Id="4919" Count="8" />
+      <LineId Id="5386" Count="0" />
+      <LineId Id="4928" Count="15" />
+      <LineId Id="5387" Count="0" />
+      <LineId Id="4944" Count="7" />
+      <LineId Id="4955" Count="10" />
+      <LineId Id="4976" Count="1" />
+      <LineId Id="4979" Count="0" />
+      <LineId Id="5389" Count="1" />
+      <LineId Id="5392" Count="0" />
+      <LineId Id="5391" Count="0" />
+      <LineId Id="5388" Count="0" />
+      <LineId Id="4980" Count="0" />
       <LineId Id="9" Count="0" />
     </LineIds>
   </POU>

@@ -5,29 +5,27 @@
 VAR
 	{attribute 'OPC.UA.DA' := '1'}
 	{attribute 'OPC.UA.DA.StructuredType' := '1'}
-	//axes			:	ARRAY [1..GVL.axisNumMax] OF AxisControl;
-	
 	//Simulate virtual axes
 	simulated		:	ARRAY [1..GVL.axisNumMax] OF ST_SimulateStage;
 	bSimulate		:	ARRAY [1..GVL.axisNumMax] OF BOOL;	//Do we want to simulate?
 	
 	//{attribute 'OPC.UA.DA' := '0'}
-	drives			:	ARRAY [1..GVL.axisNumMax] OF AxDriveFB;	
+	drives			:	ARRAY [1..GVL.axisNumMax] OF FB_AxisDrive;	
 	
-	bDisableMC		:	BOOL; //boolean control if true the motion control application specific code is disabled - dumb box
-	iState			:	UINT;	//state machine index-
+	bDisableMC		:	BOOL; 		//boolean control if true the motion control application specific code is disabled - dumb box
+	iState			:	UINT;		//state machine index
 
-	//Outputs that are set in the hmi and wired to power axis limit switches. Currently not confugred in any of the programme.
+	(*
+		Outputs that are set in the hmi and wired to power axis limit switches. Currently not configred as part of the programme
+		Will be added to ST_AxisControl in future
+	*)
 	limitEnable1	AT %Q*	: BOOL;
 	limitEnable2	AT %Q*	: BOOL;	
-	i: UINT;	
 	
+	i: UINT;		//General indexing value for FOR loops	
 	
 	//HMI VARIABLES	
 	hmiAxisSelect	:	UINT:=1;
-	
-
-
 
 END_VAR
 
@@ -45,6 +43,8 @@ SIMULATE();
 
 ]]></ST>
     </Implementation>
+    <Folder Name="Prog Methods" Id="{212990ae-6442-4648-907a-9b74a7c9f90f}" />
+    <Folder Name="Simulate Methods" Id="{9564da1a-4827-4610-81ab-1f383f22c9b4}" />
     <Action Name="AXES" Id="{64e9147a-f428-4655-bd0f-63c28bb82a85}">
       <Implementation>
         <ST><![CDATA[FOR GVL.iAxis:=1 TO GVL.axisNumMax BY 1 DO
@@ -52,11 +52,14 @@ SIMULATE();
 END_FOR]]></ST>
       </Implementation>
     </Action>
-    <Method Name="CheckDone" Id="{f8255e59-df7b-4af9-ada6-58c21bf850b3}">
-      <Declaration><![CDATA[METHOD CheckDone : BOOL
+    <Method Name="CheckDone" Id="{f8255e59-df7b-4af9-ada6-58c21bf850b3}" FolderPath="Prog Methods\">
+      <Declaration><![CDATA[(*
+	Scans through axes (from low to high) checking "done" status
+*)
+METHOD CheckDone : BOOL
 VAR_INPUT
-	iLow	:	UINT;
-	iHigh	:	UINT;
+	iLow	:	UINT;		//lowest index to check
+	iHigh	:	UINT;		//highest index to check
 END_VAR
 
 VAR
@@ -69,10 +72,13 @@ FOR i:=iLow TO iHigh BY 1 DO
 END_FOR]]></ST>
       </Implementation>
     </Method>
-    <Method Name="GearOut" Id="{c096e6fc-812d-4259-8c64-f354d37770ae}">
-      <Declaration><![CDATA[METHOD GearOut : BOOL
+    <Method Name="GearOut" Id="{c096e6fc-812d-4259-8c64-f354d37770ae}" FolderPath="Prog Methods\">
+      <Declaration><![CDATA[(*
+	Gear out an axis
+*)
+METHOD GearOut : BOOL
 VAR_INPUT
-	i	:	UINT;
+	i	:	UINT;	//Axis index to gear out
 END_VAR
 ]]></Declaration>
       <Implementation>
@@ -80,8 +86,11 @@ END_VAR
 GVL.axes[i].bExecute:=TRUE;]]></ST>
       </Implementation>
     </Method>
-    <Method Name="PowerUp" Id="{efa4560c-311a-41aa-bbe0-0aa4eef16646}">
-      <Declaration><![CDATA[METHOD PowerUp : BOOL
+    <Method Name="PowerUp" Id="{efa4560c-311a-41aa-bbe0-0aa4eef16646}" FolderPath="Prog Methods\">
+      <Declaration><![CDATA[(*
+	Power up a single axis of index i
+*)
+METHOD PowerUp : BOOL
 VAR_INPUT
 	i	:	UINT;
 END_VAR
@@ -89,8 +98,8 @@ END_VAR
       <Implementation>
         <ST><![CDATA[GVL.axes[i].bEnable:=TRUE;
 GVL.axes[i].fOverride:=100;
-Limits.FwLimit[i]:=TRUE;	//in reality you would not set these high, this is just for testing
-Limits.BwLimit[i]:=TRUE;]]></ST>
+Limits.FwLimit[i]:=TRUE;	//Set high as I have no hardware linked
+Limits.BwLimit[i]:=TRUE;	//Set high as I have no hardware linked]]></ST>
       </Implementation>
     </Method>
     <Action Name="PROG" Id="{a83d747a-28b8-44b3-812d-dbc6c7a4a77b}">
@@ -170,7 +179,9 @@ END_CASE]]></ST>
     </Action>
     <Action Name="SIMULATE" Id="{3ab21edf-3a61-475f-a4eb-e4bcda8bf9cd}">
       <Implementation>
-        <ST><![CDATA[//AXIS SIMULATION
+        <ST><![CDATA[(*
+Simulate axes if bool set TRUE
+*)
 FOR i:=1 TO GVL.axisNumMax BY 1 DO
 	IF bSimulate[i] THEN
 		simulateStage(position:=GVL.axes[i].Axis.NcToPlc.ActPos, iAxis:=i, simulated:=simulated[i]);
@@ -180,14 +191,19 @@ END_FOR
 ]]></ST>
       </Implementation>
     </Action>
-    <Method Name="simulateStage" Id="{deb827a7-c982-4c31-9561-f2bd7c832d23}">
-      <Declaration><![CDATA[METHOD simulateStage : BOOL
+    <Method Name="simulateStage" Id="{deb827a7-c982-4c31-9561-f2bd7c832d23}" FolderPath="Simulate Methods\">
+      <Declaration><![CDATA[(*
+	Basic virtual axis simulation.
+	Will trigger limit switches beyond set points
+	Will trigger absolute switch between given set points
+*)
+METHOD simulateStage : BOOL
 VAR_INPUT
-	position	:	LREAL;
-	iAxis		:	UINT;
+	position	:	LREAL;		//Axis current position
+	iAxis		:	UINT;		//Axis index
 END_VAR
 VAR_IN_OUT
-	simulated	:	ST_SimulateStage;
+	simulated	:	ST_SimulateStage;	//Struct to hold simulation parameters
 END_VAR
 ]]></Declaration>
       <Implementation>
@@ -212,17 +228,20 @@ END_IF
 ]]></ST>
       </Implementation>
     </Method>
-    <Method Name="SlitPositions" Id="{acef6351-9f47-442e-b66f-59c55dd95878}">
-      <Declaration><![CDATA[METHOD SlitPositions : BOOL
+    <Method Name="SlitPositions" Id="{acef6351-9f47-442e-b66f-59c55dd95878}" FolderPath="Prog Methods\">
+      <Declaration><![CDATA[(*
+	Calculate gap positions of a slit set given N/S/E/W blades
+*)
+METHOD SlitPositions : BOOL
 VAR_INPUT
-	North	:	UINT;
-	South	:	UINT;
-	East	:	UINT;
-	West	:	UINT;
-	VG		:	UINT;
-	VC		:	UINT;
-	HG		:	UINT;
-	HC		:	UINT;
+	North	:	UINT;	//North blade index
+	South	:	UINT;	//South blade index
+	East	:	UINT;	//East blade index
+	West	:	UINT;	//West blade index
+	VG		:	UINT;	//Vertical gap size index
+	VC		:	UINT;	//Vertical gap centre index
+	HG		:	UINT;	//Horizontal gap size index
+	HC		:	UINT;	//Horizontal gap centre index
 END_VAR
 ]]></Declaration>
       <Implementation>
@@ -243,8 +262,11 @@ GVL.axes[HC].fPosition:=(GVL.axes[East].Axis.NcToPlc.ActPos+GVL.axes[West].Axis.
 GVL.axes[HC].bExecute:=TRUE;]]></ST>
       </Implementation>
     </Method>
-    <Method Name="SlitSetup" Id="{9c346981-cc2d-43a8-b095-88fcece736bc}">
-      <Declaration><![CDATA[METHOD SlitSetup : BOOL
+    <Method Name="SlitSetup" Id="{9c346981-cc2d-43a8-b095-88fcece736bc}" FolderPath="Prog Methods\">
+      <Declaration><![CDATA[(*
+	Gear in blades to gaps for a slit set
+*)
+METHOD SlitSetup : BOOL
 VAR_INPUT
 	North	:	UINT;
 	South	:	UINT;
@@ -319,7 +341,10 @@ GVL.axes[East].masterAxes[2].ratio:=1;]]></ST>
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="MAIN.SIMULATE">
-      <LineId Id="2" Count="6" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="3" Count="5" />
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="MAIN.simulateStage">

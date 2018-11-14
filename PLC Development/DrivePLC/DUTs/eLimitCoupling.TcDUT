@@ -3,6 +3,9 @@
   <DUT Name="eLimitCoupling" Id="{7810a9bc-d383-47ea-8dc8-4d10bb134045}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 {attribute 'strict'}
+(*
+	Structure used to couple limit switches of slaves to master axes
+*)
 TYPE eLimitCoupling :
 (
 	None,
