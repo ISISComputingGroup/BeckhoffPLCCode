@@ -718,8 +718,6 @@
                 <v>f335f4d4-d518-43b5-8e24-33c882e0e139</v>
                 <v>GetClientData</v>
                 <v>d275e2ce-095a-4f78-8e47-beb83ed7d742</v>
-                <v>Destruct</v>
-                <v>11ae1462-9864-4125-924a-c1a4be9b7271</v>
                 <v>Paint</v>
                 <v>0409fb72-1f72-4466-8a1b-3b1b6a63cb1e</v>
                 <v>HasVisibilityAccess</v>
@@ -738,6 +736,8 @@
                 <v>c078fbba-f0b7-49c1-b7e5-9c6d4e493fc4</v>
                 <v>GetSurroundingRect</v>
                 <v>03917d53-f075-4349-b4de-3fe871df977a</v>
+                <v>ElementInfo</v>
+                <v>6c1eaabf-abe1-4ae0-879c-822765f246cd</v>
                 <v>GetLocalUsergroup</v>
                 <v>57fbfc67-810b-42fb-9456-c642eb5a1c8c</v>
                 <v>GetName</v>
@@ -754,8 +754,8 @@
                 <v>4686341d-8245-41b2-bc36-453fa93e8ed3</v>
                 <v>HandleInput</v>
                 <v>b165e7b8-f2c9-4277-a041-3054e2bb6eb8</v>
-                <v>ElementInfo</v>
-                <v>6c1eaabf-abe1-4ae0-879c-822765f246cd</v>
+                <v>Destruct</v>
+                <v>11ae1462-9864-4125-924a-c1a4be9b7271</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{9dc0ac37-2bf6-4796-b628-6664538793f0}</v>

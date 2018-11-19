@@ -352,7 +352,7 @@
                     <v n="VisualElementIdentifier">"GenElemInst_57"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -6830,12 +6830,12 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                               <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
                                 <v>Visible</v>
                                 <v>False</v>
-                                <v>DefaultArraySize</v>
-                                <v>5</v>
-                                <v>VisibleChildren</v>
-                                <v>True</v>
                                 <v>ieccodeconversion_array</v>
                                 <v></v>
+                                <v>VisibleChildren</v>
+                                <v>True</v>
+                                <v>DefaultArraySize</v>
+                                <v>5</v>
                                 <v>''NORMAL__COMMENT</v>
                                 <v> We hide this node to prevent having two References nodes
  Nevertheless we want to make sure that the children are displayed</v>
@@ -6891,8 +6891,8 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                         <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
                           <v n="AttrFlags">81920UL</v>
                           <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
-                            <v>DisplayFrameReferencesConfiguration</v>
-                            <v></v>
+                            <v>conditionalshow</v>
+                            <v>visu_elemdev</v>
                             <v>DescriptionTextId</v>
                             <v>TL_ElementProperties.Desc_ReferencedVisus</v>
                             <v>SortFlag</v>
@@ -6903,14 +6903,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                             <v>Simple|Standard</v>
                             <v>DynamicArray</v>
                             <v></v>
-                            <v>conditionalshow</v>
-                            <v>visu_elemdev</v>
+                            <v>DisplayFrameReferencesConfiguration</v>
+                            <v></v>
                             <v>FrameReferences</v>
                             <v></v>
-                            <v>DisplayTextId</v>
-                            <v>TL_ElementProperties.References</v>
                             <v>Storable</v>
                             <v>True</v>
+                            <v>DisplayTextId</v>
+                            <v>TL_ElementProperties.References</v>
                           </d>
                           <v n="ConvDone">true</v>
                         </o>
@@ -9833,7 +9833,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                 <v n="VisualElementIdentifier">"GenElemInst_397"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
@@ -9869,18 +9869,16 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
           <o n="GeneratedLMMDescriptions" t="GeneratedLanguageModelEntriesData">
             <o n="GeneratedVisuFbDescription" t="GenericFbDescription">
               <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
-                <v>HasVisibilityAccess</v>
-                <v>92f13429-9954-4c69-9a27-4975e36d20a3</v>
+                <v>GetUpdateRects</v>
+                <v>3e42d0a0-ac5b-4002-af9f-4cfa04bb9746</v>
                 <v>ContainsPoint</v>
                 <v>ac054f4c-2477-4aaf-b13f-3e4e840790a2</v>
-                <v>HasInputAccess</v>
-                <v>4dace34f-29cc-41e9-86cb-4aabcd229d20</v>
+                <v>SetStaticState</v>
+                <v>74913b68-fbf8-466e-a60e-13ae9dbc5410</v>
                 <v>HasInputAccessIntern</v>
                 <v>36f3e172-0152-4e9f-bc2d-12684792447c</v>
                 <v>GetTooltip</v>
                 <v>c5cbc88c-1a68-416e-ba1b-12153b7821a9</v>
-                <v>GetUpdateRects</v>
-                <v>3e42d0a0-ac5b-4002-af9f-4cfa04bb9746</v>
                 <v>GetNamespace</v>
                 <v>addfd730-5b28-432f-8d9e-b4785836af8b</v>
                 <v>GetTranslator</v>
@@ -9893,6 +9891,8 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                 <v>31716227-5594-4888-9056-622cc026b30c</v>
                 <v>Paint</v>
                 <v>ceaa71d5-5a4e-4ea3-b752-e650786e1ec2</v>
+                <v>HasVisibilityAccess</v>
+                <v>92f13429-9954-4c69-9a27-4975e36d20a3</v>
                 <v>GetElementArray</v>
                 <v>905deddf-cad6-48f2-b77e-94ec2f7f9692</v>
                 <v>SetVisuFlagsInternal</v>
@@ -9903,14 +9903,14 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                 <v>67559a46-41da-4e85-ae0a-8dbb5299e941</v>
                 <v>Initialize</v>
                 <v>60971751-1139-468d-a336-9df0737b59e4</v>
+                <v>HasInputAccess</v>
+                <v>4dace34f-29cc-41e9-86cb-4aabcd229d20</v>
                 <v>HasVisibilityAccessIntern</v>
                 <v>68c8f942-0729-478c-92b3-5149f2674144</v>
                 <v>GetSurroundingRect</v>
                 <v>fd14b990-edf9-4657-8f08-76dc8e566921</v>
                 <v>ElementInfo</v>
                 <v>e7fcc138-4529-4642-ab2e-c74802b6ec57</v>
-                <v>SetStaticState</v>
-                <v>74913b68-fbf8-466e-a60e-13ae9dbc5410</v>
                 <v>GetLocalUsergroup</v>
                 <v>bc24c9e1-1d5f-4da2-a1d4-21813142f723</v>
                 <v>GetName</v>
@@ -10038,9 +10038,8 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
         <Type n="Guid">System.Guid</Type>
         <Type n="Hashtable">System.Collections.Hashtable</Type>
         <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
-        <Type n="IInputAction[]">_3S.CoDeSys.VisualElem.IInputAction[], VisualElem, Version=3.5.10.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="InputBoxInputAction">{e8e7e747-f76f-4dee-ab1c-b9637e41ac26}</Type>
-        <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.10.32, Culture=neutral, PublicKeyToken=null</Type>
+        <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.10.31, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="Int16">System.Int16</Type>
         <Type n="Int32">System.Int32</Type>
         <Type n="Int64">System.Int64</Type>
@@ -10051,7 +10050,7 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
         <Type n="String">System.String</Type>
         <Type n="StructuredTypeNode">{503c5b2e-e80e-4ee7-ae00-c5b93a62b1aa}</Type>
         <Type n="STSnippetInputAction">{6302d3fe-6ea5-4c42-819a-a9734a133b3d}</Type>
-        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=3.5.10.32, Culture=neutral, PublicKeyToken=null</Type>
+        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=3.5.10.31, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="TextDocument">{f3878285-8e4f-490b-bb1b-9acbb7eb04db}</Type>
         <Type n="TextLine">{a5de0b0b-1cb5-4913-ac21-9d70293ec00d}</Type>
         <Type n="TypeClass">{16f7aa24-038f-444e-9d81-b001bc091d35}</Type>

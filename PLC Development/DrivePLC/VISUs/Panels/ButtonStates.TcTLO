@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <TextList Name="ButtonStates" Id="{537763f7-a462-4fc7-b16e-19856dde75d8}">
     <XmlArchive>
       <Data>
@@ -23,9 +23,9 @@
             </o>
           </l>
           <l n="Languages" t="ArrayList" />
-          <v n="GuidInit">{6c2f2c26-5053-47c4-b643-10d943d8b716}</v>
-          <v n="GuidReInit">{676a4eb9-b2d0-44b9-829f-57ee095324bf}</v>
-          <v n="GuidExitX">{43c38273-f7cc-499d-9942-3153b1e2d41f}</v>
+          <v n="GuidInit">{4247b44e-1af9-45cc-9845-3229ddd4ea39}</v>
+          <v n="GuidReInit">{e534d565-4df1-4df5-bf6b-31b7fbbc22d8}</v>
+          <v n="GuidExitX">{8eb2506d-ba52-480f-a530-05a358f327ed}</v>
         </o>
       </Data>
       <TypeList>

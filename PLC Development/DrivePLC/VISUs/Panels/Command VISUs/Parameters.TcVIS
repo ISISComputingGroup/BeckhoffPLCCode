@@ -1124,7 +1124,7 @@
                     <v n="VisualElementIdentifier">"GenElemInst_142"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -1335,7 +1335,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_144"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -1547,7 +1547,7 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:=TRUE;
                     <v n="VisualElementIdentifier">"GenElemInst_146"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -3101,7 +3101,7 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:=TRUE;
                     <v n="VisualElementIdentifier">"GenElemInst_140"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -3778,7 +3778,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_154"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -3989,7 +3989,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_156"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -4663,7 +4663,7 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:=TRUE;
                     <v n="VisualElementIdentifier">"GenElemInst_174"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -5636,7 +5636,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_212"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -6459,7 +6459,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_226"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -7282,7 +7282,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_240"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -7446,7 +7446,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                     <v n="VisualElementIdentifier">"GenElemInst_136"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="InputBoxInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="InputBoxInputAction">
                         <o>
@@ -7660,18 +7660,16 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
           <o n="GeneratedLMMDescriptions" t="GeneratedLanguageModelEntriesData">
             <o n="GeneratedVisuFbDescription" t="GenericFbDescription">
               <d n="FbMethods" t="CaseInsensitiveHashtable" ckt="String" cvt="Guid">
-                <v>HasVisibilityAccess</v>
-                <v>98fc7c6f-44c4-4342-bf31-0e2ba376cb8b</v>
+                <v>GetUpdateRects</v>
+                <v>8894438b-02ae-45c4-b992-40d68eeebad4</v>
                 <v>ContainsPoint</v>
                 <v>7002ada2-256d-492d-a701-870322ffc0f1</v>
-                <v>HasInputAccess</v>
-                <v>d112a609-38ad-49fd-95dc-eda835e5fa07</v>
+                <v>SetStaticState</v>
+                <v>93f8dc9f-d3b3-4544-b1f5-d29a2be9f007</v>
                 <v>HasInputAccessIntern</v>
                 <v>ffa61696-339f-4b57-9c05-3b10edbaced4</v>
                 <v>GetTooltip</v>
                 <v>beedeec5-ec4f-4e52-ba5f-9b7290b2df85</v>
-                <v>GetUpdateRects</v>
-                <v>8894438b-02ae-45c4-b992-40d68eeebad4</v>
                 <v>GetNamespace</v>
                 <v>9e657065-47c1-4312-916e-945583e0564f</v>
                 <v>GetTranslator</v>
@@ -7684,6 +7682,8 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                 <v>4d3f2204-c0f7-471a-9f80-4522798f55ba</v>
                 <v>Paint</v>
                 <v>d460135d-2e82-4356-a6c5-94056d19be22</v>
+                <v>HasVisibilityAccess</v>
+                <v>98fc7c6f-44c4-4342-bf31-0e2ba376cb8b</v>
                 <v>GetElementArray</v>
                 <v>88aeb770-b0e2-4c07-a65f-85b1fa309bb9</v>
                 <v>SetVisuFlagsInternal</v>
@@ -7694,14 +7694,14 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
                 <v>26a1a469-d650-40a1-bfae-d01a25668f66</v>
                 <v>Initialize</v>
                 <v>6b778c80-35ac-4118-8409-d1b9e8c3c416</v>
+                <v>HasInputAccess</v>
+                <v>d112a609-38ad-49fd-95dc-eda835e5fa07</v>
                 <v>HasVisibilityAccessIntern</v>
                 <v>aed78f8a-7a3e-45b3-88a8-4dafe586fb53</v>
                 <v>GetSurroundingRect</v>
                 <v>033bf724-be61-43c9-aab8-071138bab40f</v>
                 <v>ElementInfo</v>
                 <v>8b222e36-7a7b-4beb-8776-bde90130e089</v>
-                <v>SetStaticState</v>
-                <v>93f8dc9f-d3b3-4544-b1f5-d29a2be9f007</v>
                 <v>GetLocalUsergroup</v>
                 <v>f8793d7d-20bb-4f27-b567-f204f4d1a389</v>
                 <v>GetName</v>
@@ -7826,9 +7826,8 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
         <Type n="Guid">System.Guid</Type>
         <Type n="Hashtable">System.Collections.Hashtable</Type>
         <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
-        <Type n="IInputAction[]">_3S.CoDeSys.VisualElem.IInputAction[], VisualElem, Version=3.5.10.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="InputBoxInputAction">{e8e7e747-f76f-4dee-ab1c-b9637e41ac26}</Type>
-        <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.10.32, Culture=neutral, PublicKeyToken=null</Type>
+        <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.10.31, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="Int16">System.Int16</Type>
         <Type n="Int32">System.Int32</Type>
         <Type n="Int64">System.Int64</Type>
@@ -7837,6 +7836,7 @@ GVL.axes[Main.hmiAxisSelect].bExecute:=TRUE;"</v>
         <Type n="Object">System.Object</Type>
         <Type n="String">System.String</Type>
         <Type n="STSnippetInputAction">{6302d3fe-6ea5-4c42-819a-a9734a133b3d}</Type>
+        <Type n="STSnippetInputAction[]">_3S.CoDeSys.VisualElem.STSnippetInputAction[], VisualElem.plugin, Version=3.5.10.31, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="TextDocument">{f3878285-8e4f-490b-bb1b-9acbb7eb04db}</Type>
         <Type n="TextLine">{a5de0b0b-1cb5-4913-ac21-9d70293ec00d}</Type>
         <Type n="UInt32">System.UInt32</Type>

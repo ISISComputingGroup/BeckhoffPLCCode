@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <TextList Name="CommandList" Id="{85c9ae21-2fcb-40d3-8ece-7d9f0cadc9e8}">
     <XmlArchive>
       <Data>
@@ -283,9 +283,9 @@
             </o>
           </l>
           <l n="Languages" t="ArrayList" />
-          <v n="GuidInit">{e9a137a4-be39-43d5-906f-b233e60cc58d}</v>
-          <v n="GuidReInit">{d1d3285f-49bf-48fc-a182-78e1443433ac}</v>
-          <v n="GuidExitX">{f6181963-acff-456f-93b5-cc632986e2b7}</v>
+          <v n="GuidInit">{6f65866c-ce3d-4e82-aabb-7ccfbfa1aebb}</v>
+          <v n="GuidReInit">{517319a6-7a5a-4a3f-9afa-4d03db065a34}</v>
+          <v n="GuidExitX">{745470b6-eec9-45d5-8329-dc732ea86757}</v>
         </o>
       </Data>
       <TypeList>
