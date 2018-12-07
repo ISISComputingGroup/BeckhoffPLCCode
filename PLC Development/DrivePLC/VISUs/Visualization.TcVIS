@@ -352,7 +352,7 @@
                     <v n="VisualElementIdentifier">"GenElemInst_57"</v>
                     <n n="VisualElementOfflinePaintCommands" />
                     <n n="VisualElementFrameInformation" />
-                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                    <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                       <v>OnMouseClick</v>
                       <a cet="STSnippetInputAction">
                         <o>
@@ -6050,16 +6050,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>Visu_TypeString</v>
-                                            <v></v>
                                             <v>ieccodeconversion_character_array</v>
+                                            <v></v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -6251,16 +6251,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>Visu_TypeString</v>
-                                            <v></v>
                                             <v>ieccodeconversion_character_array</v>
+                                            <v></v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -6452,16 +6452,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>Visu_TypeString</v>
-                                            <v></v>
                                             <v>ieccodeconversion_character_array</v>
+                                            <v></v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -6653,16 +6653,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                             <v></v>
                                             <v>DisplayTextId</v>
                                             <v>TL_ElementProperties.Heading</v>
-                                            <v>Visu_TypeString</v>
-                                            <v></v>
                                             <v>ieccodeconversion_character_array</v>
+                                            <v></v>
+                                            <v>AllocateText</v>
                                             <v></v>
                                             <v>''DOCU__COMMENT</v>
                                             <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                             <v>DirectlyAssignable</v>
                                             <v></v>
-                                            <v>AllocateText</v>
+                                            <v>Visu_TypeString</v>
                                             <v></v>
                                             <v>ieccodeconversion_gettersetter_norecursion</v>
                                             <v></v>
@@ -6830,12 +6830,12 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                               <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
                                 <v>Visible</v>
                                 <v>False</v>
-                                <v>DefaultArraySize</v>
-                                <v>5</v>
-                                <v>VisibleChildren</v>
-                                <v>True</v>
                                 <v>ieccodeconversion_array</v>
                                 <v></v>
+                                <v>VisibleChildren</v>
+                                <v>True</v>
+                                <v>DefaultArraySize</v>
+                                <v>5</v>
                                 <v>''NORMAL__COMMENT</v>
                                 <v> We hide this node to prevent having two References nodes
  Nevertheless we want to make sure that the children are displayed</v>
@@ -6891,8 +6891,8 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                         <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
                           <v n="AttrFlags">81920UL</v>
                           <d n="TypeNodeAttributesData" t="CaseInsensitiveHashtable" ckt="String" cvt="String">
-                            <v>DisplayFrameReferencesConfiguration</v>
-                            <v></v>
+                            <v>conditionalshow</v>
+                            <v>visu_elemdev</v>
                             <v>DescriptionTextId</v>
                             <v>TL_ElementProperties.Desc_ReferencedVisus</v>
                             <v>SortFlag</v>
@@ -6903,14 +6903,14 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                             <v>Simple|Standard</v>
                             <v>DynamicArray</v>
                             <v></v>
-                            <v>conditionalshow</v>
-                            <v>visu_elemdev</v>
+                            <v>DisplayFrameReferencesConfiguration</v>
+                            <v></v>
                             <v>FrameReferences</v>
                             <v></v>
-                            <v>DisplayTextId</v>
-                            <v>TL_ElementProperties.References</v>
                             <v>Storable</v>
                             <v>True</v>
+                            <v>DisplayTextId</v>
+                            <v>TL_ElementProperties.References</v>
                           </d>
                           <v n="ConvDone">true</v>
                         </o>
@@ -6994,16 +6994,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                       <v></v>
                                       <v>DisplayTextId</v>
                                       <v>TL_ElementProperties.Heading</v>
-                                      <v>ieccodeconversion_character_array</v>
+                                      <v>Visu_TypeString</v>
                                       <v></v>
-                                      <v>AllocateText</v>
+                                      <v>ieccodeconversion_character_array</v>
                                       <v></v>
                                       <v>''DOCU__COMMENT</v>
                                       <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                       <v>DirectlyAssignable</v>
                                       <v></v>
-                                      <v>Visu_TypeString</v>
+                                      <v>AllocateText</v>
                                       <v></v>
                                       <v>ieccodeconversion_gettersetter_norecursion</v>
                                       <v></v>
@@ -7163,16 +7163,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>Visu_TypeString</v>
-                                        <v></v>
                                         <v>ieccodeconversion_character_array</v>
+                                        <v></v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -7333,16 +7333,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>Visu_TypeString</v>
-                                        <v></v>
                                         <v>ieccodeconversion_character_array</v>
+                                        <v></v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -7503,16 +7503,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>Visu_TypeString</v>
-                                        <v></v>
                                         <v>ieccodeconversion_character_array</v>
+                                        <v></v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -7673,16 +7673,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                         <v></v>
                                         <v>DisplayTextId</v>
                                         <v>TL_ElementProperties.Heading</v>
-                                        <v>Visu_TypeString</v>
-                                        <v></v>
                                         <v>ieccodeconversion_character_array</v>
+                                        <v></v>
+                                        <v>AllocateText</v>
                                         <v></v>
                                         <v>''DOCU__COMMENT</v>
                                         <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                         <v>DirectlyAssignable</v>
                                         <v></v>
-                                        <v>AllocateText</v>
+                                        <v>Visu_TypeString</v>
                                         <v></v>
                                         <v>ieccodeconversion_gettersetter_norecursion</v>
                                         <v></v>
@@ -8039,16 +8039,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>Visu_TypeString</v>
-                                    <v></v>
                                     <v>ieccodeconversion_character_array</v>
+                                    <v></v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -8243,16 +8243,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>Visu_TypeString</v>
-                                    <v></v>
                                     <v>ieccodeconversion_character_array</v>
+                                    <v></v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -8447,16 +8447,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>Visu_TypeString</v>
-                                    <v></v>
                                     <v>ieccodeconversion_character_array</v>
+                                    <v></v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -8651,16 +8651,16 @@ GVL.axes[MAIN.hmiAxisSelect].bReset:= TRUE;"</v>
                                     <v></v>
                                     <v>DisplayTextId</v>
                                     <v>TL_ElementProperties.Heading</v>
-                                    <v>Visu_TypeString</v>
-                                    <v></v>
                                     <v>ieccodeconversion_character_array</v>
+                                    <v></v>
+                                    <v>AllocateText</v>
                                     <v></v>
                                     <v>''DOCU__COMMENT</v>
                                     <v> The text, the user entered resp. can modify. Therefore this is the
  only visible member of the structure</v>
                                     <v>DirectlyAssignable</v>
                                     <v></v>
-                                    <v>AllocateText</v>
+                                    <v>Visu_TypeString</v>
                                     <v></v>
                                     <v>ieccodeconversion_gettersetter_norecursion</v>
                                     <v></v>
@@ -9833,7 +9833,7 @@ GVL.axes[MAIN.hmiAxisSelect].bEXECUTE:= TRUE;"</v>
                 <v n="VisualElementIdentifier">"GenElemInst_397"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <n n="VisualElementFrameInformation" />
-                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="IInputAction[]">
+                <d n="VisualElementInputActions" t="Hashtable" ckt="String" cvt="STSnippetInputAction[]">
                   <v>OnMouseClick</v>
                   <a cet="STSnippetInputAction">
                     <o>
@@ -9873,8 +9873,8 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                 <v>92f13429-9954-4c69-9a27-4975e36d20a3</v>
                 <v>ContainsPoint</v>
                 <v>ac054f4c-2477-4aaf-b13f-3e4e840790a2</v>
-                <v>HasInputAccess</v>
-                <v>4dace34f-29cc-41e9-86cb-4aabcd229d20</v>
+                <v>SetStaticState</v>
+                <v>74913b68-fbf8-466e-a60e-13ae9dbc5410</v>
                 <v>HasInputAccessIntern</v>
                 <v>36f3e172-0152-4e9f-bc2d-12684792447c</v>
                 <v>GetTooltip</v>
@@ -9891,6 +9891,8 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                 <v>3feb0386-0034-4242-addf-253630493a8c</v>
                 <v>GetClientData</v>
                 <v>31716227-5594-4888-9056-622cc026b30c</v>
+                <v>Destruct</v>
+                <v>f5a14d11-ef86-44e3-8cb2-c74427445bf0</v>
                 <v>Paint</v>
                 <v>ceaa71d5-5a4e-4ea3-b752-e650786e1ec2</v>
                 <v>GetElementArray</v>
@@ -9903,14 +9905,12 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                 <v>67559a46-41da-4e85-ae0a-8dbb5299e941</v>
                 <v>Initialize</v>
                 <v>60971751-1139-468d-a336-9df0737b59e4</v>
+                <v>HasInputAccess</v>
+                <v>4dace34f-29cc-41e9-86cb-4aabcd229d20</v>
                 <v>HasVisibilityAccessIntern</v>
                 <v>68c8f942-0729-478c-92b3-5149f2674144</v>
                 <v>GetSurroundingRect</v>
                 <v>fd14b990-edf9-4657-8f08-76dc8e566921</v>
-                <v>ElementInfo</v>
-                <v>e7fcc138-4529-4642-ab2e-c74802b6ec57</v>
-                <v>SetStaticState</v>
-                <v>74913b68-fbf8-466e-a60e-13ae9dbc5410</v>
                 <v>GetLocalUsergroup</v>
                 <v>bc24c9e1-1d5f-4da2-a1d4-21813142f723</v>
                 <v>GetName</v>
@@ -9927,8 +9927,8 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
                 <v>91b8edd3-7e5f-4543-86cb-107830f4c8f1</v>
                 <v>HandleInput</v>
                 <v>bf109aef-fcbe-4dbd-bbf0-f10985c21ae9</v>
-                <v>Destruct</v>
-                <v>f5a14d11-ef86-44e3-8cb2-c74427445bf0</v>
+                <v>ElementInfo</v>
+                <v>e7fcc138-4529-4642-ab2e-c74802b6ec57</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{91dd2de5-17c4-4aa2-8a01-4e0028983367}</v>
@@ -9941,10 +9941,10 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
               <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
                 <v>FB_Init</v>
                 <v>57cba636-9f58-4b84-8513-ce2eeaf09ce9</v>
-                <v>FB_Exit</v>
-                <v>6a882695-183b-4793-96e8-2fb202a1f487</v>
                 <v>FB_Reinit</v>
                 <v>09647002-9ec4-4033-a8cb-3766d1cb1234</v>
+                <v>FB_Exit</v>
+                <v>6a882695-183b-4793-96e8-2fb202a1f487</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{97d4b658-2bf4-4f7f-b4f1-4f2d5bf7660a}</v>
@@ -10038,7 +10038,6 @@ GVL.axes[MAIN.hmiAxisSelect].bExecute:= TRUE;"</v>
         <Type n="Guid">System.Guid</Type>
         <Type n="Hashtable">System.Collections.Hashtable</Type>
         <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
-        <Type n="IInputAction[]">_3S.CoDeSys.VisualElem.IInputAction[], VisualElem, Version=3.5.10.0, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="InputBoxInputAction">{e8e7e747-f76f-4dee-ab1c-b9637e41ac26}</Type>
         <Type n="InputBoxInputAction[]">_3S.CoDeSys.VisualElem.InputBoxInputAction[], VisualElem.plugin, Version=3.5.10.32, Culture=neutral, PublicKeyToken=null</Type>
         <Type n="Int16">System.Int16</Type>

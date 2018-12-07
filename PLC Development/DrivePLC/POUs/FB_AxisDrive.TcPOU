@@ -116,7 +116,8 @@ these have been added just as a placeholder for future support.
 	StOptions2				:	ST_Home_Options2;
 	StOptions3				:	ST_Home_Options3;
 	StOptions4				:	ST_Home_Options4;
-	MCHomingParameter		:	MC_HomingParameter;		//Must be passed between homing steps.									
+	MCHomingParameter		:	MC_HomingParameter;		//Must be passed between homing steps.		
+							
 		
 END_VAR
 ]]></Declaration>
@@ -173,8 +174,8 @@ If this axis is listed as a master, check the hardware limits of that slave.
 Gear ratio determines whether we are looking for a Forward or a Backward limit on the slave axis. 
 If the limit switch is disabled, disable motion for this axis.
 *)
-FOR iIndex:=1 TO GVL.axisNumMax BY 1 DO
-	FOR iMasterIndex:=1 TO 5 BY 1 DO
+FOR iIndex:=1 TO GVL.axisNumMax DO
+	FOR iMasterIndex:=1 TO 5 DO
 		//If listed as a master
 		IF Limits.coupledFwLimit[iIndex][iMasterIndex].iMasterAxis = GVL.iAxis THEN
 			//If forward limit linked to forward of slave, check forward limit of slave
@@ -252,6 +253,8 @@ ELSE
 END_IF
 
 //Convert LREALS to BOOLS
+
+
 IF AxisController.fParameters[eRWParameter.EnableLimitPos]=1 THEN
 	AxisController.bSoftLimPosEn:=TRUE;
 ELSE
@@ -478,18 +481,15 @@ CASE eCommandLatched OF
 	eMcCommand.GearIn:
 		//Dependent on +ve or -ve gear ratio determines whether to link Fw to Fw and Bw to Bw or Fw to Bw and Bw to Fw
 		IF AxisController.fGearRatioNum>0 THEN
-			Limits.coupledFwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.FwSw;
-			Limits.coupledFwLimit[GVL.iAxis][1].iMasterAxis:=AxisController.masterAxis;
-			Limits.coupledBwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.BwSw;
-			Limits.coupledBwLimit[GVL.iAxis][1].iMasterAxis:=AxisController.masterAxis;
-			
+			Limits.coupledFwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.FwSw;		
+			Limits.coupledBwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.BwSw;				
 		END_IF
 		IF AxisController.fGearRatioNum<0 THEN
 			Limits.coupledFwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.BwSw;
-			Limits.coupledFwLimit[GVL.iAxis][1].iMasterAxis:=AxisController.masterAxis;
-			Limits.coupledBwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.FwSw;
-			Limits.coupledBwLimit[GVL.iAxis][1].iMasterAxis:=AxisController.masterAxis;
+			Limits.coupledBwLimit[GVL.iAxis][1].eLimitType:=eLimitCoupling.FwSw;		
 		END_IF
+		Limits.coupledFwLimit[GVL.iAxis][1].iMasterAxis:=AxisController.masterAxis;
+		Limits.coupledBwLimit[GVL.iAxis][1].iMasterAxis:=AxisController.masterAxis;
 		
 		MCGearIn.Execute:=AxisController.bExecute;
 		MCGearIn.RatioNumerator:=AxisController.fGearRatioNum;
@@ -508,7 +508,7 @@ CASE eCommandLatched OF
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	eMcCommand.GearInMultiMaster:		
 		//Set up limits
-		FOR iMasterIndex:=1 TO 4 BY 1 DO
+		FOR iMasterIndex:=1 TO GVL.axisCoupleMax DO
 			IF AxisController.masterAxes[iMasterIndex].ratio>0 THEN
 				Limits.coupledFwLimit[GVL.iAxis][iMasterIndex+1].eLimitType:=eLimitCoupling.FwSw;				
 				Limits.coupledBwLimit[GVL.iAxis][iMasterIndex+1].eLimitType:=eLimitCoupling.BwSw;				
@@ -550,7 +550,7 @@ CASE eCommandLatched OF
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	eMcCommand.GearOut:		
 		//Gearout - remove all masters from slave
-		FOR iMasterIndex:=1 TO 5 BY 1 DO
+		FOR iMasterIndex:=1 TO 5 DO
 				Limits.coupledFwLimit[GVL.iAxis][iMasterIndex].eLimitType:=eLimitCoupling.None;
 				Limits.coupledBwLimit[GVL.iAxis][iMasterIndex].eLimitType:=eLimitCoupling.None;
 		END_FOR		
@@ -601,10 +601,10 @@ CASE eCommandLatched OF
 		MCStepAbsoluteSwitch.SetPosition:=AxisController.fHomePosition;
 		MCStepAbsoluteSwitch.TimeLimit:=AxisController.tHomeTimeLimit;
 		MCStepAbsoluteSwitch.DistanceLimit:=AxisController.fHomeDistanceLimit;
-		MCStepAbsoluteSwitch.PositiveLimitSwitch:= NOT Limits.FwLimit[GVL.iAxis];	//Inverted logic to normal operation
-		MCStepAbsoluteSwitch.NegativeLimitSwitch:= NOT Limits.BwLimit[GVL.iAxis];	//Inverted logic to normal operation
+		MCStepAbsoluteSwitch.PositiveLimitSwitch:= NOT Limits.FwLimit[GVL.iAxis];	//Step FB has R_TRIG behaviour but limits set as Normally Closed so logic is inverted
+		MCStepAbsoluteSwitch.NegativeLimitSwitch:= NOT Limits.BwLimit[GVL.iAxis];	//Step FB has R_TRIG behaviour but limits set as Normally Closed so logic is inverted
 		MCStepAbsoluteSwitch.BufferMode:=AxisController.buffer;
-		StOptions4.DisableDriveAccess:=TRUE;		//May be able to remove
+		StOptions4.DisableDriveAccess:=TRUE;		//Testing required with hardware. This step may be redundant.
 		MCStepAbsoluteSwitch.Options:=StOptions4;
 		
 		bDone:=MCStepAbsoluteSwitch.Done;
@@ -623,7 +623,7 @@ CASE eCommandLatched OF
 		MCFinishHoming.Distance:=AxisController.fHomeDistance;
 		MCFinishHoming.Velocity:=AxisController.fHomeVelocity;
 		
-		StOptions2.DisableDriveAccess:=TRUE;	//May be able to remove
+		StOptions2.DisableDriveAccess:=TRUE;	//Testing required with hardware. This step may be redundant.
 		MCFinishHoming.Options:=StOptions2;
 		
 		bDone:=MCFinishHoming.Done;
@@ -665,7 +665,6 @@ CASE eCommandLatched OF
 	eMcCommand.Stop:
 		McStop.Execute:=AxisController.bExecute;
 		McStop.Deceleration:=AxisController.fDeceleration;
-		McStop.Deceleration:=500;
 		McStop.Jerk:=0;
 		
 		bDone:=McStop.Done;
@@ -732,7 +731,9 @@ AxisController.bDone:=doneLatch.Q1;]]></ST>
       <LineId Id="5298" Count="2" />
       <LineId Id="5302" Count="0" />
       <LineId Id="5297" Count="0" />
-      <LineId Id="4472" Count="17" />
+      <LineId Id="4472" Count="12" />
+      <LineId Id="5511" Count="1" />
+      <LineId Id="4485" Count="4" />
       <LineId Id="4491" Count="4" />
       <LineId Id="4497" Count="14" />
       <LineId Id="5303" Count="0" />
@@ -804,12 +805,14 @@ AxisController.bDone:=doneLatch.Q1;]]></ST>
       <LineId Id="5375" Count="0" />
       <LineId Id="4661" Count="8" />
       <LineId Id="4671" Count="1" />
-      <LineId Id="4676" Count="1" />
+      <LineId Id="4676" Count="0" />
       <LineId Id="4680" Count="0" />
-      <LineId Id="4997" Count="0" />
-      <LineId Id="4681" Count="2" />
-      <LineId Id="4998" Count="2" />
-      <LineId Id="4691" Count="5" />
+      <LineId Id="4682" Count="1" />
+      <LineId Id="4998" Count="0" />
+      <LineId Id="5000" Count="0" />
+      <LineId Id="4692" Count="1" />
+      <LineId Id="5516" Count="1" />
+      <LineId Id="4694" Count="2" />
       <LineId Id="5376" Count="1" />
       <LineId Id="4697" Count="0" />
       <LineId Id="5378" Count="0" />
@@ -851,7 +854,8 @@ AxisController.bDone:=doneLatch.Q1;]]></ST>
       <LineId Id="5385" Count="0" />
       <LineId Id="4919" Count="8" />
       <LineId Id="5386" Count="0" />
-      <LineId Id="4928" Count="15" />
+      <LineId Id="4928" Count="10" />
+      <LineId Id="4940" Count="3" />
       <LineId Id="5387" Count="0" />
       <LineId Id="4944" Count="7" />
       <LineId Id="4955" Count="10" />

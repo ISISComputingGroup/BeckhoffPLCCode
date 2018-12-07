@@ -18,6 +18,7 @@ VAR_GLOBAL
 END_VAR
 VAR_GLOBAL CONSTANT
 	axisNumMax	:	UINT:=8;
+	axisCoupleMax	:	UINT:=4;
 END_VAR
 
 ]]></Declaration>

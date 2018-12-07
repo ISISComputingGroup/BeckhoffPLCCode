@@ -47,7 +47,7 @@ SIMULATE();
     <Folder Name="Simulate Methods" Id="{9564da1a-4827-4610-81ab-1f383f22c9b4}" />
     <Action Name="AXES" Id="{64e9147a-f428-4655-bd0f-63c28bb82a85}">
       <Implementation>
-        <ST><![CDATA[FOR GVL.iAxis:=1 TO GVL.axisNumMax BY 1 DO
+        <ST><![CDATA[FOR GVL.iAxis:=1 TO GVL.axisNumMax DO
 	drives[GVL.iAxis](AxisController:=GVL.axes[GVL.iAxis]);
 END_FOR]]></ST>
       </Implementation>
@@ -207,23 +207,10 @@ VAR_IN_OUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[IF position <simulated.fHighLim THEN
-	Limits.FwLimit[iAxis]:=TRUE;
-ELSE
-	Limits.FwLimit[iAxis]:=FALSE;	
-END_IF
+        <ST><![CDATA[Limits.FwLimit[iAxis]:= position < simulated.fHighLim;
+Limits.BwLimit[iAxis]:= position > simulated.fLowLim;
 
-IF position >simulated.fLowLim THEN
-	Limits.BwLimit[iAxis]:=TRUE;
-ELSE
-	Limits.BwLimit[iAxis]:=FALSE;	
-END_IF
-
-IF position<simulated.fHighAbs AND position>simulated.fLowAbs THEN
-	simulated.absSw:=TRUE;
-ELSE
-	simulated.absSw:=FALSE;
-END_IF
+simulated.absSw:= (position < simulated.fHighAbs) AND (position > simulated.fLowAbs);
 
 ]]></ST>
       </Implementation>
@@ -348,15 +335,8 @@ GVL.axes[East].masterAxes[2].ratio:=1;]]></ST>
       <LineId Id="1" Count="0" />
     </LineIds>
     <LineIds Name="MAIN.simulateStage">
-      <LineId Id="34" Count="0" />
-      <LineId Id="36" Count="1" />
-      <LineId Id="35" Count="0" />
-      <LineId Id="38" Count="5" />
-      <LineId Id="30" Count="1" />
-      <LineId Id="44" Count="0" />
-      <LineId Id="46" Count="1" />
-      <LineId Id="45" Count="0" />
-      <LineId Id="32" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="63" Count="2" />
       <LineId Id="25" Count="0" />
       <LineId Id="5" Count="0" />
     </LineIds>
