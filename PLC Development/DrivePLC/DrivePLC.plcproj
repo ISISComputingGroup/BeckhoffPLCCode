@@ -59,9 +59,6 @@
     <Compile Include="Visualization Manager.TcVMO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="VISUs\ButtonStates.TcTLO">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="VISUs\COMMAND VISUS\Gearing.TcVIS">
       <SubType>Code</SubType>
       <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
@@ -78,27 +75,45 @@
       <SubType>Code</SubType>
       <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
     </Compile>
-    <Compile Include="VISUs\CommandList.TcTLO">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="VISUs\ImagePool.TcIPO">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="VISUs\IO.TcVIS">
+    <Compile Include="VISUs\Main.TcVIS">
       <SubType>Code</SubType>
       <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
     </Compile>
-    <Compile Include="VISUs\MAINVISU.TcVIS">
+    <Compile Include="VISUs\Panels\ButtonStates.TcTLO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\Panels\Command VISUs\AxisSimulation.TcVIS">
       <SubType>Code</SubType>
       <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
     </Compile>
-    <Compile Include="VISUs\SlitSet.TcVIS">
+    <Compile Include="VISUs\Panels\Command VISUs\Gearing.TcVIS">
       <SubType>Code</SubType>
       <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
     </Compile>
-    <Compile Include="VISUs\Visualization.TcVIS">
+    <Compile Include="VISUs\Panels\Command VISUs\Homing.TcVIS">
       <SubType>Code</SubType>
       <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\Panels\Command VISUs\Parameters.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\Panels\CommandList.TcTLO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\Panels\ImagePool.TcIPO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\Panels\IO.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\Panels\SlitSet.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\Panels\Visualization.TcVIS">
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +122,8 @@
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
     <Folder Include="VISUs\COMMAND VISUS" />
+    <Folder Include="VISUs\Panels" />
+    <Folder Include="VISUs\Panels\Command VISUs" />
   </ItemGroup>
   <ItemGroup>
     <PlaceholderReference Include="System_VisuElemEventTable">

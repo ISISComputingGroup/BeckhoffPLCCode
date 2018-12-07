@@ -21,6 +21,7 @@ Thumbs.db
 [Dd]ebug*/
 *.lib
 *.sbr
+*.tclrs
 obj/
 [Rr]elease*/
 _ReSharper*/
@@ -30,4 +31,5 @@ $tf*/
 
 *.~u
 *.compileinfo
+.idea/
 VisuTools/
