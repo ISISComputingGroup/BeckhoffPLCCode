@@ -11,6 +11,7 @@ Thumbs.db
 *.ncb
 *.suo
 *.sln.docstates
+*.sln
 *.tlb
 *.tlh
 *.bak
@@ -32,4 +33,7 @@ $tf*/
 *.~u
 *.compileinfo
 .idea/
+*.compiled-library
+*.csv
+_Libraries/
 VisuTools/

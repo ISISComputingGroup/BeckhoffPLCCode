@@ -10,8 +10,7 @@ TYPE eLimitCoupling :
 (
 	None,
 	FwSw,
-	BwSw,
-	Both	//not implemented
+	BwSw
 );
 END_TYPE
 ]]></Declaration>
