@@ -1,0 +1,35 @@
+﻿<div id="Desktop" data-tchmi-type="tchmi-view"
+     data-tchmi-top="0" data-tchmi-left="0"
+     data-tchmi-width-mode="Content"
+     data-tchmi-min-width="100" data-tchmi-min-width-unit="%"
+     data-tchmi-height-mode="Content"
+     data-tchmi-min-height="100" data-tchmi-min-height-unit="%"
+     data-tchmi-background-image="Images/Background.png"
+     data-tchmi-background-image-height="100" data-tchmi-background-image-width="100"
+     data-tchmi-background-image-height-unit="%" data-tchmi-background-image-width-unit="%">
+
+<div id="TcHmiImage" data-tchmi-type="tchmi-image" data-tchmi-height="60" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px"  data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="350" data-tchmi-width-unit="px" data-tchmi-src="Imports/Images/ISIS_Logo_White.svg">
+
+</div>
+
+<div id="Cont_Navigation" data-tchmi-type="tchmi-container" data-tchmi-height="698" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="70" data-tchmi-top-unit="px" data-tchmi-width="167" data-tchmi-width-unit="px">
+
+<div id="TcHmiButton" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="Single Axis" data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="167" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="TcHmiButton_1" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="Slit Set" data-tchmi-top="70" data-tchmi-top-unit="px" data-tchmi-width="167" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+<div id="TcHmiButton_2" data-tchmi-type="tchmi-button" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="I/O Control" data-tchmi-top="120" data-tchmi-top-unit="px" data-tchmi-width="167" data-tchmi-width-unit="px" data-tchmi-word-wrap="True">
+
+</div>
+
+</div>
+
+<div id="TcHmiRegion" data-tchmi-type="tchmi-region" data-tchmi-height="650" data-tchmi-height-unit="px" data-tchmi-left="177" data-tchmi-left-unit="px" data-tchmi-top="80" data-tchmi-top-unit="px" data-tchmi-width="800" data-tchmi-width-unit="px" data-tchmi-target-content="Content Pages/singleAxis.content">
+
+</div>
+
+</div>

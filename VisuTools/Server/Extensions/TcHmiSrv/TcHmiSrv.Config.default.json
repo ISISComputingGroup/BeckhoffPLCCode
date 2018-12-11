@@ -1,0 +1,4931 @@
+{
+    "ANALYZE_MAPPINGUSAGE": false,
+    "AUTHCLIENTCERTIFICATE": false,
+    "AUTO_LOGOFF": "P30D",
+    "CACHEENABLED": true,
+    "CACHEMAXAGE": "P30D",
+    "CACHEMAXENTRYSIZE": 1048576,
+    "CACHEMAXSIZE": 2097152,
+    "CERTIFICATE": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURvRENDQW9pZ0F3SUJBZ0lKQVAyRER3ditNZ0xoTUEwR0NTcUdTSWIzRFFFQkN3VUFNRUV4Q3pBSkJnTlYKQkFZVEFrUkZNUnN3R1FZRFZRUUtEQkpVZDJsdVEwRlVJRWhOU1NCVFpYSjJaWEl4RlRBVEJnTlZCQU1NREU1RQpWekl3TVRaZmNtOXZkREFlRncweE9ERXhNVEl4TmpFNU1qaGFGdzB4T1RFeE1USXhOakU1TWpoYU1Ed3hDekFKCkJnTlZCQVlUQWtSRk1Sc3dHUVlEVlFRS0RCSlVkMmx1UTBGVUlFaE5TU0JUWlhKMlpYSXhFREFPQmdOVkJBTU0KQjA1RVZ6SXdNVFl3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRRERFOWRabmdNego0T1I2OENlL0hZVlQ4QkhuK3lCMTR2TVVuaUhMNDhLeDZtbXMvWHp3ZndqMktBUC84RnRxa094b1VueHR1MmlQCmVqNW1wNUFxaGhnam9DaUhHR2QwMkg4RHI3VUdONzNCdXozQ21ubHh3aFVLQm5vUDJhcEFPMWp5dWkzNTZoUnQKVnNhd0V1cE5mUlNvdFBXQU9UYzBxZTlBODg1YWQ4OCt1a1piTXRYM0pXMDlUaUszWWhQS0VULzRsR1Foc2V5ZwpsL25zNEllQlVUMUZraUU5Zm5VZmZyUTIxb0hKMjZRNEFyUjBrMHVDNWhLUUpUSVdlbHB2VU5jdGN4TmF0VDh0CnZzYXJNNy9rKzFrV1MrQzVPc1lFeG9tQ0tFZnNONGM1NDQ5UEZOWGRRRlROZlhaUW9qb1RIdU1OamRydERQNlcKT1JuRk1KbXBSa2dmQWdNQkFBR2pnWjh3Z1p3d2JRWURWUjBSQkdZd1pJSUpiRzlqWVd4b2IzTjBod1IvQUFBQgpoeEFBQUFBQUFBQUFBQUFBQUFBQUFBQUJnZ2RPUkZjeU1ERTJnaGhPUkZjeU1ERTJMbWx6YVhNdVkyTnNjbU11CllXTXVkV3VIQklMMk9VbUhFQUFBQUFBQUFBQUFBQUFBQUFBQUFBR0hCSDhBQUFFd0hRWURWUjBPQkJZRUZBYjkKM1IzMUdObnJpVEUyVjg5RFY2UnR4Y1I2TUF3R0ExVWRFd0VCL3dRQ01BQXdEUVlKS29aSWh2Y05BUUVMQlFBRApnZ0VCQUNxaGdEY01LV2w1cDNXa0gxdmx4cUI5MUxKMHRPTE9wVWhUTnRMbXJmc1JZaUYwaUphOWdsL3FDYWV4CmVicUlUMjFGMmxsSDZnU1ptc3EwQ2NEck9Jcy9SWUtSaVl2a1BtZDN5dzdYdVF4Ym5vVWVRWTFaY0ZveDU5NnMKaG5NTXVXYlV3WkVqOUZHVXdXbnNWVVNPV3J6eW9CenhWM1prUHZpMSs4L3lHS3U5MUFVWnMvV2RBYlhsNVN4aApLaFp4TEFncC9ZRGFTTUZ4MjFOOFlwM2MycE9QcEtzQlpoVEhzRTdtelJTS2ExaE5POE1XRmdTcVZDekNxeWY1CllBN0ZCZjJ2VW1QU2tScnVyOFROdSswQzd2NE5rYTAxanhNZjdSaGZZZ1AzNGhZdncwY2pCOTZ6c0pxNXU4Z0UKd2g1dDRYOUhMQWZ4ZFhLcEY0NXZCd2I1MFNNPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCi0tLS0tQkVHSU4gQ0VSVElGSUNBVEUtLS0tLQpNSUlEcURDQ0FwQ2dBd0lCQWdJSkFNK1h1bmF1NExsY01BMEdDU3FHU0liM0RRRUJDd1VBTUVFeEN6QUpCZ05WCkJBWVRBa1JGTVJzd0dRWURWUVFLREJKVWQybHVRMEZVSUVoTlNTQlRaWEoyWlhJeEZUQVRCZ05WQkFNTURFNUUKVnpJd01UWmZjbTl2ZERBZUZ3MHhPREV4TVRJeE5qRTVNamhhRncweE9URXhNVEl4TmpFNU1qaGFNRUV4Q3pBSgpCZ05WQkFZVEFrUkZNUnN3R1FZRFZRUUtEQkpVZDJsdVEwRlVJRWhOU1NCVFpYSjJaWEl4RlRBVEJnTlZCQU1NCkRFNUVWekl3TVRaZmNtOXZkRENDQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFMV0sKTnYxeWVlWjhMT241TDRoZ1pXSm5xWG1VUmlMU0xuY3VaTnFCbWVBNjgrdVBUcGV6Z1VNNjFmNEtuT1ZvcG0xdAo5SVU1bDJVd2V6TWd2S2hEc1RzeG5Ta09GemRHVnlHUk5qNkRkK3NSK1NIMmxua3Q2L1B5c0pDa2F5UG1qZmxhCjJqZE43T01HNzJtNUJsQUFFeEZLdERKTThObjFOVVhSZHFzQUdiNkpyWjRFQkhKMkxzdVlXM1JaNmM3YmVOekEKeG5oRzhjcVVSRzZkSEt3TnJEZ3dBMklNak1zeGFHTEM0UVB5UURyMWt0NkRDZmV5RUVXRzh0OEpDeXYzdjdFWApDbmpVTC9WWXZjSE9iQTErL3UzK0pmY1JpeXNUek9vNk9HNTNXRWhhdEFYZ2t6dm9PMWhyYmtXdnVmUmRaYjBRCjhJZTF0bVIrbng0ZXFzbGdITjBDQXdFQUFhT0JvakNCbnpCdEJnTlZIUkVFWmpCa2dnbHNiMk5oYkdodmMzU0gKQkg4QUFBR0hFQUFBQUFBQUFBQUFBQUFBQUFBQUFBR0NCMDVFVnpJd01UYUNHRTVFVnpJd01UWXVhWE5wY3k1agpZMnh5WXk1aFl5NTFhNGNFZ3ZZNVNZY1FBQUFBQUFBQUFBQUFBQUFBQUFBQUFZY0Vmd0FBQVRBZEJnTlZIUTRFCkZnUVVCaGE0NlFhMk1pbHNoTkZIandUeTEybk9GSW93RHdZRFZSMFRBUUgvQkFVd0F3RUIvekFOQmdrcWhraUcKOXcwQkFRc0ZBQU9DQVFFQW1FcjB6Qk1sS3ZlT0VKRUxxd3RiSkpObjZYeVJ2blRBb2FqUGc4eG4vNFpKd1NtTgpoaGkyUzk1Uk1VbXREZURzUW9sVXZvUEdEVisreFU3VlU0Z0E3SHhkdGZsM2JyMk9yOVBDNVFVQStPVHA2dGh5CjBqOWFVQlltendDa05MTjJ4VmtVRXR4VHh3dkJPRXhJSHlXcldUYlZadWRmSHhxM0VUUUNkbHk5cWIyOCtpc28KNlZsZlpXa2Jwa2JjcGZXcDdJTkQwcGlnTlNiM0R2YUNqQ3ZaVnY5R2NsWVpqT0h3WW5OYWpWeVZ5RlVrRTQ0eApVSHlTbTJOcXFTZmhyMHdoRmQza0VocnY0Rk5TWFpMZXZ0U3hPR0NEaSs5SDhjNHBrNytXY2VpekY1YU1pU3JaCkRjWGpvZVBWa1hZSDA5ZmNKQmFYM01uSk0yQitUUVZIdVBKMzlnPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=",
+    "CERTIFICATEEXPIRATION": "P365D",
+    "CHECKSUMENABLED": true,
+    "CHUNKSIZE": 1048576,
+    "CLIENTCERTIFICATES": [],
+    "CONFIGURATIONS": [
+        "remote"
+    ],
+    "COOKIEEXPIRATIONDATE": "P30D",
+    "DEFAULTAUTHEXTENSION": "TcHmiUserManagement",
+    "DEFAULTDOCUMENT": [
+        "Default.html"
+    ],
+    "DEFAULTLOCALE": "en",
+    "DEFAULTUSERGROUP": "__SystemUsers",
+    "DEFINITIONS": {
+        "PLC1.AMSNETID": {
+            "items": {
+                "$ref": "tchmi:general#/definitions/BYTE"
+            },
+            "maxItems": 6,
+            "minItems": 6,
+            "type": "array"
+        },
+        "PLC1.ARRAY (0..127) OF DWORD": {
+            "items": {
+                "$ref": "tchmi:general#/definitions/DWORD"
+            },
+            "maxItems": 128,
+            "minItems": 128,
+            "type": "array"
+        },
+        "PLC1.ARRAY (0..7) OF MC.NCTOPLC_AXIS_REF_CAMCOUPLINGSTATE": {
+            "items": {
+                "$ref": "#/definitions/PLC1.MC.NCTOPLC_AXIS_REF_CAMCOUPLINGSTATE"
+            },
+            "maxItems": 8,
+            "minItems": 8,
+            "type": "array"
+        },
+        "PLC1.ARRAY (1..17) OF LREAL": {
+            "items": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "maxItems": 17,
+            "minItems": 17,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC1.ARRAY (1..17) OF REAL": {
+            "items": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "maxItems": 17,
+            "minItems": 17,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC1.ARRAY (1..4) OF ST_MasterAxis": {
+            "items": {
+                "$ref": "#/definitions/PLC1.ST_MasterAxis"
+            },
+            "maxItems": 4,
+            "minItems": 4,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC1.ARRAY (1..8) OF AxisControl": {
+            "items": {
+                "$ref": "#/definitions/PLC1.AxisControl"
+            },
+            "maxItems": 8,
+            "minItems": 8,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC1.ARRAY (1..8) OF BOOL": {
+            "items": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "maxItems": 8,
+            "minItems": 8,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC1.ARRAY (1..8) OF ST_AxisControl": {
+            "items": {
+                "$ref": "#/definitions/PLC1.ST_AxisControl"
+            },
+            "maxItems": 8,
+            "minItems": 8,
+            "startOffset": 1,
+            "type": "array"
+        },
+        "PLC1.AxisControl": {
+            "properties": {
+                "Axis": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.AXIS_REF"
+                },
+                "MCHomeDirection": {
+                    "$ref": "#/definitions/PLC1.Tc3_MC2_AdvancedHoming.MC_Home_Direction"
+                },
+                "MCSignalRef": {
+                    "$ref": "#/definitions/PLC1.Tc3_MC2_AdvancedHoming.MC_Ref_Signal_Ref"
+                },
+                "MCSwitchMode": {
+                    "$ref": "#/definitions/PLC1.Tc3_MC2_AdvancedHoming.MC_Switch_Mode"
+                },
+                "bAxisReady": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bBusy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bBwEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bDone": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bEnable": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bExecute": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bFwEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInput": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bJogBackward": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bJogForward": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bLatchedDone": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bMoving": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bPosLagEn": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bReady": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bReset": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSoftLimNegEn": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSoftLimPosEn": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "blatchedError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "buffer": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.MC_BufferMode"
+                },
+                "eCommand": {
+                    "$ref": "#/definitions/PLC1.McCommand"
+                },
+                "fAcceleration": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fDeceleration": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fDistance": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fGearRatio1": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fGearRatio2": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fGearRatio3": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fGearRatio4": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fGearRatioNum": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fHomeDistance": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fHomeDistanceLimit": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fHomePosition": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fHomeTorque": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fHomeVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fOverride": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fParameterValue": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fParametersIn": {
+                    "$ref": "#/definitions/PLC1.ARRAY (1..17) OF REAL"
+                },
+                "fParametersOut": {
+                    "$ref": "#/definitions/PLC1.ARRAY (1..17) OF LREAL"
+                },
+                "fPosition": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "iAxisState": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "iErrorID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "iGearRatioDen": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "iParameterIndex": {
+                    "$ref": "tchmi:general#/definitions/INT"
+                },
+                "masterAxis": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "masterAxis1": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "masterAxis2": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "masterAxis3": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "masterAxis4": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "sAxisDesc": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sAxisName": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "tHomeTimeLimit": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.MC.NCTOPLC_AXIS_REF": {
+            "properties": {
+                "ActAcc": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ActPos": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ActPosWithoutPosCorrection": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ActTorque": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ActTorqueDerivative": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ActVelo": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ActiveControlLoopIndex": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "AxisId": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "AxisModeConfirmation": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "AxisState": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "CamCouplingState": {
+                    "$ref": "#/definitions/PLC1.ARRAY (0..7) OF MC.NCTOPLC_AXIS_REF_CAMCOUPLINGSTATE"
+                },
+                "CamCouplingTableID": {
+                    "$ref": "#/definitions/PLC1.UINTARR8"
+                },
+                "CmdNo": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "CmdState": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "ControlLoopIndex": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "CoupleState": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "DcTimeStamp": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "ErrorCode": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "HomingState": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "ModuloActPos": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ModuloActTurns": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "ModuloSetPos": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ModuloSetTurns": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "OpModeDWord": {
+                    "$ref": "#/definitions/PLC1.MC.NCTOPLC_AXIS_REF_OPMODE"
+                },
+                "PosDiff": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "SafEntries": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "SetAcc": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "SetJerk": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "SetPos": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "SetTorque": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "SetTorqueDerivative": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "SetVelo": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "StateDWord": {
+                    "$ref": "#/definitions/PLC1.MC.NCTOPLC_AXIS_REF_STATE"
+                },
+                "StateDWord2": {
+                    "$ref": "#/definitions/PLC1.MC.NCTOPLC_AXIS_REF_STATE2"
+                },
+                "StateDWord3": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "SvbEntries": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "TargetPos": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "TouchProbeCounter": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "TouchProbeState": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.MC.NCTOPLC_AXIS_REF_CAMCOUPLINGSTATE": {
+            "properties": {
+                "CamActivationPending": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "CamActive": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "CamDataQueued": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "CamDeactivationPending": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "CamScalingPending": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.MC.NCTOPLC_AXIS_REF_OPMODE": {
+            "properties": {
+                "ApplicationRequest": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeAllowExtSetAxisCommands": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeAllowSlaveCommands": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeBacklashCompensation": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeDelayedErrorReaction": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeLoop": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeModulo": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeMotionMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModePEHTimeMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModePosAreaMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModePosCorrection": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModePosLagMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeSimulationAxis": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeSoftLimitMaxMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeSoftLimitMinMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeTargetPosMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "OpModeVeloLagMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.MC.NCTOPLC_AXIS_REF_STATE": {
+            "properties": {
+                "CamDataQueued": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "CamScalingPending": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "CamTableQueued": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "CmdBuffered": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "Compensating": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "ConstantVelocity": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "ContinuousMotion": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "ControlLoopClosed": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "DriveDeviceError": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "Error": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "ErrorPropagationDelayed": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "ExtSetPointGenEnabled": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "ExternalLatchValid": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "HasBeenStopped": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "HasJob": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "Homed": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "HomingBusy": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "InPositionArea": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "InTargetPosition": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "IoDataInvalid": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "MotionCommandsLocked": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "NegativeDirection": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "NewTargetPos": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "NotMoving": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "Operational": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "PTPmode": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "PhasingActive": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "PositiveDirection": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "Protected": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "SoftLimitMaxExceeded": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "SoftLimitMinExceeded": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.MC.NCTOPLC_AXIS_REF_STATE2": {
+            "properties": {
+                "Flags": {
+                    "$ref": "#/definitions/PLC1.MC.NCTOPLC_AXIS_REF_STATE2_FLAGS"
+                },
+                "Value": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.MC.NCTOPLC_AXIS_REF_STATE2_FLAGS": {
+            "properties": {
+                "AvoidingCollision": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.MC.PLCTONC_AXIS_REF": {
+            "properties": {
+                "AxisModeDWord": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "AxisModeLReal": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "AxisModeRequest": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "ControlDWord": {
+                    "$ref": "#/definitions/PLC1.MC.PLCTONC_AXIS_REF_CTRL"
+                },
+                "ExtControllerOutput": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ExtSetAcc": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ExtSetDirection": {
+                    "$ref": "tchmi:general#/definitions/DINT"
+                },
+                "ExtSetPos": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "ExtSetVelo": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "GearRatio1": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "GearRatio2": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "GearRatio3": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "GearRatio4": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "MapState": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Override": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "PlcCycleControl": {
+                    "$ref": "tchmi:general#/definitions/BYTE"
+                },
+                "PlcCycleCount": {
+                    "$ref": "tchmi:general#/definitions/BYTE"
+                },
+                "PositionCorrection": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.MC.PLCTONC_AXIS_REF_CTRL": {
+            "properties": {
+                "AcceptBlockedDrive": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "Enable": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "FeedEnableMinus": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "FeedEnablePlus": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "HomingSensor": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "NcDebugFlag": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                },
+                "PlcDebugFlag": {
+                    "$ref": "tchmi:general#/definitions/BIT"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.McCommand": {
+            "allOf": [
+                {
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51
+                    ],
+                    "options": [
+                        {
+                            "label": "Idle",
+                            "value": 0
+                        },
+                        {
+                            "label": "Reset",
+                            "value": 1
+                        },
+                        {
+                            "label": "Power",
+                            "value": 2
+                        },
+                        {
+                            "label": "ReadStatus",
+                            "value": 3
+                        },
+                        {
+                            "label": "ReadAxisError",
+                            "value": 4
+                        },
+                        {
+                            "label": "ReadParameter",
+                            "value": 5
+                        },
+                        {
+                            "label": "ReadBoolParameter",
+                            "value": 6
+                        },
+                        {
+                            "label": "WriteParameter",
+                            "value": 7
+                        },
+                        {
+                            "label": "WriteBoolParameter",
+                            "value": 8
+                        },
+                        {
+                            "label": "ReadActualPosition",
+                            "value": 9
+                        },
+                        {
+                            "label": "ReadActualVelocity",
+                            "value": 10
+                        },
+                        {
+                            "label": "SetPosition",
+                            "value": 11
+                        },
+                        {
+                            "label": "SetOverride",
+                            "value": 12
+                        },
+                        {
+                            "label": "TouchProbe",
+                            "value": 13
+                        },
+                        {
+                            "label": "AbortTrigger",
+                            "value": 14
+                        },
+                        {
+                            "label": "AbortSuperposition",
+                            "value": 15
+                        },
+                        {
+                            "label": "CamTableSelect",
+                            "value": 16
+                        },
+                        {
+                            "label": "Home",
+                            "value": 17
+                        },
+                        {
+                            "label": "Jog",
+                            "value": 18
+                        },
+                        {
+                            "label": "Stop",
+                            "value": 19
+                        },
+                        {
+                            "label": "Halt",
+                            "value": 20
+                        },
+                        {
+                            "label": "MoveAbsolute",
+                            "value": 21
+                        },
+                        {
+                            "label": "MoveRelative",
+                            "value": 22
+                        },
+                        {
+                            "label": "MoveAdditive",
+                            "value": 23
+                        },
+                        {
+                            "label": "MoveSuperimposed",
+                            "value": 24
+                        },
+                        {
+                            "label": "MoveVelocity",
+                            "value": 25
+                        },
+                        {
+                            "label": "MoveContinuousAbs",
+                            "value": 26
+                        },
+                        {
+                            "label": "MoveContinuousRel",
+                            "value": 27
+                        },
+                        {
+                            "label": "MoveModulo",
+                            "value": 28
+                        },
+                        {
+                            "label": "GearIn",
+                            "value": 29
+                        },
+                        {
+                            "label": "GearInDyn",
+                            "value": 30
+                        },
+                        {
+                            "label": "GearInMultiMaster",
+                            "value": 31
+                        },
+                        {
+                            "label": "GearOut",
+                            "value": 32
+                        },
+                        {
+                            "label": "HaltPhasing",
+                            "value": 33
+                        },
+                        {
+                            "label": "PhasingAbsolute",
+                            "value": 34
+                        },
+                        {
+                            "label": "PhasingRelative",
+                            "value": 35
+                        },
+                        {
+                            "label": "CamIn",
+                            "value": 36
+                        },
+                        {
+                            "label": "CamOut",
+                            "value": 37
+                        },
+                        {
+                            "label": "CamScaling",
+                            "value": 38
+                        },
+                        {
+                            "label": "CamAdd",
+                            "value": 39
+                        },
+                        {
+                            "label": "CamExchange",
+                            "value": 40
+                        },
+                        {
+                            "label": "CamInV2",
+                            "value": 41
+                        },
+                        {
+                            "label": "CamRemove",
+                            "value": 42
+                        },
+                        {
+                            "label": "CamScalingV2",
+                            "value": 43
+                        },
+                        {
+                            "label": "HomeFinish",
+                            "value": 44
+                        },
+                        {
+                            "label": "HomeDirect",
+                            "value": 45
+                        },
+                        {
+                            "label": "HomeAbort",
+                            "value": 46
+                        },
+                        {
+                            "label": "HomeStepAbsoluteSwitch",
+                            "value": 47
+                        },
+                        {
+                            "label": "HomeStepBlock",
+                            "value": 48
+                        },
+                        {
+                            "label": "HomeStepBlockLagBased",
+                            "value": 49
+                        },
+                        {
+                            "label": "HomeStepLimitSwitch",
+                            "value": 50
+                        },
+                        {
+                            "label": "HomeStepReferencePulse",
+                            "value": 51
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/INT16"
+                }
+            ]
+        },
+        "PLC1.ST_AxisControl": {
+            "properties": {
+                "Axis": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.AXIS_REF"
+                },
+                "MCHomeDirection": {
+                    "$ref": "#/definitions/PLC1.Tc3_MC2_AdvancedHoming.MC_Home_Direction"
+                },
+                "MCSignalRef": {
+                    "$ref": "#/definitions/PLC1.Tc3_MC2_AdvancedHoming.MC_Ref_Signal_Ref"
+                },
+                "MCSwitchMode": {
+                    "$ref": "#/definitions/PLC1.Tc3_MC2_AdvancedHoming.MC_Switch_Mode"
+                },
+                "bAxisReady": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bBusy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bBwEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bDone": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bEnable": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bExecute": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bFwEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bInput": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bJogBackward": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bJogForward": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bMoving": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bPosLagEn": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bReset": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSoftLimNegEn": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "bSoftLimPosEn": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "buffer": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.MC_BufferMode"
+                },
+                "eCommand": {
+                    "$ref": "#/definitions/PLC1.eMcCommand"
+                },
+                "fAcceleration": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fDeceleration": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fDistance": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fGearRatioNum": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fHomeDistance": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fHomeDistanceLimit": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fHomePosition": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fHomeTorque": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fHomeVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fOverride": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fParameterValue": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fParameters": {
+                    "$ref": "#/definitions/PLC1.ARRAY (1..17) OF LREAL"
+                },
+                "fPosition": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "fVelocity": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "iAxisState": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "iErrorID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "iGearRatioDen": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "iParameterIndex": {
+                    "$ref": "tchmi:general#/definitions/INT"
+                },
+                "masterAxes": {
+                    "$ref": "#/definitions/PLC1.ARRAY (1..4) OF ST_MasterAxis"
+                },
+                "masterAxis": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "sAxisDesc": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "sAxisName": {
+                    "$ref": "tchmi:general#/definitions/STRING(80)"
+                },
+                "tHomeTimeLimit": {
+                    "$ref": "tchmi:general#/definitions/TIME"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.ST_MasterAxis": {
+            "properties": {
+                "i": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "ratio": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_MC2.AXIS_REF": {
+            "properties": {
+                "ADS": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.ST_AdsAddress"
+                },
+                "DriveAddress": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.ST_DriveAddress"
+                },
+                "NcToPlc": {
+                    "$ref": "#/definitions/PLC1.MC.NCTOPLC_AXIS_REF"
+                },
+                "PlcToNc": {
+                    "$ref": "#/definitions/PLC1.MC.PLCTONC_AXIS_REF"
+                },
+                "Status": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.ST_AxisStatus"
+                },
+                "Storage": {
+                    "$ref": "#/definitions/PLC1.ARRAY (0..127) OF DWORD"
+                },
+                "_internal": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2._InternalAxisRefData"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_MC2.E_NcAxisType": {
+            "allOf": [
+                {
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        5,
+                        6,
+                        7,
+                        100
+                    ],
+                    "options": [
+                        {
+                            "label": "NcAxisType_undefined",
+                            "value": 0
+                        },
+                        {
+                            "label": "NcAxisType_Continious",
+                            "value": 1
+                        },
+                        {
+                            "label": "NcAxisType_Discrete_TwoSpeed",
+                            "value": 2
+                        },
+                        {
+                            "label": "NcAxisType_LowCostStepper_DigIO",
+                            "value": 3
+                        },
+                        {
+                            "label": "NcAxisType_Encoder",
+                            "value": 5
+                        },
+                        {
+                            "label": "NcAxisType_Hydraulic",
+                            "value": 6
+                        },
+                        {
+                            "label": "NcAxisType_TimeGenerator",
+                            "value": 7
+                        },
+                        {
+                            "label": "NcAxisType_Specific",
+                            "value": 100
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/UINT32"
+                }
+            ]
+        },
+        "PLC1.Tc2_MC2.E_NcDriveType": {
+            "allOf": [
+                {
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24
+                    ],
+                    "options": [
+                        {
+                            "label": "NcDriveType_undefined",
+                            "value": 0
+                        },
+                        {
+                            "label": "NcDriveType_M2400_DAC1",
+                            "value": 1
+                        },
+                        {
+                            "label": "NcDriveType_M2400_DAC2",
+                            "value": 2
+                        },
+                        {
+                            "label": "NcDriveType_M2400_DAC3",
+                            "value": 3
+                        },
+                        {
+                            "label": "NcDriveType_M2400_DAC4",
+                            "value": 4
+                        },
+                        {
+                            "label": "NcDriveType_KL4XXX",
+                            "value": 5
+                        },
+                        {
+                            "label": "NcDriveType_KL4XXX_NonLinear",
+                            "value": 6
+                        },
+                        {
+                            "label": "NcDriveType_Discete_TwoSpeed",
+                            "value": 7
+                        },
+                        {
+                            "label": "NcDriveType_Stepper",
+                            "value": 8
+                        },
+                        {
+                            "label": "NcDriveType_Sercos",
+                            "value": 9
+                        },
+                        {
+                            "label": "NcDriveType_KL5051",
+                            "value": 10
+                        },
+                        {
+                            "label": "NcDriveType_AX2000_B200",
+                            "value": 11
+                        },
+                        {
+                            "label": "NcDriveType_ProfiDrive",
+                            "value": 12
+                        },
+                        {
+                            "label": "NcDriveType_Universal",
+                            "value": 13
+                        },
+                        {
+                            "label": "NcDriveType_NcBackplane",
+                            "value": 14
+                        },
+                        {
+                            "label": "NcDriveType_CANopen_Lenze",
+                            "value": 15
+                        },
+                        {
+                            "label": "NcDriveType_CANopen_DS402_MDP742",
+                            "value": 16
+                        },
+                        {
+                            "label": "NcDriveType_AX2000_B900",
+                            "value": 17
+                        },
+                        {
+                            "label": "NcDriveType_KL2531_Stepper",
+                            "value": 20
+                        },
+                        {
+                            "label": "NcDriveType_KL2532_DC",
+                            "value": 21
+                        },
+                        {
+                            "label": "NcDriveType_TCOM",
+                            "value": 22
+                        },
+                        {
+                            "label": "NcDriveType_MDP_733",
+                            "value": 23
+                        },
+                        {
+                            "label": "NcDriveType_MDP_703",
+                            "value": 24
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/UINT32"
+                }
+            ]
+        },
+        "PLC1.Tc2_MC2.E_NcEncoderType": {
+            "allOf": [
+                {
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        100
+                    ],
+                    "options": [
+                        {
+                            "label": "NcEncoderType_undefined",
+                            "value": 0
+                        },
+                        {
+                            "label": "NcEncoderType_Simulation",
+                            "value": 1
+                        },
+                        {
+                            "label": "NcEncoderType_ABS_M3000",
+                            "value": 2
+                        },
+                        {
+                            "label": "NcEncoderType_INC_M31X0",
+                            "value": 3
+                        },
+                        {
+                            "label": "NcEncoderType_INC_KL5101",
+                            "value": 4
+                        },
+                        {
+                            "label": "NcEncoderType_ABS_KL5001_SSI",
+                            "value": 5
+                        },
+                        {
+                            "label": "NcEncoderType_INC_KL5051",
+                            "value": 6
+                        },
+                        {
+                            "label": "NcEncoderType_ABS_KL30XX",
+                            "value": 7
+                        },
+                        {
+                            "label": "NcEncoderType_INC_Sercos_P",
+                            "value": 8
+                        },
+                        {
+                            "label": "NcEncoderType_INC_Sercos_PV",
+                            "value": 9
+                        },
+                        {
+                            "label": "NcEncoderType_INC_Binary",
+                            "value": 10
+                        },
+                        {
+                            "label": "NcEncoderType_ABS_M2510",
+                            "value": 11
+                        },
+                        {
+                            "label": "NcEncoderType_ABS_FOX50",
+                            "value": 12
+                        },
+                        {
+                            "label": "NcEncoderType_ABS_HYDRAULIC_FORCE",
+                            "value": 13
+                        },
+                        {
+                            "label": "NcEncoderType_INC_AX2000_B200",
+                            "value": 14
+                        },
+                        {
+                            "label": "NcEncoderType_INC_PROFIDRIVE",
+                            "value": 15
+                        },
+                        {
+                            "label": "NcEncoderType_INC_UNIVERSAL",
+                            "value": 16
+                        },
+                        {
+                            "label": "NcEncoderType_INC_NCBACKPLANE",
+                            "value": 17
+                        },
+                        {
+                            "label": "NcEncoderType_INC_CANOPEN_LENZE",
+                            "value": 18
+                        },
+                        {
+                            "label": "NcEncoderType_INC_CANOPEN_DS402_MDP513_MDP742",
+                            "value": 19
+                        },
+                        {
+                            "label": "NcEncoderType_INC_AX2000_B900",
+                            "value": 20
+                        },
+                        {
+                            "label": "NcEncoderType_INC_KL5151",
+                            "value": 21
+                        },
+                        {
+                            "label": "NcEncoderType_INC_IP5209",
+                            "value": 24
+                        },
+                        {
+                            "label": "NcEncoderType_INC_KL2531_Stepper",
+                            "value": 25
+                        },
+                        {
+                            "label": "NcEncoderType_INC_KL2532_DC",
+                            "value": 26
+                        },
+                        {
+                            "label": "NcEncoderType_INC_TIMEBASEGENERATOR",
+                            "value": 27
+                        },
+                        {
+                            "label": "NcEncoderType_INC_TCOM",
+                            "value": 28
+                        },
+                        {
+                            "label": "NcEncoderType_INC_CANOPEN_MDP513_64BIT",
+                            "value": 29
+                        },
+                        {
+                            "label": "NcEncoderType_SPECIFIC",
+                            "value": 100
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/UINT32"
+                }
+            ]
+        },
+        "PLC1.Tc2_MC2.E_SignalSource": {
+            "allOf": [
+                {
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        128,
+                        129
+                    ],
+                    "options": [
+                        {
+                            "label": "SignalSource_Default",
+                            "value": 0
+                        },
+                        {
+                            "label": "SignalSource_Input1",
+                            "value": 1
+                        },
+                        {
+                            "label": "SignalSource_Input2",
+                            "value": 2
+                        },
+                        {
+                            "label": "SignalSource_Input3",
+                            "value": 3
+                        },
+                        {
+                            "label": "SignalSource_Input4",
+                            "value": 4
+                        },
+                        {
+                            "label": "SignalSource_ZeroPulse",
+                            "value": 128
+                        },
+                        {
+                            "label": "SignalSource_DriveDefined",
+                            "value": 129
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/UINT16"
+                }
+            ]
+        },
+        "PLC1.Tc2_MC2.E_TouchProbe": {
+            "allOf": [
+                {
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        10
+                    ],
+                    "options": [
+                        {
+                            "label": "TouchProbe1",
+                            "value": 1
+                        },
+                        {
+                            "label": "TouchProbe2",
+                            "value": 2
+                        },
+                        {
+                            "label": "TouchProbe3",
+                            "value": 3
+                        },
+                        {
+                            "label": "TouchProbe4",
+                            "value": 4
+                        },
+                        {
+                            "label": "PlcEvent",
+                            "value": 10
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/UINT16"
+                }
+            ]
+        },
+        "PLC1.Tc2_MC2.MC_AxisStates": {
+            "allOf": [
+                {
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "options": [
+                        {
+                            "label": "MC_AXISSTATE_UNDEFINED",
+                            "value": 0
+                        },
+                        {
+                            "label": "MC_AXISSTATE_DISABLED",
+                            "value": 1
+                        },
+                        {
+                            "label": "MC_AXISSTATE_STANDSTILL",
+                            "value": 2
+                        },
+                        {
+                            "label": "MC_AXISSTATE_ERRORSTOP",
+                            "value": 3
+                        },
+                        {
+                            "label": "MC_AXISSTATE_STOPPING",
+                            "value": 4
+                        },
+                        {
+                            "label": "MC_AXISSTATE_HOMING",
+                            "value": 5
+                        },
+                        {
+                            "label": "MC_AXISSTATE_DISCRETEMOTION",
+                            "value": 6
+                        },
+                        {
+                            "label": "MC_AXISSTATE_CONTINOUSMOTION",
+                            "value": 7
+                        },
+                        {
+                            "label": "MC_AXISSTATE_SYNCHRONIZEDMOTION",
+                            "value": 8
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/INT16"
+                }
+            ]
+        },
+        "PLC1.Tc2_MC2.MC_BufferMode": {
+            "allOf": [
+                {
+                    "enum": [
+                        0,
+                        1,
+                        18,
+                        19,
+                        20,
+                        21
+                    ],
+                    "options": [
+                        {
+                            "label": "MC_Aborting",
+                            "value": 0
+                        },
+                        {
+                            "label": "MC_Buffered",
+                            "value": 1
+                        },
+                        {
+                            "label": "MC_BlendingLow",
+                            "value": 18
+                        },
+                        {
+                            "label": "MC_BlendingPrevious",
+                            "value": 19
+                        },
+                        {
+                            "label": "MC_BlendingNext",
+                            "value": 20
+                        },
+                        {
+                            "label": "MC_BlendingHigh",
+                            "value": 21
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/UINT16"
+                }
+            ]
+        },
+        "PLC1.Tc2_MC2.ST_AdsAddress": {
+            "properties": {
+                "Channel": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "NetId": {
+                    "allOf": [
+                        {
+                            "maxLength": 23
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "Port": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_MC2.ST_AxisOpModes": {
+            "properties": {
+                "AllowExtSetAxisCommands": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "AllowSlaveCommands": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "BacklashCompensation": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "DelayedErrorReaction": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "LoopMode": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Modulo": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "MotionMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "PEHTimeMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "PositionAreaMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "PositionCorrection": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "PositionLagMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "SimulationAxis": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "SoftLimitMaxMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "SoftLimitMinMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "StopMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "TargetPositionMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "VelocityLagMonitoring": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_MC2.ST_AxisStatus": {
+            "properties": {
+                "Accelerating": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "CamDataQueued": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "CamScalingPending": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "CamTableQueued": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "CmdBuffered": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Compensating": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ConstantVelocity": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ContinuousMotion": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ControlLoopClosed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Coupled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "CycleCounter": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "Decelerating": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Disabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "DiscreteMotion": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "DriveDeviceError": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Error": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ErrorID": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "ErrorPropagationDelayed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ErrorStop": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ExtSetPointGenEnabled": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ExternalLatchValid": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "HasBeenStopped": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "HasJob": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Homed": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Homing": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "HomingBusy": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "InPositionArea": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "InTargetPosition": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "IoDataInvalid": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "MotionCommandsLocked": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "MotionState": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.MC_AxisStates"
+                },
+                "Moving": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "NcApplicationRequest": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "NcCycleCounter": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                },
+                "NegativeDirection": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "NewTargetPosition": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "NotMoving": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "OpMode": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.ST_AxisOpModes"
+                },
+                "Operational": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "PTPmode": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "PhasingActive": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "PositiveDirection": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "ProtectedMode": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "SoftLimitMaxExceeded": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "SoftLimitMinExceeded": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "StandStill": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "Stopping": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "SynchronizedMotion": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "UpdateCycleTime": {
+                    "$ref": "tchmi:general#/definitions/LREAL"
+                },
+                "UpdateTaskIndex": {
+                    "$ref": "tchmi:general#/definitions/BYTE"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_MC2.ST_DriveAddress": {
+            "properties": {
+                "Channel": {
+                    "$ref": "tchmi:general#/definitions/BYTE"
+                },
+                "NcAxisId": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "NcAxisType": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.E_NcAxisType"
+                },
+                "NcDriveId": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "NcDriveIndex": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "NcDriveType": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.E_NcDriveType"
+                },
+                "NcEncoderId": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "NcEncoderIndex": {
+                    "$ref": "tchmi:general#/definitions/DWORD"
+                },
+                "NcEncoderType": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.E_NcEncoderType"
+                },
+                "NetID": {
+                    "allOf": [
+                        {
+                            "maxLength": 23
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                },
+                "NetIdBytes": {
+                    "$ref": "#/definitions/PLC1.Tc2_System.T_AmsNetIdArr"
+                },
+                "SlaveAddress": {
+                    "$ref": "tchmi:general#/definitions/UINT16"
+                },
+                "TcDriveObjectId": {
+                    "$ref": "tchmi:general#/definitions/UINT32"
+                },
+                "TcEncoderObjectId": {
+                    "$ref": "tchmi:general#/definitions/UINT32"
+                },
+                "TcSoftDriveObjectId": {
+                    "$ref": "tchmi:general#/definitions/UINT32"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_MC2._InternalAxisRefData": {
+            "properties": {
+                "CounterSameTaskIndex_AtReadStatusCall": {
+                    "$ref": "tchmi:general#/definitions/UINT"
+                },
+                "LastTaskIndex_AtReadStatusCall": {
+                    "$ref": "tchmi:general#/definitions/BYTE"
+                },
+                "NcCycleCounterAvailable": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "NcCycleCounter_AtReadStatusCall": {
+                    "$ref": "tchmi:general#/definitions/UDINT"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc2_System.T_AmsNetIdArr": {
+            "$ref": "#/definitions/PLC1.AMSNETID"
+        },
+        "PLC1.Tc3_MC2_AdvancedHoming.MC_Home_Direction": {
+            "allOf": [
+                {
+                    "enum": [
+                        1,
+                        3,
+                        5,
+                        7
+                    ],
+                    "options": [
+                        {
+                            "label": "mcPositiveDirection",
+                            "value": 1
+                        },
+                        {
+                            "label": "mcNegativeDirection",
+                            "value": 3
+                        },
+                        {
+                            "label": "mcSwitchPositive",
+                            "value": 5
+                        },
+                        {
+                            "label": "mcSwitchNegative",
+                            "value": 7
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/INT16"
+                }
+            ]
+        },
+        "PLC1.Tc3_MC2_AdvancedHoming.MC_Ref_Signal_Ref": {
+            "properties": {
+                "Level": {
+                    "$ref": "tchmi:general#/definitions/BOOL"
+                },
+                "SignalSource": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.E_SignalSource"
+                },
+                "TouchProbe": {
+                    "$ref": "#/definitions/PLC1.Tc2_MC2.E_TouchProbe"
+                }
+            },
+            "type": "object"
+        },
+        "PLC1.Tc3_MC2_AdvancedHoming.MC_Switch_Mode": {
+            "allOf": [
+                {
+                    "enum": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        11,
+                        12
+                    ],
+                    "options": [
+                        {
+                            "label": "mcOn",
+                            "value": 1
+                        },
+                        {
+                            "label": "mcOff",
+                            "value": 2
+                        },
+                        {
+                            "label": "mcRisingEdge",
+                            "value": 3
+                        },
+                        {
+                            "label": "mcFallingEdge",
+                            "value": 4
+                        },
+                        {
+                            "label": "mcEdgeSwitchPositive",
+                            "value": 5
+                        },
+                        {
+                            "label": "mcEdgeSwitchNegative",
+                            "value": 6
+                        },
+                        {
+                            "label": "mcRisingEdgeInverse",
+                            "value": 11
+                        },
+                        {
+                            "label": "mcFallingEdgeInverse",
+                            "value": 12
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/UINT32"
+                }
+            ]
+        },
+        "PLC1.UINTARR8": {
+            "items": {
+                "$ref": "tchmi:general#/definitions/UINT"
+            },
+            "maxItems": 8,
+            "minItems": 8,
+            "type": "array"
+        },
+        "PLC1.eMcCommand": {
+            "allOf": [
+                {
+                    "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47
+                    ],
+                    "options": [
+                        {
+                            "label": "Idle",
+                            "value": 0
+                        },
+                        {
+                            "label": "Reset",
+                            "value": 1
+                        },
+                        {
+                            "label": "ReadAxisError",
+                            "value": 2
+                        },
+                        {
+                            "label": "WriteParameter",
+                            "value": 3
+                        },
+                        {
+                            "label": "WriteBoolParameter",
+                            "value": 4
+                        },
+                        {
+                            "label": "ReadActualPosition",
+                            "value": 5
+                        },
+                        {
+                            "label": "ReadActualVelocity",
+                            "value": 6
+                        },
+                        {
+                            "label": "SetPosition",
+                            "value": 7
+                        },
+                        {
+                            "label": "SetOverride",
+                            "value": 8
+                        },
+                        {
+                            "label": "TouchProbe",
+                            "value": 9
+                        },
+                        {
+                            "label": "AbortTrigger",
+                            "value": 10
+                        },
+                        {
+                            "label": "AbortSuperposition",
+                            "value": 11
+                        },
+                        {
+                            "label": "CamTableSelect",
+                            "value": 12
+                        },
+                        {
+                            "label": "Home",
+                            "value": 13
+                        },
+                        {
+                            "label": "Jog",
+                            "value": 14
+                        },
+                        {
+                            "label": "Stop",
+                            "value": 15
+                        },
+                        {
+                            "label": "Halt",
+                            "value": 16
+                        },
+                        {
+                            "label": "MoveAbsolute",
+                            "value": 17
+                        },
+                        {
+                            "label": "MoveRelative",
+                            "value": 18
+                        },
+                        {
+                            "label": "MoveAdditive",
+                            "value": 19
+                        },
+                        {
+                            "label": "MoveSuperimposed",
+                            "value": 20
+                        },
+                        {
+                            "label": "MoveVelocity",
+                            "value": 21
+                        },
+                        {
+                            "label": "MoveContinuousAbs",
+                            "value": 22
+                        },
+                        {
+                            "label": "MoveContinuousRel",
+                            "value": 23
+                        },
+                        {
+                            "label": "MoveModulo",
+                            "value": 24
+                        },
+                        {
+                            "label": "GearIn",
+                            "value": 25
+                        },
+                        {
+                            "label": "GearInDyn",
+                            "value": 26
+                        },
+                        {
+                            "label": "GearInMultiMaster",
+                            "value": 27
+                        },
+                        {
+                            "label": "GearOut",
+                            "value": 28
+                        },
+                        {
+                            "label": "HaltPhasing",
+                            "value": 29
+                        },
+                        {
+                            "label": "PhasingAbsolute",
+                            "value": 30
+                        },
+                        {
+                            "label": "PhasingRelative",
+                            "value": 31
+                        },
+                        {
+                            "label": "CamIn",
+                            "value": 32
+                        },
+                        {
+                            "label": "CamOut",
+                            "value": 33
+                        },
+                        {
+                            "label": "CamScaling",
+                            "value": 34
+                        },
+                        {
+                            "label": "CamAdd",
+                            "value": 35
+                        },
+                        {
+                            "label": "CamExchange",
+                            "value": 36
+                        },
+                        {
+                            "label": "CamInV2",
+                            "value": 37
+                        },
+                        {
+                            "label": "CamRemove",
+                            "value": 38
+                        },
+                        {
+                            "label": "CamScalingV2",
+                            "value": 39
+                        },
+                        {
+                            "label": "HomeFinish",
+                            "value": 40
+                        },
+                        {
+                            "label": "HomeDirect",
+                            "value": 41
+                        },
+                        {
+                            "label": "HomeAbort",
+                            "value": 42
+                        },
+                        {
+                            "label": "HomeStepAbsoluteSwitch",
+                            "value": 43
+                        },
+                        {
+                            "label": "HomeStepBlock",
+                            "value": 44
+                        },
+                        {
+                            "label": "HomeStepBlockLagBased",
+                            "value": 45
+                        },
+                        {
+                            "label": "HomeStepLimitSwitch",
+                            "value": 46
+                        },
+                        {
+                            "label": "HomeStepReferencePulse",
+                            "value": 47
+                        }
+                    ]
+                },
+                {
+                    "$ref": "tchmi:general#/definitions/INT16"
+                }
+            ]
+        }
+    },
+    "DEFLATECOMPRESSIONLEVEL": 5,
+    "DISCOVERY": 2,
+    "ENDPOINTS": [
+        "http://127.0.0.1:3000"
+    ],
+    "ETAGENABLED": true,
+    "EXTENSIONS": {
+        "ADS": {
+            "ENABLED": true,
+            "NAME": "TcHmiAds",
+            "OFFLINE": false,
+            "PATH": "",
+            "PLUGINCONTAINER": "in process",
+            "REQUIRED": false,
+            "STARTUPTYPE": 1
+        },
+        "TcHmiEventLogger": {
+            "ENABLED": true,
+            "NAME": "TcHmiEventLogger",
+            "OFFLINE": false,
+            "PATH": "",
+            "PLUGINCONTAINER": "in process",
+            "REQUIRED": false,
+            "STARTUPTYPE": 1
+        },
+        "TcHmiLua": {
+            "ENABLED": true,
+            "NAME": "TcHmiLua",
+            "OFFLINE": false,
+            "PATH": "",
+            "PLUGINCONTAINER": "in process",
+            "REQUIRED": true,
+            "STARTUPTYPE": 1
+        },
+        "TcHmiSqliteHistorize": {
+            "ENABLED": true,
+            "NAME": "TcHmiSqliteHistorize",
+            "OFFLINE": false,
+            "PATH": "",
+            "PLUGINCONTAINER": "in process",
+            "REQUIRED": false,
+            "STARTUPTYPE": 1
+        },
+        "TcHmiSqliteLogger": {
+            "ENABLED": true,
+            "NAME": "TcHmiSqliteLogger",
+            "OFFLINE": false,
+            "PATH": "",
+            "PLUGINCONTAINER": "in process",
+            "REQUIRED": true,
+            "STARTUPTYPE": 0
+        },
+        "TcHmiTextStorage": {
+            "ENABLED": true,
+            "NAME": "TcHmiTextStorage",
+            "OFFLINE": false,
+            "PATH": "",
+            "PLUGINCONTAINER": "in process",
+            "REQUIRED": false,
+            "STARTUPTYPE": 1
+        },
+        "TcHmiUserManagement": {
+            "ENABLED": true,
+            "NAME": "TcHmiUserManagement",
+            "OFFLINE": false,
+            "PATH": "",
+            "PLUGINCONTAINER": "in process",
+            "REQUIRED": true,
+            "STARTUPTYPE": 1
+        }
+    },
+    "FILES": {
+        "/Content Pages/singleAxis.content": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Desktop.view": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/FavIcon.ico": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Fonts/Fonts.css": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Fonts/Roboto-Condensed-webfont.woff": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Images/Background.png": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Images/Beckhoff_Logo.svg": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Images/ISIS_Logo_White.svg": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Images/Manifest/launcher-icon-0-75x.png": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Images/Manifest/launcher-icon-1-5x.png": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Images/Manifest/launcher-icon-1x.png": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Images/Manifest/launcher-icon-2x.png": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Images/Manifest/launcher-icon-3x.png": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Images/Manifest/launcher-icon-4x.png": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Imports/Images/ISIS_Logo_White.svg": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Imports/Images/icons_next_pressed.svg": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Imports/Images/icons_previous_pressed.svg": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Localization/de-DE.localization": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Localization/en-US.localization": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Properties/tchmi.framework.Schema.json": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Properties/tchmi.project.Schema.json": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Properties/tchmiconfig.json": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        },
+        "/Properties/tchmimanifest.json": {
+            "ACCESS": 3,
+            "FILESHTTPHEADERS": "",
+            "HTTPSTATUSCODE": "",
+            "LOGINPAGE": ""
+        }
+    },
+    "FLOODPROTECTION": 500,
+    "GLOBALHTTPHEADERS": "{LASTMODIFIED}",
+    "GZIPENABLED": true,
+    "GZIPMINSIZE": 800,
+    "INTERNALSTORAGE": {},
+    "KEEP_ALIVE": "PT40S",
+    "KEY": "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRRERFOWRabmdNejRPUjYKOENlL0hZVlQ4QkhuK3lCMTR2TVVuaUhMNDhLeDZtbXMvWHp3ZndqMktBUC84RnRxa094b1VueHR1MmlQZWo1bQpwNUFxaGhnam9DaUhHR2QwMkg4RHI3VUdONzNCdXozQ21ubHh3aFVLQm5vUDJhcEFPMWp5dWkzNTZoUnRWc2F3CkV1cE5mUlNvdFBXQU9UYzBxZTlBODg1YWQ4OCt1a1piTXRYM0pXMDlUaUszWWhQS0VULzRsR1Foc2V5Z2wvbnMKNEllQlVUMUZraUU5Zm5VZmZyUTIxb0hKMjZRNEFyUjBrMHVDNWhLUUpUSVdlbHB2VU5jdGN4TmF0VDh0dnNhcgpNNy9rKzFrV1MrQzVPc1lFeG9tQ0tFZnNONGM1NDQ5UEZOWGRRRlROZlhaUW9qb1RIdU1OamRydERQNldPUm5GCk1KbXBSa2dmQWdNQkFBRUNnZ0VCQUtVZStVeUkvR3NBTkVWL1hCVmY5b2dMRUEwTk92ZXVCMVZ2V0dvTnVySUEKR2p6c1A4SU50VmN1bmR3WTVqZzR2WEs4UjBoV3RuV2o0b2ZmMDU2NjdGblRhaHFYNUpJNTRxRUxMQzQ4Sm1tQwpoUTlnMCtVZmc5RjlrL293b3ZSRmg4L0ZHYitOakliVVNjK2w0eDk5L1d1ajZKNEZVQjVLclJLTWpDRjFnajJ6CjBodFpHbDF3NjdKTEgwM0lROEJvRW5KUnl3aWVzeUpSWEF4dTJ5Vk5La2RBZThHUmNSS2Q1S1JlbVZiZXRDTzYKVzVXUnNKM0VUbDh4WGJqMEUzT2k0SnNNUER6eDJPTU92azFOd2pqSlVlcU5CZTRiNWxrck1XcVF2bjJtM2Z1agpkSnRDamRmU01UcUV1bTJ4dUdYM2J2TUlmbTc3SUVxRVBaZUQ5cVdCMytFQ2dZRUE0a0JmZjVGUU5lUmJROHkyCnpDZVlveklZUTk5eGtPZzF0UW1idkhkYTNVNVVzVGd4a2hGWGlDb3dCRS9SUjJXT0xoU2RYanVvOXd5dUp4MDkKWnViM2grZE5VSm9zMzdFL09XQk9ZTXNkT2RIQlFZdnZ4RHc1OHJFbzZvWVU5Y1dxUHB4Z1QzOUZzSHhmTTRGcgpPNEliR0ZLbjluTEhJUmViNmVGODdsQUdicEVDZ1lFQTNMb25ERGRQSmpyZXNrdktiWHBlYkh2UXU3SE1ZUG43ClZtNEhXU1hxODA2WnNFUzlhSFlaSlhWTHRtNWVpc3NXYXRNUldpUUNYVU9EZGpzSzBxWUJ6VGE5UGZ5RlZsSlgKM2ZxQUVYMlBWK0Q0dXVYVC9nYk9ROXhmVmMwVHR2S0gwQlZTN2V3N1hYRjJ4UUxWLzdlTjVGVEdGdC9SL1UraAozdUxRTHd6RkE2OENnWUVBa2p6NWZRTDN6VjJrZjlZNThRdEc1WFRqcWpzcXRIYmkvL2tONkd0ZEY5NGhiOHJhCmY0Y21CS1VBRkVsakE3cm9nM0JmcHlENHZYWTh1cHR6cktkdEp6S2lEbzhZb2gxMnVDYy9nZURIS3pBZ3NiVTUKYktWZzd6VUROVk1sQ1JhU1M1WFh5b3FCQ09uYXZ2ZlB6ODd3cEhBSWtJcnZtcndmMHJRa2hBVEZvNEVDZ1lCcQo5NHVVei9qN2Zld09XOHh0NGErQXcwQVV0Y1ZsK2I5ajAwNmNWVlBYTlhBbGpDcCtSVDFLZWQySE8xVjF6WlcvCmp5b0psUW5RU0xlY3hHQXFWV2pxR216N2JUVHc4RmJFckhFRUNPVStvVGZvMnhneE12c2l4OWtycTRheVVqYWYKRUxadnR0dk9IUDZCMnkzNkR1b2tqVEN5UlNWdXJQaTFHeFhvdHplQzRRS0JnR1kyQWRydXNGNVViOFR4WTR2UgpoanlKSnFRdjhMSHpha3JmdGJ1VzZ3cXE5WlBrSlVDeUdEK0FydGVRUUxrdm5ER09temgyYTl5ZVJxd3N3Z0IrCnNrOGVHRnhoaW9yQXBNT2lnVnR4SnBEeVpIdmVuTkRTNXQyS281Qk9RUVZKVTllNUZueFlwQzd3V3dsUVRxNE8KMmlYL1VXYVdnOXdDdTF0NGFkT3RPdGRKCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K",
+    "KEYPASSWORD": "",
+    "LOGLEVEL": 1,
+    "MAXCONNECTIONSPERCLIENT": 32,
+    "MAXHTTPHEADERSIZE": 8192,
+    "MAXREQUESTSIZE": 1048576,
+    "MAXSESSIONS": 128,
+    "MIME": {
+        "bin": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/octet-stream"
+        },
+        "bmp": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "image/bmp"
+        },
+        "cer": {
+            "MIME_ENABLE_CACHE": false,
+            "MIME_ENABLE_CHUNKING": false,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/x-x509-ca-cert"
+        },
+        "config": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "text/xml"
+        },
+        "content": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "text/plain"
+        },
+        "css": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "text/css"
+        },
+        "dll": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/octet-stream"
+        },
+        "ear": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/java-archive"
+        },
+        "eot": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "vnd.ms-fontobject"
+        },
+        "exe": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/octet-stream"
+        },
+        "gif": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "image/gif"
+        },
+        "htm": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "text/html"
+        },
+        "html": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "text/html"
+        },
+        "ico": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "image/x-icon"
+        },
+        "img": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/octet-stream"
+        },
+        "iso": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/octet-stream"
+        },
+        "jar": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/java-archive"
+        },
+        "jpeg": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "image/jpeg"
+        },
+        "jpg": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "image/jpeg"
+        },
+        "js": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/javascript"
+        },
+        "json": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/json"
+        },
+        "jsonp": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/javascript"
+        },
+        "localization": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/json"
+        },
+        "lp": {
+            "MIME_ENABLE_CACHE": false,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "no-store",
+            "MIME_TYPE": "application/lp"
+        },
+        "lua": {
+            "MIME_ENABLE_CACHE": false,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "no-store",
+            "MIME_TYPE": "application/lua"
+        },
+        "map": {
+            "MIME_ENABLE_CACHE": false,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/json"
+        },
+        "mp3": {
+            "MIME_ENABLE_CACHE": false,
+            "MIME_ENABLE_CHUNKING": false,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "audio/mpeg"
+        },
+        "mp4": {
+            "MIME_ENABLE_CACHE": false,
+            "MIME_ENABLE_CHUNKING": false,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "video/mp4"
+        },
+        "ogg": {
+            "MIME_ENABLE_CACHE": false,
+            "MIME_ENABLE_CHUNKING": false,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "video/ogg"
+        },
+        "ogv": {
+            "MIME_ENABLE_CACHE": false,
+            "MIME_ENABLE_CHUNKING": false,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "video/ogg"
+        },
+        "otf": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/font-sfnt"
+        },
+        "pdf": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/pdf"
+        },
+        "pem": {
+            "MIME_ENABLE_CACHE": false,
+            "MIME_ENABLE_CHUNKING": false,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/x-pem-file"
+        },
+        "png": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "image/png"
+        },
+        "shtml": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "text/html"
+        },
+        "svg": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "image/svg+xml"
+        },
+        "theme": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/json"
+        },
+        "ttf": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/font-sfnt"
+        },
+        "txt": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "text/plain"
+        },
+        "usercontrol": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "text/plain"
+        },
+        "view": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "text/plain"
+        },
+        "war": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/java-archive"
+        },
+        "webm": {
+            "MIME_ENABLE_CACHE": false,
+            "MIME_ENABLE_CHUNKING": false,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "video/webm"
+        },
+        "woff": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/font-woff"
+        },
+        "xml": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": true,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "text/xml"
+        },
+        "zip": {
+            "MIME_ENABLE_CACHE": true,
+            "MIME_ENABLE_CHUNKING": true,
+            "MIME_ENABLE_GZIP": false,
+            "MIME_HTTP_HEADERS": "",
+            "MIME_TYPE": "application/zip"
+        }
+    },
+    "NETWORKADAPTER": "",
+    "PERMESSAGEDEFLATEENABLED": true,
+    "PLAINADMINISTRATIONENABLED": true,
+    "PROJECTNAME": "VisuTools",
+    "PROJECTVERSION": "1.0.0.0",
+    "REMOTEADMINISTRATIONENABLED": true,
+    "REMOTESERVERS": {},
+    "REMOTESERVERS_CERTIFICATES": [],
+    "REQUIREAUTH": 0,
+    "REVALIDATION": true,
+    "SELFSIGNEDROOTCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURxRENDQXBDZ0F3SUJBZ0lKQU0rWHVuYXU0TGxjTUEwR0NTcUdTSWIzRFFFQkN3VUFNRUV4Q3pBSkJnTlYKQkFZVEFrUkZNUnN3R1FZRFZRUUtEQkpVZDJsdVEwRlVJRWhOU1NCVFpYSjJaWEl4RlRBVEJnTlZCQU1NREU1RQpWekl3TVRaZmNtOXZkREFlRncweE9ERXhNVEl4TmpFNU1qaGFGdzB4T1RFeE1USXhOakU1TWpoYU1FRXhDekFKCkJnTlZCQVlUQWtSRk1Sc3dHUVlEVlFRS0RCSlVkMmx1UTBGVUlFaE5TU0JUWlhKMlpYSXhGVEFUQmdOVkJBTU0KREU1RVZ6SXdNVFpmY205dmREQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCQUxXSwpOdjF5ZWVaOExPbjVMNGhnWldKbnFYbVVSaUxTTG5jdVpOcUJtZUE2OCt1UFRwZXpnVU02MWY0S25PVm9wbTF0CjlJVTVsMlV3ZXpNZ3ZLaERzVHN4blNrT0Z6ZEdWeUdSTmo2RGQrc1IrU0gybG5rdDYvUHlzSkNrYXlQbWpmbGEKMmpkTjdPTUc3Mm01QmxBQUV4Rkt0REpNOE5uMU5VWFJkcXNBR2I2SnJaNEVCSEoyTHN1WVczUlo2YzdiZU56QQp4bmhHOGNxVVJHNmRIS3dOckRnd0EySU1qTXN4YUdMQzRRUHlRRHIxa3Q2RENmZXlFRVdHOHQ4SkN5djN2N0VYCkNualVML1ZZdmNIT2JBMSsvdTMrSmZjUml5c1R6T282T0c1M1dFaGF0QVhna3p2b08xaHJia1d2dWZSZFpiMFEKOEllMXRtUitueDRlcXNsZ0hOMENBd0VBQWFPQm9qQ0JuekJ0QmdOVkhSRUVaakJrZ2dsc2IyTmhiR2h2YzNTSApCSDhBQUFHSEVBQUFBQUFBQUFBQUFBQUFBQUFBQUFHQ0IwNUVWekl3TVRhQ0dFNUVWekl3TVRZdWFYTnBjeTVqClkyeHlZeTVoWXk1MWE0Y0Vndlk1U1ljUUFBQUFBQUFBQUFBQUFBQUFBQUFBQVljRWZ3QUFBVEFkQmdOVkhRNEUKRmdRVUJoYTQ2UWEyTWlsc2hORkhqd1R5MTJuT0ZJb3dEd1lEVlIwVEFRSC9CQVV3QXdFQi96QU5CZ2txaGtpRwo5dzBCQVFzRkFBT0NBUUVBbUVyMHpCTWxLdmVPRUpFTHF3dGJKSk5uNlh5UnZuVEFvYWpQZzh4bi80Wkp3U21OCmhoaTJTOTVSTVVtdERlRHNRb2xVdm9QR0RWKyt4VTdWVTRnQTdIeGR0ZmwzYnIyT3I5UEM1UVVBK09UcDZ0aHkKMGo5YVVCWW16d0NrTkxOMnhWa1VFdHhUeHd2Qk9FeElIeVdyV1RiVlp1ZGZIeHEzRVRRQ2RseTlxYjI4K2lzbwo2VmxmWldrYnBrYmNwZldwN0lORDBwaWdOU2IzRHZhQ2pDdlpWdjlHY2xZWmpPSHdZbk5halZ5VnlGVWtFNDR4ClVIeVNtMk5xcVNmaHIwd2hGZDNrRWhydjRGTlNYWkxldnRTeE9HQ0RpKzlIOGM0cGs3K1djZWl6RjVhTWlTcloKRGNYam9lUFZrWFlIMDlmY0pCYVgzTW5KTTJCK1RRVkh1UEozOWc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==",
+    "SELFSIGNEDROOTCAKEY": "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRRERFOWRabmdNejRPUjYKOENlL0hZVlQ4QkhuK3lCMTR2TVVuaUhMNDhLeDZtbXMvWHp3ZndqMktBUC84RnRxa094b1VueHR1MmlQZWo1bQpwNUFxaGhnam9DaUhHR2QwMkg4RHI3VUdONzNCdXozQ21ubHh3aFVLQm5vUDJhcEFPMWp5dWkzNTZoUnRWc2F3CkV1cE5mUlNvdFBXQU9UYzBxZTlBODg1YWQ4OCt1a1piTXRYM0pXMDlUaUszWWhQS0VULzRsR1Foc2V5Z2wvbnMKNEllQlVUMUZraUU5Zm5VZmZyUTIxb0hKMjZRNEFyUjBrMHVDNWhLUUpUSVdlbHB2VU5jdGN4TmF0VDh0dnNhcgpNNy9rKzFrV1MrQzVPc1lFeG9tQ0tFZnNONGM1NDQ5UEZOWGRRRlROZlhaUW9qb1RIdU1OamRydERQNldPUm5GCk1KbXBSa2dmQWdNQkFBRUNnZ0VCQUtVZStVeUkvR3NBTkVWL1hCVmY5b2dMRUEwTk92ZXVCMVZ2V0dvTnVySUEKR2p6c1A4SU50VmN1bmR3WTVqZzR2WEs4UjBoV3RuV2o0b2ZmMDU2NjdGblRhaHFYNUpJNTRxRUxMQzQ4Sm1tQwpoUTlnMCtVZmc5RjlrL293b3ZSRmg4L0ZHYitOakliVVNjK2w0eDk5L1d1ajZKNEZVQjVLclJLTWpDRjFnajJ6CjBodFpHbDF3NjdKTEgwM0lROEJvRW5KUnl3aWVzeUpSWEF4dTJ5Vk5La2RBZThHUmNSS2Q1S1JlbVZiZXRDTzYKVzVXUnNKM0VUbDh4WGJqMEUzT2k0SnNNUER6eDJPTU92azFOd2pqSlVlcU5CZTRiNWxrck1XcVF2bjJtM2Z1agpkSnRDamRmU01UcUV1bTJ4dUdYM2J2TUlmbTc3SUVxRVBaZUQ5cVdCMytFQ2dZRUE0a0JmZjVGUU5lUmJROHkyCnpDZVlveklZUTk5eGtPZzF0UW1idkhkYTNVNVVzVGd4a2hGWGlDb3dCRS9SUjJXT0xoU2RYanVvOXd5dUp4MDkKWnViM2grZE5VSm9zMzdFL09XQk9ZTXNkT2RIQlFZdnZ4RHc1OHJFbzZvWVU5Y1dxUHB4Z1QzOUZzSHhmTTRGcgpPNEliR0ZLbjluTEhJUmViNmVGODdsQUdicEVDZ1lFQTNMb25ERGRQSmpyZXNrdktiWHBlYkh2UXU3SE1ZUG43ClZtNEhXU1hxODA2WnNFUzlhSFlaSlhWTHRtNWVpc3NXYXRNUldpUUNYVU9EZGpzSzBxWUJ6VGE5UGZ5RlZsSlgKM2ZxQUVYMlBWK0Q0dXVYVC9nYk9ROXhmVmMwVHR2S0gwQlZTN2V3N1hYRjJ4UUxWLzdlTjVGVEdGdC9SL1UraAozdUxRTHd6RkE2OENnWUVBa2p6NWZRTDN6VjJrZjlZNThRdEc1WFRqcWpzcXRIYmkvL2tONkd0ZEY5NGhiOHJhCmY0Y21CS1VBRkVsakE3cm9nM0JmcHlENHZYWTh1cHR6cktkdEp6S2lEbzhZb2gxMnVDYy9nZURIS3pBZ3NiVTUKYktWZzd6VUROVk1sQ1JhU1M1WFh5b3FCQ09uYXZ2ZlB6ODd3cEhBSWtJcnZtcndmMHJRa2hBVEZvNEVDZ1lCcQo5NHVVei9qN2Zld09XOHh0NGErQXcwQVV0Y1ZsK2I5ajAwNmNWVlBYTlhBbGpDcCtSVDFLZWQySE8xVjF6WlcvCmp5b0psUW5RU0xlY3hHQXFWV2pxR216N2JUVHc4RmJFckhFRUNPVStvVGZvMnhneE12c2l4OWtycTRheVVqYWYKRUxadnR0dk9IUDZCMnkzNkR1b2tqVEN5UlNWdXJQaTFHeFhvdHplQzRRS0JnR1kyQWRydXNGNVViOFR4WTR2UgpoanlKSnFRdjhMSHpha3JmdGJ1VzZ3cXE5WlBrSlVDeUdEK0FydGVRUUxrdm5ER09temgyYTl5ZVJxd3N3Z0IrCnNrOGVHRnhoaW9yQXBNT2lnVnR4SnBEeVpIdmVuTkRTNXQyS281Qk9RUVZKVTllNUZueFlwQzd3V3dsUVRxNE8KMmlYL1VXYVdnOXdDdTF0NGFkT3RPdGRKCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K",
+    "SILENTCONFIGREPLACEMENTENABLED": true,
+    "SILENTUPDATEENABLED": true,
+    "SOCKET_TIMEOUT": "PT10S",
+    "SYMBOLS": {
+        "ADS.AdsSyncReadDeviceInfoReq": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "AdsSyncReadDeviceInfoReq",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "doc": "Ads runtime.",
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "ADS.AdsSyncReadReq": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "AdsSyncReadReq",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "IndexGroup": {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        "IndexOffset": {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        "ReadLen": {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        "Runtime": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Runtime",
+                        "IndexGroup",
+                        "ReadLen"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "ADS.AdsSyncReadStateReq": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "AdsSyncReadStateReq",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "doc": "Ads runtime.",
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "ADS.AdsSyncReadWriteReq": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "AdsSyncReadWriteReq",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "IndexGroup": {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        "IndexOffset": {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        "ReadLen": {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        "Runtime": {
+                            "type": "string"
+                        },
+                        "WriteData": {
+                            "format": "base64",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Runtime",
+                        "IndexGroup",
+                        "IndexOffset",
+                        "ReadLen",
+                        "WriteData"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "ADS.AdsSyncWriteControlReq": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "AdsSyncWriteControlReq",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "AdsState": {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        "DeviceState": {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        "Runtime": {
+                            "type": "string"
+                        },
+                        "WriteData": {
+                            "format": "base64",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Runtime",
+                        "AdsState",
+                        "DeviceState",
+                        "WriteData"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "ADS.AdsSyncWriteReq": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "AdsSyncWriteReq",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "IndexGroup": {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        "IndexOffset": {
+                            "$ref": "tchmi:general#/definitions/UINT32"
+                        },
+                        "Runtime": {
+                            "type": "string"
+                        },
+                        "WriteData": {
+                            "format": "base64",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Runtime",
+                        "IndexGroup",
+                        "IndexOffset",
+                        "WriteData"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "ADS.Config": {
+            "ACCESS": 0,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "Config",
+            "OPTIONS": {},
+            "SCHEMA": {},
+            "USEMAPPING": true
+        },
+        "ADS.Diagnostics": {
+            "ACCESS": 1,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "Diagnostics",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "runtimes": {
+                        "additionalProperties": {
+                            "properties": {
+                                "adsState": {
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "adsVersion": {
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "deviceName": {
+                                    "readOnly": true,
+                                    "type": "string"
+                                }
+                            },
+                            "readOnly": true,
+                            "type": "object"
+                        },
+                        "readOnly": true,
+                        "type": "object"
+                    }
+                },
+                "readOnly": true,
+                "transient": true,
+                "type": "object"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.GetDefinitions": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "GetDefinitions",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "ADS.GetSchema": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "GetSchema",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "ADS.ListCommonTypes": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "ListCommonTypes",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "ADS.ListRoutes": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "ListRoutes",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.ListSymbols": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "HIDDEN": true,
+            "MAPPING": "ListSymbols",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "AXES": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "HIDDEN": false,
+            "MAPPING": "PLC1::GVL::axes",
+            "OPTIONS": {
+                "comment": "Global array of axisControl structure for holding axis parameters and controls"
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ARRAY (1..8) OF ST_AxisControl"
+            },
+            "USEMAPPING": true
+        },
+        "AddSymbol": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "AddSymbol",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:server#/definitions/symbol"
+                        },
+                        {
+                            "properties": {
+                                "AUTOMAP": {
+                                    "doc": "Automatically obtain symbol information",
+                                    "type": "boolean"
+                                },
+                                "NAME": {
+                                    "doc": "Name of the symbol",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    ]
+                }
+            },
+            "USEMAPPING": true
+        },
+        "AddToConfiguration": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "AddToConfiguration",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "domain": {
+                            "doc": "Domain of the config value.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "doc": "Name of the configuration.",
+                            "type": "string"
+                        },
+                        "path": {
+                            "doc": "Path of the config value.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "domain",
+                        "path"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "ConfirmAlarm": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "ConfirmAlarm",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "$ref": "tchmi:server#/definitions/alarm"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "CreateEvent": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "CreateEvent",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "$ref": "tchmi:server#/definitions/event"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "Delete": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Delete",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "domain": {
+                            "doc": "Upload extension dll to remote filesystem.",
+                            "type": "string"
+                        },
+                        "fileName": {
+                            "doc": "Name of the file to delete.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "fileName"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "DeleteConfiguration": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "DeleteConfiguration",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "Diagnostics": {
+            "ACCESS": 1,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Diagnostics",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "additionalProperties": false,
+                "function": true,
+                "properties": {
+                    "ACCEPTEDSOCKETS": {
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "integer"
+                    },
+                    "ACTIVESESSIONS": {
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "integer"
+                    },
+                    "ACTIVESOCKETS": {
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "integer"
+                    },
+                    "ARCHITECTURE": {
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "string"
+                    },
+                    "DOTNETCOREVERSIONS": {
+                        "items": {
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "array"
+                    },
+                    "DOTNETVERSIONS": {
+                        "items": {
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "array"
+                    },
+                    "LICENSE": {
+                        "properties": {
+                            "CLIENTS": {
+                                "readOnly": true,
+                                "transient": true,
+                                "type": "integer"
+                            },
+                            "EXTENSIONS": {
+                                "readOnly": true,
+                                "transient": true,
+                                "type": "boolean"
+                            },
+                            "SERVERS": {
+                                "readOnly": true,
+                                "transient": true,
+                                "type": "integer"
+                            },
+                            "STATE": {
+                                "default": "Unregistered",
+                                "enum": [
+                                    "Error",
+                                    "Unregistered",
+                                    "Engineering",
+                                    "Demo",
+                                    "OK"
+                                ],
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "TARGETS": {
+                                "readOnly": true,
+                                "transient": true,
+                                "type": "integer"
+                            },
+                            "USEDCLIENTS": {
+                                "readOnly": true,
+                                "transient": true,
+                                "type": "integer"
+                            },
+                            "USEDSERVERS": {
+                                "readOnly": true,
+                                "transient": true,
+                                "type": "integer"
+                            },
+                            "USEDTARGETS": {
+                                "readOnly": true,
+                                "transient": true,
+                                "type": "integer"
+                            }
+                        },
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "object"
+                    },
+                    "MEMORYUSAGE": {
+                        "displayClass": "megabyte",
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "number"
+                    },
+                    "REMOTESERVERS": {
+                        "additionalProperties": {
+                            "properties": {
+                                "REMOTE_STATUS": {
+                                    "enum": [
+                                        "Disconnected",
+                                        "Connected",
+                                        "Upgraded",
+                                        "Error"
+                                    ],
+                                    "readOnly": true,
+                                    "transient": true,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "object"
+                    },
+                    "SERVERTIME": {
+                        "format": "date-time",
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "string"
+                    },
+                    "TRAFFICIN": {
+                        "displayClass": "byte",
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "number"
+                    },
+                    "TRAFFICOUT": {
+                        "displayClass": "byte",
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "number"
+                    },
+                    "UPTIME": {
+                        "format": "timespan",
+                        "readOnly": true,
+                        "transient": true,
+                        "type": "string"
+                    }
+                },
+                "readOnly": true,
+                "transient": true,
+                "type": "object"
+            },
+            "USEMAPPING": true
+        },
+        "ForceLogout": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "ForceLogout",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "anyOf": [
+                        {
+                            "doc": "User name",
+                            "type": "string"
+                        },
+                        {
+                            "doc": "All users",
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "USEMAPPING": true
+        },
+        "GetConfiguration": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "GetConfiguration",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "domain": {
+                            "type": "string"
+                        },
+                        "full": {
+                            "default": false,
+                            "type": "boolean"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "domain"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "GetCurrentUser": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "GetCurrentUser",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "domain": {
+                        "type": "string"
+                    },
+                    "groups": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "locale": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "session": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "USEMAPPING": true
+        },
+        "GetDefinitions": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "GetDefinitions",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "resolve": {
+                            "default": "MergeRefs",
+                            "enum": [
+                                "NoRefLink",
+                                "MergeRefs",
+                                "None"
+                            ],
+                            "type": "string"
+                        },
+                        "type": {
+                            "default": "general",
+                            "enum": [
+                                "server",
+                                "framework",
+                                "general",
+                                "project"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "GetSchema": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "GetSchema",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "resolve": {
+                            "default": "MergeRefs",
+                            "enum": [
+                                "AddRefs",
+                                "MergeRefs",
+                                "None"
+                            ],
+                            "type": "string"
+                        },
+                        "symbol": {
+                            "doc": "Name of the symbol.",
+                            "type": "string"
+                        },
+                        "type": {
+                            "default": "Read",
+                            "enum": [
+                                "Read",
+                                "Write"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "symbol"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "GetServerInformation": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "GetServerInformation",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "type": "object"
+            },
+            "USEMAPPING": true
+        },
+        "Import": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Import",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "IsAuthRequired": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "IsAuthRequired",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "type": "boolean"
+            },
+            "USEMAPPING": true
+        },
+        "ListConfigurations": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "ListConfigurations",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "USEMAPPING": true
+        },
+        "ListDomains": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "ListDomains",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "additionalProperties": {
+                    "properties": {
+                        "authExtension": {
+                            "doc": "Shows if extension can be used for user management.",
+                            "type": "boolean"
+                        },
+                        "extension": {
+                            "doc": "Name of the extension.",
+                            "type": "string"
+                        },
+                        "fileExtensions": {
+                            "doc": "List of supported file extensions.",
+                            "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "fileDescription": {
+                                        "doc": "Language variable describing the file extension.",
+                                        "type": "string"
+                                    },
+                                    "fileExtension": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "licensed": {
+                            "doc": "indicate the extension is license status",
+                            "type": "boolean"
+                        },
+                        "loaded": {
+                            "doc": "Shows if extension is currently active. TO BE REMOVED.",
+                            "type": "boolean"
+                        },
+                        "state": {
+                            "doc": "Shows the current state of the extension.",
+                            "enum": [
+                                "NotLoaded",
+                                "Loaded",
+                                "Initialized",
+                                "Invalid",
+                                "Disabled"
+                            ],
+                            "type": "string"
+                        },
+                        "updated": {
+                            "doc": "Shows last update time of the config.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "usesConfig": {
+                            "doc": "True if this domain is configurable.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "function": true,
+                "type": "object"
+            },
+            "USEMAPPING": true
+        },
+        "ListEvents": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "ListEvents",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "items": {
+                    "properties": {
+                        "alarm": {
+                            "$ref": "tchmi:server#/definitions/alarm"
+                        },
+                        "localizedText": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "type": "array",
+                "writeValue": {
+                    "$ref": "tchmi:server#/definitions/eventFilter"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "ListInternalSymbols": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "ListInternalSymbols",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "type": "object"
+            },
+            "USEMAPPING": true
+        },
+        "ListSymbolNames": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "ListSymbolNames",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "doc": "List of mapped symbolnames.",
+                "function": true,
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "USEMAPPING": true
+        },
+        "ListSymbols": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "ListSymbols",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "additionalProperties": {
+                    "$ref": "tchmi:server#/definitions/symbol"
+                },
+                "function": true,
+                "type": "object"
+            },
+            "USEMAPPING": true
+        },
+        "ListUserNames": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "ListUserNames",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "doc": "List of usernames.",
+                "function": true,
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "USEMAPPING": true
+        },
+        "ListUsers": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "ListUsers",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "items": {
+                    "doc": "List of all users and their permissions.",
+                    "properties": {
+                        "domain": {
+                            "type": "string"
+                        },
+                        "groups": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "type": "array"
+            },
+            "USEMAPPING": true
+        },
+        "LocalizeText": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "LocalizeText",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "doc": "The localized text.",
+                "function": true,
+                "type": "string",
+                "writeValue": {
+                    "oneOf": [
+                        {
+                            "$ref": "tchmi:server#/definitions/alarm"
+                        },
+                        {
+                            "$ref": "tchmi:server#/definitions/message"
+                        },
+                        {
+                            "doc": "Localizable object.",
+                            "properties": {
+                                "domain": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "params": {
+                                    "additionalProperties": {},
+                                    "type": "object"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "domain"
+                            ],
+                            "type": "object"
+                        }
+                    ]
+                }
+            },
+            "USEMAPPING": true
+        },
+        "Login": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Login",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "doc": "The SessionId of the logged in user.",
+                "function": true,
+                "type": "string",
+                "writeValue": {
+                    "properties": {
+                        "password": {
+                            "type": "string"
+                        },
+                        "persistent": {
+                            "default": true,
+                            "type": "boolean"
+                        },
+                        "userName": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "Logout": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Logout",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "MappingUsage": {
+            "ACCESS": 1,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "MappingUsage",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "additionalProperties": false,
+                "function": true,
+                "properties": {
+                    "load": {
+                        "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                                "blockBegin": {
+                                    "format": "date-time",
+                                    "type": "string"
+                                },
+                                "blockSize": {
+                                    "format": "timespan",
+                                    "type": "string"
+                                },
+                                "count": {
+                                    "type": "integer"
+                                },
+                                "subscriptionTickCount": {
+                                    "type": "integer"
+                                },
+                                "writeCount": {
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "array"
+                    },
+                    "loadLive": {
+                        "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                                "blockBegin": {
+                                    "format": "date-time",
+                                    "type": "string"
+                                },
+                                "blockSize": {
+                                    "format": "timespan",
+                                    "type": "string"
+                                },
+                                "count": {
+                                    "type": "integer"
+                                },
+                                "subscriptionTickCount": {
+                                    "type": "integer"
+                                },
+                                "writeCount": {
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "array"
+                    },
+                    "mappings": {
+                        "additionalProperties": {
+                            "count": {
+                                "type": "integer"
+                            },
+                            "distinctSubscriptionIntervals": {
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "type": "array"
+                            },
+                            "subscriptionTickCount": {
+                                "type": "integer"
+                            },
+                            "writeCount": {
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "metadata": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "recordingEnd": {
+                                "format": "date-time",
+                                "type": "string"
+                            },
+                            "recordingStart": {
+                                "format": "date-time",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "responsiveness": {
+                        "additionalProperties": {
+                            "mean": {
+                                "format": "timespan",
+                                "type": "string"
+                            },
+                            "standardDeviation": {
+                                "format": "timespan",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "readOnly": true,
+                "transient": true,
+                "type": "object",
+                "writeValue": {
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.axes.0.Axis.NcToPlc.ActPos": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "HIDDEN": false,
+            "MAPPING": "PLC1::GVL::axes[0]::Axis::NcToPlc::ActPos",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/LREAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.axisNumMax": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "HIDDEN": false,
+            "MAPPING": "PLC1::GVL::axisNumMax",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Limits.BwLimit": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "HIDDEN": false,
+            "MAPPING": "PLC1::Limits::BwLimit",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ARRAY (1..8) OF BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Limits.BwLimit.0": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "HIDDEN": false,
+            "MAPPING": "PLC1::Limits::BwLimit[0]",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Limits.FwLimit": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "HIDDEN": false,
+            "MAPPING": "PLC1::Limits::FwLimit",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ARRAY (1..8) OF BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Limits.FwLimit.0": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "HIDDEN": false,
+            "MAPPING": "PLC1::Limits::FwLimit[0]",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLCHMIAxisSelect": {
+            "ACCESS": 3,
+            "CUSTOMERDATA": "",
+            "DOMAIN": "ADS",
+            "HIDDEN": false,
+            "MAPPING": "PLC1::MAIN::hmiAxisSelect",
+            "OPTIONS": {
+                "comment": "HMI VARIABLES\t"
+            },
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UINT"
+            },
+            "USEMAPPING": true
+        },
+        "RefreshDefinitions": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "RefreshDefinitions",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "enum": [
+                        "framework",
+                        "project",
+                        "general"
+                    ],
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "Remove": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Remove",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "configuration": {
+                            "default": "default",
+                            "doc": "Configuration name.",
+                            "type": "string"
+                        },
+                        "domain": {
+                            "doc": "Extension domain.",
+                            "type": "string"
+                        },
+                        "path": {
+                            "doc": "Path to the entry.",
+                            "type": "string"
+                        },
+                        "value": {}
+                    },
+                    "required": [
+                        "path",
+                        "domain",
+                        "value"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "RemoveFromConfiguration": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "RemoveFromConfiguration",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "domain": {
+                            "doc": "Domain of the config value.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "doc": "Name of the configuration.",
+                            "type": "string"
+                        },
+                        "path": {
+                            "doc": "Path of the config value.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "domain",
+                        "path"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "RemoveUnusedDefinitions": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "RemoveUnusedDefinitions",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "Rename": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Rename",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "configuration": {
+                            "default": "default",
+                            "doc": "Configuration name.",
+                            "type": "string"
+                        },
+                        "domain": {
+                            "doc": "Extension domain.",
+                            "type": "string"
+                        },
+                        "new": {
+                            "doc": "Path to the new entry.",
+                            "type": "string"
+                        },
+                        "old": {
+                            "doc": "Path to the old entry.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "old",
+                        "new",
+                        "domain"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "RenameConfiguration": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "RenameConfiguration",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "new": {
+                            "type": "string"
+                        },
+                        "old": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "old",
+                        "new"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "Restart": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Restart",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "SetConfiguration": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "SetConfiguration",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "data": {},
+                        "domain": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "symbol": {
+                            "default": "",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "domain",
+                        "data"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "SetLocale": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "SetLocale",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "format": "locale",
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "Shutdown": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Shutdown",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "SubscribeEvents": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "SubscribeEvents",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "filter": {
+                            "$ref": "tchmi:server#/definitions/eventFilter"
+                        },
+                        "responseId": {
+                            "doc": "Id for the response.",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "responseId"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiEventLogger.Config": {
+            "ACCESS": 0,
+            "DOMAIN": "TcHmiEventLogger",
+            "HIDDEN": true,
+            "MAPPING": "Config",
+            "OPTIONS": {},
+            "SCHEMA": {},
+            "USEMAPPING": true
+        },
+        "TcHmiLua.Config": {
+            "ACCESS": 0,
+            "DOMAIN": "TcHmiLua",
+            "HIDDEN": true,
+            "MAPPING": "Config",
+            "OPTIONS": {},
+            "SCHEMA": {},
+            "USEMAPPING": true
+        },
+        "TcHmiSqliteHistorize.Config": {
+            "ACCESS": 0,
+            "DOMAIN": "TcHmiSqliteHistorize",
+            "HIDDEN": true,
+            "MAPPING": "Config",
+            "OPTIONS": {},
+            "SCHEMA": {},
+            "USEMAPPING": true
+        },
+        "TcHmiSqliteHistorize.GetTrendLineData": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSqliteHistorize",
+            "HIDDEN": true,
+            "MAPPING": "GetTrendLineData",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "axesData": {
+                        "doc": "Array with Subarray for each symbol.",
+                        "items": {
+                            "doc": "Data for symbol from DB.",
+                            "items": {
+                                "doc": "X and Y Values of historized data.",
+                                "properties": {
+                                    "error": {
+                                        "doc": "Error Code.",
+                                        "type": "number"
+                                    },
+                                    "flags": {
+                                        "doc": "Historize flags.",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "doc": "Timstamp from recording.",
+                                        "format": "date-time",
+                                        "type": "string"
+                                    },
+                                    "y": {
+                                        "doc": "Historized Value.",
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object",
+                "writeValue": {
+                    "properties": {
+                        "chartName": {
+                            "doc": "TrendChart Name.",
+                            "type": "string"
+                        },
+                        "displayWidth": {
+                            "type": "number"
+                        },
+                        "xAxisEnd": {
+                            "$ref": "tchmi:server#/definitions/stringTypeArray"
+                        },
+                        "xAxisStart": {
+                            "$ref": "tchmi:server#/definitions/stringTypeArray"
+                        },
+                        "yAxes": {
+                            "doc": "Array with Start and Width for each historized symbol.",
+                            "items": {
+                                "additionalProperties": false,
+                                "doc": "Information for one symbol.",
+                                "properties": {
+                                    "symbol": {
+                                        "doc": "Name of the symbol historized in DB.",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "symbol"
+                                ],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "chartName",
+                        "yAxes",
+                        "xAxisStart",
+                        "displayWidth"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiSqliteHistorize.GetTrendLineWindow": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSqliteHistorize",
+            "HIDDEN": true,
+            "MAPPING": "GetTrendLineWindow",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "properties": {
+                    "xAxisEnd": {
+                        "doc": "Timstamp from recording.",
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "xAxisStart": {
+                        "doc": "Timstamp from recording.",
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "writeValue": {
+                    "properties": {
+                        "chartName": {
+                            "doc": "TrendChart Name.",
+                            "type": "string"
+                        },
+                        "xAxisEnd": {
+                            "$ref": "tchmi:server#/definitions/stringTypeArray"
+                        },
+                        "xAxisStart": {
+                            "$ref": "tchmi:server#/definitions/stringTypeArray"
+                        },
+                        "yAxes": {
+                            "doc": "Array with Start and Width for each historized symbol.",
+                            "items": {
+                                "additionalProperties": false,
+                                "doc": "Information for one symbol.",
+                                "properties": {
+                                    "symbol": {
+                                        "doc": "Name of the symbol historized in DB.",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "symbol"
+                                ],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "chartName",
+                        "yAxes",
+                        "xAxisStart"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiSqliteHistorize.HistorizeData": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSqliteHistorize",
+            "HIDDEN": true,
+            "MAPPING": "HistorizeData",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiSqliteLogger.Clear": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSqliteLogger",
+            "HIDDEN": true,
+            "MAPPING": "Clear",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiSqliteLogger.Config": {
+            "ACCESS": 0,
+            "DOMAIN": "TcHmiSqliteLogger",
+            "HIDDEN": true,
+            "MAPPING": "Config",
+            "OPTIONS": {},
+            "SCHEMA": {},
+            "USEMAPPING": true
+        },
+        "TcHmiSqliteLogger.ListEvents": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSqliteLogger",
+            "HIDDEN": true,
+            "MAPPING": "ListEvents",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiSrv.Config": {
+            "ACCESS": 0,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Config",
+            "OPTIONS": {},
+            "SCHEMA": {},
+            "USEMAPPING": true
+        },
+        "TcHmiUserManagement.AddUser": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiUserManagement",
+            "HIDDEN": true,
+            "MAPPING": "AddUser",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "enabled": {
+                            "doc": "Indicates if the user can be used or not.",
+                            "type": "boolean"
+                        },
+                        "password": {
+                            "doc": "Password of the user. Only a hash will be stored.",
+                            "type": "string"
+                        },
+                        "userName": {
+                            "doc": "Name of the user.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "userName",
+                        "password"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiUserManagement.ChangePassword": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiUserManagement",
+            "HIDDEN": true,
+            "MAPPING": "ChangePassword",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "properties": {
+                        "currentPassword": {
+                            "type": "string"
+                        },
+                        "newPassword": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiUserManagement.Config": {
+            "ACCESS": 0,
+            "DOMAIN": "TcHmiUserManagement",
+            "HIDDEN": true,
+            "MAPPING": "Config",
+            "OPTIONS": {},
+            "SCHEMA": {},
+            "USEMAPPING": true
+        },
+        "TcHmiUserManagement.ListSymbols": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiUserManagement",
+            "HIDDEN": true,
+            "MAPPING": "ListSymbols",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiUserManagement.ListUsers": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiUserManagement",
+            "HIDDEN": true,
+            "MAPPING": "ListUsers",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "USEMAPPING": true
+        },
+        "TcHmiUserManagement.RemoveUser": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiUserManagement",
+            "HIDDEN": true,
+            "MAPPING": "RemoveUser",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "doc": "Name of the user.",
+                    "type": "string"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "Unsubscribe": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Unsubscribe",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "doc": "The requestId of a subscription.",
+                    "type": "integer"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "UnsubscribeEvents": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "UnsubscribeEvents",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "doc": "The requestId of a subscription.",
+                    "type": "integer"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "UpdateEventsSubscription": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "UpdateEventsSubscription",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "filter": {
+                            "$ref": "tchmi:server#/definitions/eventFilter"
+                        },
+                        "responseId": {
+                            "doc": "Id for the response.",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "responseId"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        },
+        "Upload": {
+            "ACCESS": 3,
+            "DOMAIN": "TcHmiSrv",
+            "HIDDEN": true,
+            "MAPPING": "Upload",
+            "OPTIONS": {},
+            "SCHEMA": {
+                "function": true,
+                "writeValue": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "checkSum": {
+                            "doc": "Checksum of the file as MD5 hexstring.",
+                            "type": "string"
+                        },
+                        "chunkType": {
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3
+                            ],
+                            "type": "integer"
+                        },
+                        "data": {
+                            "doc": "Data of the file.",
+                            "format": "base64",
+                            "type": "string"
+                        },
+                        "domain": {
+                            "doc": "Upload extension dll to remote filesystem.",
+                            "type": "string"
+                        },
+                        "fileName": {
+                            "doc": "Name of the file.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "fileName",
+                        "data"
+                    ],
+                    "type": "object"
+                }
+            },
+            "USEMAPPING": true
+        }
+    },
+    "TEMPDH": "",
+    "THREADPOOLSIZE": 8,
+    "UPDATEURI": "",
+    "UPLOADTIMEOUT": "PT5S",
+    "USERGROUPS": {
+        "__SystemAdministrators": {
+            "ENABLED": true,
+            "FILEACCESS": 3,
+            "FILES": {},
+            "SYMBOLACCESS": 3,
+            "SYMBOLS": {}
+        },
+        "__SystemGuests": {
+            "ENABLED": true,
+            "FILEACCESS": 0,
+            "FILES": {},
+            "SYMBOLACCESS": 0,
+            "SYMBOLS": {
+                "GetCurrentUser": 3,
+                "IsAuthRequired": 3,
+                "ListDomains": 3,
+                "ListUserNames": 3,
+                "Login": 3
+            }
+        },
+        "__SystemUsers": {
+            "ENABLED": true,
+            "FILEACCESS": 3,
+            "FILES": {
+                "/Config": 1
+            },
+            "SYMBOLACCESS": 0,
+            "SYMBOLS": {
+                "ConfirmAlarm": 3,
+                "CreateEvent": 3,
+                "Diagnostics": 3,
+                "GetCurrentUser": 3,
+                "GetDefinitions": 3,
+                "GetSchema": 3,
+                "IsAuthRequired": 3,
+                "ListDomains": 3,
+                "ListEvents": 3,
+                "ListUserNames": 3,
+                "LocalizeText": 3,
+                "Login": 3,
+                "Logout": 3,
+                "SetLocale": 3,
+                "SubscribeEvents": 3,
+                "TcHmiSqliteHistorize.GetTrendLineData": 3,
+                "TcHmiSqliteHistorize.GetTrendLineWindow": 3,
+                "TcHmiSqliteHistorize.HistorizeData": 3,
+                "TcHmiUserManagement.ChangePassword": 3,
+                "Unsubscribe": 3,
+                "UnsubscribeEvents": 3,
+                "UpdateEventsSubscription": 3
+            }
+        }
+    },
+    "USERGROUPUSERS": {
+        "TcHmiUserManagement": {
+            "__SystemAdministrator": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "P30D",
+                "USERGROUPUSERS_GROUPS": [
+                    "__SystemAdministrators"
+                ],
+                "USERGROUPUSERS_LOCALE": "en"
+            },
+            "__SystemGuest": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "P30D",
+                "USERGROUPUSERS_GROUPS": [
+                    "__SystemGuests"
+                ],
+                "USERGROUPUSERS_LOCALE": "en"
+            }
+        }
+    },
+    "USERSELECTTYPE": 0,
+    "VIDEOSEGMENTSIZE": 1048576,
+    "VIRTUALDIRECTORIES": {
+        "/": "..\\..\\VisuTools",
+        "/framework": "..\\..\\..\\..\\..\\..\\..\\TwinCAT\\Functions\\TE2000-HMI-Engineering\\Infrastructure\\TcHmiFramework\\1.10.1018.0"
+    }
+}

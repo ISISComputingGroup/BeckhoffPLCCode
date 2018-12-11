@@ -1,0 +1,12 @@
+﻿{
+  "controlTypeValues": {
+    "tchmi-button": {
+      "attributes": {
+        "BackgroundColor": null
+      },
+      "themedResources": {}
+    }
+  },
+  "controlClassValues": {},
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/ThemeDescription.Schema.json"
+}

@@ -1,0 +1,16 @@
+﻿<div id="UserControl1" data-tchmi-type="tchmi-user-control" 
+     data-tchmi-top="0" data-tchmi-left="0" 
+     data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%"
+     data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+
+<div id="TcHmiCheckbox_3" data-tchmi-type="tchmi-checkbox" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-is-enabled="True" data-tchmi-toggle-state="Normal" data-tchmi-state-symbol="%pp%axisControl::bEnable%/pp%">
+
+
+
+</div>
+
+<div id="TcHmiTextblock_4" data-tchmi-type="tchmi-textblock" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="60" data-tchmi-left-unit="px" data-tchmi-text="Enable" data-tchmi-top="25" data-tchmi-top-unit="px" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+</div>

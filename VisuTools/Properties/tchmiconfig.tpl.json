@@ -1,0 +1,76 @@
+﻿{
+  "$schema": "C:/TwinCAT/Functions/TE2000-HMI-Engineering/Infrastructure/TcHmiFramework/Latest/Schema/TchmiConfig.Schema.json",
+  "basePath": "./Libraries",
+  "locale": "en-US",
+  "scaleMode": "None",
+  "startupView": "Desktop.view",
+  "tcHmiServer": {
+    "websocketIntervalTime": 500,
+    "websocketTimeout": 5000
+  },
+  "activeTheme": "Base",
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Base.theme",
+          "description": "",
+          "type": "ThemedValues"
+        },
+        {
+          "name": "Themes/Base/Style.css",
+          "description": "",
+          "type": "Stylesheet"
+        }
+      ],
+      "replacesThemeForControls": []
+    }
+  },
+  "dependencyFiles": [
+    {
+      "name": "Fonts/Fonts.css",
+      "description": "",
+      "type": "Stylesheet"
+    }
+  ],
+  "userControls": [
+    {
+      "url": "axisControls.usercontrol"
+    }
+  ],
+  "content": [
+    {
+      "url": "Content Pages/singleAxis.content",
+      "preload": false
+    }
+  ],
+  "views": [
+    {
+      "url": "Desktop.view",
+      "preload": false
+    }
+  ],
+  "userFunctions": [],
+  "symbols": {
+    "internal": {
+      "iAxisSelect": {
+        "value": 0,
+        "type": "tchmi:general#/definitions/INT",
+        "persist": false,
+        "readonly": false
+      }
+    }
+  },
+  "trigger": [],
+  "actionTemplates": [],
+  "languages": {
+    "de-DE": "Localization\\de-DE.localization",
+    "en-US": "Localization\\en-US.localization"
+  },
+  "creatorSettings": {
+    "viewport": {
+      "defaultWidth": 1024,
+      "defaultHeight": 768
+    }
+  }
+}

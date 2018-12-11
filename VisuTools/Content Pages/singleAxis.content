@@ -1,0 +1,206 @@
+﻿<div id="Content_SingleAxis" data-tchmi-type="tchmi-content" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="650">
+
+<div id="Cont_Axis_Selection" data-tchmi-type="tchmi-container" data-tchmi-height="70" data-tchmi-height-unit="px" data-tchmi-left="670" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="120" data-tchmi-width-unit="px">
+
+<div id="TcHmiTextbox" data-tchmi-type="tchmi-textbox" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="40" data-tchmi-left-unit="px" data-tchmi-text="%f%(%i%iAxisSelect%/i%+1)%/f%" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-text-horizontal-alignment="Center">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+
+
+
+</div>
+
+<div id="TcHmiButton_4" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="80" data-tchmi-left-unit="px"  data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-icon="Imports/Images/icons_next_pressed.svg" data-tchmi-icon-width="30" data-tchmi-icon-height="30">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_4.onMouseClick",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%iAxisSelect%/i%"
+            },
+            "compare2": {
+              "objectType": "FunctionExpression",
+              "functionExpression": "%s%PLC1.GVL.axisNumMax%/s%-1"
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%i%iAxisSelect%/i%",
+            "valueType": "tchmi:general#/definitions/INT",
+            "value": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%iAxisSelect%/i%"
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%i%iAxisSelect%/i%",
+            "valueType": "tchmi:general#/definitions/INT",
+            "value": {
+              "objectType": "FunctionExpression",
+              "functionExpression": "%i%iAxisSelect%/i%+1"
+            },
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-icon-padding" type="application/json">
+{
+  "left": 0,
+  "right": 0,
+  "top": 0,
+  "bottom": 0,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+</div>
+
+<div id="TcHmiButton_5" data-tchmi-type="tchmi-button" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px"  data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px" data-tchmi-word-wrap="True"  data-tchmi-icon="Imports/Images/icons_previous_pressed.svg" data-tchmi-icon-width="30" data-tchmi-icon-height="30">
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_5.onMouseClick",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "expressions": [
+          {
+            "compare1": {
+              "objectType": "Symbol",
+              "symbolExpression": "%i%iAxisSelect%/i%"
+            },
+            "compare2": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/INT",
+              "value": 0
+            },
+            "compareOperator": "==",
+            "logic": null
+          }
+        ],
+        "true": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%i%iAxisSelect%/i%",
+            "valueType": "tchmi:general#/definitions/INT",
+            "value": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/INT",
+              "value": 0
+            },
+            "asyncWait": true
+          }
+        ],
+        "false": [
+          {
+            "objectType": "WriteToSymbol",
+            "active": true,
+            "symbolExpression": "%i%iAxisSelect%/i%",
+            "valueType": "tchmi:general#/definitions/INT",
+            "value": {
+              "objectType": "FunctionExpression",
+              "functionExpression": "%i%iAxisSelect%/i%-1"
+            },
+            "asyncWait": true
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+<div id="TcHmiTextblock" data-tchmi-type="tchmi-textblock" data-tchmi-height="25" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-text="Axis Selection" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="110" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="18">
+
+</div>
+
+</div>
+
+
+
+<div id="UserControl1_1" data-tchmi-type="tchmi-user-control-host" data-tchmi-height="149" data-tchmi-height-unit="px" data-tchmi-index="1" data-tchmi-left="144" data-tchmi-left-unit="px" data-tchmi-target-user-control="axisControls.usercontrol" data-tchmi-top="255" data-tchmi-top-unit="px" data-tchmi-width="342" data-tchmi-width-unit="px">
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%i%iAxisSelect%/i%",
+    "actions": [
+      {
+        "objectType": "RemoveBinding",
+        "active": true,
+        "target": {
+          "objectType": "ControlAttributeBindingTarget",
+          "attributeExpression": "%ctrl%UserControl1_1::axisControl%/ctrl%"
+        },
+        "asyncWait": true
+      },
+      {
+        "objectType": "JavaScript",
+        "active": true,
+        "sourceLines": [
+          "var start = '%s%AXES[';",
+          "\nvar middle = TcHmi.Symbol.readEx('%i%iAxisSelect%/i%');",
+          "\nvar end = ']%/s%';",
+          "\nvar res = start.concat(middle,end);",
+          "\n",
+          "\nvar myControl = TcHmi.Controls.get('UserControl1_1');",
+          "\nTcHmi.Binding.createEx2(res, 'axisControl', myControl);",
+          "\n"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      }
+    ]
+  }
+]
+</script>
+</div>
+
+
+
+</div>
