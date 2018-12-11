@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <DUT Name="ST_MasterAxis" Id="{14b8b990-f919-41af-832a-7d1ca130ac78}">
+    <Declaration><![CDATA[(*
+	Strucure to hold master axes information for the GearInMultiMaster command
+*)
+TYPE ST_MasterAxis :
+STRUCT
+	i		:	UINT:=1;	//Master axis index
+	ratio	:	LREAL;		//Gearing Ratio
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

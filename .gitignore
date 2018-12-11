@@ -11,6 +11,7 @@ Thumbs.db
 *.ncb
 *.suo
 *.sln.docstates
+*.sln
 *.tlb
 *.tlh
 *.bak
@@ -21,12 +22,18 @@ Thumbs.db
 [Dd]ebug*/
 *.lib
 *.sbr
+*.tclrs
 obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
 *.vssscc
 $tf*/
-*.compiled-library
+
 *.~u
 *.compileinfo
+.idea/
+*.compiled-library
+*.csv
+_Libraries/
+VisuTools/

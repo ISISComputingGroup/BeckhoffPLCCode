@@ -40,10 +40,10 @@
             <d n="FbMethods" t="CaseInsensitiveHashtable" ckt="String" cvt="Guid">
               <v>FB_Init</v>
               <v>a37678ce-31a4-41f1-a9e5-e5ecc76d8c0d</v>
-              <v>FB_Reinit</v>
-              <v>26eaeedc-45d8-4eec-a95f-fbb46f91c995</v>
               <v>FB_Exit</v>
               <v>ce4d8f74-172e-4902-bd95-7b68c7f1bc60</v>
+              <v>FB_Reinit</v>
+              <v>26eaeedc-45d8-4eec-a95f-fbb46f91c995</v>
             </d>
             <v n="FbName">"__VisuInitInstantiation_Fb"</v>
             <v n="FbGuid">{06084cc4-883a-4802-89bc-f0b7db6a0c0c}</v>
@@ -461,20 +461,22 @@
             <d n="FbMethods" t="CaseInsensitiveHashtable" ckt="String" cvt="Guid">
               <v>ExecuteLooseCapture</v>
               <v>56430561-1acd-40d7-bbfd-5778ea7f1bf6</v>
+              <v>ExecuteMouseUp</v>
+              <v>071647af-c2aa-41ab-81ae-0fe753a176ab</v>
               <v>Init</v>
               <v>23032386-bc72-49fa-ab91-d991fcc5399a</v>
               <v>FB_Exit</v>
               <v>08cb51d3-5a40-47ca-bac4-fe96f8f6657c</v>
               <v>ExecuteMouseDblClick</v>
               <v>cae10d61-5ed2-49f6-9b46-741efe684f27</v>
-              <v>ExecuteMouseDown</v>
-              <v>d1ccada6-d306-47a1-a86d-90272622d0e9</v>
-              <v>ExecuteMouseUp</v>
-              <v>071647af-c2aa-41ab-81ae-0fe753a176ab</v>
-              <v>FB_Reinit</v>
-              <v>7f2d9509-0c90-493e-8540-26e4a5c58ecb</v>
               <v>GetElementInfo</v>
               <v>f82cfa28-d226-4970-8e7d-5392e67a7c33</v>
+              <v>ExecuteMouseDown</v>
+              <v>d1ccada6-d306-47a1-a86d-90272622d0e9</v>
+              <v>FB_Reinit</v>
+              <v>7f2d9509-0c90-493e-8540-26e4a5c58ecb</v>
+              <v>Initialize</v>
+              <v>c808d543-746f-47af-901e-b3fd71b7144a</v>
               <v>ExecuteMouseMove</v>
               <v>b190e8f4-f7cb-47d4-8ce7-32b2cf20f037</v>
               <v>ExecuteDialogClosed</v>
@@ -485,8 +487,6 @@
               <v>0f75f43b-0413-4f71-91ba-f60e9ce79b62</v>
               <v>abstrGetDefaultCursor</v>
               <v>b6be64ce-5e0a-4543-a94a-0641edff954c</v>
-              <v>Initialize</v>
-              <v>c808d543-746f-47af-901e-b3fd71b7144a</v>
               <v>ExecuteMouseEnter</v>
               <v>969d889d-c48c-4a71-9215-a01445d48353</v>
               <v>ExecuteMouseLeave</v>
@@ -499,7 +499,19 @@
             <v n="FbName">"NotImportant"</v>
             <v n="FbGuid">{f7846ce2-eb7a-4d4a-a57b-4c063de7a315}</v>
           </o>
-          <n n="InstantiationStorage" />
+          <o n="InstantiationStorage" t="VisualizationInstantiationStorage">
+            <a n="Data" et="VisualizationInstantiationExplicitEntry" />
+            <o n="Ids" t="IdCalculationHelper">
+              <v n="IdMin">549756862464L</v>
+              <v n="IdMax">618475290623L</v>
+              <v n="Id">549756862464L</v>
+              <v n="IdMask">618474242048L</v>
+              <v n="IdStep">1048576L</v>
+            </o>
+            <o n="DefaultHandling" t="VisualizationClientReferencesSet">
+              <d2 n="Data" />
+            </o>
+          </o>
           <n n="VisuUserManagement" />
           <v n="UseLocalUserMgmt">true</v>
           <v n="UseUserMgmtInPlc">true</v>
@@ -549,10 +561,14 @@
         <Type n="GenericFbDescription">{40d6dd8d-dfd0-493a-8e29-c9a35e1e6539}</Type>
         <Type n="Guid">System.Guid</Type>
         <Type n="HotkeyConfiguration">{6b108d46-58af-4e41-a3f4-174d8f160cc4}</Type>
+        <Type n="IdCalculationHelper">{2e25ebe8-bd76-4922-82a8-9e4b7ca5f741}</Type>
         <Type n="Int32">System.Int32</Type>
         <Type n="Int64">System.Int64</Type>
         <Type n="String">System.String</Type>
         <Type n="VisualClientSizeMode">{c37fe731-4f69-4d98-82fe-4f9aefbe200d}</Type>
+        <Type n="VisualizationClientReferencesSet">{f348a7f0-9602-490e-8c1b-295c0602e7a6}</Type>
+        <Type n="VisualizationInstantiationExplicitEntry">{28102c5e-89a3-48b7-8c0c-c747111b6ab8}</Type>
+        <Type n="VisualizationInstantiationStorage">{c09fe9ce-40ed-4120-834d-355161aee99b}</Type>
         <Type n="VisualizationTargetProperties">{997fedbb-1888-4256-b61c-2933d8056bfd}</Type>
         <Type n="VisualManagerObject">{4d3fdb8f-ab50-4c35-9d3a-d4bb9bb9a628}</Type>
         <Type n="VisualManagerViewSettings">{ec9b2ec6-92a2-4856-be72-7866fb274c64}</Type>

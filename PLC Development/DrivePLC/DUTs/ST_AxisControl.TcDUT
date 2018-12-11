@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <DUT Name="ST_AxisControl" Id="{07f0d91d-99a7-4d94-ba45-f0716edb872f}">
+    <Declaration><![CDATA[{attribute 'OPC.UA.DA' := '1'}
+TYPE ST_AxisControl :
+STRUCT
+	//OPC UA functionality not implemented yet
+	(*For a list of parameters required to operate each motion control funciton block
+	see the DUT eMcCommand*)
+	
+	bExecute			:	BOOL;			//Rising edge to execute command
+	bReset				:	BOOL;			//Reset axis signal, must be combined with other signals
+	eCommand			:	eMcCommand;		//Motion command for axis
+	bEnable				: 	BOOL;			//Controller enable
+	fOverride			:	LREAL;			//Controller override %
+	fVelocity			:	LREAL;			//Velocity must be specified, no default used
+	fAcceleration		:	LREAL;			//Not all FBs use, need to change this, 0 is NC default
+	fDeceleration		:	LREAL;			//Not all FBs use, need to change this, 0 is NC default
+	fDistance			:	LREAL;			//Used for relative positioning
+	fPosition			:	LREAL;			//Used for absolute positioning	
+	bJogForward			:	BOOL;			//Jog forward
+	bJogBackward		:	BOOL;			//Jog backward
+	
+	bInput				:	BOOL;			//Generic input that is utilised to control some functionality
+	
+	bSoftLimPosEn		:	BOOL;			//Enable/disable positive direction software limit
+	bSoftLimNegEn		:	BOOL;			//Enable/disable negative direction software limit
+	bPosLagEn			:	BOOL;			//Enable/disable position lag
+	
+	//Gearing parameters
+	masterAxis			:	UINT:=1;						//Axes[ ] index for master		- GearIn
+	fGearRatioNum		:	LREAL;							//GearIn ratio numerator
+	iGearRatioDen		:	UINT;							//GearIn ratio denominator
+	masterAxes			:	ARRAY[1..4] OF ST_MasterAxis;	//ST to hold index and ratio for masters 	- GearInMultiMaster
+	
+	//NC Parameters	
+	iParameterIndex		:	INT;					//Index for checking parameters
+	fParameterValue		:	LREAL;					//Holder for assigning new values
+	fParameters			:	ARRAY [1..17] OF LREAL;	//Array to hold NC parameters
+	
+	//MISC
+	sAxisName			:	STRING;					//User set name string for axis
+	sAxisDesc			:	STRING;					//User set description string for axis
+	
+	//Outputs
+	bFwEnabled			:	BOOL;					//Positive movement of axis is enabled/disabled
+	bBwEnabled			:	BOOL;					//Negative movement of axis is enabled/disabled
+	bAxisReady			:	BOOL;					//Output of McPower block	
+	bError				:	BOOL;					//Motion function block has produced error (NC drive not necessarily in error state)
+	iErrorID			:	UDINT;					//Motion function block errorID				
+	bBusy				:	BOOL;					//Axis busy
+	bMoving				:	BOOL;					//Axis moving					
+	bDone				:	BOOL;					//Last function block executed successfully			
+	
+	iAxisState			:	UINT;					//PLC Open NC statemachine, int assigned to individual NC bool state outputs
+	(*	100 - Disabled
+		200 - Standstill
+		300 - Homing
+		400 - Discrete Motion
+		500 - Synchronized Motion
+		600 - Continuous Motion
+		700 - Stopping
+		999 - Error
+	*)
+	
+	buffer				:	MC_BufferMode;							//Placeholder - Not currently used
+	
+	//Homing
+	fHomeVelocity		:	LREAL	:=1;							//Homing routine velocity 							- initialised for testing purposes
+	fHomeTorque			:	LREAL;									//Homing torque limit (not all drives support this)
+	fHomePosition		:	LREAL;									//Position set at NC when homing step finished
+	fHomeDistance		:	LREAL;									//Relative distance to move after homing
+	tHomeTimeLimit		:	TIME:=T#60S;							//Homing timeout limit, FB errors is exceeded 		- initialised for testing purposes
+	fHomeDistanceLimit	:	LREAL:=2000;							//Homing distance limit, FB errors if exceeded 		- initialised for testing purposes
+	
+	MCHomeDirection		:	MC_Home_Direction:=	mcSwitchPositive;	//init for testing purposes
+	(*	Direction to begin homing. Not all are compatible with every advanced homing step
+		mcPositiveDirection	-	always start positive
+		mcNegativeDirection	-	always start negative
+		mcSwitchPositive	-	start positive unless already on the switch
+		mcSwitchNegative	-	start negative unless already on the switch
+		
+	*)
+	
+
+	MCSwitchMode		:	MC_Switch_Mode:= mcRisingEdge;			//init for testing purposes
+	(* Switch detection behaviour, I am not entirely convinced these are all working as they are meant to, further work required. Not all detection methods work with every 
+	step either so they have to be updated.
+		mcOn
+		mcOff
+		mcRisingEdge
+		mcFallingEdge
+		mcEdgeSwitchPositive
+		mcEdgeSwitchNegative
+		mcRisingEdgeInverse
+		mcFallingEdgeInverse	
+	*)
+
+	MCSignalRef			:	MC_Ref_Signal_Ref;						//In structure for testing purposes so I can simulate level of signal without hardware
+	(*Further investigation required on how exactly this MCSignalRef works, it seems to contain signalsource, touch probe and level signals,
+	my current understanding is that with physical hardware connected the MCSignalRef signal source should default to the NC hardware so nothing has to be linked
+	for the encoder index, however the source may need to be changed for the absSwitch homing which would just require an additional line of code in the driveFB step command
+	I also do not have any bool available for linking an absolute switch to an axis at the moment
+
+		SignalSource : E_SignalSource := SignalSource_Default;
+		TouchProbe : E_TouchProbe := PlcEvent;
+		Level : BOOL;
+
+	*)
+
+	{attribute 'OPC.UA.DA' := '0'}
+	Axis				:	AXIS_REF;		//Link NC axis to this
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

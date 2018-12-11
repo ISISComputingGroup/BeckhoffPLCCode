@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <DUT Name="eMcCommand" Id="{bef8e4cd-5cf5-484c-bcaa-1cbb0d667fba}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE eMcCommand :
+(
+	(*
+		Only those with listed inputs have been implemented, the rest are placeholders to be added 
+		To utilise a listed command you must give the ST_AxisControl the listed inputs, the drive function block will latch on a command until it is complete or errors 
+		and the bExecute signal will be automatically set FALSE on every cycle
+	*)
+	
+	Idle,					//Internal idle command, 	Inputs	:	NONE
+	Reset,					//Reset NC axis,			Inputs	:	bReset
+	ReadAxisError,
+	WriteParameter,			//Write to NC parameters,	Inputs	:	bExecute	iParameterIndex		fParameterValue
+	WriteBoolParameter,		//Write to NC parameters,	Inputs	:	bExecute	iParameterIndex		bInput
+
+	ReadActualPosition,
+	ReadActualVelocity,
+
+	
+	SetPosition,			//Set NC axis position,		Inputs	:	bExecute	fPosition			
+	SetOverride,
+	TouchProbe,
+	
+	AbortTrigger,
+	AbortSuperposition,
+	CamTableSelect,
+	
+	Home,
+	Jog,					//Jog the axis,				Inputs	:	bJogForward		bJogBackward
+	Stop,					//Stop axis motion,			Inputs	:	bExecute	fDeceleration
+	Halt,
+	MoveAbsolute,			//Absolute move,			Inputs	:	bExecute	fPosition	fVelocity	fAcceleration	fDeceleration
+	MoveRelative,			//Relative move,			Inputs	:	bExecute	fDistance	fVelocity	fAcceleration	fDeceleration
+	MoveAdditive,
+	MoveSuperimposed,
+	MoveVelocity,			//Velocity move,			Inputs	:	bExecute	fVelocity	fAcceleration	fDeceleration
+	MoveContinuousAbs,
+	MoveContinuousRel,
+	MoveModulo,
+	
+	GearIn,					//Single master gear in,	Inputs	:	bExecute	fGearRatioNum	iGearRatioDen	masterAxis
+	GearInDyn,
+	GearInMultiMaster,		//Multi master gear in,		Inputs	:	bExecute	fGearRatio1		fGearRatio2		fGearRatio3		fGearRatio4		masterAxis1		masterAxis2		masterAxis3		masterAxis4
+	GearOut,				//Release gearing,			Inputs	:	bExecute	
+	HaltPhasing,
+	PhasingAbsolute,
+	PhasingRelative,
+	CamIn,
+	CamOut,
+	CamScaling,
+	CamAdd,
+	CamExchange,
+	CamInV2,
+	CamRemove,
+	CamScalingV2,
+	
+	//HOMING		Those marked with * have had values initialised and don't need to be input (but can be)
+	HomeFinish,				//Finish homing routin,		Inputs	:	bExecute	fHomeDistance	fHomeVelocity
+	HomeDirect,
+	HomeAbort,
+	HomeStepAbsoluteSwitch,	//Homing step,				Inputs	:	bExecute	MCHomeDirection*	mcSwitchMode*	mcSignalRef*	fHomeVelocity*	fHomeTorque		fHomePosition	tHomeTimeLimit*		fHomeDistanceLimit*		buffer*
+	HomeStepBlock,
+	HomeStepBlockLagBased,
+	HomeStepLimitSwitch,
+	HomeStepReferencePulse
+	
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

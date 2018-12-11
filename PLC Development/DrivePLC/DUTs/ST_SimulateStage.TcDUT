@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <DUT Name="ST_SimulateStage" Id="{6214c77d-9798-421f-aa02-599b6aa5364b}">
+    <Declaration><![CDATA[TYPE ST_SimulateStage :
+STRUCT
+	//High and low limits for simulating axes
+	fHighLim	:	LREAL	:=10;
+	fLowLim		:	LREAL	:=-10;
+	fHighAbs	:	LREAL	:=1;
+	fLowAbs		:	LREAL	:=-1;
+	absSw		:	BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

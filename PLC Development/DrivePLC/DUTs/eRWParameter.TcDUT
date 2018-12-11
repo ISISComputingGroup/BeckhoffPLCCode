@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <DUT Name="eRWParameter" Id="{c447df6e-eb2d-45c9-864d-804940e7dc5d}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE eRWParameter :
+(
+	CommandedPosition 		:= 1,	//REAL		R	- Commanded position
+	SWLimitPos				:= 2,	//REAL		R/W	- Positive Software limit switch position
+	SWLimitNeg				:= 3,	//REAL		R/W	- Negative Software limit switch position
+	EnableLimitPos			:= 4,	//BOOL		R/W	- Enable positive software limit switch
+	EnableLimitNeg			:= 5, 	//BOOL		R/W	- Enable negative software limit switch
+	EnablePosLagMonitoring	:= 6,	//BOOL		R/W	- Enable monitoring of position lag
+	MaxPositionLag			:= 7,	//REAL		R/W	- Maximal position lag
+	MaxVelocitySystem		:= 8,	//REAL		R	- Maximal allowed velocity of the axis in the motion system
+	MaxVelocityAppl			:= 9,	//REAL		R/W	- Maximal allowed velocity of the axis in the application
+	ActualVelocity			:= 10,	//REAL		R	- Actual velocity
+	CommandedVelocity		:= 11,	//REAL		R	- Commanded velocity
+	MaxAccelerationSystem	:= 12,	//REAL		R	- Maximal allowed acceleration of the axis in the motion system
+	MaxAccelerationAppl		:= 13,	//REAL		R/W	- Maximal allowed acceleration of the axis in the application
+	MaxDecelerationSystem	:= 14,	//REAL		R	- Maximal allowed deceleration of the axis in the motion system
+	MaxDecelerationAppl		:= 15,	//REAL		R/W	- Maximal allowed deceleration of the axis in the application
+	MaxJerkSystem			:= 16,	//REAL		R	- Maximum allowed jerk of the axis in the motion system
+	MaxJerkAppl				:= 17	//REAL		R/W	- Maximum allowed jerk of the axis in the application
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
