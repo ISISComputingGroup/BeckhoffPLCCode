@@ -185,7 +185,7 @@ Simulate axes if bool set TRUE
 FOR i:=1 TO GVL.axisNumMax BY 1 DO
 	IF bSimulate[i] THEN
 		simulateStage(position:=GVL.axes[i].Axis.NcToPlc.ActPos, iAxis:=i, simulated:=simulated[i]);
-		GVL.axes[i].MCSignalRef.Level:=simulated[i].absSw;
+		GVL.axes[i].bAbsSw:=simulated[i].absSw;
 	END_IF
 END_FOR
 ]]></ST>

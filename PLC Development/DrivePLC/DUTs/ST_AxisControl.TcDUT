@@ -8,6 +8,8 @@ STRUCT
 	(*For a list of parameters required to operate each motion control funciton block
 	see the DUT eMcCommand*)
 	
+	bAbsSw				AT 	%I*	: BOOL;		//Absolute home switch
+	
 	bExecute			:	BOOL;			//Rising edge to execute command
 	bReset				:	BOOL;			//Reset axis signal, must be combined with other signals
 	eCommand			:	eMcCommand;		//Motion command for axis

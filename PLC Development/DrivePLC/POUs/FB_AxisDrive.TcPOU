@@ -106,8 +106,8 @@ these have been added just as a placeholder for future support.
 	MCStepAbsoluteSwitch	:	MC_StepAbsoluteSwitch;
 	//MCStepBlock			:	MC_StepBlock;
 	//MCStepBlockLagBased	:	MC_StepBlockLagBased;
-	//MCStepLimitSwitch		:	MC_StepLimitSwitch;
-	//MCStepReferencePulse	:	MC_StepReferencePulse;
+	MCStepLimitSwitch		:	MC_StepLimitSwitch;
+	MCStepReferencePulse	:	MC_StepReferencePulse;
 	
 	
 	(* Additional variable structures required for Advanced Homing *)
@@ -320,6 +320,12 @@ MCJog.JogForward:=FALSE;
 
 MCStepAbsoluteSwitch(Axis:=AxisController.Axis,Parameter:=MCHomingParameter);
 MCStepAbsoluteSwitch.Execute:=FALSE;
+
+MCStepLimitSwitch(Axis:=AxisController.Axis,Parameter:=MCHomingParameter);
+MCStepLimitSwitch.Execute:=FALSE;
+
+MCStepReferencePulse(Axis:=AxisController.Axis,Parameter:=MCHomingParameter);
+MCStepReferencePulse.Execute:=FALSE;
 
 MCFinishHoming(Axis:=AxisController.Axis,Parameter:=MCHomingParameter);
 MCFinishHoming.Execute:=FALSE;
@@ -584,6 +590,8 @@ CASE eCommandLatched OF
 	eMcCommand.HomeStepAbsoluteSwitch:
 		//Issue: If execute not held high the function will not reverse on its own to find the abs switch when hitting a limit
 		//You have to reissue the command. I want to try and keep bExecute high
+		AxisController.MCSignalRef.Level:=AxisController.bAbsSw;
+		
 		IF (NOT Limits.FwLimit[GVL.iAxis]) OR (NOT Limits.BwLimit[GVL.iAxis]) THEN
 			MCStepAbsoluteSwitch.Execute:=TRUE;
 		ELSE	
@@ -617,7 +625,77 @@ CASE eCommandLatched OF
 		IF NOT MCStepAbsoluteSwitch.Busy THEN
 			eCommandLatched:=eMcCommand.Idle;
 		END_IF
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	eMcCommand.HomeStepLimitSwitch:
+		//TESTING SPACE FOR SIGNAL REF, OPTIONS, AND SWITCH MODE
+		//AxisController.MCHomeDirection:=mcNegativeDirection;
+		MCPower.Enable_Negative:=TRUE;
+		MCPower.Enable_Positive:=TRUE;
+		MCPower(Axis:=AxisController.Axis);
+		AxisController.MCHomeDirection:= mcPositiveDirection;
+		StOptions4.DisableDriveAccess:=TRUE;
+		AxisController.MCSwitchMode;
+		AxisController.MCSignalRef.SignalSource;
+		AxisController.MCSignalRef.Level:= NOT(FwLimitsEnabled AND BwLimitsEnabled);
+		AxisController.MCSignalRef.TouchProbe;
+		/////////////////////////////
+	
+		MCStepLimitSwitch.Execute:= AxisController.bExecute;
+		MCStepLimitSwitch.Direction:= AxisController.MCHomeDirection;
+		MCStepLimitSwitch.LimitSwitchMode:=AxisController.MCSwitchMode;
+		MCStepLimitSwitch.LimitSwitchSignal:=AxisController.MCSignalRef;
+		MCStepLimitSwitch.Velocity:=AxisController.fHomeVelocity;
+		MCStepLimitSwitch.Acceleration:=0;
+		MCStepLimitSwitch.Deceleration:=0;
+		MCStepLimitSwitch.Jerk:=0;
+		MCStepLimitSwitch.SetPosition:=AxisController.fHomePosition;
+		MCStepLimitSwitch.TimeLimit:=AxisController.tHomeTimeLimit;
+		MCStepLimitSwitch.DistanceLimit:=AxisController.fHomeDistanceLimit;
+		MCStepLimitSwitch.Options:=StOptions4;
+		
+		bDone:=MCStepLimitSwitch.Done;
+		AxisController.bBusy:=MCStepLimitSwitch.Busy;
+		
+		IF MCStepLimitSwitch.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:= MCStepLimitSwitch.ErrorID;
+		END_IF
+		IF NOT MCStepLimitSwitch.Busy THEN
+			eCommandLatched:=eMcCommand.Idle;
+		END_IF
+		
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	eMcCommand.HomeStepReferencePulse:
+	
+		//DEFINITELY GOING TO WANT MULTIPLE MC_Ref_Signal_Ref structures for each home step type, ie an Abs hardware one, limit one, reference pulse one.
+		AxisController.MCHomeDirection:=mcPositiveDirection;
+		AxisController.MCSignalRef.Level:=AxisController.bAbsSw; //CHANGE TO ENCODER HARDWARE
+		
+	
+		MCStepReferencePulse.Execute:=AxisController.bExecute;
+		MCStepReferencePulse.Direction:=AxisController.MCHomeDirection;
+		MCStepReferencePulse.ReferenceSignal:=AxisController.MCSignalRef;
+		MCStepReferencePulse.Velocity:=AxisController.fHomeVelocity;
+		MCStepReferencePulse.Acceleration:=0;
+		MCStepReferencePulse.Deceleration:=0;
+		MCStepReferencePulse.Jerk:=0;
+		MCStepReferencePulse.SetPosition:=AxisController.fHomePosition; //ADD MULTIPLE HOME POSITIONS OR DO I CARE?
+		MCStepReferencePulse.TimeLimit:=AxisController.tHomeTimeLimit;
+		MCStepReferencePulse.DistanceLimit:=AxisController.fHomeDistanceLimit;
+		MCStepReferencePulse.Options:=StOptions4;
+		
+		bDone:=MCStepReferencePulse.Done;
+		AxisController.bBusy:=MCStepReferencePulse.Busy;
+		
+		IF MCStepReferencePulse.Error THEN
+			AxisController.bError:=TRUE;
+			AxisController.iErrorID:= MCStepReferencePulse.ErrorID;
+		END_IF
+		IF NOT MCStepReferencePulse.Busy THEN
+			eCommandLatched:=eMcCommand.Idle;
+		END_IF
+		
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
 	eMcCommand.HomeFinish:
 		MCFinishHoming.Execute:=AxisController.bExecute;
 		MCFinishHoming.Distance:=AxisController.fHomeDistance;
@@ -761,6 +839,12 @@ AxisController.bDone:=doneLatch.Q1;]]></ST>
       <LineId Id="4533" Count="5" />
       <LineId Id="5315" Count="0" />
       <LineId Id="4539" Count="1" />
+      <LineId Id="5638" Count="0" />
+      <LineId Id="5637" Count="0" />
+      <LineId Id="5639" Count="0" />
+      <LineId Id="5688" Count="0" />
+      <LineId Id="5687" Count="0" />
+      <LineId Id="5689" Count="0" />
       <LineId Id="5316" Count="0" />
       <LineId Id="4541" Count="7" />
       <LineId Id="5318" Count="0" />
@@ -844,9 +928,43 @@ AxisController.bDone:=doneLatch.Q1;]]></ST>
       <LineId Id="5380" Count="0" />
       <LineId Id="4851" Count="0" />
       <LineId Id="5381" Count="0" />
-      <LineId Id="4852" Count="35" />
+      <LineId Id="4852" Count="10" />
+      <LineId Id="5677" Count="1" />
+      <LineId Id="4863" Count="24" />
       <LineId Id="5382" Count="0" />
-      <LineId Id="4888" Count="11" />
+      <LineId Id="4888" Count="7" />
+      <LineId Id="5641" Count="0" />
+      <LineId Id="5666" Count="0" />
+      <LineId Id="5668" Count="0" />
+      <LineId Id="5684" Count="2" />
+      <LineId Id="5683" Count="0" />
+      <LineId Id="5672" Count="1" />
+      <LineId Id="5670" Count="0" />
+      <LineId Id="5674" Count="1" />
+      <LineId Id="5669" Count="0" />
+      <LineId Id="5667" Count="0" />
+      <LineId Id="5643" Count="2" />
+      <LineId Id="5665" Count="0" />
+      <LineId Id="5646" Count="13" />
+      <LineId Id="5661" Count="0" />
+      <LineId Id="5660" Count="0" />
+      <LineId Id="5662" Count="2" />
+      <LineId Id="5690" Count="2" />
+      <LineId Id="5700" Count="1" />
+      <LineId Id="5696" Count="0" />
+      <LineId Id="5702" Count="0" />
+      <LineId Id="5698" Count="0" />
+      <LineId Id="5697" Count="0" />
+      <LineId Id="5694" Count="1" />
+      <LineId Id="5699" Count="0" />
+      <LineId Id="5703" Count="6" />
+      <LineId Id="5642" Count="0" />
+      <LineId Id="5710" Count="0" />
+      <LineId Id="5712" Count="8" />
+      <LineId Id="5711" Count="0" />
+      <LineId Id="5721" Count="0" />
+      <LineId Id="5640" Count="0" />
+      <LineId Id="4896" Count="3" />
       <LineId Id="5383" Count="0" />
       <LineId Id="4900" Count="4" />
       <LineId Id="5384" Count="0" />

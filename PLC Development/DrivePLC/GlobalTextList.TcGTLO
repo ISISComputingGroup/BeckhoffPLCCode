@@ -577,6 +577,16 @@ Motion"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"1060"</v>
+              <v n="TextDefault">"STEP LIMIT SW"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"598"</v>
+              <v n="TextDefault">"STEP REF. PULSE (NO EDGE DETECTION)"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"229"</v>
               <v n="TextDefault">"STOP"</v>
               <l n="LanguageTexts" t="ArrayList" />
