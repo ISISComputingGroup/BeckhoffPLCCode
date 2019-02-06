@@ -29,39 +29,10 @@ namespace TestAutomationInterface
         SUCCESS = 0, REGISTER_FAILED = 1, BUILD_FAILED = 2
     }
 
-    enum PLCAction
-    {
-        LOGIN = 0, LOGOUT = 1, START = 2, STOP = 3
-    }
-
     class Main
     {
         private System.Threading.Thread thread;
         public ErrorCode errorCode = 0;
-
-        // The boilerplate for the xml that interacts with the PLC code
-        private static String xmlTemplate = @"<TreeItem>
-                                    <IECProjectDef>
-                                        <OnlineSettings>
-                                                <Commands>
-                                                        <LoginCmd>{0}</LoginCmd>
-                                                        <LogoutCmd>{1}</LogoutCmd>
-                                                        <StartCmd>{2}</StartCmd>
-                                                        <StopCmd>{3}</StopCmd>
-                                                        <ResetColdCmd>false</ResetColdCmd>
-                                                        <ResetOriginCmd>false</ResetOriginCmd>
-                                                </Commands>
-                                        </OnlineSettings>
-                                    </IECProjectDef>
-                                </TreeItem>";
-
-        private String createXMLString(PLCAction action)
-        {
-            List<bool> options = Enumerable.Repeat(false, 4).ToList();
-            options[(int)action] = true;
-            List<String> strOptions = options.ConvertAll(o => o.ToString().ToLowerInvariant());
-            return String.Format(xmlTemplate, strOptions.ToArray());
-        }
 
         public Main()
         {
@@ -84,7 +55,7 @@ namespace TestAutomationInterface
             EnvDTE80.DTE2 dte = (EnvDTE80.DTE2)System.Activator.CreateInstance(VSType);
 
             dte.SuppressUI = false;
-            dte.MainWindow.Visible = true;
+            dte.MainWindow.Visible = false;
             return dte;
         }
 
@@ -116,28 +87,6 @@ namespace TestAutomationInterface
             return buildSuccess;
         }
 
-        private void startPLC(Solution solution)
-        {
-            if (solution.Projects.Count > 1)
-            {
-                Console.WriteLine("Warning: multiple projects found, will use " + solution.Projects.Item(1).Name);
-            }
-
-            ITcSysManager systemManager = (ITcSysManager4)(solution.Projects.Item(1).Object);
-
-            Console.WriteLine("Activating Config");
-            systemManager.ActivateConfiguration();
-            Console.WriteLine("Starting twinCAT");
-            systemManager.StartRestartTwinCAT();
-
-            ITcSmTreeItem plcProjectItem = systemManager.LookupTreeItem("TIPC^TestCode^TestCode Project");
-
-            Console.WriteLine("Logging in");
-            plcProjectItem.ConsumeXml(createXMLString(PLCAction.LOGIN));
-            Console.WriteLine("Starting PLC");
-            plcProjectItem.ConsumeXml(createXMLString(PLCAction.START));
-        }
-
         private void run() {
             EnvDTE80.DTE2 dte = getDTE(VSVersion.VS_2017);
 
@@ -164,10 +113,6 @@ namespace TestAutomationInterface
                 this.errorCode = ErrorCode.BUILD_FAILED;
                 Environment.Exit((int)this.errorCode);
             }
-
-            startPLC(solution);
-
-            System.Threading.Thread.Sleep(1000000);
         }
     }
 
