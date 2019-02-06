@@ -22,10 +22,12 @@ pipeline {
     }
     
     stage("Build") {
+      steps {
         bat """
             build.bat
             """
-      }
+       }
+    }
   }
   
   post {
