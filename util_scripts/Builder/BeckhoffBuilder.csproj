@@ -8,8 +8,8 @@
     <ProjectGuid>{7BA17DE1-E6F2-46A0-A39F-71EE5626C167}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestAutomationInterface</RootNamespace>
-    <AssemblyName>TestAutomationInterface</AssemblyName>
+    <RootNamespace>BeckhoffBuilder</RootNamespace>
+    <AssemblyName>BeckhoffBuilder</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>

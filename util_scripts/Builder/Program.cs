@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using EnvDTE;
 using EnvDTE80;
-using System.IO;
-using System.Reflection;
 using System.Threading;
-using TCatSysManagerLib;
 
-namespace TestAutomationInterface
+namespace BeckhoffBuilder
 {   
     class VSVersion {
         public static readonly VSVersion VS_2010 = new VSVersion("VisualStudio.DTE.10.0");
@@ -32,10 +27,12 @@ namespace TestAutomationInterface
     class Main
     {
         private System.Threading.Thread thread;
+        private String slnPath;
         public ErrorCode errorCode = 0;
 
-        public Main()
+        public Main(String path)
         {
+            this.slnPath = path;
             //Registering the message filter must be done on a STA thread.
             thread = new System.Threading.Thread(run);
             thread.SetApartmentState(ApartmentState.STA);
@@ -54,7 +51,7 @@ namespace TestAutomationInterface
             Type VSType = System.Type.GetTypeFromProgID(version.DTEDesc);
             EnvDTE80.DTE2 dte = (EnvDTE80.DTE2)System.Activator.CreateInstance(VSType);
 
-            dte.SuppressUI = false;
+            dte.SuppressUI = true;
             dte.MainWindow.Visible = false;
             return dte;
         }
@@ -71,6 +68,10 @@ namespace TestAutomationInterface
             }
 
             Boolean buildSuccess = (solution.SolutionBuild.LastBuildInfo == 0 && state == vsBuildState.vsBuildStateDone);
+
+            dte.ToolWindows.ErrorList.ShowMessages = true;
+            dte.ToolWindows.ErrorList.ShowErrors = true;
+            dte.ToolWindows.ErrorList.ShowWarnings = true;
 
             Dictionary<vsBuildErrorLevel, String> errorLevel = new Dictionary<vsBuildErrorLevel, String>() { 
                     {vsBuildErrorLevel.vsBuildErrorLevelHigh, "Error"},
@@ -96,13 +97,11 @@ namespace TestAutomationInterface
             {
                 Console.WriteLine("Filter register failed: " + err);
                 this.errorCode = ErrorCode.REGISTER_FAILED;
-                Environment.Exit((int)this.errorCode);
             }
 
             Solution solution = dte.Solution;
-            string sln = Path.Combine("C:\\Instrument\\Dev\\BeckhoffPLCCode\\dummy_PLC\\TestPLC.sln");
-            Console.WriteLine("Opening " + sln);
-            solution.Open(sln);
+            Console.WriteLine("Opening " + slnPath);
+            solution.Open(slnPath);
 
             if (buildSolution(solution, dte))
             {
@@ -111,7 +110,6 @@ namespace TestAutomationInterface
             else
             {
                 this.errorCode = ErrorCode.BUILD_FAILED;
-                Environment.Exit((int)this.errorCode);
             }
         }
     }
@@ -119,9 +117,16 @@ namespace TestAutomationInterface
 
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            Main m = new Main();
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Please specify a solution file to build");
+                return 1;
+            }
+
+            Main m = new Main(args[0]);
+            return (int)m.errorCode;
         }
     }
 }

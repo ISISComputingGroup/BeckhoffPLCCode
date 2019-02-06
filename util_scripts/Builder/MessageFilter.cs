@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.InteropServices;
-using System.Diagnostics;
 
-namespace TestAutomationInterface
+
+namespace BeckhoffBuilder
 {
     /// <summary>
     /// Message Handler implementiation to ensure a retry on the E_REJECTED_XXX errors caused when a COM object is busy. (See Msdn documentation for Visual Studio)

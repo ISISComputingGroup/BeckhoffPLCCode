@@ -37,3 +37,4 @@ $tf*/
 *.csv
 _Libraries/
 VisuTools/
+.vs/
