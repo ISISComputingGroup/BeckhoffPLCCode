@@ -58,7 +58,7 @@ END_FOR]]></ST>
 *)
 METHOD CheckDone : BOOL
 VAR_INPUT
-	iLow	:	UINT;		//lowest index to check
+	iLow	:	UsdINT;		//lowest index to check
 	iHigh	:	UINT;		//highest index to check
 END_VAR
 
