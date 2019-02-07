@@ -30,6 +30,10 @@ namespace BeckhoffBuilder
         private String slnPath;
         public ErrorCode errorCode = 0;
 
+        /// <summary>
+        /// The main class of the program.
+        /// </summary>
+        /// <param name="path">A path to the solution to build.</param>
         public Main(String path)
         {
             this.slnPath = path;
@@ -56,6 +60,12 @@ namespace BeckhoffBuilder
             return dte;
         }
 
+        /// <summary>
+        /// Builds the specified solution.
+        /// </summary>
+        /// <param name="solution">The solution to build.</param>
+        /// <param name="dte">The DTE (used to gather build errors).</param>
+        /// <returns>true if build was successful, false otherwise</returns>
         private Boolean buildSolution(Solution solution, EnvDTE80.DTE2 dte) {
             Console.WriteLine("Started Build");
             solution.SolutionBuild.Build();
@@ -88,6 +98,9 @@ namespace BeckhoffBuilder
             return buildSuccess;
         }
 
+        /// <summary>
+        /// Opens a solution and builds it.
+        /// </summary>
         private void run() {
             EnvDTE80.DTE2 dte = getDTE(VSVersion.VS_2017);
 
