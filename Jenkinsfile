@@ -35,6 +35,9 @@ pipeline {
     failure {
       step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'icp-buildserver@lists.isis.rl.ac.uk', sendToIndividuals: true])
     }
+    changed {
+      step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'icp-buildserver@lists.isis.rl.ac.uk', sendToIndividuals: true])
+    }
   }
   
   // The options directive is for configuration that applies to the whole job.
