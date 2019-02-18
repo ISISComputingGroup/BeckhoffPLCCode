@@ -895,6 +895,13 @@ External Setpoint Generation:
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
 				<Var>
+					<Name>GVL.axes[1].bAbsSw</Name>
+					<Comment>
+						<![CDATA[Absolute home switch]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>GVL.axes[1].Axis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
@@ -942,6 +949,13 @@ External Setpoint Generation:
 ]]>
 						</Comment>
 					</SubVar>
+				</Var>
+				<Var>
+					<Name>GVL.axes[2].bAbsSw</Name>
+					<Comment>
+						<![CDATA[Absolute home switch]]>
+					</Comment>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>GVL.axes[2].Axis.NcToPlc</Name>
@@ -993,6 +1007,13 @@ External Setpoint Generation:
 					</SubVar>
 				</Var>
 				<Var>
+					<Name>GVL.axes[3].bAbsSw</Name>
+					<Comment>
+						<![CDATA[Absolute home switch]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>GVL.axes[3].Axis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
@@ -1040,6 +1061,13 @@ External Setpoint Generation:
 ]]>
 						</Comment>
 					</SubVar>
+				</Var>
+				<Var>
+					<Name>GVL.axes[4].bAbsSw</Name>
+					<Comment>
+						<![CDATA[Absolute home switch]]>
+					</Comment>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>GVL.axes[4].Axis.NcToPlc</Name>
@@ -1091,6 +1119,13 @@ External Setpoint Generation:
 					</SubVar>
 				</Var>
 				<Var>
+					<Name>GVL.axes[5].bAbsSw</Name>
+					<Comment>
+						<![CDATA[Absolute home switch]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>GVL.axes[5].Axis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
@@ -1138,6 +1173,13 @@ External Setpoint Generation:
 ]]>
 						</Comment>
 					</SubVar>
+				</Var>
+				<Var>
+					<Name>GVL.axes[6].bAbsSw</Name>
+					<Comment>
+						<![CDATA[Absolute home switch]]>
+					</Comment>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>GVL.axes[6].Axis.NcToPlc</Name>
@@ -1189,6 +1231,13 @@ External Setpoint Generation:
 					</SubVar>
 				</Var>
 				<Var>
+					<Name>GVL.axes[7].bAbsSw</Name>
+					<Comment>
+						<![CDATA[Absolute home switch]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>GVL.axes[7].Axis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
@@ -1236,6 +1285,13 @@ External Setpoint Generation:
 ]]>
 						</Comment>
 					</SubVar>
+				</Var>
+				<Var>
+					<Name>GVL.axes[8].bAbsSw</Name>
+					<Comment>
+						<![CDATA[Absolute home switch]]>
+					</Comment>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>GVL.axes[8].Axis.NcToPlc</Name>
