@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using EnvDTE;
 using EnvDTE80;
 using System.Threading;
+using TCatSysManagerLib;
 
 namespace BeckhoffBuilder
 {   
@@ -21,7 +22,7 @@ namespace BeckhoffBuilder
     }
 
     enum ErrorCode {
-        SUCCESS = 0, REGISTER_FAILED = 1, BUILD_FAILED = 2
+        SUCCESS = 0, VS_NOT_FOUND = 1, REGISTER_FAILED = 2, PLC_NOT_FOUND = 3, BUILD_FAILED = 4
     }
 
     class Main
@@ -29,6 +30,7 @@ namespace BeckhoffBuilder
         private System.Threading.Thread thread;
         private String slnPath;
         public ErrorCode errorCode = 0;
+        private EnvDTE80.DTE2 dte;
 
         /// <summary>
         /// The main class of the program.
@@ -52,6 +54,7 @@ namespace BeckhoffBuilder
         private EnvDTE80.DTE2 getDTE(VSVersion version)
         {
             Console.WriteLine("Starting " + version.DTEDesc);
+
             Type VSType = System.Type.GetTypeFromProgID(version.DTEDesc);
             EnvDTE80.DTE2 dte = (EnvDTE80.DTE2)System.Activator.CreateInstance(VSType);
 
@@ -99,11 +102,38 @@ namespace BeckhoffBuilder
         }
 
         /// <summary>
+        /// Checks that a solution contains at least one PLC project.
+        /// </summary>
+        private Boolean findPLCProject(Solution solution)
+        {
+            Boolean PLCFound = false;
+            foreach (Project project in solution.Projects)
+            {
+                try
+                {
+                    ITcSysManager4 systemManager = (ITcSysManager4)project.Object;
+                    ITcSmTreeItem plcConfig = systemManager.LookupTreeItem("TIPC");
+                    Console.WriteLine("Found PLC Project: " + project.Name + "." + plcConfig.Name);
+                    PLCFound = true;
+                } catch {
+                    Console.WriteLine(project.Name + " is not a Twincat project");
+                }
+            }
+            return PLCFound;
+        }
+
+        /// <summary>
         /// Opens a solution and builds it.
         /// </summary>
         private void run() {
-            EnvDTE80.DTE2 dte = getDTE(VSVersion.VS_2017);
-
+            try
+            {
+                dte = getDTE(VSVersion.VS_2017);
+            } catch {
+                Console.WriteLine("Failed to create DTE, check correct Visual Studio version is installed");
+                this.errorCode = ErrorCode.VS_NOT_FOUND;
+                return;
+            }
             Console.WriteLine("Registering message filter");
             int err = MessageFilter.Register();
             if (err != 0)
@@ -116,13 +146,18 @@ namespace BeckhoffBuilder
             Console.WriteLine("Opening " + slnPath);
             solution.Open(slnPath);
 
-            if (buildSolution(solution, dte))
+            if (!findPLCProject(solution))
             {
-                Console.WriteLine("Build Succeeded");
+                Console.WriteLine("No PLC Projects found");
+                this.errorCode = ErrorCode.PLC_NOT_FOUND;
+            }
+            else if (!buildSolution(solution, dte))
+            {
+                this.errorCode = ErrorCode.BUILD_FAILED;
             }
             else
             {
-                this.errorCode = ErrorCode.BUILD_FAILED;
+                Console.WriteLine("Build Succeeded");
             }
         }
     }
