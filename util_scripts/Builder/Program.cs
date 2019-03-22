@@ -4,6 +4,7 @@ using EnvDTE;
 using EnvDTE80;
 using System.Threading;
 using TCatSysManagerLib;
+using Microsoft.Win32;
 
 namespace BeckhoffBuilder
 {   
@@ -22,7 +23,7 @@ namespace BeckhoffBuilder
     }
 
     enum ErrorCode {
-        SUCCESS = 0, VS_NOT_FOUND = 1, REGISTER_FAILED = 2, PLC_NOT_FOUND = 3, BUILD_FAILED = 4
+        SUCCESS = 0, VS_NOT_FOUND, TWINCAT_NOT_FOUND, REGISTER_FAILED, PLC_NOT_FOUND, BUILD_FAILED
     }
 
     class Main
@@ -44,6 +45,32 @@ namespace BeckhoffBuilder
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
             thread.Join();
+        }
+
+        /// <summary>
+        /// Gets the installed twincat version.
+        /// </summary>
+        /// <returns>The TwinCat version</returns>
+        private Version getInstalledTwinCATVersion()
+        {
+            string ret = null;
+            string path = string.Empty;
+
+            if (Environment.Is64BitOperatingSystem) {
+                path = "Software\\Wow6432Node\\Beckhoff\\TwinCAT3";
+            } else {
+                path = "Software\\Beckhoff\\TwinCAT3";
+            }
+
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(path))
+            {
+                ret = (string)key.GetValue("CurrentVersion");
+            }
+
+            if (ret == null) {
+                throw new ApplicationException("Could not determine actual TwinCAT Version!");
+            }
+            return new Version(ret);
         }
 
         /// <summary>
@@ -113,6 +140,7 @@ namespace BeckhoffBuilder
                 {
                     ITcSysManager4 systemManager = (ITcSysManager4)project.Object;
                     ITcSmTreeItem plcConfig = systemManager.LookupTreeItem("TIPC");
+                    Console.WriteLine(plcConfig.ProduceXml(true));
                     Console.WriteLine("Found PLC Project: " + project.Name + "." + plcConfig.Name);
                     PLCFound = true;
                 } catch {
@@ -134,6 +162,21 @@ namespace BeckhoffBuilder
                 this.errorCode = ErrorCode.VS_NOT_FOUND;
                 return;
             }
+            try
+            {
+                Version twinCatVerison = getInstalledTwinCATVersion();
+                Console.WriteLine("Twincat version: " + twinCatVerison.ToString());
+                if (twinCatVerison < new Version(3,1)) {
+                    Console.WriteLine("Requires version 3.1");
+                    this.errorCode = ErrorCode.TWINCAT_NOT_FOUND;
+                    return;
+                }
+            } catch (Exception e) {
+                Console.WriteLine("Twincat version not found: " + e.Message);
+                this.errorCode = ErrorCode.TWINCAT_NOT_FOUND;
+                return;
+            }
+
             Console.WriteLine("Registering message filter");
             int err = MessageFilter.Register();
             if (err != 0)
