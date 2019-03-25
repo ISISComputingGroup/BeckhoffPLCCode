@@ -28,5 +28,5 @@ GOTO :EOF
 
 :PROBLEM
 
-@echo Beckhoff Build Failed
+@echo Beckhoff Build Failed: %ERRORLEVEL%
 exit /b 1

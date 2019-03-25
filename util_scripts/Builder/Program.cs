@@ -157,8 +157,9 @@ namespace BeckhoffBuilder
             try
             {
                 dte = getDTE(VSVersion.VS_2017);
-            } catch {
-                Console.WriteLine("Failed to create DTE, check correct Visual Studio version is installed");
+            } catch (Exception e) {
+                Console.WriteLine("Failed to create DTE, check correct Visual Studio version is installed: ");
+                Console.WriteLine(e);
                 this.errorCode = ErrorCode.VS_NOT_FOUND;
                 return;
             }
