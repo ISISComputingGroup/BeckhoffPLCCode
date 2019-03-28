@@ -40,6 +40,9 @@ pipeline {
   }
   
   post {
+    always {
+      junit "test-reports/**/*.xml"
+    }
     failure {
       step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'icp-buildserver@lists.isis.rl.ac.uk', sendToIndividuals: true])
     }
