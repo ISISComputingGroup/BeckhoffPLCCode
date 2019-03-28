@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <GVL Name="VARS" Id="{61285b62-d80e-4275-9282-ecd83823ff52}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	iTest1 	: UINT; (*~ (OPC: 1 : available for OPC-clients) 
+					(OPC_PROP[0005]: 3 : OPC_PROP_RIGHTS, here read/write) *)
+	iTest2 	: UINT;	(*~ (OPC: 1 : available for OPC-clients) *)
+	iSum 	: UINT; (*~ (OPC: 1 : available for OPC-clients) 
+					(OPC_PROP[0005]: 1 : OPC_PROP_RIGHTS, here read only) *)
+END_VAR
+]]></Declaration>
+  </GVL>
+</TcPlcObject>
