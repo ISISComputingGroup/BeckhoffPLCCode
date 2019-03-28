@@ -72,6 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utils.cs" />
     <Compile Include="Runner.cs" />
     <Compile Include="MessageFilter.cs" />
     <Compile Include="Builder.cs" />

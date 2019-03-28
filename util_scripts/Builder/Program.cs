@@ -129,6 +129,7 @@ namespace BeckhoffBuilder
 
             Builder builder = new Builder(solution, dte);
             Project plcProject = builder.findPLCProject();
+
             if (plcProject == null)
             {
                 Console.WriteLine("No PLC Projects found");
@@ -141,10 +142,9 @@ namespace BeckhoffBuilder
             else
             {
                 Console.WriteLine("Build Succeeded");
+                Runner runner = new Runner(plcProject, dte);
+                runner.startPLC();
             }
-
-            Runner runner = new Runner(plcProject, dte);
-            runner.startPLC();
         }
     }
 
