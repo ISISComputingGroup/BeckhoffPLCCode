@@ -15,7 +15,7 @@ from utils.testing import skip_if_recsim, get_running_lewis_and_ioc, parameteriz
 DEVICE_PREFIX = "TCIOC_01"
 EMULATOR_NAME = "dummy_PLC"
 
-BECKHOFF_ROOT = os.path.join("C:\\", "Instrument", "Dev", "BeckhoffPLCCode")
+BECKHOFF_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 
 IOCS = [
     {
