@@ -2,10 +2,12 @@
 using EnvDTE;
 using System.Threading;
 using Microsoft.Win32;
+using System.Collections.Generic;
 
 namespace BeckhoffBuilder
-{   
-    class VSVersion {
+{
+    class VSVersion
+    {
         public static readonly VSVersion VS_2010 = new VSVersion("VisualStudio.DTE.10.0");
         public static readonly VSVersion VS_2012 = new VSVersion("VisualStudio.DTE.11.0");
         public static readonly VSVersion VS_2013 = new VSVersion("VisualStudio.DTE.12.0");
@@ -14,12 +16,14 @@ namespace BeckhoffBuilder
 
         public String DTEDesc;
 
-        public VSVersion(String DTEDesc) {
+        public VSVersion(String DTEDesc)
+        {
             this.DTEDesc = DTEDesc;
         }
     }
 
-    enum ErrorCode {
+    enum ErrorCode
+    {
         SUCCESS = 0, VS_NOT_FOUND, TWINCAT_NOT_FOUND, REGISTER_FAILED, PLC_NOT_FOUND, BUILD_FAILED
     }
 
@@ -27,6 +31,7 @@ namespace BeckhoffBuilder
     {
         private System.Threading.Thread thread;
         private String slnPath;
+        private List<String> options;
         public ErrorCode errorCode = 0;
         private EnvDTE80.DTE2 dte;
 
@@ -34,9 +39,11 @@ namespace BeckhoffBuilder
         /// The main class of the program.
         /// </summary>
         /// <param name="path">A path to the solution to build.</param>
-        public Main(String path)
+        public Main(List<String> args)
         {
-            this.slnPath = path;
+            this.slnPath = args[0];
+            args.RemoveAt(0);
+            this.options = new List<String>(args);
             //Registering the message filter must be done on a STA thread.
             thread = new System.Threading.Thread(run);
             thread.SetApartmentState(ApartmentState.STA);
@@ -53,9 +60,12 @@ namespace BeckhoffBuilder
             string ret = null;
             string path = string.Empty;
 
-            if (Environment.Is64BitOperatingSystem) {
+            if (Environment.Is64BitOperatingSystem)
+            {
                 path = "Software\\Wow6432Node\\Beckhoff\\TwinCAT3";
-            } else {
+            }
+            else
+            {
                 path = "Software\\Beckhoff\\TwinCAT3";
             }
 
@@ -64,7 +74,8 @@ namespace BeckhoffBuilder
                 ret = (string)key.GetValue("CurrentVersion");
             }
 
-            if (ret == null) {
+            if (ret == null)
+            {
                 throw new ApplicationException("Could not determine actual TwinCAT Version!");
             }
             return new Version(ret);
@@ -90,11 +101,14 @@ namespace BeckhoffBuilder
         /// <summary>
         /// Opens a solution and builds it.
         /// </summary>
-        private void run() {
+        private void run()
+        {
             try
             {
                 dte = getDTE(VSVersion.VS_2017);
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine("Failed to create DTE, check correct Visual Studio version is installed: ");
                 Console.WriteLine(e);
                 this.errorCode = ErrorCode.VS_NOT_FOUND;
@@ -104,12 +118,15 @@ namespace BeckhoffBuilder
             {
                 Version twinCatVerison = getInstalledTwinCATVersion();
                 Console.WriteLine("Twincat version: " + twinCatVerison.ToString());
-                if (twinCatVerison < new Version(3,1)) {
+                if (twinCatVerison < new Version(3, 1))
+                {
                     Console.WriteLine("Requires version 3.1");
                     this.errorCode = ErrorCode.TWINCAT_NOT_FOUND;
                     return;
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine("Twincat version not found: " + e.Message);
                 this.errorCode = ErrorCode.TWINCAT_NOT_FOUND;
                 return;
@@ -134,14 +151,23 @@ namespace BeckhoffBuilder
             {
                 Console.WriteLine("No PLC Projects found");
                 this.errorCode = ErrorCode.PLC_NOT_FOUND;
+                return;
             }
-            else if (!builder.buildSolution())
+
+            if (this.options.Contains("build"))
             {
-                this.errorCode = ErrorCode.BUILD_FAILED;
+                if (!builder.buildSolution())
+                {
+                    this.errorCode = ErrorCode.BUILD_FAILED;
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Build Succeeded");
+                }
             }
-            else
+            if (this.options.Contains("run"))
             {
-                Console.WriteLine("Build Succeeded");
                 Runner runner = new Runner(plcProject, dte);
                 runner.startPLC();
             }
@@ -159,7 +185,7 @@ namespace BeckhoffBuilder
                 return 1;
             }
 
-            Main m = new Main(args[0]);
+            Main m = new Main(new List<String>(args));
             return (int)m.errorCode;
         }
     }
