@@ -20,7 +20,8 @@ call msbuild.exe /p:Configuration=Release;Platform=x64 util_scripts/Builder/Beck
 
 if %ERRORLEVEL% neq 0 goto :PROBLEM
 
-call .\util_scripts\Builder\bin\x64\Release\BeckhoffBuilder.exe "%~dp0\PLC Development.sln"
+REM call .\util_scripts\Builder\bin\x64\Release\BeckhoffBuilder.exe "%~dp0\PLC Development.sln"
+call .\util_scripts\Builder\bin\x64\Release\BeckhoffBuilder.exe "%~dp0\dummy_PLC\TestPLC.sln" run
 
 if %ERRORLEVEL% neq 0 goto :PROBLEM
 
