@@ -33,7 +33,7 @@ pipeline {
         steps {
         bat """
             call C:\\Instrument\\Apps\\EPICS\\config_env.bat
-            python %EPICS_KIT_ROOT%\\support\\IocTestFramework\\master\\run_tests.py -tp ".\\dummy_PLC\\system_tests"
+            python %EPICS_KIT_ROOT%\\support\\IocTestFramework\\master\\run_tests.py -tp ".\\dummy_PLC\\tests"
             """
     }
     }
