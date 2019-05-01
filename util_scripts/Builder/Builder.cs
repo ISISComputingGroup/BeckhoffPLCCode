@@ -51,6 +51,9 @@ namespace BeckhoffBuilder
                 {
                     ITcSysManager4 twinCatProject = (ITcSysManager4)project.Object;
                     ITcSmTreeItem plcConfig = twinCatProject.LookupTreeItem("TIPC");
+                    ITcPlcProject iecProjectRoot = (ITcPlcProject)plcConfig.Child[1]; // Assume you want to run the first PLC project 
+                    iecProjectRoot.BootProjectAutostart = true;
+                    iecProjectRoot.GenerateBootProject(true);
                     Console.WriteLine("Found PLC Project: " + project.Name + "." + plcConfig.Name);
                     return project;
                 } catch {

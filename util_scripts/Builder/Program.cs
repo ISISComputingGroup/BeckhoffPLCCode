@@ -93,8 +93,8 @@ namespace BeckhoffBuilder
             Type VSType = System.Type.GetTypeFromProgID(version.DTEDesc);
             EnvDTE80.DTE2 dte = (EnvDTE80.DTE2)System.Activator.CreateInstance(VSType);
 
-            dte.SuppressUI = false;
-            dte.MainWindow.Visible = true;
+            dte.SuppressUI = true;
+            dte.MainWindow.Visible = false;
             return dte;
         }
 
