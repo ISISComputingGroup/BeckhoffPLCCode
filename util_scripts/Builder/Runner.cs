@@ -65,7 +65,7 @@ namespace BeckhoffBuilder
         {
             Console.WriteLine("Simulating " + project.Name);
             ITcSysManager4 systemManager = (ITcSysManager4)(project.Object);
-
+            
             Console.WriteLine("Activating Config");
             systemManager.ActivateConfiguration();
             System.Threading.Thread.Sleep(500);
@@ -89,7 +89,6 @@ namespace BeckhoffBuilder
                 Console.WriteLine("Twincat not starting, check that you have valid licenses!!");
                 return false;
             }
-
             ITcSmTreeItem plcProjectItem = systemManager.LookupTreeItem("TIPC");
 
             Console.WriteLine("Logging in");
