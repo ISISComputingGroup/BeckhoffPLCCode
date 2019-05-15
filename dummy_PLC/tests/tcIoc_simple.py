@@ -20,9 +20,9 @@ BECKHOFF_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "
 IOCS = [
     {
         "name": DEVICE_PREFIX,
-        "directory": os.path.join(EPICS_TOP, "support", "tcIoc", "master", "iocBoot", "ioctcIoc"),
+        "directory": get_default_ioc_dir("TWINCAT"),
         "macros": {
-            "TPY_FILE": "{}".format(os.path.join(BECKHOFF_ROOT, EMULATOR_NAME, "TestPLC", "TestCode", "TestCode.tpy"))
+            "TPY_FILE": "{}".format(os.path.join(BECKHOFF_ROOT, EMULATOR_NAME, "TestPLC", "TestCode", "TestCode.tpy").replace(os.path.sep, "/"))
         },
         "emulator": EMULATOR_NAME,
         "emulator_launcher_class": CommandLineEmulatorLauncher,

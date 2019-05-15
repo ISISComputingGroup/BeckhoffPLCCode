@@ -10,7 +10,7 @@ END_VAR
 
     ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[VARS.iSum := VARS.iTest1 + VARS.iTest2 + 10;
+      <ST><![CDATA[VARS.iSum := VARS.iTest1 + VARS.iTest2;
 //heartbeat:= heartbeat+1;
 out1 := outval1;]]></ST>
     </Implementation>
