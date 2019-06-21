@@ -27,7 +27,7 @@ IOCS = [
         "emulator": EMULATOR_NAME,
         "emulator_launcher_class": CommandLineEmulatorLauncher,
         "emulator_command_line": "{} {} {}".format(
-            os.path.join(BECKHOFF_ROOT, "util_scripts", "Builder", "bin", "x64", "Release", "BeckhoffBuilder.exe"),
+            os.path.join(BECKHOFF_ROOT, "util_scripts", "AutomationTools", "bin", "x64", "Release", "AutomationTools.exe"),
             os.path.join(BECKHOFF_ROOT, EMULATOR_NAME, "TestPLC.sln"),
             "run"
         ),
