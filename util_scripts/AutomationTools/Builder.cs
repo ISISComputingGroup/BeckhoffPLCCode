@@ -2,7 +2,7 @@
 using EnvDTE;
 using TCatSysManagerLib;
 
-namespace BeckhoffBuilder
+namespace AutomationTools
 {
     class Builder
     {

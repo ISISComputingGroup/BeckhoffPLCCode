@@ -4,7 +4,7 @@ using System.Threading;
 using Microsoft.Win32;
 using System.Collections.Generic;
 
-namespace BeckhoffBuilder
+namespace AutomationTools
 {
     class VSVersion
     {

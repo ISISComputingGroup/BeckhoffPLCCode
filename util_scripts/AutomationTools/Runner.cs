@@ -5,7 +5,7 @@ using EnvDTE;
 using EnvDTE80;
 using TCatSysManagerLib;
 
-namespace BeckhoffBuilder
+namespace AutomationTools
 {
     class Runner
     {
