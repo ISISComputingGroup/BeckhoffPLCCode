@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <DUT Name="ST_AxisControl" Id="{07f0d91d-99a7-4d94-ba45-f0716edb872f}">
     <Declaration><![CDATA[{attribute 'OPC.UA.DA' := '1'}
 TYPE ST_AxisControl :
@@ -10,7 +10,7 @@ STRUCT
 	
 	bExecute			:	BOOL;			//Rising edge to execute command
 	bReset				:	BOOL;			//Reset axis signal, must be combined with other signals
-	eCommand			:	eMcCommand;		//Motion command for axis
+	eCommand			:	INT;		//Motion command for axis
 	bEnable				: 	BOOL;			//Controller enable
 	fOverride			:	LREAL;			//Controller override %
 	fVelocity			:	LREAL;			//Velocity must be specified, no default used
