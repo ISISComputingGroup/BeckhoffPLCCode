@@ -51,3 +51,8 @@ class tcIocTests(unittest.TestCase):
         self.ca.set_pv_value("ITEST1", 10)
         self.ca.set_pv_value("ITEST2", 20)
         self.ca.assert_that_pv_is("ISUM", 30)
+
+    @parameterized.expand(parameterized_list(["ENUM_VALUE_0", "ENUM_VALUE_1"]))
+    def test_WHEN_enum_written_to_THEN_enum_readback_is_correct(self, _, enum):
+        self.ca.set_pv_value("ETESTENUM", enum)
+        self.ca.assert_that_pv_is("ETESTENUMRBV", enum)
