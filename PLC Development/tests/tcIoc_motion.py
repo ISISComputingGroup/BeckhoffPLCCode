@@ -43,7 +43,11 @@ IDLE_STATE = 200
 MOVING_STATE = 400
 
 GET_STATE = "AXES_1:IAXISSTATE"
-POSITION_RBV = "AXES_1:AXIS-NCTOPLC_ACTPOS"
+MOTOR_SP = "MOT:MTR0101"
+MOTOR_RBV = MOTOR_SP + ".RBV"
+MOTOR_MOVING = MOTOR_SP + ".MOVN"
+MOTOR_DONE = MOTOR_SP + ".DMOV"
+MOTOR_DIR = MOTOR_SP + ".TDIR"
 
 
 class tcIocTests(unittest.TestCase):
@@ -51,44 +55,41 @@ class tcIocTests(unittest.TestCase):
     def setUp(self):
         self._lewis, self._ioc = get_running_lewis_and_ioc(EMULATOR_NAME, DEVICE_PREFIX)
 
-        self.ca = ChannelAccess(device_prefix="")
-        self.prefix = self.ca.prefix
-        self.ca.prefix = ""
+        self.bare_ca = ChannelAccess(device_prefix=None)
+        self.bare_ca.prefix = ""
 
-        self.ca.set_pv_value("AXES_1:BENABLE", 1)
-        self.ca.set_pv_value("FWLIMIT_1", 1)
-        self.ca.set_pv_value("BWLIMIT_1", 1)
-        self.ca.set_pv_value("AXES_1:FOVERRIDE", 100)
+        self.motor_ca = ChannelAccess(device_prefix=None)
 
-    # def test_WHEN_IOC_running_THEN_cycle_counts_increasing(self):
-    #     self.ca.assert_that_pv_value_is_increasing("AXES_1:AXIS-STATUS_CYCLECOUNTER", wait=1)
-    #
+        self.bare_ca.set_pv_value("AXES_1:BENABLE", 1)
+        self.bare_ca.set_pv_value("FWLIMIT_1", 1)
+        self.bare_ca.set_pv_value("BWLIMIT_1", 1)
+        self.bare_ca.set_pv_value("AXES_1:FOVERRIDE", 100)
+        self.motor_ca.set_pv_value(MOTOR_SP, 0)
+        self.motor_ca.assert_that_pv_is(MOTOR_DONE, 1, timeout=10)
 
-    # @parameterized.expand(
-    #     parameterized_list([0.5, 6, -10])
-    # )
-    # def test_WHEN_moving_to_position_THEN_status_is_moving_and_gets_to_position(self, _, target):
-    #     velocity = 1
-    #     self.ca.set_pv_value("AXES_1:FPOSITION", target)
-    #     self.ca.set_pv_value("AXES_1:FVELOCITY", velocity)
-    #     self.ca.assert_that_pv_is(GET_STATE, IDLE_STATE)
-    #     self.ca.set_pv_value("AXES_1:ECOMMAND", 17)
-    #     self.ca.set_pv_value("AXES_1:BEXECUTE", 1)
-    #     self.ca.assert_that_pv_is_number(GET_STATE, MOVING_STATE)
-    #     self.ca.assert_that_pv_is_number(POSITION_RBV, target, timeout=target/velocity)
-    #     self.ca.assert_that_pv_is(GET_STATE, IDLE_STATE)
-    #
-    def test_WHEN_moving_to_position_THEN_motor_record_is_moving(self):
-        target = 10
-        velocity = 1
-        self.ca.set_pv_value("AXES_1:FPOSITION", target)
-        self.ca.set_pv_value("AXES_1:FVELOCITY", velocity)
-        self.ca.assert_that_pv_is(GET_STATE, IDLE_STATE)
-        self.ca.assert_that_pv_is(self.prefix[:-1] + "MOT:MTR0101.MOVN", 0)
-        self.ca.set_pv_value("AXES_1:ECOMMAND", 17)
-        self.ca.set_pv_value("AXES_1:BEXECUTE", 1)
-        self.ca.assert_that_pv_is_number(GET_STATE, MOVING_STATE)
-        self.ca.assert_that_pv_is(self.prefix[:-1] + "MOT:MTR0101.MOVN", 1)
+    def test_WHEN_IOC_running_THEN_cycle_counts_increasing(self):
+        self.bare_ca.assert_that_pv_value_is_increasing("AXES_1:AXIS-STATUS_CYCLECOUNTER", wait=1)
 
-    # def test_sleep(self):
-    #     sleep(100000)
+    def check_moving(self, expected_moving):
+        self.motor_ca.assert_that_pv_is(MOTOR_MOVING, int(expected_moving), timeout=1)
+        self.motor_ca.assert_that_pv_is(MOTOR_DONE, int(not expected_moving), timeout=1)
+        self.bare_ca.assert_that_pv_is_number(GET_STATE, MOVING_STATE if expected_moving else IDLE_STATE)
+
+    @parameterized.expand(
+        parameterized_list([3.5, 6, -10])
+    )
+    def test_WHEN_moving_to_position_THEN_status_is_moving_and_gets_to_position(self, _, target):
+        self.check_moving(False)
+        self.motor_ca.set_pv_value(MOTOR_SP, target)
+        self.check_moving(True)
+        self.motor_ca.assert_that_pv_is(MOTOR_RBV, target, timeout=20)
+        self.check_moving(False)
+
+    def test_WHEN_moving_forward_THEN_motor_record_in_positive_direction(self):
+        self.motor_ca.set_pv_value(MOTOR_SP, 2)
+        self.motor_ca.assert_that_pv_is(MOTOR_DIR, 1)
+
+    def test_WHEN_moving_backwards_THEN_motor_record_in_backwards_direction(self):
+        self.motor_ca.set_pv_value(MOTOR_SP, -2)
+        self.motor_ca.assert_that_pv_is(MOTOR_DIR, 0)
+
