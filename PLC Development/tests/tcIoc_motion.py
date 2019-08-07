@@ -48,6 +48,7 @@ MOTOR_RBV = MOTOR_SP + ".RBV"
 MOTOR_MOVING = MOTOR_SP + ".MOVN"
 MOTOR_DONE = MOTOR_SP + ".DMOV"
 MOTOR_DIR = MOTOR_SP + ".TDIR"
+MOTOR_STOP = MOTOR_SP + ".STOP"
 
 
 class tcIocTests(unittest.TestCase):
@@ -93,3 +94,9 @@ class tcIocTests(unittest.TestCase):
         self.motor_ca.set_pv_value(MOTOR_SP, -2)
         self.motor_ca.assert_that_pv_is(MOTOR_DIR, 0)
 
+    @unittest.skipIf(True, 'Stop is not implemented in the PLC code')
+    def test_WHEN_moving_THEN_can_stop_motion(self):
+        self.motor_ca.set_pv_value(MOTOR_STOP, 1)
+        self.motor_ca.set_pv_value(MOTOR_SP, 100)
+        self.check_moving(False)
+        self.motor_ca.assert_that_pv_is_not_number(MOTOR_RBV, 100, 10)
