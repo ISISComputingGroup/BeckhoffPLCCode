@@ -40,7 +40,9 @@ IOCS = [
 TEST_MODES = [TestModes.DEVSIM]
 
 IDLE_STATE = 200
-MOVING_STATE = 400
+HOMING_STATE = 300
+DISCRETE_MOTION_STATE = 400
+CONTINUOUS_MOTION_STATE = 600
 
 GET_STATE = "AXES_1:IAXISSTATE"
 MOTOR_SP = "MOT:MTR0101"
@@ -49,6 +51,8 @@ MOTOR_MOVING = MOTOR_SP + ".MOVN"
 MOTOR_DONE = MOTOR_SP + ".DMOV"
 MOTOR_DIR = MOTOR_SP + ".TDIR"
 MOTOR_STOP = MOTOR_SP + ".STOP"
+MOTOR_JOGF = MOTOR_SP + ".JOGF"
+MOTOR_JOGR = MOTOR_SP + ".JOGR"
 
 
 class tcIocTests(unittest.TestCase):
@@ -71,10 +75,10 @@ class tcIocTests(unittest.TestCase):
     def test_WHEN_IOC_running_THEN_cycle_counts_increasing(self):
         self.bare_ca.assert_that_pv_value_is_increasing("AXES_1:AXIS-STATUS_CYCLECOUNTER", wait=1)
 
-    def check_moving(self, expected_moving):
+    def check_moving(self, expected_moving, moving_state=DISCRETE_MOTION_STATE):
         self.motor_ca.assert_that_pv_is(MOTOR_MOVING, int(expected_moving), timeout=1)
         self.motor_ca.assert_that_pv_is(MOTOR_DONE, int(not expected_moving), timeout=1)
-        self.bare_ca.assert_that_pv_is_number(GET_STATE, MOVING_STATE if expected_moving else IDLE_STATE)
+        self.bare_ca.assert_that_pv_is_number(GET_STATE, moving_state if expected_moving else IDLE_STATE)
 
     @parameterized.expand(
         parameterized_list([3.5, 6, -10])
@@ -94,9 +98,19 @@ class tcIocTests(unittest.TestCase):
         self.motor_ca.set_pv_value(MOTOR_SP, -2)
         self.motor_ca.assert_that_pv_is(MOTOR_DIR, 0)
 
-    @unittest.skipIf(True, 'Stop is not implemented in the PLC code')
+    @unittest.skipIf(True, 'Stop is not implemented for absolute moves in the PLC code')
     def test_WHEN_moving_THEN_can_stop_motion(self):
-        self.motor_ca.set_pv_value(MOTOR_STOP, 1)
         self.motor_ca.set_pv_value(MOTOR_SP, 100)
+        self.motor_ca.set_pv_value(MOTOR_STOP, 1)
         self.check_moving(False)
         self.motor_ca.assert_that_pv_is_not_number(MOTOR_RBV, 100, 10)
+
+    @parameterized.expand(
+        parameterized_list([(MOTOR_JOGR, 0), (MOTOR_JOGF, 1)])
+    )
+    def test_WHEN_jogging_THEN_can_stop_motion(self, _, pv, direction):
+        self.motor_ca.set_pv_value(pv, 1)
+        self.motor_ca.assert_that_pv_is(MOTOR_DIR, direction)
+        self.check_moving(True, CONTINUOUS_MOTION_STATE)
+        self.motor_ca.set_pv_value(MOTOR_STOP, 1)
+        self.check_moving(False, CONTINUOUS_MOTION_STATE)
