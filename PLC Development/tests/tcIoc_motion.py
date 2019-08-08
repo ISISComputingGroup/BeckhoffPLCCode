@@ -23,7 +23,8 @@ IOCS = [
         "name": DEVICE_PREFIX,
         "directory": get_default_ioc_dir("TWINCAT"),
         "macros": {
-            "TPY_FILE": "{}".format(os.path.join(BECKHOFF_ROOT, EMULATOR_NAME, "DrivePLC", "DrivePLC.tpy").replace(os.path.sep, "/"))
+            "TPY_FILE": "{}".format(os.path.join(BECKHOFF_ROOT, EMULATOR_NAME, "DrivePLC", "DrivePLC.tpy").replace(os.path.sep, "/")),
+            "MTRCTRL": "1",
         },
         "emulator": EMULATOR_NAME,
         "emulator_launcher_class": CommandLineEmulatorLauncher,
@@ -45,8 +46,11 @@ DISCRETE_MOTION_STATE = 400
 CONTINUOUS_MOTION_STATE = 600
 
 GET_STATE = "AXES_1:IAXISSTATE"
-MOTOR_SP = "MOT:MTR0101"
-MOTOR_RBV = MOTOR_SP + ".RBV"
+MOTOR_SP_BASE = "MOT:MTR010{}"
+MOTOR_RBV_BASE = MOTOR_SP_BASE + ".RBV"
+
+MOTOR_SP = MOTOR_SP_BASE.format(1)
+MOTOR_RBV = MOTOR_RBV_BASE.format(1)
 MOTOR_MOVING = MOTOR_SP + ".MOVN"
 MOTOR_DONE = MOTOR_SP + ".DMOV"
 MOTOR_DIR = MOTOR_SP + ".TDIR"
@@ -54,21 +58,29 @@ MOTOR_STOP = MOTOR_SP + ".STOP"
 MOTOR_JOGF = MOTOR_SP + ".JOGF"
 MOTOR_JOGR = MOTOR_SP + ".JOGR"
 
+MOTOR_2_SP = MOTOR_SP_BASE.format(2)
+MOTOR_2_RBV = MOTOR_RBV_BASE.format(2)
 
-class tcIocTests(unittest.TestCase):
+
+class TcIocTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        _, cls._ioc = get_running_lewis_and_ioc(EMULATOR_NAME, DEVICE_PREFIX)
+
+        cls.bare_ca = ChannelAccess(device_prefix=None)
+        cls.bare_ca.prefix = ""
+
+        cls.motor_ca = ChannelAccess(device_prefix=None)
+
+        for i in range(1, 3):
+            cls.bare_ca.set_pv_value("AXES_{}:BENABLE".format(i), 1)
+            cls.bare_ca.set_pv_value("FWLIMIT_{}".format(i), 1)
+            cls.bare_ca.set_pv_value("BWLIMIT_{}".format(i), 1)
+            cls.bare_ca.set_pv_value("AXES_{}:FOVERRIDE".format(i), 100)
 
     def setUp(self):
-        self._lewis, self._ioc = get_running_lewis_and_ioc(EMULATOR_NAME, DEVICE_PREFIX)
+        self.motor_ca.set_pv_value(MOTOR_2_SP, 0)
 
-        self.bare_ca = ChannelAccess(device_prefix=None)
-        self.bare_ca.prefix = ""
-
-        self.motor_ca = ChannelAccess(device_prefix=None)
-
-        self.bare_ca.set_pv_value("AXES_1:BENABLE", 1)
-        self.bare_ca.set_pv_value("FWLIMIT_1", 1)
-        self.bare_ca.set_pv_value("BWLIMIT_1", 1)
-        self.bare_ca.set_pv_value("AXES_1:FOVERRIDE", 100)
         self.motor_ca.set_pv_value(MOTOR_SP, 0)
         self.motor_ca.assert_that_pv_is(MOTOR_DONE, 1, timeout=10)
 
@@ -114,3 +126,19 @@ class tcIocTests(unittest.TestCase):
         self.check_moving(True, CONTINUOUS_MOTION_STATE)
         self.motor_ca.set_pv_value(MOTOR_STOP, 1)
         self.check_moving(False, CONTINUOUS_MOTION_STATE)
+
+    @parameterized.expand(
+        parameterized_list([3.5, 6, -10])
+    )
+    def test_WHEN_motor_2_moved_THEN_motor_2_gets_to_position_and_motor_1_not_moved(self, _, target):
+        self.motor_ca.set_pv_value(MOTOR_2_SP, target)
+        self.motor_ca.assert_that_pv_is(MOTOR_MOVING, 0)
+        self.motor_ca.assert_that_pv_is_number(MOTOR_RBV, 0)
+        self.motor_ca.assert_that_pv_is(MOTOR_2_RBV, target, timeout=20)
+
+    @parameterized.expand(
+        parameterized_list([(".HLS", "FWLIMIT_1"), (".LLS", "BWLIMIT_1")])
+    )
+    def test_WHEN_limits_hit_THEN_motor_reports_limits(self, _, motor_pv_suffix, pv_to_set):
+        self.bare_ca.set_pv_value(pv_to_set, 0)
+        self.motor_ca.assert_that_pv_is(MOTOR_SP + motor_pv_suffix, 1)
