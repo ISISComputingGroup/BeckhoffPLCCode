@@ -29,9 +29,20 @@ pipeline {
             """
        }
     }
+    stage("Test") {
+        steps {
+        bat """
+            call C:\\Instrument\\Apps\\EPICS\\config_env.bat
+            python %EPICS_KIT_ROOT%\\support\\IocTestFramework\\master\\run_tests.py -tp ".\\dummy_PLC\\tests"
+            """
+    }
+    }
   }
   
   post {
+    always {
+      junit "test-reports/**/*.xml"
+    }
     failure {
       step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'icp-buildserver@lists.isis.rl.ac.uk', sendToIndividuals: true])
     }

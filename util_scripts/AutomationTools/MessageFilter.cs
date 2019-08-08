@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 
-namespace BeckhoffBuilder
+namespace AutomationTools
 {
     /// <summary>
     /// Message Handler implementiation to ensure a retry on the E_REJECTED_XXX errors caused when a COM object is busy. (See Msdn documentation for Visual Studio)

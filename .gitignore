@@ -37,3 +37,4 @@ $tf*/
 _Libraries/
 VisuTools/
 .vs/
+*.pyc
