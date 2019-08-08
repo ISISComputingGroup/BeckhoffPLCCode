@@ -74,14 +74,17 @@ class TcIocTests(unittest.TestCase):
 
         for i in range(1, 3):
             cls.bare_ca.set_pv_value("AXES_{}:BENABLE".format(i), 1)
-            cls.bare_ca.set_pv_value("FWLIMIT_{}".format(i), 1)
-            cls.bare_ca.set_pv_value("BWLIMIT_{}".format(i), 1)
             cls.bare_ca.set_pv_value("AXES_{}:FOVERRIDE".format(i), 100)
 
     def setUp(self):
+        for i in range(1, 3):
+            self.bare_ca.set_pv_value("FWLIMIT_{}".format(i), 1)
+            self.bare_ca.set_pv_value("BWLIMIT_{}".format(i), 1)
+
         self.motor_ca.set_pv_value(MOTOR_2_SP, 0)
 
         self.motor_ca.set_pv_value(MOTOR_SP, 0)
+        self.motor_ca.set_pv_value(MOTOR_SP + ".UEIP", 1)
         self.motor_ca.assert_that_pv_is(MOTOR_DONE, 1, timeout=10)
 
     def test_WHEN_IOC_running_THEN_cycle_counts_increasing(self):
@@ -142,3 +145,21 @@ class TcIocTests(unittest.TestCase):
     def test_WHEN_limits_hit_THEN_motor_reports_limits(self, _, motor_pv_suffix, pv_to_set):
         self.bare_ca.set_pv_value(pv_to_set, 0)
         self.motor_ca.assert_that_pv_is(MOTOR_SP + motor_pv_suffix, 1)
+
+    def test_WHEN_not_using_encoder_THEN_move_reaches_set_point(self):
+        target = 7
+        self.motor_ca.set_pv_value(MOTOR_SP + ".UEIP", 0)
+        self.motor_ca.set_pv_value(MOTOR_SP, target)
+        self.check_moving(True)
+        self.motor_ca.assert_that_pv_is(MOTOR_RBV, target, timeout=20)
+
+    def get_homed_bit(self):
+        return int(self.motor_ca.get_pv_value(MOTOR_SP + ".MSTA")) & (1 << 16) != 0
+
+    @unittest.skipIf(True, 'Homing not easily implemented in the simulator yet')
+    def test_WHEN_homing_sent_THEN_ends_in_homed_state(self):
+        sleep(10)
+        self.assertFalse(self.get_homed_bit())
+        self.motor_ca.set_pv_value(MOTOR_SP + ".HOMF", 1)
+        self.motor_ca.assert_that_pv_is(MOTOR_DONE, 1, timeout=10)
+        self.assertTrue(self.get_homed_bit())
