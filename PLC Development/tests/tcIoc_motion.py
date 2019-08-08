@@ -153,13 +153,25 @@ class TcIocTests(unittest.TestCase):
         self.check_moving(True)
         self.motor_ca.assert_that_pv_is(MOTOR_RBV, target, timeout=20)
 
-    def get_homed_bit(self):
-        return int(self.motor_ca.get_pv_value(MOTOR_SP + ".MSTA")) & (1 << 16) != 0
+    def send_command(self, number):
+        self.bare_ca.set_pv_value("AXES_1:ECOMMAND", number)
+        self.bare_ca.set_pv_value("AXES_1:BEXECUTE", 1)
 
-    @unittest.skipIf(True, 'Homing not easily implemented in the simulator yet')
+    def perform_dummy_home_routine(self):
+        """
+        This will perform a home routine via the backdoor, ideally this
+        will be done in the PLC when a home command is sent but not currently simulated
+        """
+        self.send_command(43)  # Start homing
+        sleep(1)  # Let the motor move a bit
+        self.bare_ca.set_pv_value("AXES_1:MCSIGNALREF-LEVEL", 1)  # Simulate home signal
+        self.send_command(40)  # Home finished
+
+    def get_homed_bit(self):
+        return int(self.motor_ca.get_pv_value(MOTOR_SP + ".MSTA")) & (1 << 14) != 0
+
     def test_WHEN_homing_sent_THEN_ends_in_homed_state(self):
-        sleep(10)
         self.assertFalse(self.get_homed_bit())
-        self.motor_ca.set_pv_value(MOTOR_SP + ".HOMF", 1)
+        self.perform_dummy_home_routine()
         self.motor_ca.assert_that_pv_is(MOTOR_DONE, 1, timeout=10)
         self.assertTrue(self.get_homed_bit())
