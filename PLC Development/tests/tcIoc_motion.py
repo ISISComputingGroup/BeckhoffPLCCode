@@ -68,7 +68,6 @@ class TcIocTests(unittest.TestCase):
         _, cls._ioc = get_running_lewis_and_ioc(EMULATOR_NAME, DEVICE_PREFIX)
 
         cls.bare_ca = ChannelAccess(device_prefix=None)
-        cls.bare_ca.prefix = ""
 
         cls.motor_ca = ChannelAccess(device_prefix=None)
 
