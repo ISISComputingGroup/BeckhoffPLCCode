@@ -12,7 +12,7 @@ from utils.ioc_launcher import get_default_ioc_dir, EPICS_TOP
 from utils.testing import skip_if_recsim, get_running_lewis_and_ioc, parameterized_list
 
 # Device prefix
-DEVICE_PREFIX = "TCIOC_01"
+DEVICE_PREFIX = "TWINCAT_01"
 EMULATOR_NAME = "dummy_PLC"
 
 BECKHOFF_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
@@ -44,8 +44,7 @@ class tcIocTests(unittest.TestCase):
     def setUp(self):
         self._lewis, self._ioc = get_running_lewis_and_ioc(EMULATOR_NAME, DEVICE_PREFIX)
 
-        self.ca = ChannelAccess(device_prefix="")
-        self.ca.prefix = ""
+        self.ca = ChannelAccess(device_prefix=DEVICE_PREFIX)
 
     def test_WHEN_var_one_and_two_written_to_THEN_output_is_sum(self):
         self.ca.set_pv_value("ITEST1", 10)
