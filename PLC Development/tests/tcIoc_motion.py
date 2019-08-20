@@ -5,7 +5,7 @@ import sys
 
 from parameterized import parameterized
 
-from utils.emulator_launcher import CommandLineEmulatorLauncher
+from utils.emulator_launcher import BeckhoffEmulatorLauncher
 from utils.test_modes import TestModes
 from utils.channel_access import ChannelAccess
 from utils.ioc_launcher import get_default_ioc_dir, EPICS_TOP
@@ -27,13 +27,10 @@ IOCS = [
             "MTRCTRL": "1",
         },
         "emulator": EMULATOR_NAME,
-        "emulator_launcher_class": CommandLineEmulatorLauncher,
-        "emulator_command_line": '{} "{}" {}'.format(
-            os.path.join(BECKHOFF_ROOT, "util_scripts", "AutomationTools", "bin", "x64", "Release", "AutomationTools.exe"),
-            os.path.join(BECKHOFF_ROOT, "PLC Development.sln"),
-            "run"
-        ),
-        "emulator_wait_to_finish": True
+        "emulator_launcher_class": BeckhoffEmulatorLauncher,
+        "beckhoff_root": BECKHOFF_ROOT,
+        "custom_prefix": "MOT",
+        "pv_for_existence": "MTR0101",
     },
 ]
 
@@ -85,9 +82,6 @@ class TcIocTests(unittest.TestCase):
         self.motor_ca.set_pv_value(MOTOR_SP, 0)
         self.motor_ca.set_pv_value(MOTOR_SP + ".UEIP", 1)
         self.motor_ca.assert_that_pv_is(MOTOR_DONE, 1, timeout=10)
-
-    def test_WHEN_IOC_running_THEN_cycle_counts_increasing(self):
-        self.bare_ca.assert_that_pv_value_is_increasing("AXES_1:AXIS-STATUS_CYCLECOUNTER", wait=1)
 
     def check_moving(self, expected_moving, moving_state=DISCRETE_MOTION_STATE):
         self.motor_ca.assert_that_pv_is(MOTOR_MOVING, int(expected_moving), timeout=1)
@@ -145,8 +139,10 @@ class TcIocTests(unittest.TestCase):
         self.bare_ca.set_pv_value(pv_to_set, 0)
         self.motor_ca.assert_that_pv_is(MOTOR_SP + motor_pv_suffix, 1)
 
-    def test_WHEN_not_using_encoder_THEN_move_reaches_set_point(self):
-        target = 7
+    @parameterized.expand(
+        parameterized_list([3.5, 6, -10])
+    )
+    def test_WHEN_not_using_encoder_THEN_move_reaches_set_point(self, _, target):
         self.motor_ca.set_pv_value(MOTOR_SP + ".UEIP", 0)
         self.motor_ca.set_pv_value(MOTOR_SP, target)
         self.check_moving(True)
