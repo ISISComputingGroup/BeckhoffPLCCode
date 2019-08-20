@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <DUT Name="ST_AxisControl" Id="{07f0d91d-99a7-4d94-ba45-f0716edb872f}">
-    <Declaration><![CDATA[{attribute 'OPC.UA.DA' := '1'}
-TYPE ST_AxisControl :
+    <Declaration><![CDATA[TYPE ST_AxisControl :
 STRUCT
 	//OPC UA functionality not implemented yet
 	(*For a list of parameters required to operate each motion control funciton block
@@ -108,8 +107,14 @@ STRUCT
 
 	*)
 
-	{attribute 'OPC.UA.DA' := '0'}
-	Axis				:	AXIS_REF;		//Link NC axis to this
+	// Data for EPICS from the axis ref
+	fActPosition   			: LREAL;
+	fActVelocity  		 	: LREAL;
+	bNegativeDirection 		: BOOL;
+	bPositiveDirection		: BOOL;
+	bCalibrated 			: BOOL;
+	
+	Axis				:	AXIS_REF;		(*~ (OPC: 0 : available for OPC-clients) *)
 
 END_STRUCT
 END_TYPE
