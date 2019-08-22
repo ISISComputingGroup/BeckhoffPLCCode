@@ -119,13 +119,13 @@ namespace AutomationTools
         }
 
         /// <summary>
-        /// Checks that a solution contains at least one PLC project and starts the project running.
+        /// Checks that a solution contains at least one PLC project and activates the configuration.
         /// </summary>
-        public Boolean startPLC()
+        public Boolean activatePLC()
         {
             Console.WriteLine("Simulating " + project.Name);
             ITcSysManager4 systemManager = (ITcSysManager4)(project.Object);
-            
+
             Console.WriteLine("Activating Config");
             systemManager.ActivateConfiguration();
             System.Threading.Thread.Sleep(500);
@@ -139,6 +139,17 @@ namespace AutomationTools
                 Console.WriteLine("Twincat not starting, check that you have valid licenses!!");
                 return false;
             }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Checks that a solution contains at least one PLC project and starts the project running.
+        /// </summary>
+        public Boolean startPLC()
+        {
+            Console.WriteLine("Starting " + project.Name);
+            ITcSysManager4 systemManager = (ITcSysManager4)(project.Object);
 
             ITcSmTreeItem plcApp = getPLCApp(systemManager);
 

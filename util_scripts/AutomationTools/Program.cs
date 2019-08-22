@@ -166,17 +166,22 @@ namespace AutomationTools
                     Console.WriteLine("Build Succeeded");
                 }
             }
-			
+
+            Runner runner = new Runner(plcProject, dte);
+            if (this.options.Contains("activate"))
+            {
+                runner.activatePLC();
+            }
+
             if (this.options.Contains("run"))
             {
-                Runner runner = new Runner(plcProject, dte);
                 runner.startPLC();
             }
 			
 			if (this.options.Contains("stop"))
             {
-                Runner runner = new Runner(plcProject, dte);
                 runner.stopPLC();
+                dte.Quit();
             }
         }
     }
