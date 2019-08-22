@@ -34,6 +34,7 @@ pipeline {
         bat """
             call C:\\Instrument\\Apps\\EPICS\\config_env.bat
             python %EPICS_KIT_ROOT%\\support\\IocTestFramework\\master\\run_tests.py -tp ".\\dummy_PLC\\tests"
+            python %EPICS_KIT_ROOT%\\support\\IocTestFramework\\master\\run_tests.py -tp ".\\PLC Development\\tests"
             """
     }
     }
