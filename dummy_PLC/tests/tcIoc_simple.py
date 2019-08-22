@@ -41,7 +41,7 @@ class tcIocTests(unittest.TestCase):
     def setUp(self):
         self._lewis, self._ioc = get_running_lewis_and_ioc(EMULATOR_NAME, DEVICE_PREFIX)
 
-        self.ca = ChannelAccess(device_prefix=DEVICE_PREFIX)
+        self.ca = ChannelAccess(device_prefix=None)
 
     def test_WHEN_var_one_and_two_written_to_THEN_output_is_sum(self):
         self.ca.set_pv_value("ITEST1", 10)
