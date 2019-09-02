@@ -55,6 +55,7 @@ MOTOR_DIR = MOTOR_SP + ".TDIR"
 MOTOR_STOP = MOTOR_SP + ".STOP"
 MOTOR_JOGF = MOTOR_SP + ".JOGF"
 MOTOR_JOGR = MOTOR_SP + ".JOGR"
+MOTOR_VELO = MOTOR_SP + ".VELO"
 
 MOTOR_2_SP = MOTOR_SP_BASE.format(2)
 MOTOR_2_RBV = MOTOR_RBV_BASE.format(2)
@@ -78,6 +79,7 @@ class TcIocTests(unittest.TestCase):
 
         self.ca.set_pv_value(MOTOR_2_SP, 0)
 
+        self.ca.set_pv_value(MOTOR_VELO, 1)
         self.ca.set_pv_value(MOTOR_SP, 0)
         self.ca.set_pv_value(MOTOR_SP + ".UEIP", 1)
         self.ca.assert_that_pv_is(MOTOR_DONE, 1, timeout=10)
