@@ -62,14 +62,15 @@ namespace AutomationTools
 
         private Boolean checkWithTimeout(int timeout, Func<Boolean> checkMethod)
         {
-            for (int i = 0; i < timeout / 500; i++)
+			const int TIME_BETWEEN_CHECKS = 500;
+            for (int i = 0; i < timeout / TIME_BETWEEN_CHECKS; i++)
             {
                 if (checkMethod())
                 {
                     return true;
                 }
                 this.utils.printErrors();
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(TIME_BETWEEN_CHECKS);
             }
             return checkMethod();
         }
