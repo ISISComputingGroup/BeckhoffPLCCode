@@ -20,6 +20,10 @@ call msbuild.exe /p:Configuration=Release;Platform=x64 util_scripts/AutomationTo
 
 if %ERRORLEVEL% neq 0 goto :PROBLEM
 
+call .\util_scripts\AutomationTools\bin\x64\Release\AutomationTools.exe "%~dp0\PLC Development.sln" build
+
+if %ERRORLEVEL% neq 0 goto :PROBLEM
+
 call .\util_scripts\AutomationTools\bin\x64\Release\AutomationTools.exe "%~dp0\dummy_PLC\TestPLC.sln" build
 
 if %ERRORLEVEL% neq 0 goto :PROBLEM

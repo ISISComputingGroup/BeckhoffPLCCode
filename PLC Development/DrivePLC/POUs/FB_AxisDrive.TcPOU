@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
   <POU Name="FB_AxisDrive" Id="{aef7aef0-3971-449b-83a3-6f8c4c2f7d04}" SpecialFunc="None">
     <Declaration><![CDATA[(*
 	Function for motion control of single axis.
@@ -118,11 +118,17 @@ these have been added just as a placeholder for future support.
 	StOptions4				:	ST_Home_Options4;
 	MCHomingParameter		:	MC_HomingParameter;		//Must be passed between homing steps.		
 							
-		
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[AxisController.Axis.ReadStatus();
+
+// Pass data through for EPICS to read
+AxisController.fActPosition:= AxisController.Axis.NcToPlc.ActPos;
+AxisController.fActVelocity:= AxisController.Axis.NcToPlc.ActVelo;
+AxisController.bNegativeDirection:= AxisController.Axis.Status.NegativeDirection;
+AxisController.bPositiveDirection:= AxisController.Axis.Status.PositiveDirection;
+AxisController.bCalibrated:= AxisController.Axis.Status.Homed;
 
 //////////////////////////////////////////////////////////////////////
 //     _   __  _____ ____    ____ _____  _  _____ _____ ____  		//
@@ -701,7 +707,16 @@ doneLatch(SET1:=bDone,RESET:=(AxisController.bBusy OR AxisController.bError));
 AxisController.bDone:=doneLatch.Q1;]]></ST>
     </Implementation>
     <LineIds Name="FB_AxisDrive">
-      <LineId Id="4351" Count="39" />
+      <LineId Id="4351" Count="0" />
+      <LineId Id="5638" Count="0" />
+      <LineId Id="5637" Count="0" />
+      <LineId Id="5640" Count="0" />
+      <LineId Id="5639" Count="0" />
+      <LineId Id="5643" Count="0" />
+      <LineId Id="5642" Count="0" />
+      <LineId Id="4352" Count="0" />
+      <LineId Id="5644" Count="0" />
+      <LineId Id="4353" Count="37" />
       <LineId Id="5281" Count="0" />
       <LineId Id="4391" Count="3" />
       <LineId Id="4399" Count="0" />
