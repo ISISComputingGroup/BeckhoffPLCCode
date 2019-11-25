@@ -21,7 +21,6 @@ pipeline {
   stages {  
     stage("Checkout") {
       steps {
-        deleteDir()
         echo "Branch: ${env.BRANCH_NAME}"
         checkout scm
       }
