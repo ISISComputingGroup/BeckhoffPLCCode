@@ -51,7 +51,6 @@ pipeline {
 	// Not ideal as newbuildtest may have failed to built
     stage("Test") {
       steps {
- 	   echo "Test started"
 	   lock(resource: ELOCK, inversePrecedence: true) {
         timeout(time: 16, unit: 'HOURS') {
          bat """
