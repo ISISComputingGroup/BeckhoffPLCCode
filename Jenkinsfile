@@ -13,6 +13,11 @@ pipeline {
     pollSCM('H/2 * * * *')
   }
   
+  environment {
+      NODE = "${env.NODE_NAME}"
+      ELOCK = "epics_${NODE}"
+  }
+
   stages {  
     stage("Checkout") {
       steps {
@@ -42,19 +47,27 @@ pipeline {
     }
 
     stage("Test") {
+	  lock(resource: ELOCK, inversePrecedence: true) {
+       timeout(time: 16, unit: 'HOURS') {
         steps {
         bat """
-			set "PYTHONDIR=%WORKSPACE%\\Python"
-            call C:\\Instrument\\Apps\\EPICS\\config_env.bat
+		    if exist "c:\\Instrument\\apps\\epics" rmdir c:\\Instrument\\apps\\epics
+			mklink /j c:\\Instrument\\apps\\epics c:\\jenkins\\workspace\\newbuildtest
+            call c:\\Instrument\\apps\\epics\\config_env.bat
             python %EPICS_KIT_ROOT%\\support\\IocTestFramework\\master\\run_tests.py -tp ".\\PLC Development\\tests"
             """
-    }
+        }
+	   }
+	  }
     }
   }
   
   post {
     always {
       junit "test-reports/**/*.xml"
+      bat """
+		    if exist "c:\\Instrument\\apps\\epics" rmdir c:\\Instrument\\apps\\epics
+	  """
     }
     failure {
       step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'icp-buildserver@lists.isis.rl.ac.uk', sendToIndividuals: true])
