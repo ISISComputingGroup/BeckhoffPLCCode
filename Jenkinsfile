@@ -41,21 +41,19 @@ pipeline {
 
     stage("Build") {
       steps {
-	    echo "Build started"
         bat """
             build.bat
             """
         }
-	    echo "Build Complete"
     }
 
     // We need an EPICS installation, so temporarily link to the one built by newbuildtest
 	// Not ideal as newbuildtest may have failed to built
     stage("Test") {
       steps {
+ 	   echo "Test started"
 	   lock(resource: ELOCK, inversePrecedence: true) {
         timeout(time: 16, unit: 'HOURS') {
- 	     echo "Test started"
          bat """
 		    setlocal
 		    @echo Temporarily enabling newbuildtest build as system EPICS installation
