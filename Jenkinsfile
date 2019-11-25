@@ -22,6 +22,17 @@ pipeline {
       }
     }
     
+	stage("Dependencies") {
+        steps {
+          echo "Installing local genie python"
+          timeout(time: 1, unit: 'HOURS') {
+            bat """
+                update_genie_python.bat ${env.WORKSPACE}\\Python
+            """
+          }
+        }
+    }
+
     stage("Build") {
       steps {
         bat """
@@ -29,9 +40,11 @@ pipeline {
             """
        }
     }
+
     stage("Test") {
         steps {
         bat """
+			set "PYTHONDIR=%WORKSPACE%\\Python"
             call C:\\Instrument\\Apps\\EPICS\\config_env.bat
             python %EPICS_KIT_ROOT%\\support\\IocTestFramework\\master\\run_tests.py -tp ".\\PLC Development\\tests"
             """
