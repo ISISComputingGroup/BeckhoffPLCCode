@@ -47,10 +47,10 @@ pipeline {
     }
 
     stage("Test") {
-	  lock(resource: ELOCK, inversePrecedence: true) {
-       timeout(time: 16, unit: 'HOURS') {
-        steps {
-        bat """
+      steps {
+	   lock(resource: ELOCK, inversePrecedence: true) {
+        timeout(time: 16, unit: 'HOURS') {
+         bat """
 		    if exist "c:\\Instrument\\apps\\epics" rmdir c:\\Instrument\\apps\\epics
 			mklink /j c:\\Instrument\\apps\\epics c:\\jenkins\\workspace\\newbuildtest
             call c:\\Instrument\\apps\\epics\\config_env.bat
