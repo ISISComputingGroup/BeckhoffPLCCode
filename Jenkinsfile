@@ -27,16 +27,17 @@ pipeline {
       }
     }
     
-	stage("Dependencies") {
-        steps {
-          echo "Installing local genie python"
-          timeout(time: 1, unit: 'HOURS') {
-            bat """
-                update_genie_python.bat ${env.WORKSPACE}\\Python
-            """
-          }
-        }
-    }
+// at moment use python in EPICS build area
+//	stage("Dependencies") {
+//        steps {
+//          echo "Installing local genie python"
+//          timeout(time: 1, unit: 'HOURS') {
+//            bat """
+//                update_genie_python.bat ${env.WORKSPACE}\\Python
+//            """
+//          }
+//        }
+//    }
 
     stage("Build") {
       steps {
