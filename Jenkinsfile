@@ -46,15 +46,19 @@ pipeline {
        }
     }
 
+    // We need an EPICS installation, so temporarily link to the one built by newbuildtest
+	// Not ideal as newbuildtest may have failed to built
     stage("Test") {
       steps {
 	   lock(resource: ELOCK, inversePrecedence: true) {
         timeout(time: 16, unit: 'HOURS') {
          bat """
+		    @echo Temporarily enabling newbuildtest build as system EPICS installation
 		    if exist "c:\\Instrument\\apps\\epics" rmdir c:\\Instrument\\apps\\epics
 			mklink /j c:\\Instrument\\apps\\epics c:\\jenkins\\workspace\\newbuildtest
             call c:\\Instrument\\apps\\epics\\config_env.bat
             python %EPICS_KIT_ROOT%\\support\\IocTestFramework\\master\\run_tests.py -tp ".\\PLC Development\\tests"
+		    rmdir c:\\Instrument\\apps\\epics
             """
         }
 	   }
@@ -65,9 +69,6 @@ pipeline {
   post {
     always {
       junit "test-reports/**/*.xml"
-      bat """
-		    if exist "c:\\Instrument\\apps\\epics" rmdir c:\\Instrument\\apps\\epics
-	  """
     }
     failure {
       step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'icp-buildserver@lists.isis.rl.ac.uk', sendToIndividuals: true])
