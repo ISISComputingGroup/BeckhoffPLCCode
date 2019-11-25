@@ -41,10 +41,12 @@ pipeline {
 
     stage("Build") {
       steps {
+	    echo "Build started"
         bat """
             build.bat
             """
-       }
+        }
+	    echo "Build Complete"
     }
 
     // We need an EPICS installation, so temporarily link to the one built by newbuildtest
@@ -53,11 +55,15 @@ pipeline {
       steps {
 	   lock(resource: ELOCK, inversePrecedence: true) {
         timeout(time: 16, unit: 'HOURS') {
+ 	     echo "Test started"
          bat """
+		    setlocal
 		    @echo Temporarily enabling newbuildtest build as system EPICS installation
 		    if exist "c:\\Instrument\\apps\\epics" rmdir c:\\Instrument\\apps\\epics
 			mklink /j c:\\Instrument\\apps\\epics c:\\jenkins\\workspace\\newbuildtest
             call c:\\Instrument\\apps\\epics\\config_env.bat
+			set PYTHONUNBUFFERED=1
+		    @echo Starting tests
             python %EPICS_KIT_ROOT%\\support\\IocTestFramework\\master\\run_tests.py -tp ".\\PLC Development\\tests"
 		    rmdir c:\\Instrument\\apps\\epics
             """
