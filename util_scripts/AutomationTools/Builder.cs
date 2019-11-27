@@ -25,6 +25,8 @@ namespace AutomationTools
         /// </summary>
         /// <returns>true if build was successful, false otherwise</returns>
         public Boolean buildSolution() {
+            Console.WriteLine("Setting active configuration to \"Release|TwinCAT RT (x64)\"");
+            solution.SolutionBuild.SolutionConfigurations.Item("Release|TwinCAT RT (x64)").Activate();
             Console.WriteLine("Started Build");
             solution.SolutionBuild.Build();
 
