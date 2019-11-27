@@ -56,7 +56,8 @@ pipeline {
 		    setlocal
 		    @echo Temporarily enabling newbuildtest build as system EPICS installation
 		    if exist "c:\\Instrument\\apps\\epics" rmdir c:\\Instrument\\apps\\epics
-			mklink /j c:\\Instrument\\apps\\epics c:\\jenkins\\workspace\\newbuildtest
+			//mklink /j c:\\Instrument\\apps\\epics c:\\jenkins\\workspace\\newbuildtest
+			mklink /j c:\\Instrument\\apps\\epics c:\\jenkins\\workspace\\TCIocTest
             call c:\\Instrument\\apps\\epics\\config_env.bat
 			set PYTHONUNBUFFERED=1
 		    @echo Starting tests
