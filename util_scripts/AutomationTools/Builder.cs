@@ -40,6 +40,26 @@ namespace AutomationTools
         }
 
         /// <summary>
+        /// Builds the specified solution.
+        /// </summary>
+        /// <returns>true if build was successful, false otherwise</returns>
+        public Boolean cleanSolution()
+        {
+            Console.WriteLine("Started Clean");
+            solution.SolutionBuild.Clean();
+
+            vsBuildState state = solution.SolutionBuild.BuildState;
+            while (state == vsBuildState.vsBuildStateInProgress)
+            {
+                System.Threading.Thread.Sleep(1000);
+                state = solution.SolutionBuild.BuildState;
+                this.utils.printErrors();
+            }
+
+            return (solution.SolutionBuild.LastBuildInfo == 0 && state == vsBuildState.vsBuildStateDone);
+        }
+
+        /// <summary>
         /// Checks that a solution contains at least one PLC project.
         /// </summary>
         /// <returns>The project that can be run</returns> 

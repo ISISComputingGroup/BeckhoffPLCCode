@@ -167,6 +167,19 @@ namespace AutomationTools
                 }
             }
 
+            if (this.options.Contains("clean"))
+            {
+                if (!builder.cleanSolution())
+                {
+                    this.errorCode = ErrorCode.BUILD_FAILED;
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Clean Succeeded");
+                }
+            }
+
             Runner runner = new Runner(plcProject, dte);
             if (this.options.Contains("activate"))
             {
