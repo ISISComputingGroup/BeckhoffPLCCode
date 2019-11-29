@@ -24,16 +24,12 @@ if %ERRORLEVEL% neq 0 goto :PROBLEM
 call msbuild.exe /p:Configuration=Release;Platform=x64 util_scripts/AutomationTools/AutomationTools.sln
 if %ERRORLEVEL% neq 0 goto :PROBLEM
 
-call .\util_scripts\AutomationTools\bin\x64\Release\AutomationTools.exe "%~dp0\PLC Development.sln" clean
+REM  Use the builder on the PLC solution
+
+call .\util_scripts\AutomationTools\bin\x64\Release\AutomationTools.exe "%~dp0\PLC_solution\solution.sln" clean
 if %ERRORLEVEL% neq 0 goto :PROBLEM
 
-call .\util_scripts\AutomationTools\bin\x64\Release\AutomationTools.exe "%~dp0\PLC Development.sln" build
-if %ERRORLEVEL% neq 0 goto :PROBLEM
-
-call .\util_scripts\AutomationTools\bin\x64\Release\AutomationTools.exe "%~dp0\dummy_PLC\TestPLC.sln" clean
-if %ERRORLEVEL% neq 0 goto :PROBLEM
-
-call .\util_scripts\AutomationTools\bin\x64\Release\AutomationTools.exe "%~dp0\dummy_PLC\TestPLC.sln" build
+call .\util_scripts\AutomationTools\bin\x64\Release\AutomationTools.exe "%~dp0\PLC_solution\solution.sln" build
 if %ERRORLEVEL% neq 0 goto :PROBLEM
 
 GOTO :EOF
