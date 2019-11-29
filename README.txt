@@ -5,7 +5,7 @@ Provides the ability to automatically clean/build/run Beckhoff PLC solutions as 
 
 To begin you must clone the PLC application to PLC_solutions:
 
-`git PLC_REPOSITORY BECKHOFF_BASE_REPOSITORY\PLC_solution`
+`git PLC_REPOSITORY BECKHOFF_BASE_REPOSITORY PLC_solution`
 
 Currently scripts expect a name of `solution.sln` with a project name of `solution` as per the TwinCAT working groups project structure.
 
