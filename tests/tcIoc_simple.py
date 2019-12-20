@@ -13,7 +13,7 @@ from utils.testing import skip_if_recsim, get_running_lewis_and_ioc, parameteriz
 
 # Device prefix
 DEVICE_PREFIX = "TWINCAT_01"
-EMULATOR_NAME = "dummy_PLC"
+EMULATOR_NAME = "PLC_solution"
 
 BECKHOFF_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 
@@ -27,7 +27,7 @@ IOCS = [
         "emulator": EMULATOR_NAME,
         "emulator_launcher_class": BeckhoffEmulatorLauncher,
         "beckhoff_root": BECKHOFF_ROOT,
-        "solution_path": os.path.join(EMULATOR_NAME, "TestPLC.sln"),
+        "solution_path": os.path.join(EMULATOR_NAME, "solution.sln"),
         "emulator_wait_to_finish": True
     },
 ]
