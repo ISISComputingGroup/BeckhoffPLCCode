@@ -38,3 +38,6 @@ _Libraries/
 VisuTools/
 .vs/
 *.pyc
+*.tpy
+*.tmc
+*.db
