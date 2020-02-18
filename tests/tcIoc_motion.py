@@ -14,7 +14,7 @@ from time import sleep
 
 # Device prefix
 DEVICE_PREFIX = "TWINCAT_01"
-EMULATOR_NAME = "PLC Development"
+EMULATOR_NAME = "PLC_solution"
 
 BECKHOFF_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 
@@ -23,13 +23,13 @@ IOCS = [
         "name": DEVICE_PREFIX,
         "directory": get_default_ioc_dir("TWINCAT"),
         "macros": {
-            "TPY_FILE": "{}".format(os.path.join(BECKHOFF_ROOT, EMULATOR_NAME, "DrivePLC", "DrivePLC.tpy").replace(os.path.sep, "/")),
+            "TPY_FILE": "{}".format(os.path.join(BECKHOFF_ROOT, EMULATOR_NAME, "PLC Development", "DrivePLC", "DrivePLC.tpy").replace(os.path.sep, "/")),
             "MTRCTRL": "1",
         },
         "emulator": EMULATOR_NAME,
         "emulator_launcher_class": BeckhoffEmulatorLauncher,
         "beckhoff_root": BECKHOFF_ROOT,
-        "solution_path": "PLC Development.sln",
+        "solution_path": os.path.join(EMULATOR_NAME, "solution.sln"),
         "custom_prefix": "MOT",
         "pv_for_existence": "MTR0101",
     },
