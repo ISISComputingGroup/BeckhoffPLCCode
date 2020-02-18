@@ -24,6 +24,7 @@ IOCS = [
         "directory": get_default_ioc_dir("TWINCAT"),
         "macros": {
             "TPY_FILE": "{}".format(os.path.join(BECKHOFF_ROOT, EMULATOR_NAME, "PLC Development", "DrivePLC", "DrivePLC.tpy").replace(os.path.sep, "/")),
+			"PLC_VERSION": "0",
             "MTRCTRL": "1",
         },
         "emulator": EMULATOR_NAME,
