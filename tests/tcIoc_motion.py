@@ -25,6 +25,7 @@ IOCS = [
         "macros": {
             "TPY_FILE": "{}".format(os.path.join(BECKHOFF_ROOT, EMULATOR_NAME, "PLC Development", "DrivePLC", "DrivePLC.tpy").replace(os.path.sep, "/")),
             "MTRCTRL": "1",
+			"PLC_VERSION": "0"
         },
         "emulator": EMULATOR_NAME,
         "emulator_launcher_class": BeckhoffEmulatorLauncher,
